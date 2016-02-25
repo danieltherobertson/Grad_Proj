@@ -16,8 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        //styling our page controller's appearance
+//        var pageController = UIPageControl.appearance()
+//        pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
+//        pageController.currentPageIndicatorTintColor = UIColor.blackColor()
+//        pageController.backgroundColor = UIColor.whiteColor()
+//        
+        
+        let labelApp = UILabel.appearance()
+        labelApp.textColor = UIColor.greenColor()
+        
         return true
     }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -43,4 +55,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension UIViewController {
+    func animateBtn(button: UIButton) {
+        UIView.animateWithDuration(0.15, animations: {
+            button.alpha = 0.2
+            }, completion: {
+                (value: Bool) in
+                button.enabled = false
+                UIView.animateWithDuration(0.15, animations: {
+                    button.alpha = 1
+                    }, completion: {
+                        (value: Bool) in
+                        button.enabled = true
+                })
+        })
+    }
+    
+    func animateCell(cell: UICollectionViewCell) {
+        UIView.animateWithDuration(0.15, animations: {
+            cell.alpha = 0.2
+            }, completion: {
+                (value: Bool) in
+                cell.selected = false
+                UIView.animateWithDuration(0.15, animations: {
+                    cell.alpha = 1
+                    }, completion: {
+                        (value: Bool) in
+                        cell.selected = true
+                })
+        })
+
+    }
+}
+
 
