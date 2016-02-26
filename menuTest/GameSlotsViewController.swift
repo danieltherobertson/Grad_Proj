@@ -139,7 +139,7 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
             
 
             let ac = UIAlertController(title: "Confirm Slot", message: "Are you sure you want to use this save slot? Selecting 'Yes' will start the game.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Yes", style: .Default, handler: nil))
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             self.presentViewController(ac, animated: true, completion: nil)
             
@@ -147,6 +147,10 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
             collectionView.reloadItemsAtIndexPaths([indexPath])
         }
         
+    }
+    
+    func gameStart(alertAction: UIAlertAction) {
+        self.performSegueWithIdentifier("beginGame", sender: self)
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
