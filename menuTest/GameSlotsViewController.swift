@@ -17,6 +17,7 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
     var pageTitle = String!()
     var tagID: Int!
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -130,18 +131,31 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
  
         if tagID == 0 {
             
+            
+            func gameStart(alertAction: UIAlertAction) {
+                self.performSegueWithIdentifier("beginGame", sender: self)
+            }
+            
+            func viewReset(alertAction: UIAlertAction) {
+                activeCell?.layer.borderWidth = 0
+                activeCell?.layer.borderColor = nil
+                activeCell?.backgroundColor = UIColor.greenColor()
+                collectionView.userInteractionEnabled = true
+            }
+            
+            
             print("cell has been tapped", indexPath)
         
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             activeCell?.backgroundColor = UIColor.blueColor()
-            collectionView.userInteractionEnabled = false
+           // collectionView.userInteractionEnabled = false
             
 
-            let ac = UIAlertController(title: "Confirm Slot", message: "Are you sure you want to use this save slot? Selecting 'Yes' will start the game.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            self.presentViewController(ac, animated: true, completion: nil)
+//            let ac = UIAlertController(title: "Confirm Slot", message: "Are you sure you want to use this save slot? Selecting 'Yes' will start the game.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
+//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+//            self.presentViewController(ac, animated: true, completion: nil)
             
             
             collectionView.reloadItemsAtIndexPaths([indexPath])
@@ -149,9 +163,7 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
-    func gameStart(alertAction: UIAlertAction) {
-        self.performSegueWithIdentifier("beginGame", sender: self)
-    }
+   
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         print("hello")
