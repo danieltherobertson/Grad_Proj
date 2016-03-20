@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gameCell" id="ScP-Ud-FXJ" customClass="gameCell" customModule="menuTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ymu-pe-ajQ">
+                        <rect key="frame" x="10" y="10" width="90" height="80"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="BhA-S3-hfW"/>
+                            <constraint firstAttribute="height" constant="80" id="DkM-vL-IyM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ouz-7v-kBD">
+                        <rect key="frame" x="113" y="59" width="279" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="8Gi-8J-tKI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-3A-xGi">
+                        <rect key="frame" x="113" y="8" width="279" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="33" id="k2x-gF-BWO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ymu-pe-ajQ" firstAttribute="leading" secondItem="ScP-Ud-FXJ" secondAttribute="leading" constant="10" id="A4a-dr-xFh"/>
+                <constraint firstItem="MGo-3A-xGi" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="13" id="V6t-V8-TXH"/>
+                <constraint firstItem="Ouz-7v-kBD" firstAttribute="top" secondItem="MGo-3A-xGi" secondAttribute="bottom" constant="18" id="WgD-OS-4mQ"/>
+                <constraint firstItem="MGo-3A-xGi" firstAttribute="top" secondItem="ScP-Ud-FXJ" secondAttribute="top" constant="8" id="Yjj-vi-Dhf"/>
+                <constraint firstAttribute="trailing" secondItem="Ouz-7v-kBD" secondAttribute="trailing" constant="8" id="ZX5-VU-1cx"/>
+                <constraint firstAttribute="bottom" secondItem="Ouz-7v-kBD" secondAttribute="bottom" constant="8" id="Zkz-cW-OZR"/>
+                <constraint firstAttribute="trailing" secondItem="MGo-3A-xGi" secondAttribute="trailing" constant="8" id="cVR-Hm-BFP"/>
+                <constraint firstItem="ymu-pe-ajQ" firstAttribute="top" secondItem="ScP-Ud-FXJ" secondAttribute="top" constant="10" id="lMH-38-6NJ"/>
+                <constraint firstItem="Ouz-7v-kBD" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="13" id="ueU-9a-HB3"/>
+            </constraints>
+            <size key="customSize" width="400" height="100"/>
+            <connections>
+                <outlet property="gameImage" destination="ymu-pe-ajQ" id="hYx-69-15A"/>
+                <outlet property="gameLevel" destination="Ouz-7v-kBD" id="Sl8-Kk-u4p"/>
+                <outlet property="gameName" destination="MGo-3A-xGi" id="h8f-dk-wxm"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
