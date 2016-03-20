@@ -7,19 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652400031C5BFFEF009C9FE6 /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		6532B36E1C5FC12600D734EF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36D1C5FC12600D734EF /* Question.swift */; settings = {ASSET_TAGS = (); }; };
-		6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */; settings = {ASSET_TAGS = (); }; };
+		650355A41C9E0428007F5BF2 /* SlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650355A31C9E0428007F5BF2 /* SlotsView.swift */; };
+		652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652400031C5BFFEF009C9FE6 /* MenuViewController.swift */; };
+		6532B36E1C5FC12600D734EF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36D1C5FC12600D734EF /* Question.swift */; };
+		6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */; };
+		653CBCEE1C91C34A003A2338 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCEC1C91C34A003A2338 /* Fabric.framework */; };
+		653CBCEF1C91C34A003A2338 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCED1C91C34A003A2338 /* Crashlytics.framework */; };
 		65A4CB961C5A51A400BC5EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */; };
 		65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */; };
 		65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9E1C5A51A500BC5EEB /* LaunchScreen.storyboard */; };
 		65A4CBAB1C5A51A500BC5EEB /* menuTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CBAA1C5A51A500BC5EEB /* menuTestTests.swift */; };
 		65A4CBB61C5A51A500BC5EEB /* menuTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CBB51C5A51A500BC5EEB /* menuTestUITests.swift */; };
-		65A4CBC41C5A59BF00BC5EEB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CBC31C5A59BF00BC5EEB /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B08D6B1C7D24C300FABC2E /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		65CA97631C5AC8C1008D256F /* Kemco_Pixel_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65CA97621C5AC8C1008D256F /* Kemco_Pixel_Bold.ttf */; settings = {ASSET_TAGS = (); }; };
-		65E05CBF1C76212B002C507D /* gameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CBE1C76212B002C507D /* gameCell.swift */; settings = {ASSET_TAGS = (); }; };
-		65E05CC11C7627B5002C507D /* GameSlotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		65A4CBC41C5A59BF00BC5EEB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CBC31C5A59BF00BC5EEB /* GameViewController.swift */; };
+		65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B08D6B1C7D24C300FABC2E /* Main.storyboard */; };
+		65CA97631C5AC8C1008D256F /* Kemco_Pixel_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65CA97621C5AC8C1008D256F /* Kemco_Pixel_Bold.ttf */; };
+		65E05CBF1C76212B002C507D /* gameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CBE1C76212B002C507D /* gameCell.swift */; };
+		65E05CC11C7627B5002C507D /* GameSlotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		650355A31C9E0428007F5BF2 /* SlotsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlotsView.swift; path = ../SlotsView.swift; sourceTree = "<group>"; };
 		652400031C5BFFEF009C9FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6532B36D1C5FC12600D734EF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		653CBCEC1C91C34A003A2338 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		653CBCED1C91C34A003A2338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		65A4CB921C5A51A400BC5EEB /* menuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653CBCEF1C91C34A003A2338 /* Crashlytics.framework in Frameworks */,
+				653CBCEE1C91C34A003A2338 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +118,10 @@
 		65A4CB941C5A51A400BC5EEB /* menuTest */ = {
 			isa = PBXGroup;
 			children = (
+				653CBCEC1C91C34A003A2338 /* Fabric.framework */,
+				653CBCED1C91C34A003A2338 /* Crashlytics.framework */,
 				65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */,
+				650355A31C9E0428007F5BF2 /* SlotsView.swift */,
 				65A4CBC31C5A59BF00BC5EEB /* GameViewController.swift */,
 				6532B36D1C5FC12600D734EF /* Question.swift */,
 				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
@@ -153,6 +164,7 @@
 				65A4CB8E1C5A51A400BC5EEB /* Sources */,
 				65A4CB8F1C5A51A400BC5EEB /* Frameworks */,
 				65A4CB901C5A51A400BC5EEB /* Resources */,
+				653CBCEB1C91C30F003A2338 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -270,6 +282,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		653CBCEB1C91C30F003A2338 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 801f3876c237d9b9bb4358714be1791f1ae90473 5517f7dd0f6a57f1d382ee4b20ee2aaa0d2c00186a77a2a8ae90493cbbb93bf6";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65A4CB8E1C5A51A400BC5EEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -277,6 +305,7 @@
 			files = (
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
 				652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */,
+				650355A41C9E0428007F5BF2 /* SlotsView.swift in Sources */,
 				6532B36E1C5FC12600D734EF /* Question.swift in Sources */,
 				65A4CBC41C5A59BF00BC5EEB /* GameViewController.swift in Sources */,
 				6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */,
@@ -347,7 +376,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -415,6 +444,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/menuTest",
+				);
 				INFOPLIST_FILE = menuTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Robertson-Productions.menuTest";
@@ -429,6 +462,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/menuTest",
+				);
 				INFOPLIST_FILE = menuTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Robertson-Productions.menuTest";

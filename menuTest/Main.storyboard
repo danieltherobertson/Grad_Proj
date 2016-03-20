@@ -150,6 +150,11 @@
                                     <constraint firstAttribute="trailing" secondItem="JPw-y6-hP4" secondAttribute="trailing" constant="8" id="dDN-bw-U0m"/>
                                     <constraint firstAttribute="bottom" secondItem="JPw-y6-hP4" secondAttribute="bottom" constant="8" id="qd2-AQ-osc"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="JPw-y6-hP4"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fdfdf" borderStyle="bezel" placeholder="Insert reply here..." clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTt-MP-kno">
                                 <rect key="frame" x="25" y="285" width="550" height="30"/>
@@ -173,11 +178,35 @@
                             <constraint firstItem="g5V-qa-BPi" firstAttribute="top" secondItem="Iej-iS-rlL" secondAttribute="bottom" constant="8" id="odJ-7g-gJ6"/>
                             <constraint firstItem="g5V-qa-BPi" firstAttribute="centerX" secondItem="FFB-Zn-lch" secondAttribute="centerX" id="uSz-1p-niH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="g5V-qa-BPi"/>
+                                <exclude reference="RTt-MP-kno"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUK-Qo-DPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2098" y="387"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YxJ-ZK-WQ9">
+            <objects>
+                <viewController id="RXs-wc-QXR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sUs-1l-J0f"/>
+                        <viewControllerLayoutGuide type="bottom" id="rfw-Vm-3oi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WzF-qf-cLS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jq6-Cm-Un2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953" y="387"/>
         </scene>
         <!--Game Slots View Controller-->
         <scene sceneID="X59-ib-XxO">
@@ -215,7 +244,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MWP-by-b7q">
-                                <rect key="frame" x="0.0" y="76" width="600" height="436"/>
+                                <rect key="frame" x="0.0" y="76" width="600" height="407"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ieW-pi-TIS">
                                     <size key="itemSize" width="50" height="50"/>
@@ -287,19 +316,31 @@
                                     <outlet property="delegate" destination="ZzI-CA-vw3" id="Jxv-9h-4bJ"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a game slot to begin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
+                                <rect key="frame" x="157" y="496" width="287" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="CDH-Qd-wTZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MWP-by-b7q" secondAttribute="trailing" id="0hE-ty-YDO"/>
+                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="0nT-w8-MtF"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="centerX" secondItem="MWP-by-b7q" secondAttribute="centerX" id="2ie-mF-XqU"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="gvP-Ca-5Hq" secondAttribute="centerX" id="6vz-y9-t4q"/>
                             <constraint firstItem="MWP-by-b7q" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="56" id="C3S-cd-Qw6"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="MWP-by-b7q" secondAttribute="bottom" constant="13" id="QB8-2J-2xk"/>
                             <constraint firstItem="MWP-by-b7q" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leading" id="Qmd-D1-mqq"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="17" id="Rca-y2-oxP"/>
                             <constraint firstItem="oFS-r1-4ql" firstAttribute="top" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" id="XKh-1f-yTu"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="adi-4M-XUV"/>
-                            <constraint firstItem="oFS-r1-4ql" firstAttribute="top" secondItem="MWP-by-b7q" secondAttribute="bottom" constant="88" id="gFc-wE-Brk"/>
+                            <constraint firstItem="oFS-r1-4ql" firstAttribute="top" secondItem="MWP-by-b7q" secondAttribute="bottom" constant="117" id="gFc-wE-Brk"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="centerX" secondItem="MWP-by-b7q" secondAttribute="centerX" id="ljj-uk-wpX"/>
-                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="MWP-by-b7q" secondAttribute="bottom" constant="18" id="mZZ-Xl-F42"/>
+                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="MWP-by-b7q" secondAttribute="bottom" constant="47" id="mZZ-Xl-F42"/>
                         </constraints>
                     </view>
                     <connections>
@@ -310,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1k-O3-mit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="387"/>
+            <point key="canvasLocation" x="1608" y="387"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vFj-TW-EHA">

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Crashlytics
 
-class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, UIAlertViewDelegate {
     var gameSaves = Array<Dictionary<String,AnyObject>>()
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -16,18 +17,31 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var pageTitle = String!()
     var tagID: Int!
-
-
+    
+    var inUseCells = Array<UICollectionViewCell>()
+    var notInUse = Array<UICollectionViewCell>()
+    
+    var newName = ""
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let button = UIButton(type:UIButtonType.RoundedRect)
+        button.frame = CGRectMake(20, 50, 100, 30)
+        button.setTitle("Crash", forState: UIControlState.Normal)
+        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(button)
+        
+        func crashButtonTapped(sender: AnyObject) {
+            Crashlytics.sharedInstance().crash()
+        }
+
+        
         collectionTitle.text = pageTitle
-        
-        
 
         //SAVING
-        let slotDictionary = ["name": "Dan","progress": 4];
-        let slotDictionary2 = ["name": "Joe","progress": 0];
+        let slotDictionary = ["name": "Dan","progress": "Day 5"];
+        let slotDictionary2 = ["name": "Joe","progress": "Day 2"];
         
         let slotsArray = [slotDictionary, slotDictionary2];
         
@@ -68,57 +82,55 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gameCell", forIndexPath: indexPath) as! gameCell
         
-        
+        //if coming from NewGame segue...
         if tagID == 0 {
+            //Get saved games and populate cells
             if indexPath.row < gameSaves.count {
                 let gameSlot = gameSaves[indexPath.row]
                 let gameNameText = gameSlot["name"] as? String
                 cell.gameName.text = "Name: \(gameNameText!)"
-                let gameLevelText = String(gameSlot["progress"] as! Int)
-                cell.gameLevel.text = "Level Progress: \(gameLevelText)"
+                let gameLevelText = gameSlot["progress"] as! String
+                cell.gameLevel.text = "Progress: \(gameLevelText)"
                 cell.gameName.textColor = UIColor.blackColor()
                 cell.gameLevel.textColor = UIColor.blackColor()
+                cell.inUse = true
+                inUseCells.append(cell)
+//                cell.alpha = 0.5
+//                cell.userInteractionEnabled = false
+                
+            //Unpopulated cells are drawn like...
             } else {
+                cell.gameName.textColor = UIColor.blackColor()
+                cell.gameLevel.textColor = UIColor.blackColor()
                 cell.gameName.text = "[Empty]"
                 cell.gameLevel.text = "[Empty]"
-                cell.backgroundColor = UIColor.lightGrayColor()
-                cell.alpha = 0.5
-                cell.userInteractionEnabled = false
+                cell.inUse = false
+                notInUse.append(cell)
             }
-            
-            func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-                let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
-                
-                activeCell?.layer.borderWidth = 2.0
-                activeCell?.layer.borderColor = UIColor.redColor().CGColor
-                activeCell?.backgroundColor = UIColor.blueColor()
-                
-                
-                collectionView.reloadItemsAtIndexPaths([indexPath])
-                
-            }
-
-            
-            
+        
+        //if coming from LoadGame segue...
         } else if tagID == 1 {
+            //Get saved games and populate cells
             if indexPath.row < gameSaves.count {
                 let gameSlot = gameSaves[indexPath.row]
                 let gameNameText = gameSlot["name"] as? String
                 cell.gameName.text = "Name: \(gameNameText!)"
-                let gameLevelText = String(gameSlot["progress"] as! Int)
-                cell.gameLevel.text = "Level Progress: \(gameLevelText)"
-                cell.gameName.textColor = UIColor.redColor()
-                cell.gameLevel.textColor = UIColor.redColor()
+                let gameLevelText = gameSlot["progress"] as! String
+                cell.gameLevel.text = "Progress: \(gameLevelText)"
+                cell.gameName.textColor = UIColor.blackColor()
+                cell.gameLevel.textColor = UIColor.blackColor()
+                inUseCells.append(cell)
+            //Unpopulated cells are drawn like...
             } else {
                 cell.gameName.text = "[Empty]"
                 cell.gameLevel.text = "[Empty]"
-                cell.backgroundColor = UIColor.lightGrayColor()
-                cell.alpha = 0.5
+                cell.gameName.textColor = UIColor.blackColor()
+                cell.gameLevel.textColor = UIColor.blackColor()
+                notInUse.append(cell)
             }
         }
 
         // Configure the cell
-        
         return cell
     }
     
@@ -128,57 +140,94 @@ class GameSlotsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
- 
-        if tagID == 0 {
-            
-            
-            func gameStart(alertAction: UIAlertAction) {
-                self.performSegueWithIdentifier("beginGame", sender: self)
-            }
-            
-            func viewReset(alertAction: UIAlertAction) {
-                activeCell?.layer.borderWidth = 0
-                activeCell?.layer.borderColor = nil
-                activeCell?.backgroundColor = UIColor.greenColor()
-                collectionView.userInteractionEnabled = true
-            }
-            
-            
+        
+        print("notInUse capacity:\(notInUse.capacity)")
+        print("inUseCells capactiy\(inUseCells.capacity)")
+        
+        func viewReset(alertAction: UIAlertAction) {
+            activeCell?.layer.borderWidth = 0
+            activeCell?.layer.borderColor = nil
+            activeCell?.backgroundColor = UIColor.greenColor()
+            collectionView.userInteractionEnabled = true
+        }
+        
+        //If segue is New Game and the clicked cell is populated...
+        if tagID == 0 && inUseCells.contains(activeCell!){
+
             print("cell has been tapped", indexPath)
         
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            activeCell?.backgroundColor = UIColor.blueColor()
-           // collectionView.userInteractionEnabled = false
-            
+            collectionView.userInteractionEnabled = false
 
-//            let ac = UIAlertController(title: "Confirm Slot", message: "Are you sure you want to use this save slot? Selecting 'Yes' will start the game.", preferredStyle: .Alert)
-//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
-//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-//            self.presentViewController(ac, animated: true, completion: nil)
-            
-            
-            collectionView.reloadItemsAtIndexPaths([indexPath])
+            let ac = UIAlertController(title: "Confirm Overwrite", message: "Are you sure you want to overwrite an existing game?", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+            self.presentViewController(ac, animated: true, completion: nil)
         }
         
+        //If segue is New Game and the clicked cell is not populated...
+        if tagID == 0 && notInUse.contains(activeCell!) {
+
+            print("cell has been tapped", indexPath)
+
+            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            collectionView.userInteractionEnabled = false
+
+            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
+            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
+                textfield.placeholder = "Enter Name"
+            })
+            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+                (alert: UIAlertAction!) in
+                if let textField = ac.textFields!.first as UITextField!{
+                    self.newName = textField.text!
+                }
+                self.gameStart(alert)
+            }))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+            self.presentViewController(ac, animated: true, completion: nil)
+        }
+        
+        if tagID == 1 && inUseCells.contains(activeCell!) {
+            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            collectionView.userInteractionEnabled = false
+            
+            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+            self.presentViewController(ac, animated: true, completion: nil)
+        }
+        
+        if tagID == 1 && notInUse.contains(activeCell!) {
+            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            collectionView.userInteractionEnabled = false
+            
+            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
+            self.presentViewController(ac, animated: true, completion: nil)
+        }
+        
+        func getText(alertAction: UIAlertAction!) {
+        
+        }
     }
     
-   
-    
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        print("hello")
       
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
 
         activeCell?.layer.borderWidth = 0
         activeCell?.layer.borderColor = nil
         
-        
         collectionView.reloadItemsAtIndexPaths([indexPath])
     }
     
-    func gameStart() {
-        print("WORKING")
+    func gameStart(alertAction: UIAlertAction!) {
+        print(newName)
+        self.performSegueWithIdentifier("beginGame", sender: self)
     }
-    
 }
