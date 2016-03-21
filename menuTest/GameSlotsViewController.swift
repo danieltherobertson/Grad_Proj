@@ -36,11 +36,7 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         
         gameSlotsView.tagID = tagID
         gameSlotsView.saveOverwriteSlot = {() -> Void in
-            let ac = UIAlertController(title: "Confirm Overwrite", message: "Are you sure you want to overwrite an existing game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            self.presentViewController(ac, animated: true, completion: nil)
-            
+                       
         }
         
         
@@ -52,6 +48,14 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         
         collectionTitle.text = pageTitle
     }
+    
+    
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,83 +124,83 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
 //        return CGSizeMake(300, 100)
 //    }
 //    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
-        
-        print("notInUse capacity:\(notInUse.capacity)")
-        print("inUseCells capactiy\(inUseCells.capacity)")
-        
-        func viewReset(alertAction: UIAlertAction) {
-            activeCell?.layer.borderWidth = 0
-            activeCell?.layer.borderColor = nil
-            activeCell?.backgroundColor = UIColor.greenColor()
-            collectionView.userInteractionEnabled = true
-        }
-        
-        //If segue is New Game and the clicked cell is populated...
-        if tagID == 0 && inUseCells.contains(activeCell!){
-
-            print("cell has been tapped", indexPath)
-        
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-
-            let ac = UIAlertController(title: "Confirm Overwrite", message: "Are you sure you want to overwrite an existing game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            self.presentViewController(ac, animated: true, completion: nil)
-        }
-        
-        //If segue is New Game and the clicked cell is not populated...
-        if tagID == 0 && notInUse.contains(activeCell!) {
-
-            print("cell has been tapped", indexPath)
-
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-
-            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
-            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
-                textfield.placeholder = "Enter Name"
-            })
-            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-                (alert: UIAlertAction!) in
-                if let textField = ac.textFields!.first as UITextField!{
-                    self.newName = textField.text!
-                }
-                self.gameStart(alert)
-            }))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            self.presentViewController(ac, animated: true, completion: nil)
-        }
-        
-        if tagID == 1 && inUseCells.contains(activeCell!) {
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            self.presentViewController(ac, animated: true, completion: nil)
-        }
-        
-        if tagID == 1 && notInUse.contains(activeCell!) {
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
-            self.presentViewController(ac, animated: true, completion: nil)
-        }
-        
-        func getText(alertAction: UIAlertAction!) {
-        
-        }
-    }
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
+//        
+//        print("notInUse capacity:\(notInUse.capacity)")
+//        print("inUseCells capactiy\(inUseCells.capacity)")
+//        
+//        func viewReset(alertAction: UIAlertAction) {
+//            activeCell?.layer.borderWidth = 0
+//            activeCell?.layer.borderColor = nil
+//            activeCell?.backgroundColor = UIColor.greenColor()
+//            collectionView.userInteractionEnabled = true
+//        }
+//        
+//        //If segue is New Game and the clicked cell is populated...
+//        if tagID == 0 && inUseCells.contains(activeCell!){
+//
+//            print("cell has been tapped", indexPath)
+//        
+//            activeCell?.layer.borderWidth = 2.0
+//            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+//            collectionView.userInteractionEnabled = false
+//
+//            let ac = UIAlertController(title: "Confirm Overwrite", message: "Are you sure you want to overwrite an existing game?", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
+//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+//            self.presentViewController(ac, animated: true, completion: nil)
+//        }
+//        
+//        //If segue is New Game and the clicked cell is not populated...
+//        if tagID == 0 && notInUse.contains(activeCell!) {
+//
+//            print("cell has been tapped", indexPath)
+//
+//            activeCell?.layer.borderWidth = 2.0
+//            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+//            collectionView.userInteractionEnabled = false
+//
+//            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
+//            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
+//                textfield.placeholder = "Enter Name"
+//            })
+//            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+//                (alert: UIAlertAction!) in
+//                if let textField = ac.textFields!.first as UITextField!{
+//                    self.newName = textField.text!
+//                }
+//                self.gameStart(alert)
+//            }))
+//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+//            self.presentViewController(ac, animated: true, completion: nil)
+//        }
+//        
+//        if tagID == 1 && inUseCells.contains(activeCell!) {
+//            activeCell?.layer.borderWidth = 2.0
+//            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+//            collectionView.userInteractionEnabled = false
+//            
+//            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: gameStart))
+//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+//            self.presentViewController(ac, animated: true, completion: nil)
+//        }
+//        
+//        if tagID == 1 && notInUse.contains(activeCell!) {
+//            activeCell?.layer.borderWidth = 2.0
+//            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+//            collectionView.userInteractionEnabled = false
+//            
+//            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
+//            self.presentViewController(ac, animated: true, completion: nil)
+//        }
+//        
+//        func getText(alertAction: UIAlertAction!) {
+//        
+//        }
+//    }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
       

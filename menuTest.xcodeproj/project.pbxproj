@@ -125,19 +125,13 @@
 				653CBCEC1C91C34A003A2338 /* Fabric.framework */,
 				653CBCED1C91C34A003A2338 /* Crashlytics.framework */,
 				65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */,
-				650355A31C9E0428007F5BF2 /* SlotsView.swift */,
-				65A4CBC31C5A59BF00BC5EEB /* GameViewController.swift */,
-				6532B36D1C5FC12600D734EF /* Question.swift */,
-				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
-				652400031C5BFFEF009C9FE6 /* MenuViewController.swift */,
+				65C345761CA0799700F1BAFC /* View Controller */,
+				65C345751CA0798A00F1BAFC /* View */,
+				65C345741CA0797600F1BAFC /* Model */,
 				65B08D6B1C7D24C300FABC2E /* Main.storyboard */,
-				65CECF701C9EC87300F563BF /* gameCellNib.xib */,
 				65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */,
 				65A4CB9E1C5A51A500BC5EEB /* LaunchScreen.storyboard */,
 				65A4CBA11C5A51A500BC5EEB /* Info.plist */,
-				65E05CBE1C76212B002C507D /* gameCell.swift */,
-				65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */,
-				65CECF721C9EF78500F563BF /* GameSave.swift */,
 			);
 			path = menuTest;
 			sourceTree = "<group>";
@@ -158,6 +152,36 @@
 				65A4CBB71C5A51A500BC5EEB /* Info.plist */,
 			);
 			path = menuTestUITests;
+			sourceTree = "<group>";
+		};
+		65C345741CA0797600F1BAFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65CECF721C9EF78500F563BF /* GameSave.swift */,
+				6532B36D1C5FC12600D734EF /* Question.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		65C345751CA0798A00F1BAFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65CECF701C9EC87300F563BF /* gameCellNib.xib */,
+				650355A31C9E0428007F5BF2 /* SlotsView.swift */,
+				65E05CBE1C76212B002C507D /* gameCell.swift */,
+				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		65C345761CA0799700F1BAFC /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				652400031C5BFFEF009C9FE6 /* MenuViewController.swift */,
+				65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */,
+				65A4CBC31C5A59BF00BC5EEB /* GameViewController.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

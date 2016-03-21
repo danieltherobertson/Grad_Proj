@@ -17,18 +17,11 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     let gameSave = GameSave(name: "Dan", progress: 5)
     let gameSave2 = GameSave(name: "Joe", progress: 2)
     
-     var newName = ""
-
-    
-    
     var inUseCells = Array<UICollectionViewCell>()
     var notInUse = Array<UICollectionViewCell>()
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        // layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        
         layout.itemSize = CGSize(width: 300, height: 100)
         
         gamesView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -40,54 +33,28 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         
         self.addSubview(gamesView)
     }
-    
+//-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        gameSaves.append(gameSave)
-        gameSaves.append(gameSave2)
+        //Load any existing gameSave types from gameSaves
+        loadGame()
+        
     }
     
-    func viewDidLoad() {
-        
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        if paths.count > 0 {
-            let directPath = paths[0]
-            let path = directPath.stringByAppendingString("gameSlots.json")
-            
-            let data = NSKeyedArchiver.archivedDataWithRootObject(gameSaves)
-            data.writeToFile(path, atomically: true)
-        }
-        
-        //LOAD SAVES
-        //        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        
-        if paths.count > 0 {
-            let directPath = paths[0]
-            let path = directPath.stringByAppendingString("gameSlots.json")
-            
-            let fileManager = NSFileManager.defaultManager()
-            if fileManager.fileExistsAtPath(path) {
-                let data = NSData(contentsOfFile: path)!
-                gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
-                print(gameSaves)
-            }
-        }
-
-    }
-
+//-----------------NUMBER OF CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
 
+//-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gameCell", forIndexPath: indexPath) as! gameCell
-
+        
         //if coming from NewGame segue...
         if tagID == 0 {
-            print("WOWOWOWOWOWOW")
-            print(gameSaves.count)
+           
             //Get saved games and populate cells
             if indexPath.row < gameSaves.count {
                 let gameSlot = gameSaves[indexPath.row]
@@ -101,7 +68,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 inUseCells.append(cell)
 //                cell.alpha = 0.5
 //                cell.userInteractionEnabled = false
-
             //Unpopulated cells are drawn like...
             } else {
                 cell.gameName.textColor = UIColor.blackColor()
@@ -114,7 +80,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 
         //if coming from LoadGame segue...
         } else if tagID == 1 {
-            print("JAM")
             //Get saved games and populate cells
             if indexPath.row < gameSaves.count {
                 let gameSlot = gameSaves[indexPath.row]
@@ -138,17 +103,20 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         // Configure the cell
         return cell
     }
-
+//-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(300, 100)
     }
 
+//-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
 
-        print("notInUse capacity:\(notInUse.capacity)")
-        print("inUseCells capactiy\(inUseCells.capacity)")
-
+       // print("notInUse capacity:\(notInUse.capacity)")
+       // print("inUseCells capactiy\(inUseCells.capacity)")
+        
+        print(gameSaves)
+        
         func viewReset(alertAction: UIAlertAction) {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -161,24 +129,49 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = nil
             activeCell?.backgroundColor = UIColor.greenColor()
             collectionView.userInteractionEnabled = true
+            print(inUseCells)
         }
-
+//----SCENARIO 1----
         //If segue is New Game and the clicked cell is populated...
         if tagID == 0 && inUseCells.contains(activeCell!){
-
-            print("cell has been tapped", indexPath)
 
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
-            self.saveOverwriteSlot()
-            reset()
-        }
+            
+            let ac = UIAlertController(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+               
+                self.gameSaves.removeAtIndex(indexPath.row)
+                self.inUseCells.removeAtIndex(indexPath.row)
+                self.notInUse.append(activeCell!)
+                
+                
+                //resets the cell's border and background colour. Enables user interaction again
+                reset()
+                //reloads the data for the cells to refresh, since there is no one less saved game
+                //self.gamesView.reloadItemsAtIndexPaths(collectionView.indexPathsForVisibleItems())
+               
+                
+                //rewrite gameSaves to app documents to save the change
+                self.saveGame()
+                //reloads gameSaves, now one game shorter, and
+                self.loadGame()
+                
+                 self.gamesView.reloadData()
+                
 
+               
+                
+            }))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+
+           // reset()
+        }
+//----SCENARIO 2----
         //If segue is New Game and the clicked cell is not populated...
         if tagID == 0 && notInUse.contains(activeCell!) {
-
-            print("cell has been tapped", indexPath)
 
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
@@ -191,14 +184,21 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
                 (alert: UIAlertAction!) in
                 if let textField = ac.textFields!.first as UITextField!{
-                    self.newName = textField.text!
+                    let newName = textField.text!
+                    let gameSave = GameSave(name: newName, progress: 0)
+                    self.appendGameSaves(gameSave)
+                    self.saveGame()
+                    
+                    collectionView.reloadData()
+                    reset()
+                
                 }
               //  self.gameStart(alert)
             }))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
             window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
         }
-
+//----SCENARIO 3----
         if tagID == 1 && inUseCells.contains(activeCell!) {
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
@@ -209,7 +209,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
             window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
         }
-
+//----SCENARIO 4----
         if tagID == 1 && notInUse.contains(activeCell!) {
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
@@ -220,12 +220,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
 
         }
-        
-        func getText(alertAction: UIAlertAction!) {
-        
-        }
     }
-    
+//-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
       
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
@@ -234,6 +230,37 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         activeCell?.layer.borderColor = nil
         
         collectionView.reloadItemsAtIndexPaths([indexPath])
+    }
+//-----------------ADDS A NEW GAME SAVE OBJECT TO THE GAMESAVES ARRAY----------------------------------------------
+    func appendGameSaves(gameSave: GameSave) {
+       gameSaves.append(gameSave)
+    }
+//-----------------SAVES THE GAMESAVES ARRAY----------------------------------------------
+    func saveGame() {
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        if paths.count > 0 {
+            let directPath = paths[0]
+            let path = directPath.stringByAppendingString("/gameSlots.json")
+
+            let data = NSKeyedArchiver.archivedDataWithRootObject(gameSaves)
+            data.writeToFile(path, atomically: true)
+        }
+    }
+//-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
+    func loadGame() {
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        
+        if paths.count > 0 {
+            let directPath = paths[0]
+            let path = directPath.stringByAppendingString("/gameSlots.json")
+            
+            let fileManager = NSFileManager.defaultManager()
+            if fileManager.fileExistsAtPath(path) {
+                let data = NSData(contentsOfFile: path)!
+                gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
+                print("Saves: \(gameSaves)")
+            }
+        }
     }
 
     
