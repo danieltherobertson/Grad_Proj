@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Foundation
 
 class CreditsViewController: UIViewController {
+
 
     @IBOutlet weak var creditsText: UITextView!
     
@@ -24,52 +26,52 @@ class CreditsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activeLine = 0
         creditsText.textColor = UIColor.greenColor()
-    
-        
-        // Do any additional setup after loading the view.
+        timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: "typeStart", userInfo: nil, repeats: false)
+
     }
     
     func typeStart() {
-      
-        cred_l1 = "Designed, written and developed by \n" + "Daniel Robertson \n \n"
-        cred_l2 = "Audio by Gumbell \n" + "Licensed under the Creative Commons Attribution License \n \n"
-        cred_l3 = "Typeface created by Jayvee D. Enaguas \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0)"
+        cred_l1 = "Designed, written and developed by \n \n" + "Daniel Robertson"
+        cred_l2 = "Audio by Gumbell \n \n" + "Licensed under the Creative Commons Attribution License"
+        cred_l3 = "Typeface created by Jayvee D. Enaguas \n \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0) \n \n"
         
         charSets = [cred_l1,cred_l2,cred_l3]
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(CreditsViewController.addNextLetter), userInfo: nil, repeats: true)
         timer!.fire()
     }
-    
-    
+
     func addNextLetter() {
-        
         var currentText = charSets[activeLine]
         var charArray = Array(currentText.characters)
         
         if creditsText.text!.characters.count >= charArray.count {
             timer?.invalidate()
+            sleep(2)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.06, target:self, selector: #selector(CreditsViewController.removePreviousLetter), userInfo: nil, repeats: true)
+            timer!.fire()
         } else {
             let nextLetterIndex = creditsText.text!.characters.count
             let character = charArray[nextLetterIndex]
             creditsText.text = creditsText.text! + String(character)
         }
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(5, target:self, selector: #selector(CreditsViewController.wait), userInfo: nil, repeats: false)
-        timer!.fire()
     }
     
-    func wait() {
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target:self, selector: #selector(CreditsViewController.removeNextLetter), userInfo: nil, repeats: false)
-        timer!.fire()
-    }
-    
-    func removeNextLetter() {
-        if creditsText.text!.characters.count <= charArray.count {
+    func removePreviousLetter() {
+        if creditsText.text!.characters.count == 0 {
             timer?.invalidate()
+            
+            activeLine += 1
+            if activeLine == charSets.count {
+               return
+            } else {
+                typeStart()
+            }
+        } else {
+            var newText = String(creditsText.text.characters.dropLast())
+            creditsText.text = newText
         }
     }
 }

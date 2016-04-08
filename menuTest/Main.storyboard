@@ -403,26 +403,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text=" " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U50-2P-DIT">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JAL-Jo-SCq">
+                                <rect key="frame" x="180" y="216" width="240" height="245"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="GDH-1u-n3l"/>
-                                    <constraint firstAttribute="height" constant="128" id="aGw-9Q-mXm"/>
+                                    <constraint firstAttribute="width" constant="240" id="awI-eL-BeW"/>
+                                    <constraint firstAttribute="height" constant="245" id="pAT-nK-Ho5"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="U50-2P-DIT" firstAttribute="centerY" secondItem="wkY-rE-avs" secondAttribute="centerY" id="fCF-4q-DxQ"/>
-                            <constraint firstItem="U50-2P-DIT" firstAttribute="centerX" secondItem="wkY-rE-avs" secondAttribute="centerX" id="zAe-Ml-ZIG"/>
+                            <constraint firstItem="JAL-Jo-SCq" firstAttribute="centerX" secondItem="wkY-rE-avs" secondAttribute="centerX" id="VI1-AH-Qqo"/>
+                            <constraint firstItem="JAL-Jo-SCq" firstAttribute="centerY" secondItem="wkY-rE-avs" secondAttribute="centerY" constant="38.5" id="vd8-MR-17I"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="creditsText" destination="U50-2P-DIT" id="mjB-F6-nGJ"/>
+                        <outlet property="creditsText" destination="JAL-Jo-SCq" id="ffF-QX-reY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpZ-PR-DF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
