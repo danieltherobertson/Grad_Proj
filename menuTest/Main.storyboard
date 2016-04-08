@@ -17,6 +17,7 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -414,14 +415,35 @@
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnW-q2-0qQ">
+                                <rect key="frame" x="225" y="530" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bDc-E6-bqd"/>
+                                    <constraint firstAttribute="width" constant="150" id="usG-5m-LYp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToMenu:" destination="Ijo-HX-6jv" eventType="touchUpInside" id="XwN-UX-8zh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="hnW-q2-0qQ" firstAttribute="top" secondItem="JAL-Jo-SCq" secondAttribute="bottom" constant="69" id="9JF-vt-DVL"/>
+                            <constraint firstAttribute="bottom" secondItem="hnW-q2-0qQ" secondAttribute="bottom" constant="20" symbolic="YES" id="PVe-84-kbD"/>
                             <constraint firstItem="JAL-Jo-SCq" firstAttribute="centerX" secondItem="wkY-rE-avs" secondAttribute="centerX" id="VI1-AH-Qqo"/>
                             <constraint firstItem="JAL-Jo-SCq" firstAttribute="centerY" secondItem="wkY-rE-avs" secondAttribute="centerY" constant="38.5" id="vd8-MR-17I"/>
+                            <constraint firstItem="hnW-q2-0qQ" firstAttribute="centerX" secondItem="JAL-Jo-SCq" secondAttribute="centerX" id="y41-s1-rzq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="hnW-q2-0qQ" id="iG0-3e-8YB"/>
                         <outlet property="creditsText" destination="JAL-Jo-SCq" id="ffF-QX-reY"/>
                     </connections>
                 </viewController>
@@ -454,6 +476,6 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zZc-Sv-334"/>
+        <segue reference="ZpM-Vx-JOL"/>
     </inferredMetricsTieBreakers>
 </document>

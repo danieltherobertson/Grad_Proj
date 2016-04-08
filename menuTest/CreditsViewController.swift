@@ -13,10 +13,12 @@ class CreditsViewController: UIViewController {
 
 
     @IBOutlet weak var creditsText: UITextView!
+    @IBOutlet weak var backButton: UIButton!
     
     var cred_l1 = String!()
     var cred_l2 = String!()
     var cred_l3 = String!()
+    var cred_l4 = String!()
     
     var charSets: Array<String>!
     var charArray: Array<Character>!
@@ -26,8 +28,15 @@ class CreditsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.layer.cornerRadius = 20
+        backButton.layer.borderWidth = 4
+        backButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+        
         activeLine = 0
         creditsText.textColor = UIColor.greenColor()
+        creditsText.editable = false
+        creditsText.selectable = false
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: "typeStart", userInfo: nil, repeats: false)
 
     }
@@ -36,8 +45,8 @@ class CreditsViewController: UIViewController {
         cred_l1 = "Designed, written and developed by \n \n" + "Daniel Robertson"
         cred_l2 = "Audio by Gumbell \n \n" + "Licensed under the Creative Commons Attribution License"
         cred_l3 = "Typeface created by Jayvee D. Enaguas \n \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0) \n \n"
-        
-        charSets = [cred_l1,cred_l2,cred_l3]
+        cred_l4 = "Special thanks to \n \n" + "Joe Benton \n George Grover \n Arne Bahlo \n Joel Trew \n Paul Hudson"
+        charSets = [cred_l1,cred_l2,cred_l3,cred_l4]
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(CreditsViewController.addNextLetter), userInfo: nil, repeats: true)
         timer!.fire()
@@ -49,7 +58,7 @@ class CreditsViewController: UIViewController {
         
         if creditsText.text!.characters.count >= charArray.count {
             timer?.invalidate()
-            sleep(2)
+            sleep(1)
             timer = NSTimer.scheduledTimerWithTimeInterval(0.06, target:self, selector: #selector(CreditsViewController.removePreviousLetter), userInfo: nil, repeats: true)
             timer!.fire()
         } else {
@@ -65,13 +74,18 @@ class CreditsViewController: UIViewController {
             
             activeLine += 1
             if activeLine == charSets.count {
-               return
+                sleep(2)
+                self.navigationController?.popToRootViewControllerAnimated(true)
             } else {
+                sleep(1)
                 typeStart()
             }
         } else {
             var newText = String(creditsText.text.characters.dropLast())
             creditsText.text = newText
         }
+    }
+    @IBAction func backToMenu(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
