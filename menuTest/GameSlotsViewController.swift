@@ -11,42 +11,64 @@ import Crashlytics
 
 class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     @IBOutlet weak var collectionTitle: UILabel!
+    @IBOutlet weak var collectionLabel: UILabel!
     //adds the slotsView reference
     @IBOutlet weak var gameSlotsView: SlotsView!
+    @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var background: UIImageView!
     var pageTitle = String!()
+    var pageLabel = String!()
     var tagID: Int!
     
     var inUseCells = Array<UICollectionViewCell>()
     var notInUse = Array<UICollectionViewCell>()
     
     var newName = ""
+    
+    let gif = UIImage.gifWithName("slots_background")
  
 
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
-
-        let button = UIButton(type:UIButtonType.RoundedRect)
-        button.frame = CGRectMake(20, 50, 100, 30)
-        button.setTitle("Crash", forState: UIControlState.Normal)
-        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(button)
         
+        gameSlotsView.backgroundColor = UIColor.clearColor()
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 3
+        style.alignment = NSTextAlignment.Center
+        let attributes = [NSParagraphStyleAttributeName : style]
+        collectionLabel.attributedText = NSAttributedString(string: pageLabel, attributes:attributes)
+
+//        let button = UIButton(type:UIButtonType.RoundedRect)
+//        button.frame = CGRectMake(20, 50, 100, 30)
+//        button.setTitle("Crash", forState: UIControlState.Normal)
+//        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+//        view.addSubview(button)
+        
+        background.image = gif
+        
+        backButton.layer.cornerRadius = 20
+        backButton.layer.borderWidth = 4
+        backButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         gameSlotsView.tagID = tagID
         gameSlotsView.saveOverwriteSlot = {() -> Void in
-                       
+         
+        
+       
         }
         
         
         
-        func crashButtonTapped(sender: AnyObject) {
-            Crashlytics.sharedInstance().crash()
-        }
+//        func crashButtonTapped(sender: AnyObject) {
+//            Crashlytics.sharedInstance().crash()
+//        }
 
         
         collectionTitle.text = pageTitle
+       // collectionLabel.text = pageLabel
     }
     
     
@@ -202,15 +224,15 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
 //        }
 //    }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-      
-        let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
-
-        activeCell?.layer.borderWidth = 0
-        activeCell?.layer.borderColor = nil
-        
-        collectionView.reloadItemsAtIndexPaths([indexPath])
-    }
+//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+//      
+//        let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
+//
+//        activeCell?.layer.borderWidth = 0
+//        activeCell?.layer.borderColor = nil
+//        
+//        collectionView.reloadItemsAtIndexPaths([indexPath])
+//    }
 //
     func gameStart(alertAction: UIAlertAction!) {
         print(newName)
