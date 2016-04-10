@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ltD-TQ-57u">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -153,6 +153,73 @@
             </objects>
             <point key="canvasLocation" x="1117" y="387"/>
         </scene>
+        <!--Doot-->
+        <scene sceneID="Aq5-b9-kmg">
+            <objects>
+                <viewController title="Doot" id="WHO-7m-7hT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ojS-47-1lX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gme-bv-08n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B8k-nG-5np">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mockMap" translatesAutoresizingMaskIntoConstraints="NO" id="GXG-iv-M1A">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GXG-iv-M1A" secondAttribute="trailing" id="VyI-Wa-hIe"/>
+                            <constraint firstItem="GXG-iv-M1A" firstAttribute="leading" secondItem="B8k-nG-5np" secondAttribute="leading" id="dgn-TI-dih"/>
+                            <constraint firstItem="GXG-iv-M1A" firstAttribute="top" secondItem="B8k-nG-5np" secondAttribute="top" id="j8T-4s-2ry"/>
+                            <constraint firstItem="GXG-iv-M1A" firstAttribute="bottom" secondItem="Gme-bv-08n" secondAttribute="top" id="mBk-ld-5sz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="p1G-V1-nvC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Se-EX-ZKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3471" y="1201"/>
+        </scene>
+        <!--Meme-->
+        <scene sceneID="KYZ-W2-Olb">
+            <objects>
+                <viewController title="Meme" id="66R-ZY-DEJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JQZ-gA-QLy"/>
+                        <viewControllerLayoutGuide type="bottom" id="K5y-Bd-VHo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Dd-9h-nhw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="tC4-5f-ejp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-1R-SDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2840" y="1201"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GZv-qR-OSf">
+            <objects>
+                <tabBarController id="ltD-TQ-57u" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="C1S-A5-nTB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="66R-ZY-DEJ" kind="relationship" relationship="viewControllers" id="m1i-kZ-QyV"/>
+                        <segue destination="WHO-7m-7hT" kind="relationship" relationship="viewControllers" id="smM-Ix-zab"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Du-fb-Gqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3148" y="384"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="OoT-Xa-SUJ">
             <objects>
@@ -223,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUK-Qo-DPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3183" y="785"/>
+            <point key="canvasLocation" x="1863" y="1201"/>
         </scene>
         <!--Game Slots View Controller-->
         <scene sceneID="X59-ib-XxO">
@@ -471,6 +538,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mockMap" width="450" height="746"/>
         <image name="operator.gif" width="443" height="154"/>
         <image name="operator_background" width="504" height="953"/>
         <image name="slots_background.gif" width="504" height="953"/>

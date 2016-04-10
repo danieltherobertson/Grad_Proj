@@ -37,7 +37,7 @@ class CreditsViewController: UIViewController {
         creditsText.textColor = UIColor.greenColor()
         creditsText.editable = false
         creditsText.selectable = false
-        timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: "typeStart", userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)
 
     }
     
