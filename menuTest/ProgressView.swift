@@ -9,7 +9,7 @@
 import UIKit
 class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var gamesView: UICollectionView!
+    var levelsView: UICollectionView!
     var tagID: Int!
     var gameSaves = Array<GameSave>()
     var saveOverwriteSlot: (() -> ())!
@@ -17,22 +17,25 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     let gameSave = GameSave(name: "Dan", progress: 5)
     let gameSave2 = GameSave(name: "Joe", progress: 2)
     
+    var levels: [NSDictionary]?
+    
     //var inUseCells = Array<UICollectionViewCell>()
     // var notInUse = Array<UICollectionViewCell>()
+    
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 300, height: 100)
         
-        gamesView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         // gamesView.translatesAutoresizingMaskIntoConstraints = false
-        gamesView.dataSource = self
-        gamesView.delegate = self
+        levelsView.dataSource = self
+        levelsView.delegate = self
         
         let nib:UINib = UINib(nibName: "gameProgressNib", bundle: nil)
-        gamesView.registerNib(nib, forCellWithReuseIdentifier: "progressCell")
+        levelsView.registerNib(nib, forCellWithReuseIdentifier: "progressCell")
         
-        self.addSubview(gamesView)
+        self.addSubview(levelsView)
     }
     //-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
     // MARK: Initialization
@@ -40,7 +43,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         super.init(coder: aDecoder)
         
         //Load any existing gameSave types from gameSaves
-        loadGame()
+
         
     }
     
@@ -131,10 +134,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 self.saveGame()
                 
                 //reloads gameSaves, now one game shorter, and
-                self.loadGame()
+               // self.loadGame()
                 
                 //reloads the data for the cells to refresh, since there is no one less saved game
-                self.gamesView.reloadData()
+                self.levelsView.reloadData()
                 
                 
                 
@@ -228,20 +231,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         }
     }
     //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
-    func loadGame() {
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        
-        if paths.count > 0 {
-            let directPath = paths[0]
-            let path = directPath.stringByAppendingString("/gameSlots.json")
-            
-            let fileManager = NSFileManager.defaultManager()
-            if fileManager.fileExistsAtPath(path) {
-                let data = NSData(contentsOfFile: path)!
-                gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
-                print("Saves: \(gameSaves)")
-            }
-        }
+    func loadLevels(levels: [NSDictionary]) {
     }
     
    

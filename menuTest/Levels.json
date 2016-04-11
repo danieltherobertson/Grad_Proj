@@ -1,0 +1,49 @@
+{
+	"levels": [
+		{
+			"number": "0",
+			"name": "Tutorial"
+		},
+		{
+			"number": "1",
+			"name": "Day 1"
+		},
+		{
+			"number": "2",
+			"name": "Day 2"
+		},
+		{
+			"number": "3",
+			"name": "Day 3"
+		},
+		{
+			"number": "4",
+			"name": "Day 4"
+		},
+		{
+			"number": "5",
+			"name": "Day 5"
+		},
+		{
+			"number": "6",
+			"name": "Day 6"
+		},
+		{
+			"number": "7",
+			"name": "Day 7"
+		},
+		{
+			"number": "8",
+			"name": "Day 8"
+		},
+		{
+			"number": "9",
+			"name": "Day 9"
+		},
+		{
+			"number": "10",
+			"name": "Day 10"
+		},
+	]
+	
+}

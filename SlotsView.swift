@@ -13,6 +13,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     var tagID: Int!
     var gameSaves = Array<GameSave>()
     var saveOverwriteSlot: (() -> ())!
+    var pressedCell: (() -> ())!
     
     let gameSave = GameSave(name: "Dan", progress: 5)
     let gameSave2 = GameSave(name: "Joe", progress: 2)
@@ -117,6 +118,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
+        
+        pressedCell()
 
        // print("notInUse capacity:\(notInUse.capacity)")
        // print("inUseCells capactiy\(inUseCells.capacity)")

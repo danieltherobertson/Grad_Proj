@@ -26,6 +26,7 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     
     var newName = ""
     
+    
     let gif = UIImage.gifWithName("slots_background")
  
 
@@ -35,6 +36,7 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         super.viewDidLoad()
         
         gameSlotsView.backgroundColor = UIColor.clearColor()
+        gameSlotsView.pressedCell = segueToLevels
         
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3
@@ -237,6 +239,11 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     func gameStart(alertAction: UIAlertAction!) {
         print(newName)
         self.performSegueWithIdentifier("beginGame", sender: self)
+    }
+    
+    
+    func segueToLevels() {
+        performSegueWithIdentifier("gameChosen", sender: self)
     }
 }
 
