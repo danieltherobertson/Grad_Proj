@@ -192,7 +192,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     if textField.text == "" {
                         textField.text = "nil"
                     }
-
+                    //New name is entered. When "okay" is pressed, newName is set to the entered name. A new gameSave object is created using the newName. This is then added to the gameSaves array. activeSave is then set to that new game. The cell is marked as used, and then saveGame is called to save the new data to app documents. The collectionview and clicked cell then reset.
                     let newName = textField.text!
                     let gameSave = GameSave(name: newName, progress: 0)
                     self.appendGameSaves(gameSave)
@@ -217,8 +217,10 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
             ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
                 (alert: UIAlertAction!) in
-                    print(indexPath.row)
                 
+                    //When Okay is clicked, the current cell number is assigned to currentCellPos
+                    let currentCellPos = indexPath.row
+                    self.activeSave = self.gameSaves[currentCellPos]
                 }
             ))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
