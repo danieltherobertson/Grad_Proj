@@ -21,6 +21,9 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     var pageLabel = String!()
     var tagID: Int!
     
+    var selectedSave: GameSave?
+
+    
 //    var newName = ""
     
     let gif = UIImage.gifWithName("slots_background")
@@ -30,7 +33,9 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         super.viewDidLoad()
         
         gameSlotsView.backgroundColor = UIColor.clearColor()
-      //  gameSlotsView.pressedCell = segueToLevels
+        
+        //Calling pressedCell, the closure which contains the active save. We assign this to segueToLevels(). When pressedCell is called in SlotsView, it is already assigned segueToLevels.
+        gameSlotsView.pressedCell = segueToLevels
         
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3
@@ -69,8 +74,20 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
 //    }
     
     
-    func segueToLevels() {
+    func segueToLevels(save: GameSave) {
         performSegueWithIdentifier("gameChosen", sender: self)
+ 
+    }
+    
+    //Here we pass the selected save from the collection view to the progressview using prepareForSegue. First we unwrap selectedSave. Then we set progressVC's currentSave property to be selectedSave.
+    
+    //WHAT I DON'T GET: WHERE/HOW IS selectedSave given the value of the save passed into the closure in SlotsView?!
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let selectedSave = selectedSave {
+            let progressVC = (segue.destinationViewController as? ProgressViewController)
+            progressVC?.currentSave = selectedSave
+        }
     }
 }
 

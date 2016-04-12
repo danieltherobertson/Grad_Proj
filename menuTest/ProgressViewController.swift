@@ -9,13 +9,16 @@
 import UIKit
 
 class ProgressViewController: UIViewController {
+    
+    var currentSave: GameSave!
 
     @IBOutlet weak var progressView: ProgressView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let levels = getLevels()
-        progressView.loadLevels(levels)
+    
+       // progressView.loadLevels(levels)
         
         
         

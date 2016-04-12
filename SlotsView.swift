@@ -13,7 +13,9 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     var tagID: Int!
     var gameSaves = Array<GameSave>()
    // var saveOverwriteSlot: (() -> ())!
-   // var pressedCell: (() -> ())!
+    
+    //pressedCell is a closure that takes a gamesave as a param
+    var pressedCell: ((save: GameSave) -> ())!
     
     var activeSave: GameSave!
     
@@ -117,13 +119,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        //pressedCell()
-
-       // print("notInUse capacity:\(notInUse.capacity)")
-       // print("inUseCells capactiy\(inUseCells.capacity)")
-        
-        print(gameSaves)
-        
         func viewReset(alertAction: UIAlertAction) {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -202,6 +197,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     
                     collectionView.reloadData()
                     reset()
+                    //Passing our active save to the GameSlotsViewController by calling the pressedCell closure.
+                    self.pressedCell(save: self.activeSave)
                 }
             }))
             
@@ -279,6 +276,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             }
         }
     }
+    
     
     
     
