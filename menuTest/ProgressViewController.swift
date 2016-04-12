@@ -15,7 +15,7 @@ class ProgressViewController: UIViewController {
         super.viewDidLoad()
 
         let levels = getLevels()
-       // progressView.loadLevels(levels)
+        progressView.loadLevels(levels)
         
         
         

@@ -12,16 +12,14 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     var gamesView: UICollectionView!
     var tagID: Int!
     var gameSaves = Array<GameSave>()
-    var saveOverwriteSlot: (() -> ())!
-    var pressedCell: (() -> ())!
+   // var saveOverwriteSlot: (() -> ())!
+   // var pressedCell: (() -> ())!
     
-    let gameSave = GameSave(name: "Dan", progress: 5)
-    let gameSave2 = GameSave(name: "Joe", progress: 2)
+    var activeSave: GameSave!
     
-    //var inUseCells = Array<UICollectionViewCell>()
-   // var notInUse = Array<UICollectionViewCell>()
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 300, height: 100)
         
@@ -119,7 +117,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        pressedCell()
+        //pressedCell()
 
        // print("notInUse capacity:\(notInUse.capacity)")
        // print("inUseCells capactiy\(inUseCells.capacity)")
@@ -198,6 +196,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     let newName = textField.text!
                     let gameSave = GameSave(name: newName, progress: 0)
                     self.appendGameSaves(gameSave)
+                    self.activeSave = gameSave
                     activeCell?.tag = 0
                     self.saveGame()
                     
@@ -216,7 +215,12 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             collectionView.userInteractionEnabled = false
 
             let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
+                (alert: UIAlertAction!) in
+                    print(indexPath.row)
+                
+                }
+            ))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
             window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
         }
@@ -273,6 +277,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             }
         }
     }
+    
     
     
 
