@@ -308,17 +308,32 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
-                                <rect key="frame" x="20" y="37" width="560" height="20"/>
+                                <rect key="frame" x="20" y="20" width="560" height="20"/>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
+                                <rect key="frame" x="157" y="452" width="287" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="5Qo-ip-zU9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="menuTest" customModuleProvider="target">
+                                <rect key="frame" x="20" y="48" width="560" height="396"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="396" id="qPr-8J-lt2"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovg-Ah-o2f">
                                 <rect key="frame" x="225" y="530" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="U59-ze-2Ia"/>
-                                    <constraint firstAttribute="width" constant="150" id="uXH-FT-SZN"/>
+                                    <constraint firstAttribute="width" constant="150" id="gcx-SK-afb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
@@ -330,38 +345,25 @@
                                     <action selector="backButton:" destination="ZzI-CA-vw3" eventType="touchUpInside" id="nba-Hk-4xF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
-                                <rect key="frame" x="157" y="405" width="287" height="112"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="287" id="J0n-NY-acF"/>
-                                    <constraint firstAttribute="height" constant="112" id="jsz-9J-AWW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="menuTest" customModuleProvider="target">
-                                <rect key="frame" x="20" y="65" width="560" height="316"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="gvP-Ca-5Hq" secondAttribute="top" id="0LM-AH-sey"/>
-                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="17" id="DvI-9Q-ytZ"/>
-                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="Ih6-mf-4Gj"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="Iy3-Mz-Wbr"/>
-                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="24" id="OyR-VL-daQ"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="trailing" secondItem="dDy-P7-FIQ" secondAttribute="trailing" id="U0e-If-s3Y"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="trailing" secondItem="gvP-Ca-5Hq" secondAttribute="trailingMargin" id="UBO-zR-uWd"/>
-                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UmU-6M-GqX"/>
-                            <constraint firstItem="oFS-r1-4ql" firstAttribute="top" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" id="XKh-1f-yTu"/>
-                            <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="aPw-b4-ahg"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leading" id="bQb-on-rpU"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="bottom" secondItem="oFS-r1-4ql" secondAttribute="top" id="fwq-Vm-ja9"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="8" symbolic="YES" id="hFV-dH-GtD"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="centerX" secondItem="flX-Ps-bJE" secondAttribute="centerX" id="hUx-HA-NYj"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="leading" secondItem="dDy-P7-FIQ" secondAttribute="leading" id="ihI-bL-5Ei"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="bottom" secondItem="oFS-r1-4ql" secondAttribute="top" id="5Tw-ke-esw"/>
+                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="7IB-xi-aH2"/>
+                            <constraint firstAttribute="trailing" secondItem="p7E-6W-Tze" secondAttribute="trailing" id="BEv-ko-O5I"/>
+                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="8" id="CV5-dP-uiK"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" id="E2D-hO-Clb"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="HTl-uo-ZkX"/>
+                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="p7E-6W-Tze" secondAttribute="bottom" constant="-70" id="Sgu-sD-NCH"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UDj-70-dYx"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UzT-Xu-aiK"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leading" id="aFm-Ql-cP3"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="4Vh-9y-FiR" secondAttribute="leading" id="eqd-LL-Doo"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="trailing" secondItem="4Vh-9y-FiR" secondAttribute="trailing" id="gf0-Hc-INg"/>
+                            <constraint firstAttribute="bottom" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" symbolic="YES" id="gtt-aj-0o3"/>
+                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="centerX" secondItem="flX-Ps-bJE" secondAttribute="centerX" id="hxU-UC-7WG"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-40" id="rfE-lK-e7H"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="8" id="yxW-Ub-erD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -552,6 +554,6 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uex-2k-Gjx"/>
+        <segue reference="zZc-Sv-334"/>
     </inferredMetricsTieBreakers>
 </document>

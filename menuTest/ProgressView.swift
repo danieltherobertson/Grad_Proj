@@ -17,7 +17,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     let gameSave = GameSave(name: "Dan", progress: 5)
     let gameSave2 = GameSave(name: "Joe", progress: 2)
     
-    var levelss: [NSDictionary]?
+    var levelsData: [NSDictionary]?
     
     //var inUseCells = Array<UICollectionViewCell>()
     // var notInUse = Array<UICollectionViewCell>()
@@ -49,7 +49,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     
     //-----------------NUMBER OF CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return levelsData!.count
     }
     
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
@@ -232,9 +232,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
     //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
     func loadLevels(levels: [NSDictionary]) {
-        levelss = levels
+        levelsData = levels
         
-        print("juicy memes \(levelss)")
+        print("printing levelss \(levelsData)")
     }
     
    

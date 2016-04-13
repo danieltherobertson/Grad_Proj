@@ -22,6 +22,7 @@ class ProgressViewController: UIViewController {
         super.viewDidLoad()
         
         print(currentSave.name)
+        print(currentSave.progress)
         
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         let levels = getLevels()
@@ -30,14 +31,7 @@ class ProgressViewController: UIViewController {
         playerName = currentSave.name
         progressPlayerName.text = playerName
         
-        playerProgress = currentSave.progress
-        
-        
-    
-       
-        
-        
-        
+        playerProgress = currentSave.progress  
         // Do any additional setup after loading the view.
     }
 
@@ -73,6 +67,9 @@ class ProgressViewController: UIViewController {
         }
         //Returns our juicy data in a lovely array of dictionaries
          print("doot doot\(results)")
+        print("TRYING \(results[0])")
+        print("TRYING AGAIN \(results[2])")
+        print("NUMBER OF LEVELS IS \(results.count)")
         return results
        
     }

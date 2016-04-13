@@ -45,7 +45,7 @@ class CreditsViewController: UIViewController {
         cred_l1 = "Designed, written and developed by \n \n" + "Daniel Robertson"
         cred_l2 = "Audio by Gumbell \n \n" + "Licensed under the Creative Commons Attribution License"
         cred_l3 = "Typeface created by Jayvee D. Enaguas \n \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0) \n \n"
-        cred_l4 = "Special thanks to \n \n" + "Joe Benton \n George Grover \n Arne Bahlo \n Joel Trew \n Paul Hudson"
+        cred_l4 = "Special thanks to \n \n" + "Joe Benton \n George Grover \n Joel Trew \n Arne Bahlo \n Quan Nguyen \n Paul Hudson"
         charSets = [cred_l1,cred_l2,cred_l3,cred_l4]
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(CreditsViewController.addNextLetter), userInfo: nil, repeats: true)

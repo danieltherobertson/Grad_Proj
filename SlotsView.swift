@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SwiftAlertViewDelegate {
     
     var gamesView: UICollectionView!
     var tagID: Int!
@@ -26,14 +26,16 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         layout.itemSize = CGSize(width: 300, height: 100)
         
         gamesView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-       // gamesView.translatesAutoresizingMaskIntoConstraints = false
+        gamesView.translatesAutoresizingMaskIntoConstraints = false
         gamesView.dataSource = self
         gamesView.delegate = self
 
-        let nib:UINib = UINib(nibName: "gameCellNib", bundle: nil)
+        let nib = UINib(nibName: "gameCellNib", bundle: nil)
         gamesView.registerNib(nib, forCellWithReuseIdentifier: "gameCell")
         gamesView.backgroundColor = UIColor.clearColor()
         self.addSubview(gamesView)
+        
+        
     }
 //-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
     // MARK: Initialization
@@ -119,6 +121,12 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
         
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 4
+        style.alignment = NSTextAlignment.Center
+        let attributes = [NSParagraphStyleAttributeName : style]
+
+        
         func viewReset(alertAction: UIAlertAction) {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -189,7 +197,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     }
                     //New name is entered. When "okay" is pressed, newName is set to the entered name. A new gameSave object is created using the newName. This is then added to the gameSaves array. activeSave is then set to that new game. The cell is marked as used, and then saveGame is called to save the new data to app documents. The collectionview and clicked cell then reset.
                     let newName = textField.text!
-                    let gameSave = GameSave(name: newName, progress: 0)
+                    let gameSave = GameSave(name: newName, progress: 3)
                     self.appendGameSaves(gameSave)
                     self.activeSave = gameSave
                     activeCell?.tag = 0
@@ -204,6 +212,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
             window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+
         }
 //----SCENARIO 3----
         if tagID == 1 && activeCell?.tag == 0 {
@@ -229,9 +238,23 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
             
-            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+//            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
+//            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+            
+            let alertView = SwiftAlertView(title: "Error", message: "", delegate: self, cancelButtonTitle: "Okay")
+             alertView.messageLabel.attributedText = NSAttributedString(string: "No save file detected. Please select a different slot.", attributes:attributes)
+            alertView.titleLabel.textColor = UIColor.blackColor()
+            
+            alertView.titleLabel.font = UIFont(name: "KemcoPixelBold", size: 20)
+            alertView.messageLabel.textColor = UIColor.blackColor()
+            alertView.messageLabel.font = UIFont(name: "KemcoPixelBold", size: 15)
+            alertView.backgroundColor = UIColor.greenColor()
+            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            alertView.buttonAtIndex(0)?.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 20)
+
+            alertView.show()
+            
 
         }
     }
