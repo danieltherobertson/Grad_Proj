@@ -72,7 +72,7 @@
 		65387A1A1CA1D3FD0070FAD7 /* monofonto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = monofonto.ttf; sourceTree = "<group>"; };
 		653CBCEC1C91C34A003A2338 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		653CBCED1C91C34A003A2338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		654B417C1CBBF4B100D9953C /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Levels.json; path = menuTest/Levels.json; sourceTree = "<group>"; };
+		654B417C1CBBF4B100D9953C /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Operator_menuAudio2.mp3; sourceTree = "<group>"; };
 		65A4CB921C5A51A400BC5EEB /* menuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		657852E41CBE50E50019EF20 /* Data 📈 */ = {
+			isa = PBXGroup;
+			children = (
+				654B417C1CBBF4B100D9953C /* Levels.json */,
+			);
+			name = "Data 📈";
+			sourceTree = "<group>";
+		};
 		65A4CB891C5A51A400BC5EEB = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +143,6 @@
 				651778CC1CB599D00094B438 /* operator.gif */,
 				651778B41CB55FD10094B438 /* operator_background_animated.gif */,
 				6506D8311CB5B96200C0D188 /* slots_background.gif */,
-				654B417C1CBBF4B100D9953C /* Levels.json */,
 				65A4CB941C5A51A400BC5EEB /* menuTest */,
 				65A4CBA91C5A51A500BC5EEB /* menuTestTests */,
 				65A4CBB41C5A51A500BC5EEB /* menuTestUITests */,
@@ -196,6 +203,7 @@
 				65387A181CA1A2D80070FAD7 /* Call.swift */,
 				6532B36D1C5FC12600D734EF /* Question.swift */,
 				6506D8331CB5BB1B00C0D188 /* UIImage+Gif.swift */,
+				657852E41CBE50E50019EF20 /* Data 📈 */,
 			);
 			name = "Model 👾";
 			sourceTree = "<group>";

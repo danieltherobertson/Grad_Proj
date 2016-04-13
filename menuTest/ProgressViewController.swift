@@ -13,12 +13,28 @@ class ProgressViewController: UIViewController {
     var currentSave: GameSave!
 
     @IBOutlet weak var progressView: ProgressView!
+    @IBOutlet weak var progressPlayerName: UILabel!
+    var playerName: String!
+    var playerProgress: Int!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(currentSave.name)
+        
+        //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         let levels = getLevels()
+        progressView.loadLevels(levels)
+        
+        playerName = currentSave.name
+        progressPlayerName.text = playerName
+        
+        playerProgress = currentSave.progress
+        
+        
     
-       // progressView.loadLevels(levels)
+       
         
         
         
@@ -46,7 +62,7 @@ class ProgressViewController: UIViewController {
                     let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     
                     //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
-                    if let levels = jsonResult["Levels"] as? [[String: AnyObject]] {
+                    if let levels = jsonResult["levels"] as? [[String: AnyObject]] {
                         
                         for level: [String: AnyObject] in levels {
                             results.append(level)
@@ -56,7 +72,9 @@ class ProgressViewController: UIViewController {
             } catch {}
         }
         //Returns our juicy data in a lovely array of dictionaries
+         print("doot doot\(results)")
         return results
+       
     }
     
     

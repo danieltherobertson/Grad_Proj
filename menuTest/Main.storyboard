@@ -414,8 +414,11 @@
                                     <segue destination="ZzI-CA-vw3" kind="show" id="Uex-2k-Gjx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" PLAYER'S NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIC-0c-B7D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIC-0c-B7D">
                                 <rect key="frame" x="158" y="18" width="284.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="284.5" id="UeE-Ob-HO2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -455,6 +458,10 @@
                             <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="57" id="sD9-IB-egk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressPlayerName" destination="PIC-0c-B7D" id="ega-bt-U7l"/>
+                        <outlet property="progressView" destination="lMQ-k1-M8M" id="K4q-6E-aNC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwc-fo-Lb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -545,6 +552,6 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="Uex-2k-Gjx"/>
     </inferredMetricsTieBreakers>
 </document>

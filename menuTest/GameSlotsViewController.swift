@@ -75,13 +75,13 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     
     
     func segueToLevels(save: GameSave) {
+        //Assigning the passed savefile to selectedSave for the segue
+        selectedSave = save
         performSegueWithIdentifier("gameChosen", sender: self)
  
     }
     
     //Here we pass the selected save from the collection view to the progressview using prepareForSegue. First we unwrap selectedSave. Then we set progressVC's currentSave property to be selectedSave.
-    
-    //WHAT I DON'T GET: WHERE/HOW IS selectedSave given the value of the save passed into the closure in SlotsView?!
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let selectedSave = selectedSave {
