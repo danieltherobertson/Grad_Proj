@@ -136,12 +136,10 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = nil
             activeCell?.backgroundColor = UIColor.greenColor()
             collectionView.userInteractionEnabled = true
+            activeCell?.userInteractionEnabled = true
         }
         
         //Alertview settings
-        ZAlertView.alertTitleFont = UIFont(name: "KemcoPixelBold", size: 15)
-        ZAlertView.messageFont = UIFont(name: "KemcoPixelBold", size: 15)
-        ZAlertView.buttonFont = UIFont(name: "KemcoPixelBold", size: 15)
         ZAlertView.titleColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         ZAlertView.messageColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         ZAlertView.cancelTextColor = UIColor.redColor()
@@ -153,6 +151,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
             
             let dialogue = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
@@ -179,6 +178,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     alertView.dismiss()
                 }
             )
+            dialogue.allowTouchOutsideToDismiss = false
             dialogue.show()
         }
 //----SCENARIO 2----
@@ -187,6 +187,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
 
             let dialogue = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
@@ -215,7 +216,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 self.pressedCell(save: self.activeSave)
                 alertView.dismiss()
             }
-        
+            dialogue.allowTouchOutsideToDismiss = false
             dialogue.show()
             
                     }
@@ -223,7 +224,9 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         if tagID == 1 && activeCell?.tag == 0 {
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
+
             
             let dialogue = ZAlertView(title: "Confirm Load", message: "Are you sure you want to load this game?", isOkButtonLeft: false, okButtonText: "Yes", cancelButtonText: "Cancel",
                   okButtonHandler: { alertView in
@@ -237,19 +240,22 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     alertView.dismiss()
                 }
             )
+            dialogue.allowTouchOutsideToDismiss = false
             dialogue.show()
         }
 //----SCENARIO 4----
         if tagID == 1 && activeCell?.tag == 1 {
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
+
             
             let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 viewReset()
                 alertView.dismiss()
             })
-            
+            dialogue.allowTouchOutsideToDismiss = false
             dialogue.show()
         }
  

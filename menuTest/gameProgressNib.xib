@@ -13,22 +13,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CBm-Sk-Ilq" customClass="progressCell" customModule="menuTest" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="42" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
-                        <rect key="frame" x="0.0" y="54" width="42" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
+                        <rect key="frame" x="0.0" y="66" width="90" height="24"/>
                         <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bn9-gp-Nts">
-                        <rect key="frame" x="0.0" y="-1" width="43" height="43"/>
+                        <rect key="frame" x="0.0" y="-1" width="90" height="59"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="43" id="dNC-8Q-6f4"/>
+                            <constraint firstAttribute="height" constant="59" id="dNC-8Q-6f4"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -43,8 +43,8 @@
                 <constraint firstItem="2ud-2a-6Pf" firstAttribute="centerX" secondItem="Bn9-gp-Nts" secondAttribute="centerX" id="feD-EU-p53"/>
                 <constraint firstItem="Bn9-gp-Nts" firstAttribute="centerX" secondItem="CBm-Sk-Ilq" secondAttribute="centerX" id="xjj-tt-wD6"/>
             </constraints>
-            <size key="customSize" width="42" height="70"/>
-            <point key="canvasLocation" x="426" y="291"/>
+            <size key="customSize" width="90" height="90"/>
+            <point key="canvasLocation" x="450" y="301"/>
         </collectionViewCell>
     </objects>
 </document>

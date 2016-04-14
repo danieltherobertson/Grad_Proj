@@ -95,10 +95,10 @@ public class ZAlertView: UIViewController {
     public var allowTouchOutsideToDismiss: Bool = true {
         didSet {
             if allowTouchOutsideToDismiss == false {
-                self.tapOutsideTouchGestureRecognizer.removeTarget(self, action: "dismiss")
+                self.tapOutsideTouchGestureRecognizer.removeTarget(self, action: #selector(dismiss))
             }
             else {
-                self.tapOutsideTouchGestureRecognizer.addTarget(self, action: "dismiss")
+                self.tapOutsideTouchGestureRecognizer.addTarget(self, action: #selector(dismiss))
             }
         }
     }
@@ -231,7 +231,7 @@ public class ZAlertView: UIViewController {
         }
         // Gesture for background
         if allowTouchOutsideToDismiss == true {
-            self.tapOutsideTouchGestureRecognizer.addTarget(self, action: "dismiss")
+            self.tapOutsideTouchGestureRecognizer.addTarget(self, action: #selector(dismiss))
         }
         backgroundView.addGestureRecognizer(self.tapOutsideTouchGestureRecognizer)
         self.view.addSubview(backgroundView)
@@ -246,7 +246,7 @@ public class ZAlertView: UIViewController {
         self.lbTitle = UILabel()
         self.lbTitle.textAlignment = NSTextAlignment.Center
         self.lbTitle.textColor = ZAlertView.titleColor
-        self.lbTitle.font = UIFont(name: "KemcoPixelBold", size: 15)!
+        self.lbTitle.font = UIFont(name: "KemcoPixelBold", size: 18)!
         self.alertView.addSubview(lbTitle)
         
         // Setup message
@@ -289,16 +289,16 @@ public class ZAlertView: UIViewController {
         self.alertView.addSubview(btnClose)
         
         // Setup font
-        if let titleFont = ZAlertView.alertTitleFont {
-            lbTitle.font = UIFont(name: "KemcoPixelBold", size: 15)
+        if (ZAlertView.alertTitleFont) != nil {
+            lbTitle.font = UIFont(name: "KemcoPixelBold", size: 18)
         }
         
-        if let messageFont = ZAlertView.messageFont {
+        if (ZAlertView.messageFont) != nil {
             lbMessage.font = UIFont(name: "KemcoPixelBold", size: 15)
             lbMessage.textAlignment = .Center
         }
         
-        if let buttonFont = ZAlertView.buttonFont {
+        if (ZAlertView.buttonFont) != nil {
             btnOk.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
             btnCancel.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
             btnCancel.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
@@ -369,7 +369,7 @@ public class ZAlertView: UIViewController {
             btnClose.setBackgroundImage(UIImage.imageWithSolidColor(ZAlertView.positiveColor, size: btnClose.frame.size), forState: UIControlState.Normal)
             btnClose.layer.cornerRadius = ZAlertView.cornerRadius
             btnClose.clipsToBounds = true
-            btnClose.addTarget(self, action: Selector("buttonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
+            btnClose.addTarget(self, action: #selector(buttonDidTouch), forControlEvents: UIControlEvents.TouchUpInside)
             self.height += ZAlertView.buttonHeight
             
         case .Confirmation:
@@ -387,12 +387,12 @@ public class ZAlertView: UIViewController {
             btnCancel.setBackgroundImage(UIImage.imageWithSolidColor(ZAlertView.negativeColor, size: btnCancel.frame.size), forState: UIControlState.Normal)
             btnCancel.layer.cornerRadius = ZAlertView.cornerRadius
             btnCancel.clipsToBounds = true
-            self.btnCancel.addTarget(self, action: Selector("buttonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnCancel.addTarget(self, action: #selector(ZAlertView.buttonDidTouch), forControlEvents: UIControlEvents.TouchUpInside)
             
             btnOk.setBackgroundImage(UIImage.imageWithSolidColor(ZAlertView.positiveColor, size: btnOk.frame.size), forState: UIControlState.Normal)
             btnOk.layer.cornerRadius = ZAlertView.cornerRadius
             btnOk.clipsToBounds = true
-            self.btnOk.addTarget(self, action: Selector("buttonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.btnOk.addTarget(self, action: #selector(buttonDidTouch), forControlEvents: UIControlEvents.TouchUpInside)
             self.height += ZAlertView.buttonHeight
             
         case .MultipleChoice:
@@ -498,7 +498,7 @@ public class ZAlertView: UIViewController {
         button.color = color
         button.titleColor = titleColor
         button.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)!
-        button.addTarget(self, action: Selector("buttonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(ZAlertView.buttonDidTouch), forControlEvents: UIControlEvents.TouchUpInside)
         buttons.append(button)
         self.alertView.addSubview(button)
     }
@@ -518,7 +518,7 @@ public class ZAlertView: UIViewController {
     // MARK: - Handle keyboard
     
     func registerKeyboardEvents() {
-       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillChangeFrame:"), name:UIKeyboardWillChangeFrameNotification, object: nil)
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ZAlertView.keyboardWillChangeFrame), name:UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
    // Calculating the new difference between keyboard and screen height by calculating the keyboard's height and then figuring out the remaining space

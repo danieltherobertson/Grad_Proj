@@ -196,8 +196,10 @@
 				65C345761CA0799700F1BAFC /* View Controller 🎮 */,
 				65C345751CA0798A00F1BAFC /* View 🖥 */,
 				65C345741CA0797600F1BAFC /* Model 👾 */,
-				65B08D6B1C7D24C300FABC2E /* Main.storyboard */,
+				651DA27D1CBF83A60009FA70 /* Frameworks 🌐 */,
+				657852E41CBE50E50019EF20 /* Data 📈 */,
 				65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */,
+				65B08D6B1C7D24C300FABC2E /* Main.storyboard */,
 				65A4CB9E1C5A51A500BC5EEB /* LaunchScreen.storyboard */,
 				65A4CBA11C5A51A500BC5EEB /* Info.plist */,
 			);
@@ -229,8 +231,6 @@
 				65ACF7611CB5D6390042FBB7 /* Level.swift */,
 				65387A181CA1A2D80070FAD7 /* Call.swift */,
 				6532B36D1C5FC12600D734EF /* Question.swift */,
-				651DA27D1CBF83A60009FA70 /* Frameworks 🌐 */,
-				657852E41CBE50E50019EF20 /* Data 📈 */,
 			);
 			name = "Model 👾";
 			sourceTree = "<group>";

@@ -60,9 +60,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             //Get saved games and populate cells
             if indexPath.row < gameSaves.count {
                 let gameSlot = gameSaves[indexPath.row]
-                let gameNameText = gameSlot.name
+                _ = gameSlot.name
                 //cell.gameName.text = "Name: \(gameNameText!)"
-                let gameLevelText = gameSlot.progress
+                _ = gameSlot.progress
                // cell.gameLevel.text = "Progress: \(gameLevelText)"
                // cell.gameName.textColor = UIColor.blackColor()
                // cell.gameLevel.textColor = UIColor.blackColor()

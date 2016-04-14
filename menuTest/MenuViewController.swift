@@ -45,6 +45,7 @@ class MenuViewController: UIViewController {
 //        }
 
         imageView.image = gif
+        
         background.image = backgroundGif
 
         tagLine.text = text
@@ -124,7 +125,7 @@ class MenuViewController: UIViewController {
         menuAudio.numberOfLoops = 30
         
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: "typeStart", userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)
     }
     
     func buttonStyle(button: UIButton) -> UIButton {
@@ -140,7 +141,7 @@ class MenuViewController: UIViewController {
     func typeStart() {
         text = "Failure is not an option."
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: "addNextLetter", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
         timer!.fire()
     }
     
