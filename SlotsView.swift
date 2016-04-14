@@ -177,7 +177,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 //            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
 //            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
             
-            let dialog = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
+            let dialogue = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
                 okButtonHandler: { alertView in
                     self.gameSaves.removeAtIndex(indexPath.row)
                     activeCell?.tag = 1
@@ -202,7 +202,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 }
             )
             
-            dialog.show()
+            dialogue.show()
         }
 //----SCENARIO 2----
         //If segue is New Game and the clicked cell is not populated...
@@ -241,7 +241,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
           //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
           //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
 
-            let dialog = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
+            let dialogue = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
                        okButtonHandler: { alertView in
                 },
                        cancelButtonHandler: { alertView in
@@ -251,9 +251,9 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 }
             )
             
-            dialog.addTextField("Doot", placeHolder: "Enter Name")
-            dialog.okHandler = { alertView in
-                let text = dialog.getTextFieldWithIdentifier("Doot")
+            dialogue.addTextField("Doot", placeHolder: "Enter Name")
+            dialogue.okHandler = { alertView in
+                let text = dialogue.getTextFieldWithIdentifier("Doot")
                 let newName = text!.text!
                 let gameSave = GameSave(name: newName, progress: 0)
                 self.appendGameSaves(gameSave)
@@ -268,7 +268,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 alertView.dismiss()
             }
 
-            dialog.show()
+            dialogue.show()
             
                     }
 //----SCENARIO 3----
@@ -288,6 +288,20 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             ))
            // ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
           //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+            
+            let dialogue = ZAlertView(title: "Confirm Load", message: "Are you sure you want to load this game?", isOkButtonLeft: false, okButtonText: "Yes", cancelButtonText: "Cancel",
+                  okButtonHandler: { alertView in
+                    let currentCellPos = indexPath.row
+                    self.activeSave = self.gameSaves[currentCellPos]
+
+                    alertView.dismiss()
+                },
+                  cancelButtonHandler: { alertView in
+                    reset()
+                    alertView.dismiss()
+                }
+            )
+            dialogue.show()
         }
 //----SCENARIO 4----
         if tagID == 1 && activeCell?.tag == 1 {
@@ -312,12 +326,12 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 //
 //            alertView.show()
             
-            let dialog = ZAlertView(title: "Error", message: "", closeButtonText: "Okay", closeButtonHandler: { alertView in
+            let dialogue = ZAlertView(title: "Error", message: "", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 viewReset()
                 alertView.dismiss()
             })
             
-            dialog.show()
+            dialogue.show()
             
 
         }
