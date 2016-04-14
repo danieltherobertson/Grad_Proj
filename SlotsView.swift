@@ -124,12 +124,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 4
-        style.alignment = NSTextAlignment.Center
-        let attributes = [NSParagraphStyleAttributeName : style]
-
-        
         func viewReset() {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -143,6 +137,16 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.backgroundColor = UIColor.greenColor()
             collectionView.userInteractionEnabled = true
         }
+        
+        //Alertview settings
+        ZAlertView.alertTitleFont = UIFont(name: "KemcoPixelBold", size: 15)
+        ZAlertView.messageFont = UIFont(name: "KemcoPixelBold", size: 15)
+        ZAlertView.buttonFont = UIFont(name: "KemcoPixelBold", size: 15)
+        ZAlertView.titleColor = UIColor.blackColor()
+        ZAlertView.messageColor = UIColor.blackColor()
+        ZAlertView.cancelTextColor = UIColor.redColor()
+        ZAlertView.normalTextColor = UIColor.blackColor()
+        
 //----SCENARIO 1----
         //If segue is New Game and the clicked cell is populated...
         if tagID == 0 && activeCell?.tag == 0 {
@@ -201,7 +205,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     alertView.dismiss()
                 }
             )
-            
+
             dialogue.show()
         }
 //----SCENARIO 2----
@@ -267,7 +271,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                 self.pressedCell(save: self.activeSave)
                 alertView.dismiss()
             }
-
+        
             dialogue.show()
             
                     }
@@ -277,15 +281,15 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
 
-            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
-                (alert: UIAlertAction!) in
-                
-                    //When Okay is clicked, the current cell number is assigned to currentCellPos
-                    let currentCellPos = indexPath.row
-                    self.activeSave = self.gameSaves[currentCellPos]
-                }
-            ))
+//            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
+//                (alert: UIAlertAction!) in
+//                
+//                    //When Okay is clicked, the current cell number is assigned to currentCellPos
+//                    let currentCellPos = indexPath.row
+//                    self.activeSave = self.gameSaves[currentCellPos]
+//                }
+//            ))
            // ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
           //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
             
@@ -326,17 +330,14 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 //
 //            alertView.show()
             
-            let dialogue = ZAlertView(title: "Error", message: "", closeButtonText: "Okay", closeButtonHandler: { alertView in
+            let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 viewReset()
                 alertView.dismiss()
             })
             
             dialogue.show()
-            
-
         }
-        
-        
+ 
     }
 //-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {

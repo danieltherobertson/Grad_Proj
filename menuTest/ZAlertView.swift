@@ -238,7 +238,7 @@ public class ZAlertView: UIViewController {
         
         // Setup alert view
         self.alertView = UIView(frame: CGRectMake(0, 0, width, height))
-        self.alertView.backgroundColor = UIColor.whiteColor()
+        self.alertView.backgroundColor = UIColor.greenColor()
         self.alertView.layer.cornerRadius = ZAlertView.CornerRadius
         self.view.addSubview(alertView)
         
@@ -333,6 +333,10 @@ public class ZAlertView: UIViewController {
             hasContent = true
             self.height += ZAlertView.padding
             lbMessage.text = message
+            
+//---------------------------------------------------------------SET LINE HEIGHT FOR ALL MESSAGES---------------------------------------------------------------
+            lbMessage.setLineHeight(3)
+            
             let size = lbMessage.sizeThatFits(CGSize(width: width - ZAlertView.padding * 2, height: 600))
             let childHeight = size.height
             lbMessage.frame = CGRectMake(ZAlertView.padding, height, width - ZAlertView.padding * 2, childHeight)

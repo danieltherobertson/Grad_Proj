@@ -23,6 +23,7 @@
 		65387A1B1CA1D3FD0070FAD7 /* monofonto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65387A1A1CA1D3FD0070FAD7 /* monofonto.ttf */; };
 		653CBCEE1C91C34A003A2338 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCEC1C91C34A003A2338 /* Fabric.framework */; };
 		653CBCEF1C91C34A003A2338 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCED1C91C34A003A2338 /* Crashlytics.framework */; };
+		653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F6F141CBFD582008EEF21 /* LabelExtension.swift */; };
 		654B417D1CBBF4B100D9953C /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 654B417C1CBBF4B100D9953C /* Levels.json */; };
 		6560C81B1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */; };
 		657852E61CBE9AC90019EF20 /* SwiftAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657852E51CBE9AC90019EF20 /* SwiftAlertView.swift */; };
@@ -79,6 +80,7 @@
 		65387A1A1CA1D3FD0070FAD7 /* monofonto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = monofonto.ttf; sourceTree = "<group>"; };
 		653CBCEC1C91C34A003A2338 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		653CBCED1C91C34A003A2338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		653F6F141CBFD582008EEF21 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		654B417C1CBBF4B100D9953C /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Operator_menuAudio2.mp3; sourceTree = "<group>"; };
 		657852E51CBE9AC90019EF20 /* SwiftAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAlertView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				65ACF7631CB5DEDC0042FBB7 /* gameProgressNib.xib */,
 				65F8971B1CB2BF7C00CBEE92 /* ProgressView.swift */,
 				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
+				653F6F141CBFD582008EEF21 /* LabelExtension.swift */,
 			);
 			name = "View 🖥";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */,
 				65CECF731C9EF78500F563BF /* GameSave.swift in Sources */,
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
 				657852E61CBE9AC90019EF20 /* SwiftAlertView.swift in Sources */,
