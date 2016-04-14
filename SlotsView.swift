@@ -127,7 +127,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         let attributes = [NSParagraphStyleAttributeName : style]
 
         
-        func viewReset(alertAction: UIAlertAction) {
+        func viewReset() {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
             activeCell?.backgroundColor = UIColor.greenColor()
@@ -171,8 +171,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                
                 
             }))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+          //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset()))
+          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
 
            // reset()
         }
@@ -184,35 +184,47 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
 
-            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
-            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
-                textfield.placeholder = "Enter Name"
-            })
-
-            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-                (alert: UIAlertAction!) in
-                if let textField = ac.textFields!.first as UITextField!{
-                    if textField.text == "" {
-                        textField.text = "nil"
-                    }
-                    //New name is entered. When "okay" is pressed, newName is set to the entered name. A new gameSave object is created using the newName. This is then added to the gameSaves array. activeSave is then set to that new game. The cell is marked as used, and then saveGame is called to save the new data to app documents. The collectionview and clicked cell then reset.
-                    let newName = textField.text!
-                    let gameSave = GameSave(name: newName, progress: 3)
-                    self.appendGameSaves(gameSave)
-                    self.activeSave = gameSave
-                    activeCell?.tag = 0
-                    self.saveGame()
-                    
-                    collectionView.reloadData()
-                    reset()
-                    //Passing our active save to the GameSlotsViewController by calling the pressedCell closure.
-                    self.pressedCell(save: self.activeSave)
-                }
-            }))
+//            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
+//            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
+//                textfield.placeholder = "Enter Name"
+//            })
+//
+//            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+//                (alert: UIAlertAction!) in
+//                if let textField = ac.textFields!.first as UITextField!{
+//                    if textField.text == "" {
+//                        textField.text = "nil"
+//                    }
+//                    //New name is entered. When "okay" is pressed, newName is set to the entered name. A new gameSave object is created using the newName. This is then added to the gameSaves array. activeSave is then set to that new game. The cell is marked as used, and then saveGame is called to save the new data to app documents. The collectionview and clicked cell then reset.
+//                    let newName = textField.text!
+//                    let gameSave = GameSave(name: newName, progress: 3)
+//                    self.appendGameSaves(gameSave)
+//                    self.activeSave = gameSave
+//                    activeCell?.tag = 0
+//                    self.saveGame()
+//                    
+//                    collectionView.reloadData()
+//                    reset()
+//                    //Passing our active save to the GameSlotsViewController by calling the pressedCell closure.
+//                    self.pressedCell(save: self.activeSave)
+//                }
+//            }))
             
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-
+          //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+            let dialog = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
+                       okButtonHandler: { alertView in
+                        alertView.dismiss()
+                },
+                       cancelButtonHandler: { alertView in
+                        reset()
+                        print("yay?")
+                        alertView.dismiss()
+                }
+            )
+            
+            dialog.addTextField("Doot", placeHolder: "Enter Name")
+            dialog.show()
         }
 //----SCENARIO 3----
         if tagID == 1 && activeCell?.tag == 0 {
@@ -229,8 +241,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     self.activeSave = self.gameSaves[currentCellPos]
                 }
             ))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+           // ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
+          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
         }
 //----SCENARIO 4----
         if tagID == 1 && activeCell?.tag == 1 {

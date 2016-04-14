@@ -17,8 +17,8 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var background: UIImageView!
-    var pageTitle = String!()
-    var pageLabel = String!()
+    var pageTitle: String?
+    var pageLabel: String?
     var tagID: Int!
     
     var selectedSave: GameSave?
@@ -41,7 +41,7 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         style.lineSpacing = 3
         style.alignment = NSTextAlignment.Center
         let attributes = [NSParagraphStyleAttributeName : style]
-        collectionLabel.attributedText = NSAttributedString(string: pageLabel, attributes:attributes)
+        collectionLabel.attributedText = NSAttributedString(string: pageLabel!, attributes:attributes)
         
         background.image = gif
         
