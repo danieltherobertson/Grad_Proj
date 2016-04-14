@@ -20,8 +20,18 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     var activeSave: GameSave!
     
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        gamesView.frame = self.bounds
+        
+    }
+//-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
+    // MARK: Initialization
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 300, height: 100)
         
@@ -29,18 +39,11 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         gamesView.translatesAutoresizingMaskIntoConstraints = false
         gamesView.dataSource = self
         gamesView.delegate = self
-
+        
         let nib = UINib(nibName: "gameCellNib", bundle: nil)
         gamesView.registerNib(nib, forCellWithReuseIdentifier: "gameCell")
         gamesView.backgroundColor = UIColor.clearColor()
         self.addSubview(gamesView)
-        
-        
-    }
-//-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
-    // MARK: Initialization
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         
         //Load any existing gameSave types from gameSaves
         loadGame()
@@ -148,33 +151,58 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
             
-            let ac = UIAlertController(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-               
-                self.gameSaves.removeAtIndex(indexPath.row)
-                activeCell?.tag = 1
-                
-                
-                //resets the cell's border and background colour. Enables user interaction again
-                reset()
-                
-                //rewrite gameSaves to app documents to save the change
-                self.saveGame()
-                
-                //reloads gameSaves, now one game shorter, and
-                self.loadGame()
-                
-                //reloads the data for the cells to refresh, since there is no one less saved game
-                self.gamesView.reloadData()
-                
-
-               
-                
-            }))
-          //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset()))
-          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-
-           // reset()
+//            let ac = UIAlertController(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+//               
+//                self.gameSaves.removeAtIndex(indexPath.row)
+//                activeCell?.tag = 1
+//                
+//                
+//                //resets the cell's border and background colour. Enables user interaction again
+//                reset()
+//                
+//                //rewrite gameSaves to app documents to save the change
+//                self.saveGame()
+//                
+//                //reloads gameSaves, now one game shorter, and
+//                self.loadGame()
+//                
+//                //reloads the data for the cells to refresh, since there is no one less saved game
+//                self.gamesView.reloadData()
+//                
+//
+//               
+//                
+//            }))
+//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+//            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+            
+            let dialog = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
+                okButtonHandler: { alertView in
+                    self.gameSaves.removeAtIndex(indexPath.row)
+                    activeCell?.tag = 1
+                    
+                    
+                    //resets the cell's border and background colour. Enables user interaction again
+                    reset()
+                    
+                    //rewrite gameSaves to app documents to save the change
+                    self.saveGame()
+                    
+                    //reloads gameSaves, now one game shorter, and
+                    self.loadGame()
+                    
+                    //reloads the data for the cells to refresh, since there is no one less saved game
+                    self.gamesView.reloadData()
+                    alertView.dismiss()
+                },
+                cancelButtonHandler: { alertView in
+                    reset()
+                    alertView.dismiss()
+                }
+            )
+            
+            dialog.show()
         }
 //----SCENARIO 2----
         //If segue is New Game and the clicked cell is not populated...
@@ -212,9 +240,9 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             
           //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
           //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
+
             let dialog = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
                        okButtonHandler: { alertView in
-                        alertView.dismiss()
                 },
                        cancelButtonHandler: { alertView in
                         reset()
@@ -224,8 +252,25 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             )
             
             dialog.addTextField("Doot", placeHolder: "Enter Name")
+            dialog.okHandler = { alertView in
+                let text = dialog.getTextFieldWithIdentifier("Doot")
+                let newName = text!.text!
+                let gameSave = GameSave(name: newName, progress: 0)
+                self.appendGameSaves(gameSave)
+                self.activeSave = gameSave
+                activeCell!.tag = 0
+                print(activeCell!.tag)
+                activeCell!.backgroundColor = UIColor.purpleColor()
+                self.saveGame()
+                collectionView.reloadData()
+                viewReset()
+                self.pressedCell(save: self.activeSave)
+                alertView.dismiss()
+            }
+
             dialog.show()
-        }
+            
+                    }
 //----SCENARIO 3----
         if tagID == 1 && activeCell?.tag == 0 {
             activeCell?.layer.borderWidth = 2.0
@@ -254,21 +299,30 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
 //            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
 //            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
             
-            let alertView = SwiftAlertView(title: "Error", message: "", delegate: self, cancelButtonTitle: "Okay")
-             alertView.messageLabel.attributedText = NSAttributedString(string: "No save file detected. Please select a different slot.", attributes:attributes)
-            alertView.titleLabel.textColor = UIColor.blackColor()
+//            let alertView = SwiftAlertView(title: "Error", message: "", delegate: self, cancelButtonTitle: "Okay")
+//             alertView.messageLabel.attributedText = NSAttributedString(string: "No save file detected. Please select a different slot.", attributes:attributes)
+//            alertView.titleLabel.textColor = UIColor.blackColor()
+//            
+//            alertView.titleLabel.font = UIFont(name: "KemcoPixelBold", size: 20)
+//            alertView.messageLabel.textColor = UIColor.blackColor()
+//            alertView.messageLabel.font = UIFont(name: "KemcoPixelBold", size: 15)
+//            alertView.backgroundColor = UIColor.greenColor()
+//            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+//            alertView.buttonAtIndex(0)?.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 20)
+//
+//            alertView.show()
             
-            alertView.titleLabel.font = UIFont(name: "KemcoPixelBold", size: 20)
-            alertView.messageLabel.textColor = UIColor.blackColor()
-            alertView.messageLabel.font = UIFont(name: "KemcoPixelBold", size: 15)
-            alertView.backgroundColor = UIColor.greenColor()
-            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-            alertView.buttonAtIndex(0)?.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 20)
-
-            alertView.show()
+            let dialog = ZAlertView(title: "Error", message: "", closeButtonText: "Okay", closeButtonHandler: { alertView in
+                viewReset()
+                alertView.dismiss()
+            })
+            
+            dialog.show()
             
 
         }
+        
+        
     }
 //-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -311,6 +365,11 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             }
         }
     }
+    
+//    func winning() {
+//        let text = dialog.getTextFieldWithIdentifier("Doot")
+//        print(text?.text)
+//    }
     
     
     

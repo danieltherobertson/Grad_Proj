@@ -87,7 +87,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
     //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(300, 100)
+        return CGSizeMake(90, 90)
     }
     
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
