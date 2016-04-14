@@ -117,7 +117,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     }
 //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(300, 100)
+        return CGSizeMake(280, 100)
     }
 
 //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
@@ -142,8 +142,8 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
         ZAlertView.alertTitleFont = UIFont(name: "KemcoPixelBold", size: 15)
         ZAlertView.messageFont = UIFont(name: "KemcoPixelBold", size: 15)
         ZAlertView.buttonFont = UIFont(name: "KemcoPixelBold", size: 15)
-        ZAlertView.titleColor = UIColor.blackColor()
-        ZAlertView.messageColor = UIColor.blackColor()
+        ZAlertView.titleColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        ZAlertView.messageColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
         ZAlertView.cancelTextColor = UIColor.redColor()
         ZAlertView.normalTextColor = UIColor.blackColor()
         
@@ -205,7 +205,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     alertView.dismiss()
                 }
             )
-
             dialogue.show()
         }
 //----SCENARIO 2----
@@ -254,7 +253,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                         alertView.dismiss()
                 }
             )
-            
+            dialogue.lbMessage.textAlignment = .Center
             dialogue.addTextField("Doot", placeHolder: "Enter Name")
             dialogue.okHandler = { alertView in
                 let text = dialogue.getTextFieldWithIdentifier("Doot")

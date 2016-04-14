@@ -246,7 +246,7 @@ public class ZAlertView: UIViewController {
         self.lbTitle = UILabel()
         self.lbTitle.textAlignment = NSTextAlignment.Center
         self.lbTitle.textColor = ZAlertView.titleColor
-        self.lbTitle.font = UIFont.boldSystemFontOfSize(16)
+        self.lbTitle.font = UIFont(name: "KemcoPixelBold", size: 15)!
         self.alertView.addSubview(lbTitle)
         
         // Setup message
@@ -254,7 +254,8 @@ public class ZAlertView: UIViewController {
         self.lbMessage.textAlignment = NSTextAlignment.Center
         self.lbMessage.numberOfLines = 0
         self.lbMessage.textColor = ZAlertView.messageColor
-        self.lbMessage.font = UIFont.systemFontOfSize(14)
+        self.lbMessage.font = UIFont(name: "KemcoPixelBold", size: 15)!
+        self.lbMessage.textAlignment = .Center
         self.alertView.addSubview(lbMessage)
         
         // Setup OK Button
@@ -264,7 +265,7 @@ public class ZAlertView: UIViewController {
         } else {
             self.btnOk.setTitle("OK", forState: UIControlState.Normal)
         }
-        self.btnOk.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
+        self.btnOk.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)!
         self.alertView.addSubview(btnOk)
         
         // Setup Cancel Button
@@ -274,7 +275,7 @@ public class ZAlertView: UIViewController {
         } else {
             self.btnCancel.setTitle("Cancel", forState: UIControlState.Normal)
         }
-        self.btnCancel.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
+        self.btnCancel.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)!
         self.alertView.addSubview(btnCancel)
         
         // Setup Close button
@@ -284,22 +285,23 @@ public class ZAlertView: UIViewController {
         } else {
             self.btnClose.setTitle("Close", forState: UIControlState.Normal)
         }
-        self.btnClose.titleLabel?.font = UIFont.boldSystemFontOfSize(14)
+        self.btnClose.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)!
         self.alertView.addSubview(btnClose)
         
         // Setup font
         if let titleFont = ZAlertView.alertTitleFont {
-            lbTitle.font = titleFont
+            lbTitle.font = UIFont(name: "KemcoPixelBold", size: 15)
         }
         
         if let messageFont = ZAlertView.messageFont {
-            lbMessage.font = messageFont
+            lbMessage.font = UIFont(name: "KemcoPixelBold", size: 15)
+            lbMessage.textAlignment = .Center
         }
         
         if let buttonFont = ZAlertView.buttonFont {
-            btnOk.titleLabel?.font = buttonFont
-            btnCancel.titleLabel?.font = buttonFont
-            btnCancel.titleLabel?.font = buttonFont
+            btnOk.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
+            btnCancel.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
+            btnCancel.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)
         }
     }
     
@@ -332,7 +334,9 @@ public class ZAlertView: UIViewController {
         if let message = self.message {
             hasContent = true
             self.height += ZAlertView.padding
+            lbMessage.textAlignment = .Center
             lbMessage.text = message
+            
             
 //---------------------------------------------------------------SET LINE HEIGHT FOR ALL MESSAGES---------------------------------------------------------------
             lbMessage.setLineHeight(3)
@@ -348,6 +352,7 @@ public class ZAlertView: UIViewController {
             for textField in textFields {
                 self.height += ZAlertView.innerPadding
                 textField.frame = CGRectMake(ZAlertView.padding, height, width - ZAlertView.padding * 2, ZAlertView.textFieldHeight)
+                textField.textAlignment = .Center
                 self.height += ZAlertView.textFieldHeight
             }
         }
@@ -455,7 +460,7 @@ public class ZAlertView: UIViewController {
         textField.leftViewMode = UITextFieldViewMode.Always
         textField.rightViewMode = UITextFieldViewMode.Always
         textField.keyboardType = keyboardType
-        textField.font = font
+        textField.font = UIFont(name: "KemcoPixelBold", size: 15)
         textField.placeholder = placeHolder
         textField.layer.cornerRadius = ZAlertView.cornerRadius
         textField.layer.borderWidth = 1
@@ -472,19 +477,19 @@ public class ZAlertView: UIViewController {
     }
     
     public func addButton(title: String, touchHandler: TouchHandler) {
-        addButton(title, font: ZAlertView.messageFont ?? UIFont.boldSystemFontOfSize(14), touchHandler: touchHandler)
+        addButton(title, font: UIFont(name: "KemcoPixelBold", size: 15)!, touchHandler: touchHandler)
     }
     
     public func addButton(title: String, color: UIColor?, titleColor: UIColor?, touchHandler: TouchHandler) {
-        addButton(title, font: ZAlertView.messageFont ?? UIFont.boldSystemFontOfSize(14), color: color, titleColor: titleColor, touchHandler: touchHandler)
+        addButton(title, font: UIFont(name: "KemcoPixelBold", size: 15)!, color: color, titleColor: titleColor, touchHandler: touchHandler)
     }
     
     public func addButton(title: String, hexColor: String, hexTitleColor: String, touchHandler: TouchHandler) {
-        addButton(title, font: ZAlertView.messageFont ?? UIFont.boldSystemFontOfSize(14), color: UIColor.color(hexColor), titleColor: UIColor.color(hexTitleColor), touchHandler: touchHandler)
+        addButton(title, font: UIFont(name: "KemcoPixelBold", size: 15)!, color: UIColor.color(hexColor), titleColor: UIColor.color(hexTitleColor), touchHandler: touchHandler)
     }
     
     public func addButton(title: String, font: UIFont, touchHandler: TouchHandler) {
-        addButton(title, font: font, color: nil, titleColor: nil, touchHandler: touchHandler)
+        addButton(title, font: UIFont(name: "KemcoPixelBold", size: 15)!, color: nil, titleColor: nil, touchHandler: touchHandler)
     }
     
     public func addButton(title: String, font: UIFont, color: UIColor?, titleColor: UIColor?, touchHandler: TouchHandler) {
@@ -492,7 +497,7 @@ public class ZAlertView: UIViewController {
         button.setTitle(title, forState: .Normal)
         button.color = color
         button.titleColor = titleColor
-        button.titleLabel?.font = font
+        button.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 15)!
         button.addTarget(self, action: Selector("buttonDidTouch:"), forControlEvents: UIControlEvents.TouchUpInside)
         buttons.append(button)
         self.alertView.addSubview(button)

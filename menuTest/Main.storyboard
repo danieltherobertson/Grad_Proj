@@ -309,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
-                                <rect key="frame" x="20" y="20" width="560" height="20"/>
+                                <rect key="frame" x="20" y="55" width="560" height="20"/>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -352,8 +352,8 @@
                             <constraint firstItem="p7E-6W-Tze" firstAttribute="bottom" secondItem="oFS-r1-4ql" secondAttribute="top" id="5Tw-ke-esw"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="7IB-xi-aH2"/>
                             <constraint firstAttribute="trailing" secondItem="p7E-6W-Tze" secondAttribute="trailing" id="BEv-ko-O5I"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="70" id="CV5-dP-uiK"/>
-                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" id="E2D-hO-Clb"/>
+                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="35" id="CV5-dP-uiK"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="35" id="E2D-hO-Clb"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="HTl-uo-ZkX"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="p7E-6W-Tze" secondAttribute="bottom" constant="-70" id="Sgu-sD-NCH"/>
                             <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UDj-70-dYx"/>
@@ -363,7 +363,7 @@
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="trailing" secondItem="4Vh-9y-FiR" secondAttribute="trailing" id="gf0-Hc-INg"/>
                             <constraint firstAttribute="bottom" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" symbolic="YES" id="gtt-aj-0o3"/>
                             <constraint firstItem="4Vh-9y-FiR" firstAttribute="centerX" secondItem="flX-Ps-bJE" secondAttribute="centerX" id="hxU-UC-7WG"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-40" id="rfE-lK-e7H"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-75" id="rfE-lK-e7H"/>
                             <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="8" id="yxW-Ub-erD"/>
                         </constraints>
                     </view>

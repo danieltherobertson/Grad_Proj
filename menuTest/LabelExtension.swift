@@ -19,8 +19,10 @@ extension UILabel {
             let style = NSMutableParagraphStyle()
             
             style.lineSpacing = lineHeight
+            style.alignment = .Center
             attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, text.characters.count))
             self.attributedText = attributeString
         }
     }
+    
 }
