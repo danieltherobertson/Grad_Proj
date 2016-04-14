@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SwiftAlertViewDelegate {
+class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var gamesView: UICollectionView!
     var tagID: Int!
@@ -155,32 +155,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
             
-//            let ac = UIAlertController(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", preferredStyle: .Alert)
-//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-//               
-//                self.gameSaves.removeAtIndex(indexPath.row)
-//                activeCell?.tag = 1
-//                
-//                
-//                //resets the cell's border and background colour. Enables user interaction again
-//                reset()
-//                
-//                //rewrite gameSaves to app documents to save the change
-//                self.saveGame()
-//                
-//                //reloads gameSaves, now one game shorter, and
-//                self.loadGame()
-//                
-//                //reloads the data for the cells to refresh, since there is no one less saved game
-//                self.gamesView.reloadData()
-//                
-//
-//               
-//                
-//            }))
-//            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-//            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-            
             let dialogue = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
                 okButtonHandler: { alertView in
                     self.gameSaves.removeAtIndex(indexPath.row)
@@ -214,35 +188,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
-
-//            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
-//            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
-//                textfield.placeholder = "Enter Name"
-//            })
-//
-//            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-//                (alert: UIAlertAction!) in
-//                if let textField = ac.textFields!.first as UITextField!{
-//                    if textField.text == "" {
-//                        textField.text = "nil"
-//                    }
-//                    //New name is entered. When "okay" is pressed, newName is set to the entered name. A new gameSave object is created using the newName. This is then added to the gameSaves array. activeSave is then set to that new game. The cell is marked as used, and then saveGame is called to save the new data to app documents. The collectionview and clicked cell then reset.
-//                    let newName = textField.text!
-//                    let gameSave = GameSave(name: newName, progress: 3)
-//                    self.appendGameSaves(gameSave)
-//                    self.activeSave = gameSave
-//                    activeCell?.tag = 0
-//                    self.saveGame()
-//                    
-//                    collectionView.reloadData()
-//                    reset()
-//                    //Passing our active save to the GameSlotsViewController by calling the pressedCell closure.
-//                    self.pressedCell(save: self.activeSave)
-//                }
-//            }))
-            
-          //  ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
 
             let dialogue = ZAlertView(title: "Enter Your Name", message: "Please enter your name to start a new game!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
                        okButtonHandler: { alertView in
@@ -279,18 +224,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
-
-//            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
-//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: {
-//                (alert: UIAlertAction!) in
-//                
-//                    //When Okay is clicked, the current cell number is assigned to currentCellPos
-//                    let currentCellPos = indexPath.row
-//                    self.activeSave = self.gameSaves[currentCellPos]
-//                }
-//            ))
-           // ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-          //  window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
             
             let dialogue = ZAlertView(title: "Confirm Load", message: "Are you sure you want to load this game?", isOkButtonLeft: false, okButtonText: "Yes", cancelButtonText: "Cancel",
                   okButtonHandler: { alertView in
@@ -311,23 +244,6 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.layer.borderWidth = 2.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             collectionView.userInteractionEnabled = false
-            
-//            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
-//            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
-//            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-            
-//            let alertView = SwiftAlertView(title: "Error", message: "", delegate: self, cancelButtonTitle: "Okay")
-//             alertView.messageLabel.attributedText = NSAttributedString(string: "No save file detected. Please select a different slot.", attributes:attributes)
-//            alertView.titleLabel.textColor = UIColor.blackColor()
-//            
-//            alertView.titleLabel.font = UIFont(name: "KemcoPixelBold", size: 20)
-//            alertView.messageLabel.textColor = UIColor.blackColor()
-//            alertView.messageLabel.font = UIFont(name: "KemcoPixelBold", size: 15)
-//            alertView.backgroundColor = UIColor.greenColor()
-//            alertView.buttonAtIndex(0)?.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-//            alertView.buttonAtIndex(0)?.titleLabel?.font = UIFont(name: "KemcoPixelBold", size: 20)
-//
-//            alertView.show()
             
             let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 viewReset()

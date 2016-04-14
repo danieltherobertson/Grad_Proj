@@ -26,7 +26,6 @@
 		653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F6F141CBFD582008EEF21 /* LabelExtension.swift */; };
 		654B417D1CBBF4B100D9953C /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 654B417C1CBBF4B100D9953C /* Levels.json */; };
 		6560C81B1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */; };
-		657852E61CBE9AC90019EF20 /* SwiftAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657852E51CBE9AC90019EF20 /* SwiftAlertView.swift */; };
 		65A4CB961C5A51A400BC5EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */; };
 		65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */; };
 		65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9E1C5A51A500BC5EEB /* LaunchScreen.storyboard */; };
@@ -83,7 +82,6 @@
 		653F6F141CBFD582008EEF21 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		654B417C1CBBF4B100D9953C /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Operator_menuAudio2.mp3; sourceTree = "<group>"; };
-		657852E51CBE9AC90019EF20 /* SwiftAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftAlertView.swift; sourceTree = "<group>"; };
 		65A4CB921C5A51A400BC5EEB /* menuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			children = (
 				651DA27E1CBF846A0009FA70 /* ZAlertView */,
 				6506D8331CB5BB1B00C0D188 /* UIImage+Gif.swift */,
-				657852E51CBE9AC90019EF20 /* SwiftAlertView.swift */,
 			);
 			name = "Frameworks 🌐";
 			sourceTree = "<group>";
@@ -425,7 +422,6 @@
 				653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */,
 				65CECF731C9EF78500F563BF /* GameSave.swift in Sources */,
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
-				657852E61CBE9AC90019EF20 /* SwiftAlertView.swift in Sources */,
 				65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */,
 				652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */,
 				65ACF7621CB5D6390042FBB7 /* Level.swift in Sources */,
