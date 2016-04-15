@@ -11,4 +11,5 @@ import UIKit
 class progressCell: UICollectionViewCell {
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var levelNumber: UILabel!
+    @IBOutlet weak var levelImage: UIImageView!
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Kemco_Pixel_Bold.ttf">
@@ -14,14 +15,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CBm-Sk-Ilq" customClass="progressCell" customModule="menuTest" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
-                        <rect key="frame" x="0.0" y="74" width="90" height="16"/>
+                        <rect key="frame" x="85" y="64" width="90" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="oSV-Zi-bQ0"/>
                         </constraints>
@@ -30,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeW-nY-gVV">
-                        <rect key="frame" x="0.0" y="25" width="90" height="16"/>
+                        <rect key="frame" x="85" y="15" width="90" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="zDR-EC-UV6"/>
                         </constraints>
@@ -38,24 +39,32 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-DU-1pz">
+                        <rect key="frame" x="8" y="8" width="69" height="74"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="J9N-Ei-X2N"/>
-                <constraint firstAttribute="bottom" secondItem="2ud-2a-6Pf" secondAttribute="bottom" id="OQv-6x-9FR"/>
+                <constraint firstItem="JeA-DU-1pz" firstAttribute="top" secondItem="CBm-Sk-Ilq" secondAttribute="topMargin" id="0y1-LB-JG9"/>
+                <constraint firstItem="JeA-DU-1pz" firstAttribute="bottom" secondItem="CBm-Sk-Ilq" secondAttribute="bottomMargin" id="HnS-ii-xdo"/>
+                <constraint firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" constant="25" id="J9N-Ei-X2N"/>
+                <constraint firstAttribute="bottom" secondItem="2ud-2a-6Pf" secondAttribute="bottom" constant="10" id="OQv-6x-9FR"/>
+                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="JeA-DU-1pz" secondAttribute="trailing" constant="8" symbolic="YES" id="QS9-fA-toJ"/>
                 <constraint firstItem="2ud-2a-6Pf" firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="RzK-m4-dKx"/>
                 <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="yeW-nY-gVV" secondAttribute="leading" id="bEu-66-n2g"/>
+                <constraint firstItem="JeA-DU-1pz" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leadingMargin" id="loa-4V-LeB"/>
                 <constraint firstItem="2ud-2a-6Pf" firstAttribute="top" secondItem="yeW-nY-gVV" secondAttribute="bottom" constant="33" id="nah-a9-FFZ"/>
-                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leading" id="ntv-fC-bsg"/>
+                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leading" constant="85" id="ntv-fC-bsg"/>
             </constraints>
-            <size key="customSize" width="90" height="90"/>
+            <size key="customSize" width="200" height="90"/>
             <connections>
+                <outlet property="levelImage" destination="JeA-DU-1pz" id="ecW-aG-06O"/>
                 <outlet property="levelName" destination="yeW-nY-gVV" id="msH-cc-kr6"/>
                 <outlet property="levelNumber" destination="2ud-2a-6Pf" id="fQo-u8-0tY"/>
             </connections>
-            <point key="canvasLocation" x="450" y="301"/>
+            <point key="canvasLocation" x="505" y="301"/>
         </collectionViewCell>
     </objects>
 </document>

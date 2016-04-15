@@ -59,19 +59,19 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 cell.levelName.text = levelName as? String
                 let levelNumber = gameSlot.valueForKey("number")!
                 print(levelNumber)
-                cell.levelNumber.text = levelNumber as! String
+                cell.levelNumber.text = levelNumber as? String
                 if indexPath.row < playerProgress {
-                    cell.layer.borderWidth = 0
-                    cell.userInteractionEnabled = true
-                    cell.backgroundColor = UIColor.purpleColor()
+                    cell.userInteractionEnabled = false
+                    cell.levelImage.image = UIImage(named: "tick")
                 } else if indexPath.row == playerProgress {
                     cell.layer.borderWidth = 2.0
-                    cell.layer.borderColor = UIColor.greenColor().CGColor
+                    cell.layer.borderColor = UIColor(red: 1/255, green: 157/55, blue: 1/255, alpha: 1).CGColor
+                    cell.levelImage.image = UIImage(named: "")
                     cell.userInteractionEnabled = true
                 } else if indexPath.row > playerProgress {
-                    cell.layer.borderWidth = 2.0
+                    cell.levelImage.image = UIImage(named: "padlock")
+                    cell.layer.borderWidth = 2
                     cell.layer.borderColor = UIColor.redColor().CGColor
-                    cell.backgroundColor = UIColor.redColor()
                     cell.userInteractionEnabled = false
                 }
                 cell.levelName.textColor = UIColor.blackColor()
