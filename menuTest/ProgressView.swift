@@ -14,6 +14,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var gameSaves = Array<GameSave>()
     var viewedSave: GameSave!
     var levelsData: [NSDictionary]!
+    var toInt:Int?
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -58,15 +59,20 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 print(levelName)
                 cell.levelName.text = levelName as? String
                 let levelNumber = gameSlot.valueForKey("number")!
+                toInt = Int(levelNumber as! String)
+                let intAdd = toInt!+1
+                let toString = String(intAdd)
                 print(levelNumber)
-                cell.levelNumber.text = levelNumber as? String
+                print(toString)
+                cell.levelNumber.text = toString
                 if indexPath.row < playerProgress {
                     cell.userInteractionEnabled = false
+                    cell.layer.borderWidth = 0
                     cell.levelImage.image = UIImage(named: "tick")
                 } else if indexPath.row == playerProgress {
                     cell.layer.borderWidth = 2.0
-                    cell.layer.borderColor = UIColor(red: 1/255, green: 157/55, blue: 1/255, alpha: 1).CGColor
-                    cell.levelImage.image = UIImage(named: "")
+                    cell.layer.borderColor = UIColor.whiteColor().CGColor
+                    cell.levelImage.image = nil
                     cell.userInteractionEnabled = true
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "padlock")

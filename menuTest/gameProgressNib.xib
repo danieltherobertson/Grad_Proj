@@ -21,42 +21,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
-                        <rect key="frame" x="85" y="64" width="90" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="oSV-Zi-bQ0"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeW-nY-gVV">
-                        <rect key="frame" x="85" y="15" width="90" height="16"/>
+                        <rect key="frame" x="87" y="56" width="113" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="zDR-EC-UV6"/>
+                            <constraint firstAttribute="width" constant="113" id="BKW-bL-fU2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-DU-1pz">
                         <rect key="frame" x="8" y="8" width="69" height="74"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
+                        <rect key="frame" x="87" y="18" width="113" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="LHg-3J-Q5B"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="JeA-DU-1pz" firstAttribute="top" secondItem="CBm-Sk-Ilq" secondAttribute="topMargin" id="0y1-LB-JG9"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="top" secondItem="CBm-Sk-Ilq" secondAttribute="top" constant="18" id="33o-tL-Iso"/>
                 <constraint firstItem="JeA-DU-1pz" firstAttribute="bottom" secondItem="CBm-Sk-Ilq" secondAttribute="bottomMargin" id="HnS-ii-xdo"/>
-                <constraint firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" constant="25" id="J9N-Ei-X2N"/>
-                <constraint firstAttribute="bottom" secondItem="2ud-2a-6Pf" secondAttribute="bottom" constant="10" id="OQv-6x-9FR"/>
-                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="JeA-DU-1pz" secondAttribute="trailing" constant="8" symbolic="YES" id="QS9-fA-toJ"/>
-                <constraint firstItem="2ud-2a-6Pf" firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="RzK-m4-dKx"/>
-                <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="yeW-nY-gVV" secondAttribute="leading" id="bEu-66-n2g"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="N6i-wa-WkT"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="yeW-nY-gVV" secondAttribute="leading" id="b8m-3S-TD7"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="JeA-DU-1pz" secondAttribute="trailing" constant="10" id="h9S-pW-rYZ"/>
+                <constraint firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="iNq-MT-rz8"/>
+                <constraint firstItem="yeW-nY-gVV" firstAttribute="top" secondItem="2ud-2a-6Pf" secondAttribute="bottom" constant="22" id="iyV-7w-Rbi"/>
                 <constraint firstItem="JeA-DU-1pz" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leadingMargin" id="loa-4V-LeB"/>
-                <constraint firstItem="2ud-2a-6Pf" firstAttribute="top" secondItem="yeW-nY-gVV" secondAttribute="bottom" constant="33" id="nah-a9-FFZ"/>
-                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leading" constant="85" id="ntv-fC-bsg"/>
+                <constraint firstAttribute="bottom" secondItem="yeW-nY-gVV" secondAttribute="bottom" constant="18" id="oWv-vO-XKz"/>
             </constraints>
             <size key="customSize" width="200" height="90"/>
             <connections>
