@@ -66,7 +66,7 @@ class ProgressViewController: UIViewController {
             } catch {}
         }
         //Returns our juicy data in a lovely array of dictionaries
-         print("doot doot\(results)")
+        print("doot doot\(results)")
         print("TRYING \(results[0])")
         print("TRYING AGAIN \(results[2])")
         print("NUMBER OF LEVELS IS \(results.count)")
@@ -74,6 +74,19 @@ class ProgressViewController: UIViewController {
        
     }
     
+    @IBAction func exitButton(sender: AnyObject) {
+        let dialogue = ZAlertView(title: "Return to main menu?", message: "Are you sure you want to return to the main menu? All progress will be saved", isOkButtonLeft: true, okButtonText: "Canel", cancelButtonText: "Yes",
+              okButtonHandler: { alertView in
+                alertView.dismiss()
+            },
+              cancelButtonHandler: { alertView in
+                self.navigationController?.popToRootViewControllerAnimated(true)
+                alertView.dismiss()
+            }
+        )
+        dialogue.allowTouchOutsideToDismiss = false
+        dialogue.show()
+    }
     
     
 
