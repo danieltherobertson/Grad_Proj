@@ -297,7 +297,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             if fileManager.fileExistsAtPath(path) {
                 let data = NSData(contentsOfFile: path)!
                 gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
-                print("Saves: \(gameSaves)")
+                //print("Saves: \(gameSaves)")
             }
         }
     }

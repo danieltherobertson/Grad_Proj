@@ -17,7 +17,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     let gameSave = GameSave(name: "Dan", progress: 5)
     let gameSave2 = GameSave(name: "Joe", progress: 2)
     
-    var levelsData: [NSDictionary]?
+    var levelsData: [NSDictionary]!
     
     //var inUseCells = Array<UICollectionViewCell>()
     // var notInUse = Array<UICollectionViewCell>()
@@ -58,14 +58,16 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 
             
             //Get saved games and populate cells
-            if indexPath.row < gameSaves.count {
-                let gameSlot = gameSaves[indexPath.row]
-                _ = gameSlot.name
-                //cell.gameName.text = "Name: \(gameNameText!)"
-                _ = gameSlot.progress
-               // cell.gameLevel.text = "Progress: \(gameLevelText)"
-               // cell.gameName.textColor = UIColor.blackColor()
-               // cell.gameLevel.textColor = UIColor.blackColor()
+            if indexPath.row < levelsData!.count {
+                let gameSlot = levelsData![indexPath.row]
+                let levelName = gameSlot.valueForKey("name")!
+                print(levelName)
+                cell.levelName.text = levelName as! String
+                let levelNumber = gameSlot.valueForKey("number")!
+                print(levelNumber)
+                cell.levelNumber.text = levelNumber as! String
+                cell.levelName.textColor = UIColor.blackColor()
+                cell.levelNumber.textColor = UIColor.blackColor()
                // cell.tag = 0
                 // cell.inUse = true
                 // inUseCells.append(cell)
@@ -73,10 +75,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 //                cell.userInteractionEnabled = false
                 //Unpopulated cells are drawn like...
             } else {
-//                cell.gameName.textColor = UIColor.blackColor()
-//                cell.gameLevel.textColor = UIColor.blackColor()
-//                cell.gameName.text = "[Empty]"
-//                cell.gameLevel.text = "[Empty]"
+                cell.levelName.textColor = UIColor.blackColor()
+                cell.levelNumber.textColor = UIColor.blackColor()
+                cell.levelName.text = "[Empty]"
+                cell.levelNumber.text = "[Empty]"
 //                cell.tag = 1
                 // cell.inUse = false
                 // notInUse.append(cell)
@@ -234,7 +236,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     func loadLevels(levels: [NSDictionary]) {
         levelsData = levels
         
-        print("printing levelss \(levelsData)")
+       // print("printing levelss \(levelsData)")
     }
     
    

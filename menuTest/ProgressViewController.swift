@@ -66,10 +66,10 @@ class ProgressViewController: UIViewController {
             } catch {}
         }
         //Returns our juicy data in a lovely array of dictionaries
-        print("doot doot\(results)")
-        print("TRYING \(results[0])")
-        print("TRYING AGAIN \(results[2])")
-        print("NUMBER OF LEVELS IS \(results.count)")
+//        print("doot doot\(results)")
+//        print("TRYING \(results[0])")
+//        print("TRYING AGAIN \(results[2])")
+//        print("NUMBER OF LEVELS IS \(results.count)")
         return results
        
     }

@@ -7,6 +7,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Kemco_Pixel_Bold.ttf">
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -19,31 +20,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-2a-6Pf">
                         <rect key="frame" x="0.0" y="74" width="90" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="oSV-Zi-bQ0"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bn9-gp-Nts">
-                        <rect key="frame" x="0.0" y="-1" width="90" height="59"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeW-nY-gVV">
+                        <rect key="frame" x="0.0" y="25" width="90" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="59" id="dNC-8Q-6f4"/>
+                            <constraint firstAttribute="height" constant="16" id="zDR-EC-UV6"/>
                         </constraints>
-                    </imageView>
+                        <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="Bn9-gp-Nts" secondAttribute="leading" id="La9-a9-o0W"/>
-                <constraint firstItem="Bn9-gp-Nts" firstAttribute="top" secondItem="CBm-Sk-Ilq" secondAttribute="top" constant="-1" id="Tie-GR-2PJ"/>
-                <constraint firstAttribute="bottom" secondItem="2ud-2a-6Pf" secondAttribute="bottom" id="YdV-5l-Bfo"/>
-                <constraint firstItem="Bn9-gp-Nts" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leading" id="bLu-VK-kSA"/>
-                <constraint firstItem="2ud-2a-6Pf" firstAttribute="centerX" secondItem="Bn9-gp-Nts" secondAttribute="centerX" id="feD-EU-p53"/>
-                <constraint firstItem="Bn9-gp-Nts" firstAttribute="centerX" secondItem="CBm-Sk-Ilq" secondAttribute="centerX" id="xjj-tt-wD6"/>
+                <constraint firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="J9N-Ei-X2N"/>
+                <constraint firstAttribute="bottom" secondItem="2ud-2a-6Pf" secondAttribute="bottom" id="OQv-6x-9FR"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="trailing" secondItem="yeW-nY-gVV" secondAttribute="trailing" id="RzK-m4-dKx"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="leading" secondItem="yeW-nY-gVV" secondAttribute="leading" id="bEu-66-n2g"/>
+                <constraint firstItem="2ud-2a-6Pf" firstAttribute="top" secondItem="yeW-nY-gVV" secondAttribute="bottom" constant="33" id="nah-a9-FFZ"/>
+                <constraint firstItem="yeW-nY-gVV" firstAttribute="leading" secondItem="CBm-Sk-Ilq" secondAttribute="leading" id="ntv-fC-bsg"/>
             </constraints>
             <size key="customSize" width="90" height="90"/>
+            <connections>
+                <outlet property="levelName" destination="yeW-nY-gVV" id="msH-cc-kr6"/>
+                <outlet property="levelNumber" destination="2ud-2a-6Pf" id="fQo-u8-0tY"/>
+            </connections>
             <point key="canvasLocation" x="450" y="301"/>
         </collectionViewCell>
     </objects>
