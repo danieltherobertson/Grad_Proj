@@ -120,9 +120,9 @@ class MenuViewController: UIViewController {
         buttonStyle(loadGame)
         buttonStyle(help)
         
-        menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
-        menuAudio.play()
-        menuAudio.numberOfLoops = 30
+       // menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
+       // menuAudio.play()
+       // menuAudio.numberOfLoops = 30
         
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)

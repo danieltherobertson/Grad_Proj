@@ -1,5 +1,5 @@
 //
-//  SlotsView.swift
+//  ProgressView.swift
 //  menuTest
 //
 //  Created by Daniel Robertson on 19/03/2016.
@@ -12,20 +12,14 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var levelsView: UICollectionView!
     var tagID: Int!
     var gameSaves = Array<GameSave>()
-    var saveOverwriteSlot: (() -> ())!
-    
-    let gameSave = GameSave(name: "Dan", progress: 5)
-    let gameSave2 = GameSave(name: "Joe", progress: 2)
-    
+    var viewedSave: GameSave!
     var levelsData: [NSDictionary]!
-    
-    //var inUseCells = Array<UICollectionViewCell>()
-    // var notInUse = Array<UICollectionViewCell>()
-    
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 300, height: 100)
+        layout.minimumInteritemSpacing = 200
+        layout.minimumLineSpacing = 30
         
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         // gamesView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +37,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         super.init(coder: aDecoder)
         
         //Load any existing gameSave types from gameSaves
-
+        
         
     }
     
@@ -55,17 +49,31 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("progressCell", forIndexPath: indexPath) as! progressCell
-
-            
+        let playerProgress = viewedSave.progress
+        print("WHAT IS THIS SHIT \(playerProgress), \(indexPath.row)")
             //Get saved games and populate cells
             if indexPath.row < levelsData!.count {
                 let gameSlot = levelsData![indexPath.row]
                 let levelName = gameSlot.valueForKey("name")!
                 print(levelName)
-                cell.levelName.text = levelName as! String
+                cell.levelName.text = levelName as? String
                 let levelNumber = gameSlot.valueForKey("number")!
                 print(levelNumber)
                 cell.levelNumber.text = levelNumber as! String
+                if indexPath.row < playerProgress {
+                    cell.layer.borderWidth = 0
+                    cell.userInteractionEnabled = true
+                    cell.backgroundColor = UIColor.purpleColor()
+                } else if indexPath.row == playerProgress {
+                    cell.layer.borderWidth = 2.0
+                    cell.layer.borderColor = UIColor.greenColor().CGColor
+                    cell.userInteractionEnabled = true
+                } else if indexPath.row > playerProgress {
+                    cell.layer.borderWidth = 2.0
+                    cell.layer.borderColor = UIColor.redColor().CGColor
+                    cell.backgroundColor = UIColor.redColor()
+                    cell.userInteractionEnabled = false
+                }
                 cell.levelName.textColor = UIColor.blackColor()
                 cell.levelNumber.textColor = UIColor.blackColor()
                // cell.tag = 0
@@ -89,7 +97,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
     //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(90, 90)
+        return CGSizeMake(200, 90)
     }
     
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------

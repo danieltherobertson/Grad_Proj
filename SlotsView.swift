@@ -204,7 +204,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             dialogue.okHandler = { alertView in
                 let text = dialogue.getTextFieldWithIdentifier("Doot")
                 let newName = text!.text!
-                let gameSave = GameSave(name: newName, progress: 0)
+                let gameSave = GameSave(name: newName, progress: 4)
                 self.appendGameSaves(gameSave)
                 self.activeSave = gameSave
                 activeCell!.tag = 0

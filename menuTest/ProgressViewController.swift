@@ -33,6 +33,9 @@ class ProgressViewController: UIViewController {
         
         playerProgress = currentSave.progress  
         // Do any additional setup after loading the view.
+        
+        
+        progressView.viewedSave = currentSave
     }
 
     override func didReceiveMemoryWarning() {
