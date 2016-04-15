@@ -78,7 +78,7 @@ class ProgressViewController: UIViewController {
     }
     
     @IBAction func exitButton(sender: AnyObject) {
-        let dialogue = ZAlertView(title: "Return to main menu?", message: "Are you sure you want to return to the main menu? All progress will be saved", isOkButtonLeft: true, okButtonText: "Canel", cancelButtonText: "Yes",
+        let dialogue = ZAlertView(title: "Return to menu?", message: "Are you sure you want to return to the main menu? All progress will be saved", isOkButtonLeft: true, okButtonText: "Canel", cancelButtonText: "Yes",
               okButtonHandler: { alertView in
                 alertView.dismiss()
             },

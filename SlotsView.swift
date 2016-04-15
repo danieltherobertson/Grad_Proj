@@ -227,12 +227,11 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
 
-            
             let dialogue = ZAlertView(title: "Confirm Load", message: "Are you sure you want to load this game?", isOkButtonLeft: false, okButtonText: "Yes", cancelButtonText: "Cancel",
                   okButtonHandler: { alertView in
                     let currentCellPos = indexPath.row
                     self.activeSave = self.gameSaves[currentCellPos]
-
+                    self.pressedCell(save: self.activeSave)
                     alertView.dismiss()
                 },
                   cancelButtonHandler: { alertView in
