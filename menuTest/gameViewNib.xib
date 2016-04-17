@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameView" customModule="menuTest" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
+                <outlet property="gameAnswerOne" destination="ljb-06-OCT" id="x15-6d-cWR"/>
+                <outlet property="gameAnswerThree" destination="3Zw-8M-tuA" id="viV-Jo-3hh"/>
+                <outlet property="gameAnswerTwo" destination="6Ai-57-d3T" id="Wcb-bU-BBd"/>
+                <outlet property="gameText" destination="JqT-mH-KsS" id="US9-vp-Hr6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqT-mH-KsS" customClass="PaddedLabel" customModule="menuTest" customModuleProvider="target">
+                    <rect key="frame" x="8" y="8" width="584" height="78"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="78" id="ieg-CO-deG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zw-8M-tuA">
+                    <rect key="frame" x="8" y="532" width="584" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Jak-ZR-GHT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-57-d3T">
+                    <rect key="frame" x="8" y="464" width="584" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="qaO-yH-QN8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-06-OCT">
+                    <rect key="frame" x="8" y="396" width="584" height="60"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="goZ-uH-Umr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-eh-NVu">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="trailing" secondItem="3Zw-8M-tuA" secondAttribute="trailing" id="73P-c1-chp"/>
+                <constraint firstItem="6Ai-57-d3T" firstAttribute="top" secondItem="ljb-06-OCT" secondAttribute="bottom" constant="8" symbolic="YES" id="8So-n0-gnH"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="6Ai-57-d3T" secondAttribute="leading" id="B8s-1w-buq"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="G9P-PF-i92"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="3Zw-8M-tuA" secondAttribute="leading" id="MIl-cg-H57"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="top" secondItem="6Ai-57-d3T" secondAttribute="bottom" constant="8" symbolic="YES" id="Oba-uf-RVo"/>
+                <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
+                <constraint firstItem="JqT-mH-KsS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="VIH-8T-ZH2"/>
+                <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
+                <constraint firstItem="JqT-mH-KsS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="b2r-DG-G8q"/>
+                <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
+                <constraint firstItem="JqT-mH-KsS" firstAttribute="centerX" secondItem="GyC-eh-NVu" secondAttribute="centerX" id="hu1-uT-fSO"/>
+                <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="trailing" secondItem="6Ai-57-d3T" secondAttribute="trailing" id="my0-UG-nDP"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="leading" secondItem="JqT-mH-KsS" secondAttribute="leading" id="owc-uE-uRy"/>
+                <constraint firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="puV-sZ-8Np"/>
+                <constraint firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="rbc-Pj-vm3"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="trailing" secondItem="JqT-mH-KsS" secondAttribute="trailing" id="udT-iX-8ud"/>
+                <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vJ0-1p-zZH"/>
+                <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x3u-h3-Y7C"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="slots_background.gif" width="504" height="953"/>
+    </resources>
+</document>

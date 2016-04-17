@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Se-EX-ZKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3471" y="1201"/>
+            <point key="canvasLocation" x="4203" y="1211"/>
         </scene>
         <!--Meme-->
         <scene sceneID="KYZ-W2-Olb">
@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-1R-SDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2840" y="1201"/>
+            <point key="canvasLocation" x="3556" y="1211"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GZv-qR-OSf">
@@ -219,7 +219,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Du-fb-Gqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3148" y="384"/>
+            <point key="canvasLocation" x="3864" y="394"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="OoT-Xa-SUJ">
@@ -440,6 +440,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="ZzI-CA-vw3" eventType="touchUpInside" id="FiR-vO-JhR"/>
+                                    <segue destination="qFA-1n-IiK" kind="show" id="MGF-Ys-xHg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -545,6 +546,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMG-9g-ADM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="387"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="Hm9-JM-jcy">
+            <objects>
+                <viewController id="qFA-1n-IiK" customClass="GameViewController" customModule="menuTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qUQ-Qh-k5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="e08-cO-2x8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="81H-7O-9YP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-mY-gwP" customClass="GameView" customModule="menuTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="leading" secondItem="81H-7O-9YP" secondAttribute="leading" id="Qye-38-ine"/>
+                            <constraint firstAttribute="trailing" secondItem="dhb-mY-gwP" secondAttribute="trailing" id="SgG-c7-Xbw"/>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="top" secondItem="81H-7O-9YP" secondAttribute="top" id="tLw-Kj-IKD"/>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="bottom" secondItem="e08-cO-2x8" secondAttribute="top" id="zhc-Rg-I2Y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="dhb-mY-gwP" id="FKm-XA-PSr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OfM-Y2-uYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="387"/>
         </scene>
     </scenes>
     <resources>
