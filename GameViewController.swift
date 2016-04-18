@@ -11,17 +11,23 @@ import UIKit
 class GameViewController: UIViewController {
 
     @IBOutlet weak var gameView: GameView!
+    var tutorialDialogue = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gameView.gameText.text = "doot"
+        getTutorial()
+        
+        let dialogue1 = String(tutorialDialogue[0].valueForKey("text")!)
+        gameView.gameText.textColor = UIColor.blackColor()
+        gameView.gameText.font = UIFont(name: "KemcoPixelBold", size: 11)
+        gameView.gameText.text = (dialogue1)
         gameView.gameAnswerOne.setTitle("Hitler", forState: .Normal)
         gameView.gameAnswerTwo.setTitle("Gene Parmesan", forState: .Normal)
         gameView.gameAnswerThree.setTitle("Gordon", forState: .Normal)
         
         
-        getTutorial()
+        
         
 
         // Do any additional setup after loading the view.
@@ -59,8 +65,8 @@ class GameViewController: UIViewController {
                // print("TRYING \(results[0])")
                 //print("TRYING AGAIN \(results[2])")
                 print("NUMBER OF ??? IS \(results.count)")
+        tutorialDialogue = results
         return results
-        
     }
     
 

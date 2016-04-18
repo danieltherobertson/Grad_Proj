@@ -11,7 +11,7 @@ import UIKit
 class GameView: UIView {
 
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var gameText: PaddedLabel!
+    @IBOutlet weak var gameText: UITextView!
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
