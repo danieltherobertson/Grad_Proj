@@ -21,6 +21,7 @@
 		6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */; };
 		65387A191CA1A2D80070FAD7 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65387A181CA1A2D80070FAD7 /* Call.swift */; };
 		65387A1B1CA1D3FD0070FAD7 /* monofonto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65387A1A1CA1D3FD0070FAD7 /* monofonto.ttf */; };
+		653C04A81CC529530029C3FB /* TutorialDialogue.json in Resources */ = {isa = PBXBuildFile; fileRef = 653C04A71CC529530029C3FB /* TutorialDialogue.json */; };
 		653CBCEE1C91C34A003A2338 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCEC1C91C34A003A2338 /* Fabric.framework */; };
 		653CBCEF1C91C34A003A2338 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCED1C91C34A003A2338 /* Crashlytics.framework */; };
 		653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F6F141CBFD582008EEF21 /* LabelExtension.swift */; };
@@ -79,6 +80,7 @@
 		6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		65387A181CA1A2D80070FAD7 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		65387A1A1CA1D3FD0070FAD7 /* monofonto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = monofonto.ttf; sourceTree = "<group>"; };
+		653C04A71CC529530029C3FB /* TutorialDialogue.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TutorialDialogue.json; sourceTree = "<group>"; };
 		653CBCEC1C91C34A003A2338 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		653CBCED1C91C34A003A2338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		653F6F141CBFD582008EEF21 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				654B417C1CBBF4B100D9953C /* Levels.json */,
+				653C04A71CC529530029C3FB /* TutorialDialogue.json */,
 			);
 			name = "Data 📈";
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				657E89961CC3F1F3005457D5 /* gameViewNib.xib in Resources */,
 				654B417D1CBBF4B100D9953C /* Levels.json in Resources */,
 				65ACF7641CB5DEDC0042FBB7 /* gameProgressNib.xib in Resources */,
+				653C04A81CC529530029C3FB /* TutorialDialogue.json in Resources */,
 				65CA97631C5AC8C1008D256F /* Kemco_Pixel_Bold.ttf in Resources */,
 				65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */,
 				651778B51CB55FD10094B438 /* operator_background_animated.gif in Resources */,

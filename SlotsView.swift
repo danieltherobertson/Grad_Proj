@@ -18,9 +18,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
     var pressedCell: ((save: GameSave) -> ())!
     
     var activeSave: GameSave!
-    
-    
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -154,11 +152,14 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
             
-            let dialogue = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: false, okButtonText: "Okay", cancelButtonText: "Cancel",
+            let dialogue = ZAlertView(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", isOkButtonLeft: true, okButtonText: "Cancel", cancelButtonText: "Okay",
                 okButtonHandler: { alertView in
+                    reset()
+                    alertView.dismiss()
+                },
+                cancelButtonHandler: { alertView in
                     self.gameSaves.removeAtIndex(indexPath.row)
                     activeCell?.tag = 1
-                    
                     
                     //resets the cell's border and background colour. Enables user interaction again
                     reset()
@@ -171,10 +172,7 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
                     
                     //reloads the data for the cells to refresh, since there is no one less saved game
                     self.gamesView.reloadData()
-                    alertView.dismiss()
-                },
-                cancelButtonHandler: { alertView in
-                    reset()
+
                     alertView.dismiss()
                 }
             )
@@ -203,8 +201,11 @@ class SlotsView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlo
             dialogue.addTextField("Doot", placeHolder: "Enter Name")
             dialogue.okHandler = { alertView in
                 let text = dialogue.getTextFieldWithIdentifier("Doot")
+                if text!.text! == "" {
+                    text!.text = "Player \(self.gameSaves.count+1)"
+                }
                 let newName = text!.text!
-                let gameSave = GameSave(name: newName, progress: 4)
+                let gameSave = GameSave(name: newName, progress: 0)
                 self.appendGameSaves(gameSave)
                 self.activeSave = gameSave
                 activeCell!.tag = 0

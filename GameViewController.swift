@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         gameView.gameAnswerThree.setTitle("Gordon", forState: .Normal)
         
         
-        
+        getTutorial()
         
 
         // Do any additional setup after loading the view.
@@ -30,6 +30,37 @@ class GameViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getTutorial() -> [NSDictionary] {
+        var results = [NSDictionary]()
+        
+        if let path = NSBundle.mainBundle().pathForResource("TutorialDialogue", ofType: "json") {
+            do {
+                //Tries to convert the json to NSData
+                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+                //If that works, it serialises the json into a dictionary called jsonResult
+                do {
+                    let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                        print("ron")
+                    //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
+                    if let dialogues = jsonResult["tutorialDialogues"] as? [[String: AnyObject]] {
+                        print("jess")
+                        for dialogue: [String: AnyObject] in dialogues {
+                            print("callum")
+                            results.append(dialogue)
+                        }
+                    }
+                } catch {}
+            } catch {}
+        }
+     //   Returns our juicy data in a lovely array of dictionaries
+                print("doot doot\(results)")
+               // print("TRYING \(results[0])")
+                //print("TRYING AGAIN \(results[2])")
+                print("NUMBER OF ??? IS \(results.count)")
+        return results
+        
     }
     
 
