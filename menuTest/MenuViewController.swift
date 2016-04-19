@@ -21,7 +21,6 @@ class MenuViewController: UIViewController {
     
     var text = ""
     var timer: NSTimer?
-    var started: Bool!
     
     var operatorTheme = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("Operator_menuAudio2", ofType: "mp3")!)
     var menuAudio = AVAudioPlayer()
@@ -120,9 +119,9 @@ class MenuViewController: UIViewController {
         buttonStyle(loadGame)
         buttonStyle(help)
         
-        menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
-        menuAudio.play()
-        menuAudio.numberOfLoops = 30
+//        menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
+//        menuAudio.play()
+//        menuAudio.numberOfLoops = 30
         
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)

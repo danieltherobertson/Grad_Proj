@@ -31,42 +31,45 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-eh-NVu">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zw-8M-tuA">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zw-8M-tuA">
                     <rect key="frame" x="8" y="532" width="584" height="60"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Jak-ZR-GHT"/>
+                        <constraint firstAttribute="height" constant="60" id="Kik-ha-t0P"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal" title="Button">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-57-d3T">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-57-d3T">
                     <rect key="frame" x="8" y="464" width="584" height="60"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="qaO-yH-QN8"/>
+                        <constraint firstAttribute="height" constant="60" id="dM8-yN-deX"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal" title="Button">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-06-OCT">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-06-OCT">
                     <rect key="frame" x="8" y="396" width="584" height="60"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="goZ-uH-Umr"/>
+                        <constraint firstAttribute="height" constant="60" id="Iaw-JG-aeD"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal" title="Button">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Df-ln-QiB" customClass="PaddedLabel" customModule="menuTest" customModuleProvider="target">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Df-ln-QiB" customClass="PaddedLabel" customModule="menuTest" customModuleProvider="target">
                     <rect key="frame" x="8" y="8" width="584" height="128"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="fjg-iu-PkY"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -74,19 +77,24 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ljb-06-OCT" firstAttribute="trailing" secondItem="3Zw-8M-tuA" secondAttribute="trailing" id="73P-c1-chp"/>
-                <constraint firstItem="6Ai-57-d3T" firstAttribute="top" secondItem="ljb-06-OCT" secondAttribute="bottom" constant="8" symbolic="YES" id="8So-n0-gnH"/>
-                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="6Ai-57-d3T" secondAttribute="leading" id="B8s-1w-buq"/>
-                <constraint firstItem="3Zw-8M-tuA" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="G9P-PF-i92"/>
-                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="3Zw-8M-tuA" secondAttribute="leading" id="MIl-cg-H57"/>
-                <constraint firstItem="3Zw-8M-tuA" firstAttribute="top" secondItem="6Ai-57-d3T" secondAttribute="bottom" constant="8" symbolic="YES" id="Oba-uf-RVo"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="0gw-Ib-KJ7"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="leading" secondItem="6Ai-57-d3T" secondAttribute="leading" id="B5Q-T9-MOo"/>
+                <constraint firstItem="6Ai-57-d3T" firstAttribute="leading" secondItem="3Zw-8M-tuA" secondAttribute="leading" id="Mdo-9l-vbl"/>
+                <constraint firstItem="4Df-ln-QiB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Q7x-h9-Ocr"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="centerX" secondItem="GyC-eh-NVu" secondAttribute="centerX" id="ctz-Av-wL6"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
+                <constraint firstItem="4Df-ln-QiB" firstAttribute="leading" secondItem="ljb-06-OCT" secondAttribute="leading" id="fds-C3-Itu"/>
+                <constraint firstItem="4Df-ln-QiB" firstAttribute="trailing" secondItem="ljb-06-OCT" secondAttribute="trailing" id="fuQ-rQ-QMz"/>
+                <constraint firstItem="6Ai-57-d3T" firstAttribute="top" secondItem="ljb-06-OCT" secondAttribute="bottom" constant="8" symbolic="YES" id="hu9-V2-TMv"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="jE7-za-Sfh"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
-                <constraint firstItem="ljb-06-OCT" firstAttribute="trailing" secondItem="6Ai-57-d3T" secondAttribute="trailing" id="my0-UG-nDP"/>
+                <constraint firstItem="ljb-06-OCT" firstAttribute="trailing" secondItem="6Ai-57-d3T" secondAttribute="trailing" id="lCK-il-J9D"/>
+                <constraint firstItem="3Zw-8M-tuA" firstAttribute="top" secondItem="6Ai-57-d3T" secondAttribute="bottom" constant="8" symbolic="YES" id="pt1-72-yAE"/>
                 <constraint firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="puV-sZ-8Np"/>
                 <constraint firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="rbc-Pj-vm3"/>
+                <constraint firstItem="6Ai-57-d3T" firstAttribute="trailing" secondItem="3Zw-8M-tuA" secondAttribute="trailing" id="ryE-d6-tsZ"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vJ0-1p-zZH"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x3u-h3-Y7C"/>
             </constraints>

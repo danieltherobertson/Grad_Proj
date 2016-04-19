@@ -85,6 +85,7 @@ class CreditsViewController: UIViewController {
             creditsText.text = newText
         }
     }
+    
     @IBAction func backToMenu(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }

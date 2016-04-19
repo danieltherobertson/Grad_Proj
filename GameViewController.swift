@@ -12,11 +12,15 @@ class GameViewController: UIViewController {
 
     @IBOutlet weak var gameView: GameView!
     var tutorialDialogue = [NSDictionary]()
+    var timer: NSTimer?
+    var text: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getTutorial()
+        
+        gameView.gameText.setLineHeight(3)
         
         let dialogue1 = String(tutorialDialogue[0].valueForKey("text")!)
         gameView.gameText.textColor = UIColor.blackColor()
@@ -69,6 +73,26 @@ class GameViewController: UIViewController {
         return results
     }
     
+    func typeStart(dialogue: String) {
+        var text = dialogue
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
+        timer!.fire()
+    }
+    
+    func addNextLetter(dialogue: String) {
+        
+        let textArray = Array(text.characters)
+        
+        if gameView.gameText.text!.characters.count >= textArray.count {
+            timer?.invalidate()
+        } else {
+            let nextLetterIndex = gameView.gameText.text!.characters.count
+            let character = textArray[nextLetterIndex]
+            gameView.gameText.text = gameView.gameText.text! + String(character)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -79,5 +103,9 @@ class GameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+   
+    
 
 }
