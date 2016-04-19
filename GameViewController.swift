@@ -20,9 +20,9 @@ class GameViewController: UIViewController {
         
         let dialogue1 = String(tutorialDialogue[0].valueForKey("text")!)
         gameView.gameText.textColor = UIColor.blackColor()
-        gameView.gameText.font = UIFont(name: "KemcoPixelBold", size: 11)
+       // gameView.gameText.font = UIFont(name: "KemcoPixelBold", size: 11)
         gameView.gameText.text = (dialogue1)
-        gameView.gameAnswerOne.setTitle("Hitler", forState: .Normal)
+        gameView.gameAnswerOne.setTitle("Jack", forState: .Normal)
         gameView.gameAnswerTwo.setTitle("Gene Parmesan", forState: .Normal)
         gameView.gameAnswerThree.setTitle("Gordon", forState: .Normal)
         

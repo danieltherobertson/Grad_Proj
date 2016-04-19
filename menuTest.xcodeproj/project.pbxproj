@@ -25,9 +25,9 @@
 		653CBCEE1C91C34A003A2338 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCEC1C91C34A003A2338 /* Fabric.framework */; };
 		653CBCEF1C91C34A003A2338 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653CBCED1C91C34A003A2338 /* Crashlytics.framework */; };
 		653F6F151CBFD582008EEF21 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653F6F141CBFD582008EEF21 /* LabelExtension.swift */; };
+		6548CD311CC6758F001B2C78 /* gameViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6548CD301CC6758E001B2C78 /* gameViewNib.xib */; };
 		654B417D1CBBF4B100D9953C /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 654B417C1CBBF4B100D9953C /* Levels.json */; };
 		6560C81B1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */; };
-		657E89961CC3F1F3005457D5 /* gameViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657E89951CC3F1F3005457D5 /* gameViewNib.xib */; };
 		657E89981CC439DC005457D5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657E89971CC439DC005457D5 /* GameViewController.swift */; };
 		65916FB51CC2D016004961AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65916FB41CC2D016004961AE /* GameView.swift */; };
 		65A4CB961C5A51A400BC5EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */; };
@@ -84,9 +84,9 @@
 		653CBCEC1C91C34A003A2338 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		653CBCED1C91C34A003A2338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		653F6F141CBFD582008EEF21 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
+		6548CD301CC6758E001B2C78 /* gameViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gameViewNib.xib; sourceTree = "<group>"; };
 		654B417C1CBBF4B100D9953C /* Levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		6560C81A1CADEFAC004FB1F0 /* Operator_menuAudio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Operator_menuAudio2.mp3; sourceTree = "<group>"; };
-		657E89951CC3F1F3005457D5 /* gameViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gameViewNib.xib; sourceTree = "<group>"; };
 		657E89971CC439DC005457D5 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ../GameViewController.swift; sourceTree = "<group>"; };
 		65916FB41CC2D016004961AE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		65A4CB921C5A51A400BC5EEB /* menuTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menuTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,7 +252,7 @@
 				65ACF7631CB5DEDC0042FBB7 /* gameProgressNib.xib */,
 				65F8971B1CB2BF7C00CBEE92 /* ProgressView.swift */,
 				65916FB41CC2D016004961AE /* GameView.swift */,
-				657E89951CC3F1F3005457D5 /* gameViewNib.xib */,
+				6548CD301CC6758E001B2C78 /* gameViewNib.xib */,
 				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
 				653F6F141CBFD582008EEF21 /* LabelExtension.swift */,
 			);
@@ -376,13 +376,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6548CD311CC6758F001B2C78 /* gameViewNib.xib in Resources */,
 				6506D8321CB5B96200C0D188 /* slots_background.gif in Resources */,
 				65387A1B1CA1D3FD0070FAD7 /* monofonto.ttf in Resources */,
 				65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */,
 				651778CD1CB599D00094B438 /* operator.gif in Resources */,
 				65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */,
 				65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */,
-				657E89961CC3F1F3005457D5 /* gameViewNib.xib in Resources */,
 				654B417D1CBBF4B100D9953C /* Levels.json in Resources */,
 				65ACF7641CB5DEDC0042FBB7 /* gameProgressNib.xib in Resources */,
 				653C04A81CC529530029C3FB /* TutorialDialogue.json in Resources */,
