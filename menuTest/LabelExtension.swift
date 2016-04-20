@@ -25,4 +25,30 @@ extension UILabel {
         }
     }
     
+    func typeStart(dialogue: String) {
+        let text = dialogue
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
+        timer.fire()
+    }
+    
+    func addNextLetter(timer: NSTimer) {
+        
+        let dialogue = timer.userInfo as! String
+        print(text)
+        
+        let textArray = Array(dialogue.characters)
+        
+        
+        if self.text!.characters.count >= textArray.count {
+            timer.invalidate()
+            
+        } else {
+            let nextLetterIndex = self.text!.characters.count
+            let character = textArray[nextLetterIndex]
+            self.text = text! + String(character)
+            print(text)
+        }
+    }
+    
 }

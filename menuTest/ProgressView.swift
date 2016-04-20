@@ -51,7 +51,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("progressCell", forIndexPath: indexPath) as! progressCell
         let playerProgress = viewedSave.progress
-        print("WHAT IS THIS SHIT \(playerProgress), \(indexPath.row)")
             //Get saved games and populate cells
             if indexPath.row < levelsData!.count {
                 let gameSlot = levelsData![indexPath.row]
@@ -62,8 +61,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 toInt = Int(levelNumber as! String)
                 let intAdd = toInt!+1
                 let toString = String(intAdd)
-                print(levelNumber)
-                print(toString)
+
                 cell.levelNumber.text = toString
                 if indexPath.row < playerProgress {
                     cell.userInteractionEnabled = false
@@ -113,7 +111,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         // print("notInUse capacity:\(notInUse.capacity)")
         // print("inUseCells capactiy\(inUseCells.capacity)")
         
-        print(gameSaves)
         
         func viewReset(alertAction: UIAlertAction) {
             activeCell?.layer.borderWidth = 0

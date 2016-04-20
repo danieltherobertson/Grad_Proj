@@ -17,22 +17,34 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
+        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromRight)
+        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
+        
         
         getTutorial()
         
         gameView.gameText.setLineHeight(3)
         
-        let dialogue1 = String(tutorialDialogue[0].valueForKey("text")!)
+        let dialogue = String(tutorialDialogue[0].valueForKey("text")!)
+       // let half = dialogue.characters.count/2
+        let half = dialogue.componentsSeparatedByString("\n")
+        let first = half.first
+        let second = half.last
+        
         gameView.gameText.textColor = UIColor.blackColor()
-       // gameView.gameText.font = UIFont(name: "KemcoPixelBold", size: 11)
-        gameView.gameText.text = (dialogue1)
+
         gameView.gameAnswerOne.setTitle("Jack", forState: .Normal)
         gameView.gameAnswerTwo.setTitle("Gene Parmesan", forState: .Normal)
         gameView.gameAnswerThree.setTitle("Gordon", forState: .Normal)
         
+//        gameView.gameText.text = first
+        gameView.gameText.text = ""
+        gameView.gameText.typeStart(first!)
         
-        
-        
+    
+//      typeStart(first!)
 
         // Do any additional setup after loading the view.
     }
@@ -52,12 +64,10 @@ class GameViewController: UIViewController {
                 //If that works, it serialises the json into a dictionary called jsonResult
                 do {
                     let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                        print("ron")
                     //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
                     if let dialogues = jsonResult["tutorialDialogues"] as? [[String: AnyObject]] {
-                        print("jess")
                         for dialogue: [String: AnyObject] in dialogues {
-                            print("callum")
+
                             results.append(dialogue)
                         }
                     }
@@ -65,32 +75,47 @@ class GameViewController: UIViewController {
             } catch {}
         }
      //   Returns our juicy data in a lovely array of dictionaries
-                print("doot doot\(results)")
+
                // print("TRYING \(results[0])")
                 //print("TRYING AGAIN \(results[2])")
-                print("NUMBER OF ??? IS \(results.count)")
+
         tutorialDialogue = results
         return results
     }
     
     func typeStart(dialogue: String) {
-        var text = dialogue
+        let text = dialogue
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: text, repeats: true)
         timer!.fire()
     }
     
-    func addNextLetter(dialogue: String) {
+    func addNextLetter(timer: NSTimer) {
+
+        
+        let text = timer.userInfo as! String
         
         let textArray = Array(text.characters)
+
         
         if gameView.gameText.text!.characters.count >= textArray.count {
-            timer?.invalidate()
+            timer.invalidate()
+
         } else {
             let nextLetterIndex = gameView.gameText.text!.characters.count
             let character = textArray[nextLetterIndex]
             gameView.gameText.text = gameView.gameText.text! + String(character)
+            print(gameView.gameText.text)
         }
+    }
+    
+    func animateTransition(element: AnyObject, time: Double, direction: String) {
+        let animation = CATransition()
+        animation.duration = time
+        animation.type = kCATransitionPush
+        animation.subtype = direction
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        element.layer.addAnimation(animation, forKey: nil)
     }
     
 

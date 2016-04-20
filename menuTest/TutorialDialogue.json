@@ -3,7 +3,7 @@
 		{
 			"number": "0",
 			"character": "Chief",
-			"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet, solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!"
+			"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet, \n solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!"
 		},
 		{
 			"number": "1",
