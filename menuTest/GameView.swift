@@ -23,7 +23,10 @@ class GameView: UIView {
         let nib = UINib(nibName: "gameViewNib", bundle: nil)
         if let contentView = nib.instantiateWithOwner(self, options: nil).first as? UIView {
             self.addSubview(contentView)
+            
+            gameAnswerOne.buttonStyle(gameAnswerOne)
+            gameAnswerTwo.buttonStyle(gameAnswerTwo)
+            gameAnswerThree.buttonStyle(gameAnswerThree)
         }
     }
-
 }

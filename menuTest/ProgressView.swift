@@ -22,6 +22,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         layout.minimumInteritemSpacing = 30
         layout.minimumLineSpacing = 30
         
+        
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         // gamesView.translatesAutoresizingMaskIntoConstraints = false
         levelsView.dataSource = self

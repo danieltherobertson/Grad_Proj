@@ -17,6 +17,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     
         animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
         animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromRight)

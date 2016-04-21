@@ -114,27 +114,16 @@ class MenuViewController: UIViewController {
             }) { (completion) -> Void in
                
         }
-        
-        buttonStyle(newGame)
-        buttonStyle(loadGame)
-        buttonStyle(help)
+
+        newGame.buttonStyle(newGame)
+        loadGame.buttonStyle(loadGame)
+        help.buttonStyle(help)
         
 //        menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
 //        menuAudio.play()
 //        menuAudio.numberOfLoops = 30
-        
-        
+ 
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)
-    }
-    
-    func buttonStyle(button: UIButton) -> UIButton {
-        
-        let button = button
-        button.layer.cornerRadius = 20
-        button.layer.borderWidth = 4
-        button.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
-        
-        return button
     }
     
     func typeStart() {

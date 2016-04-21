@@ -33,6 +33,7 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         super.viewDidLoad()
         
         gameSlotsView.backgroundColor = UIColor.clearColor()
+        backButton.buttonStyle(backButton)
         
         //Calling pressedCell, the closure which contains the active save. We assign this to segueToLevels(). When pressedCell is called in SlotsView, it is already assigned segueToLevels.
         gameSlotsView.pressedCell = segueToLevels

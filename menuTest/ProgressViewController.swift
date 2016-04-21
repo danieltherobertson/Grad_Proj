@@ -14,6 +14,9 @@ class ProgressViewController: UIViewController {
 
     @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var progressPlayerName: UILabel!
+    @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    
     var playerName: String!
     var playerProgress: Int!
     
@@ -23,6 +26,8 @@ class ProgressViewController: UIViewController {
         
         print(currentSave.name)
         print(currentSave.progress)
+        exitButton.buttonStyle(exitButton)
+        startButton.buttonStyle(startButton)
         
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         let levels = getLevels()
