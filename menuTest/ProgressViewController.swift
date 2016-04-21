@@ -16,6 +16,7 @@ class ProgressViewController: UIViewController {
     @IBOutlet weak var progressPlayerName: UILabel!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
+    var currentLevel: NSDictionary!
     
     var playerName: String!
     var playerProgress: Int!
@@ -34,10 +35,9 @@ class ProgressViewController: UIViewController {
         playerName = currentSave.name
         progressPlayerName.text = playerName
         
-        playerProgress = currentSave.progress  
-        // Do any additional setup after loading the view.
+        playerProgress = currentSave.progress
         
-        
+        currentLevel = levels[playerProgress] 
         progressView.viewedSave = currentSave
     }
 
@@ -48,6 +48,13 @@ class ProgressViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        let gameViewVC = (segue.destinationViewController as? GameViewController)
+
+        
+        if segue.identifier == "startGame" {
+            gameViewVC?.currentLevel = currentLevel
+            
+        }
     }
     
     func getLevels() -> [NSDictionary] {
@@ -72,10 +79,6 @@ class ProgressViewController: UIViewController {
             } catch {}
         }
         //Returns our juicy data in a lovely array of dictionaries
-//        print("doot doot\(results)")
-//        print("TRYING \(results[0])")
-//        print("TRYING AGAIN \(results[2])")
-//        print("NUMBER OF LEVELS IS \(results.count)")
         return results
        
     }

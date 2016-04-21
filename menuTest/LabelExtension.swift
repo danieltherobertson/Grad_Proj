@@ -57,4 +57,6 @@ extension UILabel {
         }
     }
     
+    //Global var that is a completion handler, refer to that addNextLeter is finished
+    
 }

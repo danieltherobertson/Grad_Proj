@@ -14,6 +14,7 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -27,6 +28,7 @@
                 <outlet property="gameAnswerThree" destination="h0E-Oh-Paf" id="Hzz-1u-Ze0"/>
                 <outlet property="gameAnswerTwo" destination="1gr-Zt-XgX" id="D8F-Ze-NJM"/>
                 <outlet property="gameText" destination="4Df-ln-QiB" id="cPi-9a-5RT"/>
+                <outlet property="introLabel" destination="sFU-Q9-kKB" id="y9J-z1-O4x"/>
                 <outlet property="labelHeightConstraint" destination="hj9-K6-XJk" id="h1g-AK-fGQ"/>
             </connections>
         </placeholder>
@@ -150,6 +152,13 @@
                         </mask>
                     </variation>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="22"/>
+                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -166,12 +175,17 @@
                 <constraint firstItem="4Df-ln-QiB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="U8G-dv-MAI"/>
                 <constraint firstItem="Png-ru-3Uw" firstAttribute="leading" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="UaV-np-pNW"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="width" secondItem="EDM-HT-fpm" secondAttribute="width" id="VEH-KB-7rs"/>
+                <constraint firstItem="sFU-Q9-kKB" firstAttribute="leading" secondItem="GyC-eh-NVu" secondAttribute="leading" id="WpC-hU-2bA"/>
                 <constraint firstAttribute="trailing" secondItem="asn-sH-SEb" secondAttribute="trailing" constant="11" id="X8U-qD-672"/>
+                <constraint firstItem="sFU-Q9-kKB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="top" id="YC7-rq-3lE"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
                 <constraint firstItem="EDM-HT-fpm" firstAttribute="leading" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="10" id="aFE-Se-XYp"/>
                 <constraint firstItem="4Df-ln-QiB" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="aVo-83-rP1"/>
+                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-207" id="cfM-Jw-XVp"/>
+                <constraint firstItem="sFU-Q9-kKB" firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="der-wV-4yd"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="width" secondItem="asn-sH-SEb" secondAttribute="width" id="fU1-Le-dNm"/>
+                <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>
                 <constraint firstItem="asn-sH-SEb" firstAttribute="top" secondItem="EDM-HT-fpm" secondAttribute="bottom" constant="10" id="h21-fL-waK"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
                 <constraint firstItem="4Df-ln-QiB" firstAttribute="centerX" secondItem="GyC-eh-NVu" secondAttribute="centerX" id="k6Z-2n-FxZ"/>
@@ -189,6 +203,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="cfM-Jw-XVp"/>
+                    <exclude reference="aFE-Se-XYp"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

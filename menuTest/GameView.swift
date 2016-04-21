@@ -19,6 +19,7 @@ class GameView: UIView {
     @IBOutlet weak var gameAnswerFour: UIButton!
     @IBOutlet weak var gameAnswerFive: UIButton!
     @IBOutlet weak var gameAnswerSix: UIButton!
+    @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +37,7 @@ class GameView: UIView {
             gameAnswerThree.buttonStyle(gameAnswerSix)
             gameText.clipsToBounds = true
             gameText.labelStyle(gameText)
-            
+            introLabel.setLineHeight(30, alignment: .Center)
             labelHeightConstraint.constant = 0
         }
     }

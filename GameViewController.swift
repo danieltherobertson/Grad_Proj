@@ -14,35 +14,27 @@ class GameViewController: UIViewController {
     var tutorialDialogue = [NSDictionary]()
     var timer: NSTimer?
     var text: String!
-    
+    var currentLevel: NSDictionary!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let buttonOne = gameView.gameAnswerOne
+        let buttonTwo = gameView.gameAnswerTwo
+        let buttonThree = gameView.gameAnswerThree
+        let buttonFour = gameView.gameAnswerFour
+        let buttonFive = gameView.gameAnswerFive
+        let buttonSix = gameView.gameAnswerSix
+        
         getTutorial()
-        
-        let dialogue = String(tutorialDialogue[0].valueForKey("text")!)
-        // let half = dialogue.characters.count/2
-        let half = dialogue.componentsSeparatedByString("\n")
-        let first = half.first
-        let second = half.last
-         gameView.gameText.text = ""
-    
-        self.view.layoutIfNeeded()
-        UIView.animateWithDuration(2, delay: 0.6, options: [], animations: { () -> Void in
-            self.gameView.labelHeightConstraint.constant = 128
-            self.view.layoutIfNeeded()
-        }) { (completion) -> Void in
-        }
+        showLandingScreen()
 
-        
-        
-        gameView.gameText.textColor = UIColor.blackColor()
-
-        gameView.gameAnswerOne.setTitle("Button 1", forState: .Normal)
-        gameView.gameAnswerTwo.setTitle("Button 2", forState: .Normal)
-        gameView.gameAnswerThree.setTitle("Button 3", forState: .Normal)
-        gameView.gameAnswerFour.setTitle("Button 4", forState: .Normal)
-        gameView.gameAnswerFive.setTitle("Button 5", forState: .Normal)
-        gameView.gameAnswerSix.setTitle("Button 6", forState: .Normal)
+        buttonOne.setTitle("Button 1", forState: .Normal)
+        buttonTwo.setTitle("Button 2", forState: .Normal)
+        buttonThree.setTitle("Button 3", forState: .Normal)
+        buttonFour.setTitle("Button 4", forState: .Normal)
+        buttonFive.setTitle("Button 5", forState: .Normal)
+        buttonSix.setTitle("Button 6", forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +65,38 @@ class GameViewController: UIViewController {
      //   Returns our juicy data in a lovely array of dictionaries
         tutorialDialogue = results
         return results
+    }
+    
+    func showLandingScreen() {
+        gameView.introLabel.typeStart("Level \(currentLevel.valueForKey("number")!) \n \n \(currentLevel.valueForKey("name")!)")
+        
+        let timer = NSTimer.scheduledTimerWithTimeInterval(7, target: self, selector: #selector(startText), userInfo: nil, repeats: false)
+    }
+    
+    func startText() {
+        print("hello")
+        UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
+            self.gameView.introLabel.alpha = 0
+            self.gameView.introLabel.enabled = false
+        }) { (completion) -> Void in
+        }
+
+        
+        let dialogue = String(tutorialDialogue[0].valueForKey("text")!)
+        // let half = dialogue.characters.count/2
+        let half = dialogue.componentsSeparatedByString("\n")
+        let first = half.first
+        let second = half.last
+        gameView.gameText.textColor = UIColor.blackColor()
+        gameView.gameText.text = ""
+        
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
+            self.gameView.labelHeightConstraint.constant = 140
+            self.view.layoutIfNeeded()
+        }) { (completion) -> Void in
+            self.gameView.gameText.typeStart(first!)
+        }
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
