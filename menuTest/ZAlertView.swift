@@ -339,7 +339,7 @@ public class ZAlertView: UIViewController {
             
             
 //---------------------------------------------------------------SET LINE HEIGHT FOR ALL MESSAGES---------------------------------------------------------------
-            lbMessage.setLineHeight(3)
+            lbMessage.setLineHeight(3, alignment: .Center)
             
             let size = lbMessage.sizeThatFits(CGSize(width: width - ZAlertView.padding * 2, height: 600))
             let childHeight = size.height

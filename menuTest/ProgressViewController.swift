@@ -23,9 +23,7 @@ class ProgressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(currentSave.name)
-        print(currentSave.progress)
+
         exitButton.buttonStyle(exitButton)
         startButton.buttonStyle(startButton)
         
@@ -107,5 +105,4 @@ class ProgressViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

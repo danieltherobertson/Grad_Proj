@@ -567,11 +567,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dhb-mY-gwP" firstAttribute="leading" secondItem="81H-7O-9YP" secondAttribute="leading" id="Qye-38-ine"/>
-                            <constraint firstAttribute="trailing" secondItem="dhb-mY-gwP" secondAttribute="trailing" id="SgG-c7-Xbw"/>
-                            <constraint firstItem="dhb-mY-gwP" firstAttribute="top" secondItem="81H-7O-9YP" secondAttribute="top" id="tLw-Kj-IKD"/>
-                            <constraint firstItem="dhb-mY-gwP" firstAttribute="bottom" secondItem="e08-cO-2x8" secondAttribute="top" id="zhc-Rg-I2Y"/>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="top" secondItem="81H-7O-9YP" secondAttribute="top" id="0q5-wg-ml3"/>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="bottom" secondItem="e08-cO-2x8" secondAttribute="top" id="3hU-52-itf"/>
+                            <constraint firstAttribute="trailing" secondItem="dhb-mY-gwP" secondAttribute="trailing" id="8Av-sv-Dv9"/>
+                            <constraint firstItem="e08-cO-2x8" firstAttribute="top" secondItem="dhb-mY-gwP" secondAttribute="bottom" id="Ubf-e4-ci2"/>
+                            <constraint firstItem="dhb-mY-gwP" firstAttribute="leading" secondItem="81H-7O-9YP" secondAttribute="leading" id="tlf-8H-WtK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3hU-52-itf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="gameView" destination="dhb-mY-gwP" id="FKm-XA-PSr"/>

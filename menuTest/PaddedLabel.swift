@@ -10,7 +10,8 @@ import UIKit
 
 class PaddedLabel: UILabel {
     override func drawTextInRect(rect: CGRect) {
-        let insets = UIEdgeInsets(top: -55, left: 10, bottom: 0, right: 0)
+        let insets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
+        setLineHeight(3, alignment: .Left)
         
         super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
     }

@@ -17,38 +17,32 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-    
-        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
-        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromRight)
-        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
-        
-        
         getTutorial()
         
-        gameView.gameText.setLineHeight(3)
-        
         let dialogue = String(tutorialDialogue[0].valueForKey("text")!)
-       // let half = dialogue.characters.count/2
+        // let half = dialogue.characters.count/2
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
         let second = half.last
+         gameView.gameText.text = ""
+    
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(2, delay: 0.6, options: [], animations: { () -> Void in
+            self.gameView.labelHeightConstraint.constant = 128
+            self.view.layoutIfNeeded()
+        }) { (completion) -> Void in
+        }
+
+        
         
         gameView.gameText.textColor = UIColor.blackColor()
 
-        gameView.gameAnswerOne.setTitle("Jack", forState: .Normal)
-        gameView.gameAnswerTwo.setTitle("Gene Parmesan", forState: .Normal)
-        gameView.gameAnswerThree.setTitle("Gordon", forState: .Normal)
-        
-//        gameView.gameText.text = first
-        gameView.gameText.text = ""
-        gameView.gameText.typeStart(first!)
-        
-    
-//      typeStart(first!)
-
-        // Do any additional setup after loading the view.
+        gameView.gameAnswerOne.setTitle("Button 1", forState: .Normal)
+        gameView.gameAnswerTwo.setTitle("Button 2", forState: .Normal)
+        gameView.gameAnswerThree.setTitle("Button 3", forState: .Normal)
+        gameView.gameAnswerFour.setTitle("Button 4", forState: .Normal)
+        gameView.gameAnswerFive.setTitle("Button 5", forState: .Normal)
+        gameView.gameAnswerSix.setTitle("Button 6", forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,38 +71,8 @@ class GameViewController: UIViewController {
             } catch {}
         }
      //   Returns our juicy data in a lovely array of dictionaries
-
-               // print("TRYING \(results[0])")
-                //print("TRYING AGAIN \(results[2])")
-
         tutorialDialogue = results
         return results
-    }
-    
-    func typeStart(dialogue: String) {
-        let text = dialogue
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: text, repeats: true)
-        timer!.fire()
-    }
-    
-    func addNextLetter(timer: NSTimer) {
-
-        
-        let text = timer.userInfo as! String
-        
-        let textArray = Array(text.characters)
-
-        
-        if gameView.gameText.text!.characters.count >= textArray.count {
-            timer.invalidate()
-
-        } else {
-            let nextLetterIndex = gameView.gameText.text!.characters.count
-            let character = textArray[nextLetterIndex]
-            gameView.gameText.text = gameView.gameText.text! + String(character)
-            print(gameView.gameText.text)
-        }
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
@@ -120,6 +84,14 @@ class GameViewController: UIViewController {
         element.layer.addAnimation(animation, forKey: nil)
     }
     
+    func drawButtons() {
+        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
+        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
+        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
+        animateTransition(gameView.gameAnswerFour, time: 1.6, direction: kCATransitionFromRight)
+        animateTransition(gameView.gameAnswerFive, time: 1.4, direction: kCATransitionFromRight)
+        animateTransition(gameView.gameAnswerSix, time: 1.2, direction: kCATransitionFromRight)
+    }
 
     /*
     // MARK: - Navigation
@@ -130,9 +102,5 @@ class GameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-   
-    
 
 }

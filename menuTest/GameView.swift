@@ -16,6 +16,10 @@ class GameView: UIView {
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
+    @IBOutlet weak var gameAnswerFour: UIButton!
+    @IBOutlet weak var gameAnswerFive: UIButton!
+    @IBOutlet weak var gameAnswerSix: UIButton!
+    @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,6 +31,13 @@ class GameView: UIView {
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)
+            gameAnswerOne.buttonStyle(gameAnswerFour)
+            gameAnswerTwo.buttonStyle(gameAnswerFive)
+            gameAnswerThree.buttonStyle(gameAnswerSix)
+            gameText.clipsToBounds = true
+            gameText.labelStyle(gameText)
+            
+            labelHeightConstraint.constant = 0
         }
     }
 }

@@ -56,7 +56,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             if indexPath.row < levelsData!.count {
                 let gameSlot = levelsData![indexPath.row]
                 let levelName = gameSlot.valueForKey("name")!
-                print(levelName)
                 cell.levelName.text = levelName as? String
                 let levelNumber = gameSlot.valueForKey("number")!
                 toInt = Int(levelNumber as! String)
@@ -249,9 +248,5 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         levelsData = levels
         
        // print("printing levelss \(levelsData)")
-    }
-    
-   
-    
-    
+    }  
 }
