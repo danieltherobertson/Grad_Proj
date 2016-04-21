@@ -69,13 +69,14 @@ class GameViewController: UIViewController {
     
     func showLandingScreen() {
         gameView.introLabel.typeStart("Level \(currentLevel.valueForKey("number")!) \n \n \(currentLevel.valueForKey("name")!)")
-        
-        let timer = NSTimer.scheduledTimerWithTimeInterval(7, target: self, selector: #selector(startText), userInfo: nil, repeats: false)
+        gameView.introLabel.textColor = UIColor.greenColor()
+        let timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(startText), userInfo: nil, repeats: false)
     }
     
     func startText() {
         print("hello")
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
+            self.gameView.introLabel.textColor = UIColor.greenColor()
             self.gameView.introLabel.alpha = 0
             self.gameView.introLabel.enabled = false
         }) { (completion) -> Void in
