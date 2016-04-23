@@ -12,4 +12,11 @@ class progressCell: UICollectionViewCell {
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var levelNumber: UILabel!
     @IBOutlet weak var levelImage: UIImageView!
+    var levelStatus: LevelStatus!
+}
+
+enum LevelStatus: String {
+    case Completed = "Completed"
+    case Current = "Current"
+    case Locked = "Locked"
 }

@@ -27,6 +27,8 @@ class ProgressViewController: UIViewController {
 
         exitButton.buttonStyle(exitButton)
         startButton.buttonStyle(startButton)
+//        startButton.enabled = false
+//        startButton.backgroundColor = UIColor.grayColor()
         
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         let levels = getLevels()

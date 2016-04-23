@@ -15,7 +15,12 @@ class GameViewController: UIViewController {
     var timer: NSTimer?
     var text: String!
     var currentLevel: NSDictionary!
-
+    var buttons = [UIButton]()
+    
+    override func viewWillAppear(animated: Bool) {
+        
+           }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,16 +30,20 @@ class GameViewController: UIViewController {
         let buttonFour = gameView.gameAnswerFour
         let buttonFive = gameView.gameAnswerFive
         let buttonSix = gameView.gameAnswerSix
+        buttons += [buttonOne,buttonTwo,buttonThree,buttonFour,buttonFive,buttonSix]
+        
+        for button in buttons {
+            button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
+            print(button.titleLabel)
+            button.hidden = true
+        }
+
         
         getTutorial()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         showLandingScreen()
-
-        buttonOne.setTitle("Button 1", forState: .Normal)
-        buttonTwo.setTitle("Button 2", forState: .Normal)
-        buttonThree.setTitle("Button 3", forState: .Normal)
-        buttonFour.setTitle("Button 4", forState: .Normal)
-        buttonFive.setTitle("Button 5", forState: .Normal)
-        buttonSix.setTitle("Button 6", forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,16 +79,24 @@ class GameViewController: UIViewController {
     func showLandingScreen() {
         gameView.introLabel.typeStart("Level \(currentLevel.valueForKey("number")!) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
-        let timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(startText), userInfo: nil, repeats: false)
+        onTypeComplete = {
+            let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
+            print("well shit")
+            onTypeComplete = nil
+        }
+    
+        
     }
     
     func startText() {
         print("hello")
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
-            self.gameView.introLabel.textColor = UIColor.greenColor()
             self.gameView.introLabel.alpha = 0
-            self.gameView.introLabel.enabled = false
+            
         }) { (completion) -> Void in
+            self.gameView.introLabel.enabled = false
+//
+//
         }
 
         
@@ -97,6 +114,11 @@ class GameViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.gameText.typeStart(first!)
+            onTypeComplete = {
+            self.buttons[0].setTitle("Go on...", forState: .Normal)
+            self.buttons[0].hidden = false
+            self.animateTransition(self.buttons[0], time: 0.7, direction: kCATransitionFromLeft)
+            }
         }
     }
     

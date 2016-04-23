@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameView" customModule="menuTest" customModuleProvider="target">
             <connections>
+                <outlet property="buttonWidthConstraint" destination="9xa-KT-NGe" id="gJP-6j-ltO"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
                 <outlet property="gameAnswerFive" destination="asn-sH-SEb" id="jC2-yq-mG2"/>
                 <outlet property="gameAnswerFour" destination="EDM-HT-fpm" id="R2i-Gh-MDk"/>
@@ -81,7 +82,7 @@
                         <constraint firstAttribute="height" id="hj9-K6-XJk"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asn-sH-SEb">

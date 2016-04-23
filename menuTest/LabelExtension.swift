@@ -10,8 +10,9 @@
 import Foundation
 import UIKit
 
+var onTypeComplete: (() -> Void)!
 extension UILabel {
-    
+
     func setLineHeight(lineHeight: CGFloat, alignment: NSTextAlignment) {
         let text = self.text
         if let text = text {
@@ -50,6 +51,10 @@ extension UILabel {
         
         if self.text!.characters.count >= textArray.count {
             timer.invalidate()
+            
+            if let callback = onTypeComplete {
+                callback ()
+            }
         } else {
             let nextLetterIndex = self.text!.characters.count
             let character = textArray[nextLetterIndex]

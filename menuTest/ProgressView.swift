@@ -67,24 +67,27 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.userInteractionEnabled = false
                     cell.layer.borderWidth = 0
                     cell.levelImage.image = UIImage(named: "tick")
+                    cell.levelStatus = LevelStatus.Completed
+                
                 } else if indexPath.row == playerProgress {
                     cell.layer.borderWidth = 2.0
                     cell.layer.borderColor = UIColor.whiteColor().CGColor
                     cell.levelImage.image = nil
                     cell.userInteractionEnabled = true
+                    cell.levelStatus = LevelStatus.Current
+                    
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "padlock")
                     cell.layer.borderWidth = 2
                     cell.layer.borderColor = UIColor.redColor().CGColor
                     cell.userInteractionEnabled = false
+                    cell.levelStatus = LevelStatus.Locked
                 }
                 cell.levelName.textColor = UIColor.blackColor()
                 cell.levelNumber.textColor = UIColor.blackColor()
-               // cell.tag = 0
-                // cell.inUse = true
-                // inUseCells.append(cell)
-                //                cell.alpha = 0.5
-                //                cell.userInteractionEnabled = false
+                cell.tag = toInt!
+                print (cell.tag)
+
                 //Unpopulated cells are drawn like...
             } else {
                 cell.levelName.textColor = UIColor.blackColor()
@@ -125,98 +128,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             activeCell?.backgroundColor = UIColor.greenColor()
             collectionView.userInteractionEnabled = true
         }
-        //----SCENARIO 1----
-        //If segue is New Game and the clicked cell is populated...
-        if tagID == 0 && activeCell?.tag == 0 {
-            
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Delete this save?", message: "Are you sure you want to delete this save? It will not be recoverable!", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
-                
-                self.gameSaves.removeAtIndex(indexPath.row)
-                activeCell?.tag = 1
-                
-                
-                //resets the cell's border and background colour. Enables user interaction again
-                reset()
-                
-                //rewrite gameSaves to app documents to save the change
-                self.saveGame()
-                
-                //reloads gameSaves, now one game shorter, and
-               // self.loadGame()
-                
-                //reloads the data for the cells to refresh, since there is no one less saved game
-                self.levelsView.reloadData()
-                
-                
-                
-                
-            }))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-            
-            // reset()
-        }
-        //----SCENARIO 2----
-        //If segue is New Game and the clicked cell is not populated...
-        if tagID == 0 && activeCell?.tag == 1  {
-            
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Enter Your Name", message: "Please enter your name to start a new game!", preferredStyle: .Alert)
-            ac.addTextFieldWithConfigurationHandler({(textfield: UITextField!) -> Void in
-                textfield.placeholder = "Enter Name"
-            })
-            
-            ac.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-                (alert: UIAlertAction!) in
-                if let textField = ac.textFields!.first as UITextField!{
-                    if textField.text == "" {
-                        textField.text = "nil"
-                    }
-                    
-                    let newName = textField.text!
-                    let gameSave = GameSave(name: newName, progress: 0)
-                    self.appendGameSaves(gameSave)
-                    activeCell?.tag = 0
-                    self.saveGame()
-                    
-                    collectionView.reloadData()
-                    reset()
-                }
-            }))
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-        }
-        //----SCENARIO 3----
-        if tagID == 1 && activeCell?.tag == 0 {
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Confirm Load", message: "Are you sure you want to load this game?", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-        }
-        //----SCENARIO 4----
-        if tagID == 1 && activeCell?.tag == 1 {
-            activeCell?.layer.borderWidth = 2.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
-            collectionView.userInteractionEnabled = false
-            
-            let ac = UIAlertController(title: "Error", message: "No save file detected. Please select a different slot.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: viewReset))
-            window!.rootViewController!.presentViewController(ac, animated: true, completion: nil)
-            
-        }
+        
+
+        
+        
     }
     //-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -228,22 +143,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         collectionView.reloadItemsAtIndexPaths([indexPath])
     }
-    //-----------------ADDS A NEW GAME SAVE OBJECT TO THE GAMESAVES ARRAY----------------------------------------------
-    func appendGameSaves(gameSave: GameSave) {
-        gameSaves.append(gameSave)
-    }
-    //-----------------SAVES THE GAMESAVES ARRAY----------------------------------------------
-    func saveGame() {
-        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        if paths.count > 0 {
-            let directPath = paths[0]
-            let path = directPath.stringByAppendingString("/gameSlots.json")
-            
-            let data = NSKeyedArchiver.archivedDataWithRootObject(gameSaves)
-            data.writeToFile(path, atomically: true)
-        }
-    }
-    //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
+        //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
     func loadLevels(levels: [NSDictionary]) {
         levelsData = levels
         
