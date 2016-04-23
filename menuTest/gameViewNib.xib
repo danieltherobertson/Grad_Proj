@@ -20,7 +20,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameView" customModule="menuTest" customModuleProvider="target">
             <connections>
-                <outlet property="buttonWidthConstraint" destination="9xa-KT-NGe" id="gJP-6j-ltO"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
                 <outlet property="gameAnswerFive" destination="asn-sH-SEb" id="jC2-yq-mG2"/>
                 <outlet property="gameAnswerFour" destination="EDM-HT-fpm" id="R2i-Gh-MDk"/>
@@ -123,18 +122,12 @@
                     <rect key="frame" x="11" y="393" width="284" height="60"/>
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="284" id="9xa-KT-NGe"/>
                         <constraint firstAttribute="height" constant="60" id="Dha-If-K0E"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="9xa-KT-NGe"/>
-                        </mask>
-                    </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
                     <rect key="frame" x="11" y="463" width="284" height="60"/>
@@ -153,8 +146,8 @@
                         </mask>
                     </variation>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
+                    <rect key="frame" x="-22" y="-240" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="22"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
