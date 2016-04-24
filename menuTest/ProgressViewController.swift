@@ -27,12 +27,17 @@ class ProgressViewController: UIViewController {
 
         exitButton.buttonStyle(exitButton)
         startButton.buttonStyle(startButton)
+        
+        startButton.enabled = false
+        
+       // progressView.currentGameSelected = startButtonReady()
 //        startButton.enabled = false
 //        startButton.backgroundColor = UIColor.grayColor()
         
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         let levels = getLevels()
         progressView.loadLevels(levels)
+        //progressView.startButtonReady(startButton)
         
         playerName = currentSave.name
         progressPlayerName.text = playerName
@@ -41,12 +46,16 @@ class ProgressViewController: UIViewController {
         
         currentLevel = levels[playerProgress] 
         progressView.viewedSave = currentSave
+        
+        progressView.currentGameSelected = startButtonReady
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -57,6 +66,11 @@ class ProgressViewController: UIViewController {
             gameViewVC?.currentLevel = currentLevel
             
         }
+    }
+    
+    func startButtonReady(level: Int){
+        startButton.enabled = true
+        
     }
     
     func getLevels() -> [NSDictionary] {

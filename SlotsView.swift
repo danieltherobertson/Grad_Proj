@@ -150,14 +150,7 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
-        
-        func viewReset() {
-            activeCell?.layer.borderWidth = 0
-            activeCell?.layer.borderColor = nil
-            activeCell?.backgroundColor = UIColor.greenColor()
-            collectionView.userInteractionEnabled = true
-        }
-        
+ 
         func reset() {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -240,7 +233,7 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
                 activeCell!.backgroundColor = UIColor.purpleColor()
                 self.saveGame()
                 collectionView.reloadData()
-                viewReset()
+                reset()
                 self.pressedCell(save: self.activeSave)
                 alertView.dismiss()
             }
@@ -278,7 +271,7 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
             collectionView.userInteractionEnabled = false
             
             let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
-                viewReset()
+                reset()
                 alertView.dismiss()
             })
             dialogue.allowTouchOutsideToDismiss = false

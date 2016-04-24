@@ -10,11 +10,11 @@ import UIKit
 class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var levelsView: UICollectionView!
-    var tagID: Int!
-    var gameSaves = Array<GameSave>()
     var viewedSave: GameSave!
     var levelsData: [NSDictionary]!
     var toInt:Int?
+    var toString:String?
+    var currentGameSelected: ((level: Int) -> ())!
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -60,33 +60,31 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 let levelNumber = gameSlot.valueForKey("number")!
                 toInt = Int(levelNumber as! String)
                 let intAdd = toInt!+1
-                let toString = String(intAdd)
-
+                toString = String(intAdd)
                 cell.levelNumber.text = toString
+                
                 if indexPath.row < playerProgress {
-                    cell.userInteractionEnabled = false
-                    cell.layer.borderWidth = 0
+                   // cell.userInteractionEnabled = false
                     cell.levelImage.image = UIImage(named: "tick")
                     cell.levelStatus = LevelStatus.Completed
+                    cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
-                    cell.layer.borderWidth = 2.0
-                    cell.layer.borderColor = UIColor.whiteColor().CGColor
                     cell.levelImage.image = nil
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
+                    cell.tag = 1
                     
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "padlock")
-                    cell.layer.borderWidth = 2
-                    cell.layer.borderColor = UIColor.redColor().CGColor
-                    cell.userInteractionEnabled = false
+                   // cell.userInteractionEnabled = false
                     cell.levelStatus = LevelStatus.Locked
+                    cell.tag = 2
                 }
                 cell.levelName.textColor = UIColor.blackColor()
                 cell.levelNumber.textColor = UIColor.blackColor()
-                cell.tag = toInt!
-                print (cell.tag)
+                //cell.tag = toInt!
+               // print (cell.tag)
 
                 //Unpopulated cells are drawn like...
             } else {
@@ -110,18 +108,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
-        
-        // print("notInUse capacity:\(notInUse.capacity)")
-        // print("inUseCells capactiy\(inUseCells.capacity)")
-        
-        
-        func viewReset(alertAction: UIAlertAction) {
-            activeCell?.layer.borderWidth = 0
-            activeCell?.layer.borderColor = nil
-            activeCell?.backgroundColor = UIColor.greenColor()
-            collectionView.userInteractionEnabled = true
-        }
-        
+
         func reset() {
             activeCell?.layer.borderWidth = 0
             activeCell?.layer.borderColor = nil
@@ -129,9 +116,49 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             collectionView.userInteractionEnabled = true
         }
         
+        if activeCell?.tag == 0 {
+            
+            activeCell?.layer.borderWidth = 3.0
+            activeCell?.layer.borderColor = UIColor.cyanColor().CGColor
+            
+            let dialogue = ZAlertView(title: "Level Completed", message: "You've already completed this level! You're on level \(toString!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
+                reset()
+                alertView.dismiss()
+            })
+            dialogue.allowTouchOutsideToDismiss = false
+            dialogue.show()
 
+        }
         
+        if activeCell?.tag == 1 {
+            
+            activeCell?.layer.borderWidth = 3.0
+            activeCell?.layer.borderColor = UIColor.whiteColor().CGColor
+            
+//            let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
+//                reset()
+//                alertView.dismiss()
+//            })
+//            dialogue.allowTouchOutsideToDismiss = false
+//            dialogue.show()
+            let currentCellPos = indexPath.row
+            currentGameSelected(level: currentCellPos)
+
+        }
         
+        if activeCell?.tag == 2 {
+            
+            activeCell?.layer.borderWidth = 3.0
+            activeCell?.layer.borderColor = UIColor.redColor().CGColor
+            
+            let dialogue = ZAlertView(title: "Level Locked", message: "You haven't unlocked this level yet! You're on level \(toString!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
+                reset()
+                alertView.dismiss()
+            })
+            dialogue.allowTouchOutsideToDismiss = false
+            dialogue.show()
+
+        }
     }
     //-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -146,7 +173,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
     func loadLevels(levels: [NSDictionary]) {
         levelsData = levels
-        
-       // print("printing levelss \(levelsData)")
-    }  
+    }
+    
+    func startButtonReady(button: UIButton) {
+        button.enabled = true
+    }
 }
