@@ -32,6 +32,8 @@ class ProgressViewController: UIViewController {
         startButton.buttonStyle(startButton)
         
         startButton.enabled = false
+        startButton.backgroundColor = UIColor.grayColor()
+        startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
        // progressView.currentGameSelected = startButtonReady()
 //        startButton.enabled = false
@@ -73,6 +75,8 @@ class ProgressViewController: UIViewController {
     }
     
     func startButtonReady(level: Int){
+        startButton.backgroundColor = UIColor.greenColor()
+        startButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         startButton.enabled = true
         selectedLevelPos = level
         print(selectedLevelPos)
