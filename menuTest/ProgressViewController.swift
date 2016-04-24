@@ -16,7 +16,10 @@ class ProgressViewController: UIViewController {
     @IBOutlet weak var progressPlayerName: UILabel!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
+    var levels = [NSDictionary]()
     var currentLevel: NSDictionary!
+    var selectedLevelPos: Int!
+    var selectedLevel = NSDictionary()
     
     var playerName: String!
     var playerProgress: Int!
@@ -35,16 +38,17 @@ class ProgressViewController: UIViewController {
 //        startButton.backgroundColor = UIColor.grayColor()
         
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
-        let levels = getLevels()
+        levels = getLevels()
         progressView.loadLevels(levels)
+        print(levels)
         //progressView.startButtonReady(startButton)
         
         playerName = currentSave.name
         progressPlayerName.text = playerName
         
-        playerProgress = currentSave.progress
-        
-        currentLevel = levels[playerProgress] 
+//        playerProgress = currentSave.progress
+//        
+//        currentLevel = levels[playerProgress] 
         progressView.viewedSave = currentSave
         
         progressView.currentGameSelected = startButtonReady
@@ -63,13 +67,17 @@ class ProgressViewController: UIViewController {
 
         
         if segue.identifier == "startGame" {
-            gameViewVC?.currentLevel = currentLevel
+            gameViewVC?.currentLevel = selectedLevel
             
         }
     }
     
     func startButtonReady(level: Int){
         startButton.enabled = true
+        selectedLevelPos = level
+        print(selectedLevelPos)
+        //print(levels)
+        selectedLevel = levels[selectedLevelPos]
         
     }
     

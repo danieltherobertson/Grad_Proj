@@ -77,7 +77,11 @@ class GameViewController: UIViewController {
     }
     
     func showLandingScreen() {
-        gameView.introLabel.typeStart("Level \(currentLevel.valueForKey("number")!) \n \n \(currentLevel.valueForKey("name")!)")
+        let currentLev = String(currentLevel.valueForKey("number")!)
+        let currentLevInt = Int(currentLev)
+        let currentLevRead = currentLevInt!+1
+        
+        gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
             let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)

@@ -121,12 +121,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             activeCell?.layer.borderWidth = 3.0
             activeCell?.layer.borderColor = UIColor.cyanColor().CGColor
             
-            let dialogue = ZAlertView(title: "Level Completed", message: "You've already completed this level! You're on level \(toString!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
-                reset()
-                alertView.dismiss()
-            })
-            dialogue.allowTouchOutsideToDismiss = false
-            dialogue.show()
+                let currentCellPos = indexPath.row
+                self.currentGameSelected(level: currentCellPos)
+
 
         }
         
