@@ -30,15 +30,14 @@ class GameViewController: UIViewController {
         let buttonFour = gameView.gameAnswerFour
         let buttonFive = gameView.gameAnswerFive
         let buttonSix = gameView.gameAnswerSix
-        buttons += [buttonOne,buttonTwo,buttonThree,buttonFour,buttonFive,buttonSix]
+        let buttonSingle = gameView.singleButton
+        buttons += [buttonOne,buttonTwo,buttonThree,buttonFour,buttonFive,buttonSix,buttonSingle]
         
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
             print(button.titleLabel)
             button.hidden = true
         }
-
-        
         getTutorial()
     }
     
@@ -119,9 +118,9 @@ class GameViewController: UIViewController {
         }) { (completion) -> Void in
             self.gameView.gameText.typeStart(first!)
             onTypeComplete = {
-            self.buttons[0].setTitle("Go on...", forState: .Normal)
-            self.buttons[0].hidden = false
-            self.animateTransition(self.buttons[0], time: 0.7, direction: kCATransitionFromLeft)
+            self.buttons.last?.setTitle("Go on...", forState: .Normal)
+            self.buttons.last?.hidden = false
+            self.animateTransition(self.buttons.last!, time: 0.7, direction: kCATransitionFromLeft)
             }
         }
     }

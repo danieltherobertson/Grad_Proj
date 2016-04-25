@@ -31,17 +31,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
-        
-//        let button = UIButton(type:UIButtonType.RoundedRect)
-//        button.frame = CGRectMake(20, 50, 100, 30)
-//        button.setTitle("Crash", forState: UIControlState.Normal)
-//        button.addTarget(self, action: "crashButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-//        view.addSubview(button)
-//        
-//        func crashButtonTapped(sender: AnyObject) {
-//            Crashlytics.sharedInstance().crash()
-//        }
 
         imageView.image = gif
         
@@ -50,13 +39,10 @@ class MenuViewController: UIViewController {
         tagLine.text = text
         
         newGame.alpha = 0
-       // newGame.transform = CGAffineTransformMakeScale(0, 0)
         
         loadGame.alpha = 0
-        //loadGame.transform = CGAffineTransformMakeScale(0, 0)
         
         help.alpha = 0
-       // help.transform = CGAffineTransformMakeScale(0, 0)
         
         imageView.alpha = 0
         

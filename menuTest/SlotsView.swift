@@ -12,7 +12,6 @@ class SlotsView: UIView {
     var gamesView: UICollectionView!
     var tagID: Int!
     var gameSaves = Array<GameSave>()
-   // var saveOverwriteSlot: (() -> ())!
     
     //pressedCell is a closure that takes a gamesave as a param
     var pressedCell: ((save: GameSave) -> ())!

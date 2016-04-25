@@ -61,7 +61,4 @@ extension UILabel {
             self.text = text! + String(character)
         }
     }
-    
-    //Global var that is a completion handler, refer to that addNextLeter is finished
-    
 }

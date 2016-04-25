@@ -24,7 +24,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        // gamesView.translatesAutoresizingMaskIntoConstraints = false
         levelsView.dataSource = self
         levelsView.delegate = self
         
@@ -64,7 +63,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 cell.levelNumber.text = toString
                 
                 if indexPath.row < playerProgress {
-                   // cell.userInteractionEnabled = false
                     cell.levelImage.image = UIImage(named: "tick")
                     cell.levelStatus = LevelStatus.Completed
                     cell.tag = 0
@@ -77,14 +75,11 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "padlock")
-                   // cell.userInteractionEnabled = false
                     cell.levelStatus = LevelStatus.Locked
                     cell.tag = 2
                 }
                 cell.levelName.textColor = UIColor.blackColor()
                 cell.levelNumber.textColor = UIColor.blackColor()
-                //cell.tag = toInt!
-               // print (cell.tag)
 
                 //Unpopulated cells are drawn like...
             } else {
@@ -92,9 +87,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 cell.levelNumber.textColor = UIColor.blackColor()
                 cell.levelName.text = "[Empty]"
                 cell.levelNumber.text = "[Empty]"
-//                cell.tag = 1
-                // cell.inUse = false
-                // notInUse.append(cell)
             }
         
         // Configure the cell
@@ -131,13 +123,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             
             activeCell?.layer.borderWidth = 3.0
             activeCell?.layer.borderColor = UIColor.whiteColor().CGColor
-            
-//            let dialogue = ZAlertView(title: "Error", message: "No save file detected. Please select a different slot.", closeButtonText: "Okay", closeButtonHandler: { alertView in
-//                reset()
-//                alertView.dismiss()
-//            })
-//            dialogue.allowTouchOutsideToDismiss = false
-//            dialogue.show()
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos)
 

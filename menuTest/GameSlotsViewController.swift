@@ -22,9 +22,6 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     var tagID: Int!
     
     var selectedSave: GameSave?
-
-    
-//    var newName = ""
     
     let gif = UIImage.gifWithName("slots_background")
 
@@ -50,14 +47,8 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         backButton.layer.borderWidth = 4
         backButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         gameSlotsView.tagID = tagID
-      //  gameSlotsView.saveOverwriteSlot = {() -> Void in
-            
-      //  }
-
         collectionTitle.text = pageTitle
-       // collectionLabel.text = pageLabel
     }
-    
     
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -69,12 +60,6 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         // Dispose of any resources that can be recreated.
     }
 
-//    func gameStart(alertAction: UIAlertAction!) {
-//        print(newName)
-//        self.performSegueWithIdentifier("beginGame", sender: self)
-//    }
-    
-    
     func segueToLevels(save: GameSave) {
         //Assigning the passed savefile to selectedSave for the segue
         selectedSave = save

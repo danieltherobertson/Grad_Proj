@@ -17,13 +17,12 @@ class ProgressViewController: UIViewController {
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     var levels = [NSDictionary]()
-    var currentLevel: NSDictionary!
+   // var currentLevel: NSDictionary!
     var selectedLevelPos: Int!
     var selectedLevel = NSDictionary()
     
     var playerName: String!
     var playerProgress: Int!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,22 +34,14 @@ class ProgressViewController: UIViewController {
         startButton.backgroundColor = UIColor.grayColor()
         startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
-       // progressView.currentGameSelected = startButtonReady()
-//        startButton.enabled = false
-//        startButton.backgroundColor = UIColor.grayColor()
-        
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         levels = getLevels()
         progressView.loadLevels(levels)
         print(levels)
-        //progressView.startButtonReady(startButton)
         
         playerName = currentSave.name
         progressPlayerName.text = playerName
         
-//        playerProgress = currentSave.progress
-//        
-//        currentLevel = levels[playerProgress] 
         progressView.viewedSave = currentSave
         
         progressView.currentGameSelected = startButtonReady
@@ -80,9 +71,7 @@ class ProgressViewController: UIViewController {
         startButton.enabled = true
         selectedLevelPos = level
         print(selectedLevelPos)
-        //print(levels)
         selectedLevel = levels[selectedLevelPos]
-        
     }
     
     func getLevels() -> [NSDictionary] {
@@ -124,16 +113,4 @@ class ProgressViewController: UIViewController {
         dialogue.allowTouchOutsideToDismiss = false
         dialogue.show()
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
