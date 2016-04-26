@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
     func getTutorial() -> [NSDictionary] {
         var results = [NSDictionary]()
         
-        if let path = NSBundle.mainBundle().pathForResource("TutorialDialogue", ofType: "json") {
+        if let path = NSBundle.mainBundle().pathForResource("LevelDialogues", ofType: "json") {
             do {
                 //Tries to convert the json to NSData
                 let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
