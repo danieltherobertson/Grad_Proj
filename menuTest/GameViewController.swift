@@ -16,11 +16,7 @@ class GameViewController: UIViewController {
     var text: String!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
-    
-    override func viewWillAppear(animated: Bool) {
-        
-           }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +31,6 @@ class GameViewController: UIViewController {
         
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
-            print(button.titleLabel)
             button.hidden = true
         }
         getTutorial()
@@ -84,7 +79,6 @@ class GameViewController: UIViewController {
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
             let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
-            print("well shit")
             onTypeComplete = nil
         }
     
@@ -92,7 +86,6 @@ class GameViewController: UIViewController {
     }
     
     func startText() {
-        print("hello")
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
             self.gameView.introLabel.alpha = 0
             
