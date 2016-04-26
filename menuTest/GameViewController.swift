@@ -56,10 +56,15 @@ class GameViewController: UIViewController {
                 do {
                     let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
-                    if let dialogues = jsonResult["tutorialDialogues"] as? [[String: AnyObject]] {
-                        for dialogue: [String: AnyObject] in dialogues {
-
-                            results.append(dialogue)
+                    if let dialogues = jsonResult["levelDialogues"] as?  [String: [ NSDictionary ] ] {
+                        
+                        if let tutorialDialogue = dialogues["tutorialDialogue"] {
+                            
+                            for dialogue in tutorialDialogue {
+                                if let text = dialogue["text"] as? String {
+                                    results.append(dialogue)
+                                }
+                            }
                         }
                     }
                 } catch {}
@@ -67,6 +72,7 @@ class GameViewController: UIViewController {
         }
      //   Returns our juicy data in a lovely array of dictionaries
         tutorialDialogue = results
+        print(tutorialDialogue)
         return results
     }
     
