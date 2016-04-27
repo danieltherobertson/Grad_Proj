@@ -180,10 +180,12 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlW-TT-03n">
-                    <rect key="frame" x="355" y="129" width="250" height="335"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-Pe-Uij">
+                    <rect key="frame" x="206" y="545" width="189" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="189" id="OzG-3h-t4f"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,7 +202,9 @@
                 <constraint firstAttribute="bottom" secondItem="tjh-b9-0cC" secondAttribute="bottom" constant="147" id="5ku-my-Yau"/>
                 <constraint firstAttribute="trailing" secondItem="Png-ru-3Uw" secondAttribute="trailing" constant="11" id="8Sr-Xw-wje"/>
                 <constraint firstItem="Png-ru-3Uw" firstAttribute="leading" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="9FE-be-Fva"/>
+                <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="tjh-b9-0cC" secondAttribute="bottom" constant="92" id="9xn-sX-1mR"/>
                 <constraint firstItem="sPl-cb-Zn3" firstAttribute="trailing" secondItem="4Df-ln-QiB" secondAttribute="trailing" id="Ais-OQ-Czp"/>
+                <constraint firstItem="LR2-Pe-Uij" firstAttribute="centerX" secondItem="tjh-b9-0cC" secondAttribute="centerX" id="DHJ-tD-lAh"/>
                 <constraint firstItem="asn-sH-SEb" firstAttribute="leading" secondItem="1gr-Zt-XgX" secondAttribute="trailing" constant="10" id="FbR-mu-kdV"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="HvI-07-MMN"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="width" secondItem="Png-ru-3Uw" secondAttribute="width" id="JaB-uB-ytM"/>
@@ -225,6 +229,7 @@
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="width" secondItem="asn-sH-SEb" secondAttribute="width" id="fU1-Le-dNm"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>
                 <constraint firstItem="asn-sH-SEb" firstAttribute="top" secondItem="EDM-HT-fpm" secondAttribute="bottom" constant="10" id="h21-fL-waK"/>
+                <constraint firstItem="LR2-Pe-Uij" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jg3-5O-GQ9"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
                 <constraint firstItem="4Df-ln-QiB" firstAttribute="centerX" secondItem="GyC-eh-NVu" secondAttribute="centerX" id="k6Z-2n-FxZ"/>
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="leading" secondItem="4Df-ln-QiB" secondAttribute="leading" id="krt-Bc-gQ9"/>
@@ -261,6 +266,7 @@
         </view>
     </objects>
     <resources>
+        <image name="operator.gif" width="443" height="154"/>
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
 </document>
