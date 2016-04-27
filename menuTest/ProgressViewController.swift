@@ -37,7 +37,6 @@ class ProgressViewController: UIViewController {
         //Get levels by calling getLevels and assigning the returned results to let levels. levels is then passed as a param for the progressView's loadLevels func
         levels = getLevels()
         progressView.loadLevels(levels)
-        print(levels)
         
         playerName = currentSave.name
         progressPlayerName.text = playerName
@@ -70,7 +69,6 @@ class ProgressViewController: UIViewController {
         startButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         startButton.enabled = true
         selectedLevelPos = level
-        print(selectedLevelPos)
         selectedLevel = levels[selectedLevelPos]
     }
     

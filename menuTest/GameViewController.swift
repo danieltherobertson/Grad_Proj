@@ -33,7 +33,9 @@ class GameViewController: UIViewController {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
             button.hidden = true
         }
-        getTutorial()
+        tutorialDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
+        print(tutorialDialogue)
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,36 +47,6 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getTutorial() -> [NSDictionary] {
-        var results = [NSDictionary]()
-        
-        if let path = NSBundle.mainBundle().pathForResource("LevelDialogues", ofType: "json") {
-            do {
-                //Tries to convert the json to NSData
-                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
-                //If that works, it serialises the json into a dictionary called jsonResult
-                do {
-                    let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                    //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
-                    if let dialogues = jsonResult["levelDialogues"] as?  [String: [ NSDictionary ] ] {
-                        
-                        if let tutorialDialogue = dialogues["tutorialDialogue"] {
-                            
-                            for dialogue in tutorialDialogue {
-                                if let text = dialogue["text"] as? String {
-                                    results.append(dialogue)
-                                }
-                            }
-                        }
-                    }
-                } catch {}
-            } catch {}
-        }
-     //   Returns our juicy data in a lovely array of dictionaries
-        tutorialDialogue = results
-        print(tutorialDialogue)
-        return results
-    }
     
     func showLandingScreen() {
         let currentLev = String(currentLevel.valueForKey("number")!)
@@ -87,7 +59,7 @@ class GameViewController: UIViewController {
             let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
             onTypeComplete = nil
         }
-    
+
         
     }
     

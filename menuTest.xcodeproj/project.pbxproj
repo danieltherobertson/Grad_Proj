@@ -42,6 +42,7 @@
 		65ACF7641CB5DEDC0042FBB7 /* gameProgressNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65ACF7631CB5DEDC0042FBB7 /* gameProgressNib.xib */; };
 		65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACF7651CB5E0CD0042FBB7 /* progressCell.swift */; };
 		65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B08D6B1C7D24C300FABC2E /* Main.storyboard */; };
+		65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */; };
 		65C9A87D1CC7B27E000A4FAD /* AutomaticTypable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9A87C1CC7B27E000A4FAD /* AutomaticTypable.swift */; };
 		65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CECF701C9EC87300F563BF /* gameCellNib.xib */; };
 		65CECF731C9EF78500F563BF /* GameSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CECF721C9EF78500F563BF /* GameSave.swift */; };
@@ -110,6 +111,7 @@
 		65ACF7631CB5DEDC0042FBB7 /* gameProgressNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gameProgressNib.xib; sourceTree = "<group>"; };
 		65ACF7651CB5E0CD0042FBB7 /* progressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = progressCell.swift; sourceTree = "<group>"; };
 		65B08D6B1C7D24C300FABC2E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueRetriever.swift; sourceTree = "<group>"; };
 		65C9A87C1CC7B27E000A4FAD /* AutomaticTypable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticTypable.swift; sourceTree = "<group>"; };
 		65CECF701C9EC87300F563BF /* gameCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gameCellNib.xib; sourceTree = "<group>"; };
 		65CECF721C9EF78500F563BF /* GameSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSave.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				65ACF7611CB5D6390042FBB7 /* Level.swift */,
 				65387A181CA1A2D80070FAD7 /* Call.swift */,
 				6532B36D1C5FC12600D734EF /* Question.swift */,
+				65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */,
 			);
 			name = "Model 👾";
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				65CECF731C9EF78500F563BF /* GameSave.swift in Sources */,
 				65510C7C1CCD82FD007C50BC /* SlotsView.swift in Sources */,
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
+				65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */,
 				65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */,
 				65510C7A1CCD82EE007C50BC /* GameViewController.swift in Sources */,
 				652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */,
