@@ -11,7 +11,7 @@ import UIKit
 class GameViewController: UIViewController {
 
     @IBOutlet weak var gameView: GameView!
-    var tutorialDialogue = [NSDictionary]()
+    var levelDialogue = [NSDictionary]()
     var timer: NSTimer?
     var text: String!
     var currentLevel: NSDictionary!
@@ -33,8 +33,8 @@ class GameViewController: UIViewController {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
             button.hidden = true
         }
-        tutorialDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
-        print(tutorialDialogue)
+        levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
+        print(levelDialogue)
         
     }
     
@@ -74,7 +74,7 @@ class GameViewController: UIViewController {
         }
 
         
-        let dialogue = String(tutorialDialogue[0].valueForKey("text")!)
+        let dialogue = String(levelDialogue[0].valueForKey("text")!)
         // let half = dialogue.characters.count/2
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
@@ -94,6 +94,23 @@ class GameViewController: UIViewController {
             self.animateTransition(self.buttons.last!, time: 0.7, direction: kCATransitionFromLeft)
             }
         }
+    }
+    
+    func buttonHandler(sender:UIButton) {
+        var answer = sender.titleLabel?.text
+        
+        for dialogue in levelDialogue {
+            if let acceptedAnswers = dialogue.valueForKey("acceptedAnswers") as? [NSDictionary] {
+                
+            }
+            
+//            if answer == tDialogue {
+//              print("doot")
+//                print(tDialogue)
+//                if let a = dialogue.valueForKey("")
+//            }
+        }
+        
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {

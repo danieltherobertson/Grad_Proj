@@ -39,7 +39,7 @@ class DialogueRetriever {
         return results
     }
     
-    class func checkAnswer(answer: String) -> String {
+    class func checkAnswer(currentLevel: String, answer: String) -> String {
         return ""
     }
 }
