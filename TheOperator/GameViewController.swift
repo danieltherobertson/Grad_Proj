@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
             button.hidden = true
+            button.addTarget(self, action: "buttonHandler:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
         print(levelDialogue)
@@ -98,7 +99,7 @@ class GameViewController: UIViewController {
     
     func buttonHandler(sender:UIButton) {
         var answer = sender.titleLabel?.text
-        
+        print("yay")
         for dialogue in levelDialogue {
             if let acceptedAnswers = dialogue.valueForKey("acceptedAnswers") as? [NSDictionary] {
                 
