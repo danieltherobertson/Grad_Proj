@@ -184,6 +184,7 @@
                     <rect key="frame" x="206" y="545" width="189" height="55"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="189" id="OzG-3h-t4f"/>
+                        <constraint firstAttribute="height" constant="55" id="dsL-ax-6et"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
@@ -202,7 +203,6 @@
                 <constraint firstAttribute="bottom" secondItem="tjh-b9-0cC" secondAttribute="bottom" constant="147" id="5ku-my-Yau"/>
                 <constraint firstAttribute="trailing" secondItem="Png-ru-3Uw" secondAttribute="trailing" constant="11" id="8Sr-Xw-wje"/>
                 <constraint firstItem="Png-ru-3Uw" firstAttribute="leading" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="9FE-be-Fva"/>
-                <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="tjh-b9-0cC" secondAttribute="bottom" constant="92" id="9xn-sX-1mR"/>
                 <constraint firstItem="sPl-cb-Zn3" firstAttribute="trailing" secondItem="4Df-ln-QiB" secondAttribute="trailing" id="Ais-OQ-Czp"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="centerX" secondItem="tjh-b9-0cC" secondAttribute="centerX" id="DHJ-tD-lAh"/>
                 <constraint firstItem="asn-sH-SEb" firstAttribute="leading" secondItem="1gr-Zt-XgX" secondAttribute="trailing" constant="10" id="FbR-mu-kdV"/>
@@ -256,6 +256,7 @@
                     <exclude reference="h0E-Oh-Paf"/>
                     <exclude reference="0SM-i4-EAB"/>
                     <exclude reference="1gr-Zt-XgX"/>
+                    <exclude reference="sFU-Q9-kKB"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="cfM-Jw-XVp"/>

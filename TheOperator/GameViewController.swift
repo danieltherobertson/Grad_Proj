@@ -36,7 +36,6 @@ class GameViewController: UIViewController {
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
         print(levelDialogue)
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,7 +70,7 @@ class GameViewController: UIViewController {
             self.gameView.introLabel.enabled = false
         }
 
-        let dialogue = String(levelDialogue[1].valueForKey("text")!)
+        let dialogue = String(levelDialogue[0].valueForKey("text")!)
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
         let second = half.last
@@ -92,18 +91,25 @@ class GameViewController: UIViewController {
         }
     }
     
-    func questionHandler(dialogueIndex: Int) {
+    func questionHandler(dialogueIndex: Int, button: UIButton) {
         for dialogue in levelDialogue {
             let number = dialogue.valueForKey("number")! as! Int
             
             if number == dialogueIndex {
-                let test = dialogue.valueForKey("text") as! Array<AnyObject>
+                let nextDialogue = dialogue.valueForKey("text") as! String
+                gameView.gameText.text = ""
+                gameView.gameText.typeStart(nextDialogue)
+                onTypeComplete = {
+                    button.setTitle("IT FUCKING WORKED!", forState: .Normal)
+                    button.enabled = true
+                    button.hidden = false
+                }
             }
-            
         }
     }
     
     func buttonHandler(sender:UIButton) {
+        let senderButton = sender
         let buttonAnswer = sender.titleLabel!.text
 
         var nextDialogue = Int()
@@ -121,8 +127,9 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        
-        questionHandler(nextDialogue)
+        sender.enabled = false
+        sender.hidden = true
+        questionHandler(nextDialogue, button: senderButton)
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
