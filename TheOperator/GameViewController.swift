@@ -75,7 +75,7 @@ class GameViewController: UIViewController {
         }
 
         
-        let dialogue = String(levelDialogue[0].valueForKey("text")!)
+        let dialogue = String(levelDialogue[1].valueForKey("text")!)
         // let half = dialogue.characters.count/2
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
@@ -98,20 +98,29 @@ class GameViewController: UIViewController {
     }
     
     func buttonHandler(sender:UIButton) {
-        var answer = sender.titleLabel?.text
-        print("yay")
-        for dialogue in levelDialogue {
-            if let acceptedAnswers = dialogue.valueForKey("acceptedAnswers") as? [NSDictionary] {
-                
-            }
+        let buttonAnswer = sender.titleLabel!.text
+        var nextDialogue = Int()
+        //print("ANSWER IS \(answer!)")
+        outer: for dialogue in levelDialogue {
+           let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
+            for answer in answers {
+                let goTo = answer.valueForKey("goTo")
+                let text = String(answer.valueForKey("text")!)
             
-//            if answer == tDialogue {
-//              print("doot")
-//                print(tDialogue)
-//                if let a = dialogue.valueForKey("")
-//            }
+                print(goTo!)
+                print(text)
+                    
+                if text == buttonAnswer! {
+                    print("WE HAVE A MATCH!")
+                    let goToString = String(goTo!)
+                    nextDialogue = Int(goToString)!
+                    
+                    print("NEXT DIALOGUE IS \(nextDialogue)")
+//                    break
+                    break outer
+                }
+            }
         }
-        
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
