@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Crashlytics
 
 class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
     @IBOutlet weak var collectionTitle: UILabel!
