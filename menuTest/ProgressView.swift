@@ -14,7 +14,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var levelsData: [NSDictionary]!
     var toInt:Int?
     var toString:String?
-    var currentGameSelected: ((level: Int) -> ())!
+    var currentGameSelected: ((level: Int, tag: Int) -> ())!
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -113,10 +113,8 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             activeCell?.layer.borderWidth = 3.0
             activeCell?.layer.borderColor = UIColor.cyanColor().CGColor
             
-                let currentCellPos = indexPath.row
-                self.currentGameSelected(level: currentCellPos)
-
-
+            let currentCellPos = indexPath.row
+            currentGameSelected(level: currentCellPos, tag: 0)
         }
         
         if activeCell?.tag == 1 {
@@ -124,7 +122,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             activeCell?.layer.borderWidth = 3.0
             activeCell?.layer.borderColor = UIColor.whiteColor().CGColor
             let currentCellPos = indexPath.row
-            currentGameSelected(level: currentCellPos)
+            currentGameSelected(level: currentCellPos, tag: 1)
 
         }
         
@@ -133,8 +131,12 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             activeCell?.layer.borderWidth = 3.0
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             
+            let currentCellPos = indexPath.row
+            currentGameSelected(level: currentCellPos, tag: 2)
+            
             let dialogue = ZAlertView(title: "Level Locked", message: "You haven't unlocked this level yet! You're on level \(toString!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 reset()
+                collectionView.reloadData()
                 alertView.dismiss()
             })
             dialogue.allowTouchOutsideToDismiss = false

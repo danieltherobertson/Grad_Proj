@@ -68,16 +68,29 @@ class ProgressViewController: UIViewController {
         }
     }
     
-    func startButtonReady(level: Int){
+    func startButtonReady(level: Int, tag: Int){
+        
+        if tag == 2 {
+            instructions.text = "Select a level to begin!"
+            instructions.setLineHeight(3, alignment: .Center)
+            startButton.enabled = false
+            startButton.backgroundColor = UIColor.grayColor()
+            startButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        }
+        else {
         startButton.backgroundColor = UIColor.greenColor()
         startButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         startButton.enabled = true
+            
         selectedLevelPos = level
         selectedLevel = levels[selectedLevelPos]
+        
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)
         let currentLevRead = currentLevInt!+1
         instructions.text = "Level \(currentLevRead) selected"
+        
+        }
     }
     
     func getLevels() -> [NSDictionary] {
