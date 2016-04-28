@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
             button.hidden = true
-            button.addTarget(self, action: "buttonHandler:", forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
         print(levelDialogue)
@@ -67,16 +67,11 @@ class GameViewController: UIViewController {
     func startText() {
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
             self.gameView.introLabel.alpha = 0
-            
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
-//
-//
         }
 
-        
         let dialogue = String(levelDialogue[1].valueForKey("text")!)
-        // let half = dialogue.characters.count/2
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
         let second = half.last
@@ -98,22 +93,29 @@ class GameViewController: UIViewController {
     }
     
     func questionHandler(dialogueIndex: Int) {
-        
+        for dialogue in levelDialogue {
+            let number = dialogue.valueForKey("number")! as! Int
+            
+            if number == dialogueIndex {
+                let test = dialogue.valueForKey("text") as! Array<AnyObject>
+            }
+            
+        }
     }
     
     func buttonHandler(sender:UIButton) {
         let buttonAnswer = sender.titleLabel!.text
+
         var nextDialogue = Int()
         
         outer: for dialogue in levelDialogue {
-           let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
+            let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
             for answer in answers {
-                let goTo = answer.valueForKey("goTo")
+                let goTo = answer.valueForKey("goTo") as! Int
                 let text = String(answer.valueForKey("text")!)
 
                 if text == buttonAnswer! {
-                    let goToString = String(goTo!)
-                    nextDialogue = Int(goToString)!
+                    nextDialogue = (goTo)
 
                     break outer
                 }
