@@ -14,6 +14,7 @@ class ProgressViewController: UIViewController {
 
     @IBOutlet weak var progressView: ProgressView!
     @IBOutlet weak var progressPlayerName: UILabel!
+    @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     var levels = [NSDictionary]()
@@ -29,6 +30,9 @@ class ProgressViewController: UIViewController {
 
         exitButton.buttonStyle(exitButton)
         startButton.buttonStyle(startButton)
+        
+        instructions.text = "Select a level to begin!"
+        instructions.setLineHeight(3, alignment: .Center)
         
         startButton.enabled = false
         startButton.backgroundColor = UIColor.grayColor()
@@ -70,6 +74,10 @@ class ProgressViewController: UIViewController {
         startButton.enabled = true
         selectedLevelPos = level
         selectedLevel = levels[selectedLevelPos]
+        let currentLev = String(selectedLevel.valueForKey("number")!)
+        let currentLevInt = Int(currentLev)
+        let currentLevRead = currentLevInt!+1
+        instructions.text = "Level \(currentLevRead) selected"
     }
     
     func getLevels() -> [NSDictionary] {
