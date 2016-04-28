@@ -1,6 +1,6 @@
 //
 //  MenuViewController.swift
-//  menuTest
+//  TheOperator
 //
 //  Created by Daniel Robertson on 29/01/2016.
 //  Copyright © 2016 Daniel Robertson. All rights reserved.

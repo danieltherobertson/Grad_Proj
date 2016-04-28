@@ -1,15 +1,15 @@
 //
-//  menuTestTests.swift
-//  menuTestTests
+//  TheOperatorTests.swift
+//  TheOperatorTests
 //
 //  Created by Daniel Robertson on 28/01/2016.
 //  Copyright © 2016 Daniel Robertson. All rights reserved.
 //
 
 import XCTest
-@testable import menuTest
+@testable import TheOperator
 
-class menuTestTests: XCTestCase {
+class TheOperatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

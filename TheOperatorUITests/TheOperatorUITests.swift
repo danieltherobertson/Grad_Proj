@@ -8,7 +8,7 @@
 
 import XCTest
 
-class menuTestUITests: XCTestCase {
+class TheOperatorUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

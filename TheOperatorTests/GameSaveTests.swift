@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import menuTest
+@testable import TheOperator
 
 class GameSaveTests: XCTestCase {
 
