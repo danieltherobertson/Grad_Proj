@@ -218,12 +218,15 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
                 }
             )
             dialogue.lbMessage.textAlignment = .Center
-            dialogue.addTextField("Doot", placeHolder: "Enter Name")
+            dialogue.addTextField("nameTextField", placeHolder: "Enter Name")
+            let text = dialogue.getTextFieldWithIdentifier("nameTextField")
+            text!.keyboardAppearance = UIKeyboardAppearance.Dark
             dialogue.okHandler = { alertView in
-                let text = dialogue.getTextFieldWithIdentifier("Doot")
+                
                 if text!.text! == "" {
                     text!.text = "Player \(self.gameSaves.count+1)"
                 }
+                dialogue.getTextFieldWithIdentifier("nameTextField")?.endEditing(true)
                 let newName = text!.text!
                 let gameSave = GameSave(name: newName, progress: 0)
                 self.appendGameSaves(gameSave)
