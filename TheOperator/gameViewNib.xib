@@ -33,7 +33,9 @@
                 <outlet property="gameText" destination="4Df-ln-QiB" id="cPi-9a-5RT"/>
                 <outlet property="introLabel" destination="sFU-Q9-kKB" id="92q-U6-fuA"/>
                 <outlet property="labelHeightConstraint" destination="hj9-K6-XJk" id="h1g-AK-fGQ"/>
+                <outlet property="levelIndicator" destination="scJ-L3-bdv" id="sk3-01-YcP"/>
                 <outlet property="singleButton" destination="tjh-b9-0cC" id="eFi-0L-ZxU"/>
+                <outlet property="timeIndicator" destination="sPl-cb-Zn3" id="1HC-II-hFt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -159,10 +161,10 @@
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
-                    <rect key="frame" x="8" y="15" width="109" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
+                    <rect key="frame" x="8" y="15" width="151" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="109" id="plS-jp-Cei"/>
+                        <constraint firstAttribute="width" constant="151" id="plS-jp-Cei"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,7 +258,6 @@
                     <exclude reference="h0E-Oh-Paf"/>
                     <exclude reference="0SM-i4-EAB"/>
                     <exclude reference="1gr-Zt-XgX"/>
-                    <exclude reference="sFU-Q9-kKB"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="cfM-Jw-XVp"/>

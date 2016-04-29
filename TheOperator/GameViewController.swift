@@ -16,9 +16,22 @@ class GameViewController: UIViewController {
     var text: String!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
+    
+    var currentLev: String!
+    var currentLevInt: Int!
+    var currentLevRead: Int!
 
     override func viewDidLoad() {
+        
+        currentLev = String(currentLevel.valueForKey("number")!)
+        currentLevInt = Int(currentLev)
+        currentLevRead = currentLevInt!+1
+        
+        gameView.levelIndicator.text = "Level \(currentLevRead!)"
+        
         super.viewDidLoad()
+        
+        print("Current Level: \(currentLevel)")
         
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
@@ -49,9 +62,9 @@ class GameViewController: UIViewController {
     
     
     func showLandingScreen() {
-        let currentLev = String(currentLevel.valueForKey("number")!)
-        let currentLevInt = Int(currentLev)
-        let currentLevRead = currentLevInt!+1
+//        let currentLev = String(currentLevel.valueForKey("number")!)
+//        let currentLevInt = Int(currentLev)
+//        let currentLevRead = currentLevInt!+1
         
         gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()

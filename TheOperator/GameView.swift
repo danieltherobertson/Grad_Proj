@@ -12,6 +12,8 @@ class GameView: UIView {
 
     @IBOutlet var contentView: UIView!
 
+    @IBOutlet weak var levelIndicator: UILabel!
+    @IBOutlet weak var timeIndicator: UILabel!
     @IBOutlet weak var gameText: UILabel!
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
