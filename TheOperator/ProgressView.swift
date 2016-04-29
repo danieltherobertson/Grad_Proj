@@ -14,6 +14,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var levelsData: [NSDictionary]!
     var toInt:Int?
     var toString:String?
+    var nextLevel: Int?
     var currentGameSelected: ((level: Int, tag: Int) -> ())!
     
     override func layoutSubviews() {
@@ -68,6 +69,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
+                  nextLevel = indexPath.row+1
                     cell.levelImage.image = nil
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
@@ -134,7 +136,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 2)
             
-            let dialogue = ZAlertView(title: "Level Locked", message: "You haven't unlocked this level yet! You're on level \(toString!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
+            let dialogue = ZAlertView(title: "Level Locked", message: "You haven't unlocked this level yet! You're on level \(nextLevel!)", closeButtonText: "Okay", closeButtonHandler: { alertView in
                 reset()
                 collectionView.reloadData()
                 alertView.dismiss()
