@@ -102,8 +102,19 @@ class GameViewController: UIViewController {
     }
     
     func layoutHandler(NoOfbuttons: Int) {
+        
+        var inUseButtons = [UIButton]()
+        var inUseAnswers = [String]()
+        
+        for answer in stageAnswers {
+            let buttonAnswer = String(answer.valueForKey("text")!)
+            inUseAnswers.append(buttonAnswer)
+        }
+
         if NoOfbuttons == 1 {
             self.buttons.last?.hidden = false
+            self.buttons.last?.titleLabel?.text = inUseAnswers.first
+            
         } else {
             for (index, button) in buttons.enumerate() {
                 button.hidden = false
