@@ -20,8 +20,15 @@ class GameViewController: UIViewController {
     var currentLev: String!
     var currentLevInt: Int!
     var currentLevRead: Int!
+    
+    var currentDialogue = 0
+    
+    var stageDialogue: NSDictionary!
+    var stageAnswers: Array<NSDictionary>!
+    var numberOfButtons: Int!
 
     override func viewDidLoad() {
+        
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
@@ -30,9 +37,7 @@ class GameViewController: UIViewController {
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         
         super.viewDidLoad()
-        
-        print("Current Level: \(currentLevel)")
-        
+
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
         let buttonThree = gameView.gameAnswerThree
@@ -48,48 +53,39 @@ class GameViewController: UIViewController {
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
-        print(levelDialogue)
+        stageDialogue = levelDialogue[currentDialogue]
+        stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+        numberOfButtons = stageAnswers?.count
     }
     
     override func viewDidAppear(animated: Bool) {
         showLandingScreen()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    
-    func showLandingScreen() {
-//        let currentLev = String(currentLevel.valueForKey("number")!)
-//        let currentLevInt = Int(currentLev)
-//        let currentLevRead = currentLevInt!+1
-        
+    func showLandingScreen() { // 1
         gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
             let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
             onTypeComplete = nil
         }
-
-        
     }
     
-    func startText() {
+    func startText() { // 2
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
+            //hide intro label
             self.gameView.introLabel.alpha = 0
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
         }
-
-        let dialogue = String(levelDialogue[0].valueForKey("text")!)
+        //get next dialogue, starts at 0 for start of level.
+        let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
         let half = dialogue.componentsSeparatedByString("\n")
         let first = half.first
         let second = half.last
         gameView.gameText.textColor = UIColor.blackColor()
         gameView.gameText.text = ""
-        
+        //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
             self.gameView.labelHeightConstraint.constant = 140
@@ -97,19 +93,39 @@ class GameViewController: UIViewController {
         }) { (completion) -> Void in
             self.gameView.gameText.typeStart(first!)
             onTypeComplete = {
-            self.buttons.last?.setTitle("Go on...", forState: .Normal)
+                self.layoutHandler(self.numberOfButtons)
+//            self.buttons.last?.setTitle("Go on...", forState: .Normal)
+//            
+//            self.animateTransition(self.buttons.last!, time: 0.7, direction: kCATransitionFromLeft)
+            }
+        }
+    }
+    
+    func layoutHandler(NoOfbuttons: Int) {
+        if NoOfbuttons == 1 {
             self.buttons.last?.hidden = false
-            self.animateTransition(self.buttons.last!, time: 0.7, direction: kCATransitionFromLeft)
+        } else {
+            for (index, button) in buttons.enumerate() {
+                button.hidden = false
+                
+                if index == NoOfbuttons {
+                    break
+                }
             }
         }
     }
     
     func questionHandler(dialogueIndex: Int, button: UIButton) {
+        
+        //Getting all of the dialogue sets for the current level
         for dialogue in levelDialogue {
+            //number is the first property of each dialogue set, identifying its index in the current level dialogue
             let number = dialogue.valueForKey("number")! as! Int
-            
+            //if number is equal to dialogueIndex (which is the piece of dialogue that is to be displayed next, passed from buttonHandler), then we know we've looped to the piece of dialogue we want to display next.
             if number == dialogueIndex {
+                //So we then set nextDialogue to be the text value of the dialogue set at that index.
                 let nextDialogue = dialogue.valueForKey("text") as! String
+                //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
                 onTypeComplete = {
@@ -140,7 +156,7 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        sender.enabled = false
+        //sender.enabled = false
         sender.hidden = true
         questionHandler(nextDialogue, button: senderButton)
     }
