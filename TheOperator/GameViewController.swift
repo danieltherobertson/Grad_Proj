@@ -115,7 +115,7 @@ class GameViewController: UIViewController {
                 
                 for (index2, answer) in inUseAnswers.enumerate() {
                     if index == index2 {
-                        button.titleLabel!.text = answer
+                        button.setTitle(answer, forState: .Normal)
                     }
                     
                     if index == NoOfbuttons {
