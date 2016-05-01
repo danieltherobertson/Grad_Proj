@@ -18,9 +18,6 @@ class GameView: UIView {
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
-    @IBOutlet weak var gameAnswerFour: UIButton!
-    @IBOutlet weak var gameAnswerFive: UIButton!
-    @IBOutlet weak var gameAnswerSix: UIButton!
     @IBOutlet weak var singleButton: UIButton!
     
     @IBOutlet weak var introLabel: UILabel!
@@ -38,9 +35,6 @@ class GameView: UIView {
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)
-            gameAnswerOne.buttonStyle(gameAnswerFour)
-            gameAnswerTwo.buttonStyle(gameAnswerFive)
-            gameAnswerThree.buttonStyle(gameAnswerSix)
             singleButton.buttonStyle(singleButton)
             gameText.clipsToBounds = true
             gameText.labelStyle(gameText)

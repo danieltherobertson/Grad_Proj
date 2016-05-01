@@ -41,15 +41,12 @@ class GameViewController: UIViewController {
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
         let buttonThree = gameView.gameAnswerThree
-        let buttonFour = gameView.gameAnswerFour
-        let buttonFive = gameView.gameAnswerFive
-        let buttonSix = gameView.gameAnswerSix
         let buttonSingle = gameView.singleButton
-        buttons += [buttonOne,buttonTwo,buttonThree,buttonFour,buttonFive,buttonSix,buttonSingle]
+        buttons += [buttonOne,buttonTwo,buttonThree,buttonSingle]
         
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
-            button.hidden = true
+           // button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
@@ -185,9 +182,6 @@ class GameViewController: UIViewController {
         animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
         animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
         animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
-        animateTransition(gameView.gameAnswerFour, time: 1.6, direction: kCATransitionFromRight)
-        animateTransition(gameView.gameAnswerFive, time: 1.4, direction: kCATransitionFromRight)
-        animateTransition(gameView.gameAnswerSix, time: 1.2, direction: kCATransitionFromRight)
     }
 
     /*
