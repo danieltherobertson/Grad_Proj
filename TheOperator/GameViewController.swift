@@ -43,7 +43,7 @@ class GameViewController: UIViewController {
         buttons += [buttonOne,buttonTwo,buttonThree]
         
         for button in buttons {
-            button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
+            button.setTitle(" ", forState: .Normal)
             button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
         }
@@ -51,6 +51,7 @@ class GameViewController: UIViewController {
         stageDialogue = levelDialogue[currentDialogue]
         stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
         numberOfButtons = stageAnswers?.count
+        print("number of buttons: \(numberOfButtons!)")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -109,10 +110,17 @@ class GameViewController: UIViewController {
             button.titleLabel?.text = inUseAnswers.first
             
         } else {
-            for (index, button) in buttons.enumerate() {
+            outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
-                if index == NoOfbuttons {
-                    break
+                
+                for (index2, answer) in inUseAnswers.enumerate() {
+                    if index == index2 {
+                        button.titleLabel!.text = answer
+                    }
+                    
+                    if index == NoOfbuttons {
+                        break outer
+                    }
                 }
             }
         }

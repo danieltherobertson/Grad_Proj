@@ -10,7 +10,15 @@
 	              	{
 	                 	"text": "Go on...",
 	                 	"goTo": 1
-	                 }
+	                 },
+                    {
+                    "text": "Keep talking bitch",
+                    "goTo": 1
+                    },
+                    {
+                    "text": "Shut the fuck up",
+                    "goTo": 1
+                    }
 	            ]
 			},
             {
