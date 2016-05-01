@@ -46,7 +46,7 @@ class GameViewController: UIViewController {
         
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
-           // button.hidden = true
+            button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
@@ -77,9 +77,6 @@ class GameViewController: UIViewController {
         }
         //get next dialogue, starts at 0 for start of level.
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
-        let half = dialogue.componentsSeparatedByString("\n")
-        let first = half.first
-        let second = half.last
         gameView.gameText.textColor = UIColor.blackColor()
         gameView.gameText.text = ""
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
@@ -88,7 +85,7 @@ class GameViewController: UIViewController {
             self.gameView.labelHeightConstraint.constant = 140
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
-            self.gameView.gameText.typeStart(first!)
+            self.gameView.gameText.typeStart(dialogue)
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
 //            self.buttons.last?.setTitle("Go on...", forState: .Normal)
@@ -109,13 +106,13 @@ class GameViewController: UIViewController {
         }
 
         if NoOfbuttons == 1 {
-            self.buttons.last?.hidden = false
-            self.buttons.last?.titleLabel?.text = inUseAnswers.first
+            let button = self.buttons[1]
+            button.hidden = false
+            button.titleLabel?.text = inUseAnswers.first
             
         } else {
             for (index, button) in buttons.enumerate() {
                 button.hidden = false
-                
                 if index == NoOfbuttons {
                     break
                 }
