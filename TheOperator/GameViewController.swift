@@ -107,7 +107,7 @@ class GameViewController: UIViewController {
         if NoOfbuttons == 1 {
             let button = self.buttons[1]
             button.hidden = false
-            button.titleLabel?.text = inUseAnswers.first
+            button.setTitle(inUseAnswers.first, forState: .Normal)
             
         } else {
             outer: for (index, button) in buttons.enumerate() {
@@ -168,7 +168,7 @@ class GameViewController: UIViewController {
             }
         }
         //sender.enabled = false
-        sender.hidden = true
+        //sender.hidden = true
         questionHandler(nextDialogue, button: senderButton)
     }
     
