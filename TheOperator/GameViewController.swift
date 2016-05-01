@@ -29,7 +29,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         
-        
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
         currentLevRead = currentLevInt!+1
@@ -41,8 +40,7 @@ class GameViewController: UIViewController {
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
         let buttonThree = gameView.gameAnswerThree
-        let buttonSingle = gameView.singleButton
-        buttons += [buttonOne,buttonTwo,buttonThree,buttonSingle]
+        buttons += [buttonOne,buttonTwo,buttonThree]
         
         for button in buttons {
             button.setTitle("Button \(buttons.indexOf(button)!)", forState: .Normal)
