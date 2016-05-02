@@ -126,14 +126,8 @@ class GameViewController: UIViewController {
                         inUseAnswers.removeAll()
                         button.hidden = true
                         button.setTitle("", forState: .Normal)
-                       // inUseButtons.removeAll()
                         break outer
                     }
-                    
-//                    if index > NoOfbuttons {
-//                        button.hidden = true
-//                        button.setTitle("", forState: .Normal)
-//                    }
                 }
             }
         }
