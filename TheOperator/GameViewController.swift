@@ -96,7 +96,7 @@ class GameViewController: UIViewController {
     
     func layoutHandler(NoOfbuttons: Int) {
         print("number of buttons: \(NoOfbuttons)")
-        var inUseButtons = [UIButton]()
+       // var inUseButtons = [UIButton]()
         var inUseAnswers = [String]()
         
         clearButtons()
@@ -107,11 +107,13 @@ class GameViewController: UIViewController {
         }
 
         if NoOfbuttons == 1 {
-            let button = self.buttons[1]
+            print("DING DING DOOT DOOT")
+            let button = self.buttons[0]
             button.hidden = false
             button.setTitle(inUseAnswers.first, forState: .Normal)
             
         } else {
+            print("Holy shit lol")
             outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
                 
@@ -122,8 +124,16 @@ class GameViewController: UIViewController {
                     
                     if index == NoOfbuttons {
                         inUseAnswers.removeAll()
+                        button.hidden = true
+                        button.setTitle("", forState: .Normal)
+                       // inUseButtons.removeAll()
                         break outer
                     }
+                    
+//                    if index > NoOfbuttons {
+//                        button.hidden = true
+//                        button.setTitle("", forState: .Normal)
+//                    }
                 }
             }
         }
@@ -132,6 +142,7 @@ class GameViewController: UIViewController {
     func clearButtons() {
         for button in buttons {
             button.setTitle("", forState: .Normal)
+            button.hidden = true
         }
     }
     
@@ -160,6 +171,7 @@ class GameViewController: UIViewController {
     }
     
     func buttonHandler(sender:UIButton) {
+        clearButtons()
         let senderButton = sender
         let buttonAnswer = sender.titleLabel!.text
 

@@ -5,7 +5,7 @@
 				"number": 0,
 				"character": "Chief",
 				"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet...",
-	            "buttons": 3,
+	            "buttons": 1,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Go on...",
@@ -17,7 +17,7 @@
                 "number": 1,
                 "character": "Chief",
                 "text": "...solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!",
-                "buttons": 3,
+                "buttons": 1,
                 "acceptedAnswers": [
                          {
                              "text": "Got it, Sir!",
@@ -29,19 +29,23 @@
 				"number": 2,
 				"character": "Chief",
 				"text": "I’m going to walk you through your first call so that you can get to grips with the basics, but then you’re on your own.",
-	            "buttons": 3,
+	            "buttons": 2,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Okay!",
 	                 	"goTo": 3
-	                 }
+	                 },
+                    {
+                        "text": "I love this!",
+                        "goTo": 3
+                    }
 	            ]
 			},
 			{
 				"number": 3,
 				"character": "Chief",
 				"text": "Looks like someone needs our help! Click Answer to begin the call.",
-	            "buttons": 3,
+	            "buttons": 1,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "<Click the answer button>",
@@ -53,19 +57,23 @@
 				"number": 4,
 				"character": "Caller",
 				"text": "Hi, my cat’s stuck up in a tree! I need some help please!",
-	            "buttons": 3,
+	            "buttons": 2,
 	             "acceptedAnswers": [
 	              	{
 	                 	"text": "Uhhh...",
 	                 	"goTo": 5
-	                 }
-	            ]        
+	                 },
+                     {
+                         "text": "Doot doot",
+                         "goTo": 5
+                     }
+	            ]
 			},
 			{
 				"number": 5,
 				"character": "Chief",
 				"text": "Oh dear... it looks like it's up to you to help. Did you notice that the timer started when you answered the call? Every call will have a time limit, so you’ve got to be quick!",
-	            "buttons": 3,
+	            "buttons": 1,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Got it!",
@@ -82,7 +90,15 @@
 	              	{
 	                 	"text": "Beep",
 	                 	"goTo": 0
-	                 }
+	                 },
+                    {
+                        "text": "Doot",
+                        "goTo": 0
+                    },
+                    {
+                        "text": "Hello?",
+                        "goTo": 0
+                    }
 	            ]
 			}
 		],	
