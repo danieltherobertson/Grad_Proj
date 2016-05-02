@@ -126,7 +126,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    func questionHandler(dialogueIndex: Int, button: UIButton) {
+    func questionHandler(dialogueIndex: Int) {
         
         //Getting all of the dialogue sets for the current level
         for dialogue in levelDialogue {
@@ -140,9 +140,9 @@ class GameViewController: UIViewController {
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
                 onTypeComplete = {
-                    button.setTitle("IT FUCKING WORKED!", forState: .Normal)
-                    button.enabled = true
-                    button.hidden = false
+//                    button.setTitle("IT FUCKING WORKED!", forState: .Normal)
+//                    button.enabled = true
+//                    button.hidden = false
                 }
             }
         }
@@ -162,14 +162,20 @@ class GameViewController: UIViewController {
 
                 if text == buttonAnswer! {
                     nextDialogue = (goTo)
+                    print("Next dialogue is \(nextDialogue)")
+                    currentDialogue = nextDialogue
+                    stageDialogue = levelDialogue[currentDialogue]
+                    stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                    numberOfButtons = stageAnswers?.count
+                    print("Stage Dialogue is now \(stageDialogue)")
 
                     break outer
                 }
             }
         }
         //sender.enabled = false
-        //sender.hidden = true
-        questionHandler(nextDialogue, button: senderButton)
+        sender.hidden = true
+        questionHandler(nextDialogue)
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
