@@ -95,9 +95,11 @@ class GameViewController: UIViewController {
     }
     
     func layoutHandler(NoOfbuttons: Int) {
-        
+        print("number of buttons: \(NoOfbuttons)")
         var inUseButtons = [UIButton]()
         var inUseAnswers = [String]()
+        
+        clearButtons()
         
         for answer in stageAnswers {
             let buttonAnswer = String(answer.valueForKey("text")!)
@@ -119,10 +121,17 @@ class GameViewController: UIViewController {
                     }
                     
                     if index == NoOfbuttons {
+                        inUseAnswers.removeAll()
                         break outer
                     }
                 }
             }
+        }
+    }
+    
+    func clearButtons() {
+        for button in buttons {
+            button.setTitle("", forState: .Normal)
         }
     }
     
@@ -136,10 +145,12 @@ class GameViewController: UIViewController {
             if number == dialogueIndex {
                 //So we then set nextDialogue to be the text value of the dialogue set at that index.
                 let nextDialogue = dialogue.valueForKey("text") as! String
+                let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
                 onTypeComplete = {
+                    self.layoutHandler(buttons)
 //                    button.setTitle("IT FUCKING WORKED!", forState: .Normal)
 //                    button.enabled = true
 //                    button.hidden = false
@@ -168,6 +179,7 @@ class GameViewController: UIViewController {
                     stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                     numberOfButtons = stageAnswers?.count
                     print("Stage Dialogue is now \(stageDialogue)")
+                    print("Stage Answeres is now \(stageAnswers)")
 
                     break outer
                 }

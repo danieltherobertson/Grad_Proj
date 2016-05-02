@@ -20,7 +20,7 @@
                 "buttons": 3,
                 "acceptedAnswers": [
                          {
-                             "text": "Go on...",
+                             "text": "Got it, Sir!",
                              "goTo": 2
                          }
                      ]
