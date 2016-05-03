@@ -25,10 +25,10 @@ import QuartzCore
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0)
         self.popUpView.layer.cornerRadius = 5
-        self.popUpView.layer.shadowOpacity = 0.8
-        self.popUpView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+      //  self.popUpView.layer.shadowOpacity = 0.8
+       // self.popUpView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
     }
     
     public func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool)
