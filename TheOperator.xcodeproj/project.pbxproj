@@ -175,11 +175,11 @@
 		652109CB1CD90A0200B3E667 /* NMPopUpView */ = {
 			isa = PBXGroup;
 			children = (
+				652109D01CD90A2100B3E667 /* PopUpViewControllerSwift.swift */,
 				652109CC1CD90A2100B3E667 /* PopUpViewController_iPad.xib */,
 				652109CD1CD90A2100B3E667 /* PopUpViewController_iPhone6.xib */,
 				652109CE1CD90A2100B3E667 /* PopUpViewController_iPhone6Plus.xib */,
 				652109CF1CD90A2100B3E667 /* PopUpViewController.xib */,
-				652109D01CD90A2100B3E667 /* PopUpViewControllerSwift.swift */,
 			);
 			name = NMPopUpView;
 			sourceTree = "<group>";
