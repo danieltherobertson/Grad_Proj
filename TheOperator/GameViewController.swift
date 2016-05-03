@@ -87,9 +87,6 @@ class GameViewController: UIViewController {
             self.gameView.gameText.typeStart(dialogue)
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
-//            self.buttons.last?.setTitle("Go on...", forState: .Normal)
-//            
-//            self.animateTransition(self.buttons.last!, time: 0.7, direction: kCATransitionFromLeft)
             }
         }
     }
@@ -156,9 +153,6 @@ class GameViewController: UIViewController {
                 gameView.gameText.typeStart(nextDialogue)
                 onTypeComplete = {
                     self.layoutHandler(buttons)
-//                    button.setTitle("IT FUCKING WORKED!", forState: .Normal)
-//                    button.enabled = true
-//                    button.hidden = false
                 }
             }
         }
@@ -179,21 +173,33 @@ class GameViewController: UIViewController {
 
                 if text == buttonAnswer! {
                     nextDialogue = (goTo)
-                    print("Next dialogue is \(nextDialogue)")
+                   // print("Next dialogue is \(nextDialogue)")
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]
                     stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                     numberOfButtons = stageAnswers?.count
-                    print("Stage Dialogue is now \(stageDialogue)")
-                    print("Stage Answeres is now \(stageAnswers)")
+                   // print("Stage Dialogue is now \(stageDialogue)")
+                    //print("Stage Answeres is now \(stageAnswers)")
 
                     break outer
                 }
             }
         }
-        //sender.enabled = false
-        sender.hidden = true
-        questionHandler(nextDialogue)
+        if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
+            if trigger == true {
+                print("HELL YES IT'S TRUE")
+                sender.hidden = true
+                triggerCall()
+            } else {
+                print("HELL NAH IT AINT TRUE")
+                sender.hidden = true
+                questionHandler(nextDialogue)
+            }
+        }
+    }
+    
+    func triggerCall() {
+        
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {
