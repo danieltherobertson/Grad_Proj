@@ -192,7 +192,12 @@ class GameViewController: UIViewController {
                 print("HELL YES IT'S TRUE")
                 sender.hidden = true
                 triggerCall()
-                //questionHandler(nextDialogue)
+                
+                
+                onPopUpClose = {
+                    self.questionHandler(nextDialogue)
+                }
+                //
             } else {
                 print("HELL NAH IT AINT TRUE")
                 sender.hidden = true
@@ -226,6 +231,7 @@ class GameViewController: UIViewController {
                 self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
             }
         }
+        
     }
     
     func animateTransition(element: AnyObject, time: Double, direction: String) {

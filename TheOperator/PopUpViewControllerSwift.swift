@@ -9,7 +9,11 @@
 import UIKit
 import QuartzCore
 
+var onPopUpClose: (() -> Void)!
+
+
 @objc public class PopUpViewControllerSwift : UIViewController {
+    
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
@@ -34,7 +38,8 @@ import QuartzCore
     public func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool)
     {
         aView.addSubview(self.view)
-        logoImg!.image = image
+        let gif = UIImage.gifWithName("operator")
+        logoImg!.image = gif
         messageLabel.textColor = .blackColor()
         messageLabel!.text = "Incoming call!"
         
@@ -63,11 +68,15 @@ import QuartzCore
                 if (finished)
                 {
                     self.view.removeFromSuperview()
+                    
                 }
         });
     }
     
     @IBAction public func closePopup(sender: AnyObject) {
         self.removeAnimate()
+        if let callback = onPopUpClose {
+            callback ()
+        }
     }
 }

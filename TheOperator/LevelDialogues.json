@@ -19,7 +19,7 @@
                 "character": "Chief",
                 "text": "...solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!",
                 "buttons": 1,
-                 "triggersCall": true ,
+                 "triggersCall": false,
                 "acceptedAnswers": [
                      {
                          "text": "Got it, Sir!",
@@ -49,7 +49,7 @@
 				"character": "Chief",
 				"text": "Looks like someone needs our help! Click Answer to begin the call.",
 	            "buttons": 1,
-                "triggersCall": false,
+                "triggersCall": true,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "<Click the answer button>",
