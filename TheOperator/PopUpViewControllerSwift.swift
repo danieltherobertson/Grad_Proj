@@ -82,8 +82,8 @@ var onPopUpOpen: (() -> Void)!
     
     @IBAction public func closePopup(sender: AnyObject) {
         self.removeAnimate()
-//        if let callback = onPopUpClose {
-//            callback ()
-//        }
+        if let callback = onPopUpClose {
+            callback ()
+        }
     }
 }

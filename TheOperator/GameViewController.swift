@@ -101,6 +101,7 @@ class GameViewController: UIViewController {
         clearButtons()
         
         for answer in stageAnswers {
+            print("STAGE ANSWERS \(stageAnswers)")
             let buttonAnswer = String(answer.valueForKey("text")!)
             inUseAnswers.append(buttonAnswer)
         }
@@ -175,7 +176,7 @@ class GameViewController: UIViewController {
                 let text = String(answer.valueForKey("text")!)
 
                 if text == buttonAnswer! {
-                    nextDialogue = (goTo)
+                    nextDialogue = goTo
                    // print("Next dialogue is \(nextDialogue)")
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]
@@ -192,8 +193,23 @@ class GameViewController: UIViewController {
             if trigger == true {
                 print("HELL YES IT'S TRUE")
                 sender.hidden = true
-                self.questionHandler(nextDialogue)
                 triggerCall()
+                self.questionHandler(nextDialogue)
+                
+                onPopUpClose = {
+                    if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
+                        
+                        let nextDialogue = callGoTo
+                        // print("Next dialogue is \(nextDialogue)")
+                        self.currentDialogue = nextDialogue
+                        self.stageDialogue = self.levelDialogue[self.currentDialogue]
+                        self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+
+                        
+                        self.questionHandler(callGoTo)
+                    }
+                }
+                
                 
                 } else {
                 print("HELL NAH IT AINT TRUE")

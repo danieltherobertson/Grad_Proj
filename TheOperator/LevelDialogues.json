@@ -50,7 +50,7 @@
 				"text": "Looks like someone needs our help! Click Answer to begin the call.",
 	            "buttons": 0,
                 "triggersCall": true,
-                "callGoTo": 4
+                "callGoTo": 4,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "<Click the answer button>",
