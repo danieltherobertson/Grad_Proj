@@ -156,6 +156,7 @@ class GameViewController: UIViewController {
                 onTypeComplete = {
                     self.layoutHandler(buttons)
                 }
+
             }
         }
     }
@@ -191,14 +192,10 @@ class GameViewController: UIViewController {
             if trigger == true {
                 print("HELL YES IT'S TRUE")
                 sender.hidden = true
+                self.questionHandler(nextDialogue)
                 triggerCall()
                 
-                
-                onPopUpClose = {
-                    self.questionHandler(nextDialogue)
-                }
-                //
-            } else {
+                } else {
                 print("HELL NAH IT AINT TRUE")
                 sender.hidden = true
                 questionHandler(nextDialogue)

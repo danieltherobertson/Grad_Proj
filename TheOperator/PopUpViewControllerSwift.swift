@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 
 var onPopUpClose: (() -> Void)!
+var onPopUpOpen: (() -> Void)!
 
 
 @objc public class PopUpViewControllerSwift : UIViewController {
@@ -43,6 +44,10 @@ var onPopUpClose: (() -> Void)!
         messageLabel.textColor = .blackColor()
         messageLabel!.text = "Incoming call!"
         
+        if let callback = onPopUpOpen {
+            callback ()
+        }
+        
         if animated
         {
             self.showAnimate()
@@ -57,6 +62,8 @@ var onPopUpClose: (() -> Void)!
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
         });
+        
+        
     }
     
     func removeAnimate()
@@ -75,8 +82,8 @@ var onPopUpClose: (() -> Void)!
     
     @IBAction public func closePopup(sender: AnyObject) {
         self.removeAnimate()
-        if let callback = onPopUpClose {
-            callback ()
-        }
+//        if let callback = onPopUpClose {
+//            callback ()
+//        }
     }
 }
