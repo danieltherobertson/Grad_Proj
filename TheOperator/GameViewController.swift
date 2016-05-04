@@ -83,7 +83,7 @@ class GameViewController: UIViewController {
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
-            self.gameView.labelHeightConstraint.constant = 140
+            self.gameView.labelHeightConstraint.constant = 200
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.gameText.typeStart(dialogue)
