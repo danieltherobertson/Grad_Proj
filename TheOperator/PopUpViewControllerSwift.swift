@@ -19,6 +19,7 @@ var onPopUpOpen: (() -> Void)!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var logoImg: UIImageView!
+    @IBOutlet weak var answerButton: UIButton!
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,11 +31,14 @@ var onPopUpOpen: (() -> Void)!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0)
-        self.popUpView.layer.cornerRadius = 5
-        self.popUpView.layer.cornerRadius = 20
-        self.popUpView.layer.borderWidth = 4
-        self.popUpView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor    }
+        view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0)
+        popUpView.layer.cornerRadius = 5
+        popUpView.layer.cornerRadius = 20
+        popUpView.layer.borderWidth = 4
+        popUpView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+        answerButton.buttonStyle(answerButton, colour: ButtonColour.Red)
+        
+    }
     
     public func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool)
     {

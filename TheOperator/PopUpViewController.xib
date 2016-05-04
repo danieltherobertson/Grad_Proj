@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewControllerSwift" customModule="TheOperator" customModuleProvider="target">
             <connections>
+                <outlet property="answerButton" destination="s0b-SY-EoC" id="qtV-jt-Goi"/>
                 <outlet property="logoImg" destination="fJX-L7-ZK4" id="qHe-3t-nmY"/>
                 <outlet property="messageLabel" destination="vGX-I2-Qu4" id="Ah1-SR-hCM"/>
                 <outlet property="popUpView" destination="Pon-Sf-YGC" id="QXk-gu-0HH"/>

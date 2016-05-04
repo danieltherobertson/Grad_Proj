@@ -51,6 +51,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("progressCell", forIndexPath: indexPath) as! progressCell
+        
+        cell.layer.borderWidth = 0
+        cell.layer.borderColor = nil
+        
         let playerProgress = viewedSave.progress
             //Get saved games and populate cells
             if indexPath.row < levelsData!.count {
@@ -69,7 +73,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
-                  nextLevel = indexPath.row+1
+                    nextLevel = indexPath.row+1
                     cell.levelImage.image = nil
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
@@ -91,6 +95,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 cell.levelNumber.text = "[Empty]"
             }
         
+        if cell.selected {
+            cell.styleSelected(cell.tag)
+        }
+        
         // Configure the cell
         return cell
     }
@@ -101,7 +109,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
+        let activeCell = collectionView.cellForItemAtIndexPath(indexPath) as? progressCell
+        
+        activeCell?.styleSelected(activeCell!.tag)
 
         func reset() {
             activeCell?.layer.borderWidth = 0
@@ -110,10 +120,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             collectionView.userInteractionEnabled = true
         }
         
+        
         if activeCell?.tag == 0 {
             
-            activeCell?.layer.borderWidth = 3.0
-            activeCell?.layer.borderColor = UIColor.cyanColor().CGColor
             
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 0)
@@ -121,17 +130,13 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         if activeCell?.tag == 1 {
             
-            activeCell?.layer.borderWidth = 3.0
-            activeCell?.layer.borderColor = UIColor.whiteColor().CGColor
+
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 1)
 
         }
         
         if activeCell?.tag == 2 {
-            
-            activeCell?.layer.borderWidth = 3.0
-            activeCell?.layer.borderColor = UIColor.redColor().CGColor
             
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 2)
@@ -154,7 +159,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         activeCell?.layer.borderWidth = 0
         activeCell?.layer.borderColor = nil
         
-        collectionView.reloadItemsAtIndexPaths([indexPath])
+        //collectionView.reloadItemsAtIndexPaths([indexPath])
     }
         //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
     func loadLevels(levels: [NSDictionary]) {

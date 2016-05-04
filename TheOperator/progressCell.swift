@@ -13,6 +13,22 @@ class progressCell: UICollectionViewCell {
     @IBOutlet weak var levelNumber: UILabel!
     @IBOutlet weak var levelImage: UIImageView!
     var levelStatus: LevelStatus!
+    
+    func styleSelected(tag:Int) {
+        switch tag {
+        case 0:
+            self.layer.borderWidth = 3.0
+            self.layer.borderColor = UIColor.cyanColor().CGColor
+        case 1:
+            self.layer.borderWidth = 3.0
+            self.layer.borderColor = UIColor.whiteColor().CGColor
+        case 2:
+            self.layer.borderWidth = 3.0
+            self.layer.borderColor = UIColor.redColor().CGColor
+        default:
+            break
+        }
+    }
 }
 
 enum LevelStatus: String {

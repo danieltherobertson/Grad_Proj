@@ -94,26 +94,21 @@ class GameViewController: UIViewController {
     }
     
     func layoutHandler(NoOfbuttons: Int) {
-        print("number of buttons: \(NoOfbuttons)")
-       // var inUseButtons = [UIButton]()
         var inUseAnswers = [String]()
         
         clearButtons()
         
         for answer in stageAnswers {
-            print("STAGE ANSWERS \(stageAnswers)")
             let buttonAnswer = String(answer.valueForKey("text")!)
             inUseAnswers.append(buttonAnswer)
         }
 
         if NoOfbuttons == 1 {
-            print("DING DING DOOT DOOT")
             let button = self.buttons[0]
             button.hidden = false
             button.setTitle(inUseAnswers.first, forState: .Normal)
             
         } else {
-            print("Holy shit lol")
             outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
                 
@@ -177,21 +172,16 @@ class GameViewController: UIViewController {
 
                 if text == buttonAnswer! {
                     nextDialogue = goTo
-                   // print("Next dialogue is \(nextDialogue)")
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]
                     stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                     numberOfButtons = stageAnswers?.count
-                   // print("Stage Dialogue is now \(stageDialogue)")
-                    //print("Stage Answeres is now \(stageAnswers)")
-
                     break outer
                 }
             }
         }
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
-                print("HELL YES IT'S TRUE")
                 sender.hidden = true
                 triggerCall()
                 self.questionHandler(nextDialogue)
@@ -200,19 +190,15 @@ class GameViewController: UIViewController {
                     if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
                         
                         let nextDialogue = callGoTo
-                        // print("Next dialogue is \(nextDialogue)")
                         self.currentDialogue = nextDialogue
                         self.stageDialogue = self.levelDialogue[self.currentDialogue]
                         self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-
                         
                         self.questionHandler(callGoTo)
                     }
                 }
                 
-                
-                } else {
-                print("HELL NAH IT AINT TRUE")
+            } else {
                 sender.hidden = true
                 questionHandler(nextDialogue)
             }
