@@ -21,11 +21,11 @@
                 "buttons": 1,
                  "triggersCall": true ,
                 "acceptedAnswers": [
-                         {
-                             "text": "Got it, Sir!",
-                             "goTo": 2
-                         }
-                     ]
+                     {
+                         "text": "Got it, Sir!",
+                         "goTo": 2
+                     }
+                 ]
             },
 			{
 				"number": 2,

@@ -27,15 +27,17 @@ import QuartzCore
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0)
         self.popUpView.layer.cornerRadius = 5
-      //  self.popUpView.layer.shadowOpacity = 0.8
-       // self.popUpView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-    }
+        self.popUpView.layer.cornerRadius = 20
+        self.popUpView.layer.borderWidth = 4
+        self.popUpView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor    }
     
     public func showInView(aView: UIView!, withImage image : UIImage!, withMessage message: String!, animated: Bool)
     {
         aView.addSubview(self.view)
         logoImg!.image = image
-        messageLabel!.text = message
+        messageLabel.textColor = .blackColor()
+        messageLabel!.text = "Incoming call!"
+        
         if animated
         {
             self.showAnimate()
@@ -45,7 +47,7 @@ import QuartzCore
     func showAnimate()
     {
         self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
-        self.view.alpha = 0.0;
+        self.view.alpha = 0
         UIView.animateWithDuration(0.25, animations: {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
