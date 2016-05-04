@@ -45,7 +45,7 @@ var onPopUpOpen: (() -> Void)!
         aView.addSubview(self.view)
         let gif = UIImage.gifWithName("operator")
         logoImg!.image = gif
-        messageLabel.textColor = .blackColor()
+        messageLabel.textColor = .whiteColor()
         messageLabel!.text = "Incoming call!"
         
         if let callback = onPopUpOpen {

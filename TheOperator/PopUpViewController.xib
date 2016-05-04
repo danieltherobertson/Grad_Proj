@@ -26,11 +26,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-Sf-YGC">
-                    <rect key="frame" x="39" y="189" width="243" height="190"/>
+                    <rect key="frame" x="39" y="208" width="243" height="190"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0b-SY-EoC">
                             <rect key="frame" x="10" y="130" width="223" height="50"/>
-                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.85603412828947367" blue="0.12086245888157894" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Uka-3d-as6"/>
                             </constraints>
@@ -59,7 +59,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.99771278782894723" green="0.23283305921052633" blue="0.23565995065789475" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="fJX-L7-ZK4" firstAttribute="centerX" secondItem="vGX-I2-Qu4" secondAttribute="centerX" id="1Ta-Hx-z7f"/>
                         <constraint firstAttribute="trailing" secondItem="s0b-SY-EoC" secondAttribute="trailing" constant="10" id="5Cn-9n-Rpj"/>
@@ -76,10 +76,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Pon-Sf-YGC" secondAttribute="bottom" constant="189" id="2eW-uF-Soc"/>
+                <constraint firstAttribute="bottom" secondItem="Pon-Sf-YGC" secondAttribute="bottom" constant="170" id="2eW-uF-Soc"/>
                 <constraint firstItem="Pon-Sf-YGC" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="39" id="9OE-R9-gaB"/>
                 <constraint firstItem="Pon-Sf-YGC" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qQG-Qc-ae7"/>
-                <constraint firstItem="Pon-Sf-YGC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="189" id="vSs-rq-9C6"/>
+                <constraint firstItem="Pon-Sf-YGC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="208" id="vSs-rq-9C6"/>
             </constraints>
         </view>
     </objects>
