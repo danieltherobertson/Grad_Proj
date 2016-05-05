@@ -16,14 +16,17 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var timeIndicator: UILabel!
    // @IBOutlet weak var gameText: UILabel!
     @IBOutlet weak var gameText: UITextView!
+    
+    @IBOutlet weak var characterImg: UIImageView!
+    
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
     
     @IBOutlet weak var introLabel: UILabel!
 
-   // @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
     
+
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +48,11 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameText.font = UIFont(name: "KemcoPixelBold", size: 15)
             gameText.backgroundColor = .greenColor()
             gameText.layoutManager.delegate = self
+            let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 70))
+            gameText.textContainer.exclusionPaths = [imgRect]
             gameText.editable = false
+            
+            
         }
     }
     

@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
     override func viewDidLoad() {
+        gameView.characterImg.hidden = true
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
@@ -89,7 +90,10 @@ class GameViewController: UIViewController {
             self.gameView.textViewHeightConstraint.constant = 200
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
+            self.gameView.characterImg.hidden = false
+            self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.gameText.typeStart(dialogue)
+            
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
             }

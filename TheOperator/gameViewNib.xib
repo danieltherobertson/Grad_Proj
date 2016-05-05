@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameView" customModule="TheOperator" customModuleProvider="target">
             <connections>
+                <outlet property="characterImg" destination="FZp-yZ-ONi" id="znW-0R-2Z6"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
                 <outlet property="gameAnswerOne" destination="0SM-i4-EAB" id="hpg-pD-nC9"/>
                 <outlet property="gameAnswerThree" destination="h0E-Oh-Paf" id="Hzz-1u-Ze0"/>
@@ -92,10 +93,10 @@
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
                     <rect key="frame" x="8" y="15" width="151" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="151" id="plS-jp-Cei"/>
+                        <constraint firstAttribute="width" constant="151" id="wjG-L3-CGl"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,6 +118,13 @@
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
+                    <rect key="frame" x="35" y="67" width="50" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="O5C-ye-jY8"/>
+                        <constraint firstAttribute="width" constant="50" id="Zxp-xe-0jZ"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,26 +138,30 @@
                 <constraint firstItem="sPl-cb-Zn3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="2XP-AB-Kb3"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="48" id="3cz-Vx-8XZ"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="top" secondItem="1gr-Zt-XgX" secondAttribute="bottom" constant="10" id="597-ys-s1U"/>
+                <constraint firstItem="FZp-yZ-ONi" firstAttribute="leading" secondItem="aeO-gO-Xef" secondAttribute="leading" constant="39" id="5Ie-oP-nOK"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8cS-c1-Fhz"/>
+                <constraint firstItem="FZp-yZ-ONi" firstAttribute="top" secondItem="aeO-gO-Xef" secondAttribute="top" id="9W6-f2-OF9"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" id="9cf-aG-l73"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="10" id="ASi-ga-NKO"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="Auk-Yn-hBu"/>
-                <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="scJ-L3-bdv" secondAttribute="leading" id="Bpb-tl-niD"/>
+                <constraint firstItem="scJ-L3-bdv" firstAttribute="leading" secondItem="aeO-gO-Xef" secondAttribute="leading" id="BR9-HI-zE7"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="centerX" secondItem="h0E-Oh-Paf" secondAttribute="centerX" id="DSf-mU-9Lu"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="top" secondItem="1gr-Zt-XgX" secondAttribute="bottom" constant="10" id="FvS-B9-S5N"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="I1L-Yq-pIv"/>
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="9" id="IRT-Uu-HNk"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="centerX" secondItem="0SM-i4-EAB" secondAttribute="centerX" id="JJT-Nw-Qzz"/>
+                <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="L4F-al-Hci"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="QuE-L9-OQl"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="U4b-sH-efc"/>
-                <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="WiP-LE-dsh"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="leading" secondItem="GyC-eh-NVu" secondAttribute="leading" id="WpC-hU-2bA"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="top" id="YC7-rq-3lE"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
                 <constraint firstAttribute="trailing" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="b0z-OB-0Ja"/>
+                <constraint firstItem="FZp-yZ-ONi" firstAttribute="top" secondItem="scJ-L3-bdv" secondAttribute="bottom" constant="31" id="bhi-f8-vLb"/>
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="10" id="cYm-QY-fH0"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-207" id="cfM-Jw-XVp"/>
+                <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="scJ-L3-bdv" secondAttribute="bottom" constant="12" id="dHQ-tG-25w"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="der-wV-4yd"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="top" secondItem="0SM-i4-EAB" secondAttribute="bottom" constant="10" id="fHO-0m-5ru"/>
@@ -171,6 +183,7 @@
                     <exclude reference="sFU-Q9-kKB"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="9W6-f2-OF9"/>
                     <exclude reference="8cS-c1-Fhz"/>
                     <exclude reference="IRT-Uu-HNk"/>
                     <exclude reference="cfM-Jw-XVp"/>
