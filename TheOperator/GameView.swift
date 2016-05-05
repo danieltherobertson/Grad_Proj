@@ -8,21 +8,23 @@
 
 import UIKit
 
-class GameView: UIView {
+class GameView: UIView, NSLayoutManagerDelegate {
 
     @IBOutlet var contentView: UIView!
 
     @IBOutlet weak var levelIndicator: UILabel!
     @IBOutlet weak var timeIndicator: UILabel!
-    @IBOutlet weak var gameText: UILabel!
+   // @IBOutlet weak var gameText: UILabel!
+    @IBOutlet weak var gameText: UITextView!
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
     
     @IBOutlet weak var introLabel: UILabel!
 
-    @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
+   // @IBOutlet weak var labelHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,9 +37,19 @@ class GameView: UIView {
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)
             gameText.clipsToBounds = true
-            gameText.labelStyle(gameText)
+            gameText.textFieldStyle(gameText)
             introLabel.setLineHeight(30, alignment: .Center)
-            labelHeightConstraint.constant = 0
+            textViewHeightConstraint.constant = 0
+            gameText.textContainerInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
+            gameText.editable = true
+            gameText.font = UIFont(name: "KemcoPixelBold", size: 15)
+            gameText.backgroundColor = .greenColor()
+            gameText.layoutManager.delegate = self
+            gameText.editable = false
         }
+    }
+    
+   func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return 3
     }
 }
