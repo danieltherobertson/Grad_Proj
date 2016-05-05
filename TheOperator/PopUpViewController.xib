@@ -30,7 +30,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0b-SY-EoC">
                             <rect key="frame" x="10" y="130" width="224" height="50"/>
-                            <color key="backgroundColor" red="1" green="0.85603412828947367" blue="0.12086245888157894" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.85603412830000003" blue="0.1208624589" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Uka-3d-as6"/>
                             </constraints>

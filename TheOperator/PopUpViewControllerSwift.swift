@@ -36,6 +36,7 @@ var onPopUpOpen: (() -> Void)!
         popUpView.layer.cornerRadius = 20
         popUpView.layer.borderWidth = 4
         popUpView.layer.borderColor = UIColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+        answerButton.backgroundColor = UIColor.lightGrayColor()
         answerButton.buttonStyle(answerButton, colour: ButtonColour.Red)
         
     }

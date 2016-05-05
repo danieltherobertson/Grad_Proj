@@ -64,7 +64,7 @@
 				"text": "Caller: \n \nHi, my cat’s stuck up in a tree! I need some help please!",
 	            "buttons": 2,
                 "triggersCall": false,
-                "timeLimit": 20,
+                "timeLimit": 120,
 	             "acceptedAnswers": [
 	              	{
 	                 	"text": "Uhhh...",

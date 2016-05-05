@@ -138,7 +138,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    func questionHandler(dialogueIndex: Int) {
+    func questionHandler(dialogueIndex: Int, enablesPopUp: Bool) {
         
         //Getting all of the dialogue sets for the current level
         for dialogue in levelDialogue {
@@ -155,8 +155,11 @@ class GameViewController: UIViewController {
                 onTypeComplete = {
                     self.layoutHandler(buttons)
                     
+                    if enablesPopUp {
+                        self.popViewController.answerButton.backgroundColor = UIColor(red: 255/255, green: 218/255, blue: 31/255, alpha: 1.0)
+                        self.popViewController.answerButton.enabled = true
+                    }
                 }
-
             }
         }
     }
@@ -187,12 +190,11 @@ class GameViewController: UIViewController {
             if trigger == true {
                 sender.hidden = true
                 triggerCall()
-                self.questionHandler(nextDialogue)
-                popViewController.answerButton.enabled = true
+                self.questionHandler(nextDialogue, enablesPopUp: true)
+                
                 
                 onPopUpClose = {
                     if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
-                        
                         let nextDialogue = callGoTo
                         self.currentDialogue = nextDialogue
                         self.stageDialogue = self.levelDialogue[self.currentDialogue]
@@ -201,12 +203,12 @@ class GameViewController: UIViewController {
                         if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
                             self.countDown(timeLimit)
                         }
-                         self.questionHandler(callGoTo)
+                         self.questionHandler(callGoTo, enablesPopUp: false)
                     }
                 }
             } else {
                 sender.hidden = true
-                questionHandler(nextDialogue)
+                questionHandler(nextDialogue, enablesPopUp: false)
             }
         }
     }
@@ -240,7 +242,6 @@ class GameViewController: UIViewController {
                 self.popViewController.answerButton.enabled = false
             }
         }
-        
     }
     
     func countDown(time: Int) {
@@ -256,22 +257,21 @@ class GameViewController: UIViewController {
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
         } else if timeCount == 0 {
-          //   let _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
+            if gameView.timeIndicator.textColor == UIColor.redColor() {
+                gameView.timeIndicator.textColor = .greenColor()
+            } else {
+                gameView.timeIndicator.textColor = .redColor()
+            }
         } else if timeCount <= 10 && timeCount > 0 {
-            
-           // var colour = String(gameView.timeIndicator.textColor)
-            if gameView.timeIndicator.textColor == UIColor.redColor() { //if text colour is red
+            if gameView.timeIndicator.textColor == UIColor.redColor() {
                 gameView.timeIndicator.textColor = .greenColor()
             } else {
                 gameView.timeIndicator.textColor = .redColor()
             }
             
-            
-            //let _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
             timeCount! -= 1
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
-   
         }
     }
     
@@ -284,11 +284,6 @@ class GameViewController: UIViewController {
         } else {
             return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
         }
-    }
-    
-    func flash () {
-        
-        
     }
 //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()
