@@ -249,15 +249,39 @@ class GameViewController: UIViewController {
     }
     
     func update(count: Int) {
-        if timeCount > 0 {
+        if timeCount < 10 {
             timeCount! -= 1
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
+        } else if timeCount <= 10 {
+            let _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
+            timeCount! -= 1
+            let time = secondsToHoursMinutesSeconds(timeCount!)
+            gameView.timeIndicator.text = String("Time \(time)")
+   
         }
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> String {
-        return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
+        let secondsRaw = (seconds % 3600) % 60
+        var secondsConverted = String()
+        if secondsRaw < 10 {
+            secondsConverted = "0\(secondsRaw)"
+            return "0\(((seconds % 3600) / 60)):\(secondsConverted)"
+        } else {
+            return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
+        }
+    }
+    
+    func flash () {
+        var colour = String(gameView.timeIndicator.textColor)
+        print (colour)
+        if colour == "UIDeviceRGBColorSpace 1 0 0 1" {
+            gameView.timeIndicator.textColor = .greenColor()
+        } else {
+            gameView.timeIndicator.textColor = .redColor()
+        }
+        
     }
 //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()
