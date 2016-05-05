@@ -27,6 +27,8 @@ class GameViewController: UIViewController {
     var stageAnswers: Array<NSDictionary>!
     var numberOfButtons: Int!
     
+    var timeCount: Int!
+    
     var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class GameViewController: UIViewController {
         currentLevRead = currentLevInt!+1
         
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
+        gameView.timeIndicator.text = "Time 00:00"
         
         super.viewDidLoad()
 
@@ -64,7 +67,7 @@ class GameViewController: UIViewController {
         gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
-            let timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
+            let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
             onTypeComplete = nil
         }
     }
@@ -160,7 +163,6 @@ class GameViewController: UIViewController {
     
     func buttonHandler(sender:UIButton) {
         clearButtons()
-        let senderButton = sender
         let buttonAnswer = sender.titleLabel!.text
 
         var nextDialogue = Int()
@@ -195,11 +197,13 @@ class GameViewController: UIViewController {
                         self.currentDialogue = nextDialogue
                         self.stageDialogue = self.levelDialogue[self.currentDialogue]
                         self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-                        
-                        self.questionHandler(callGoTo)
+                       
+                        if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                            self.countDown(timeLimit)
+                        }
+                         self.questionHandler(callGoTo)
                     }
                 }
-                
             } else {
                 sender.hidden = true
                 questionHandler(nextDialogue)
@@ -239,20 +243,36 @@ class GameViewController: UIViewController {
         
     }
     
-    func animateTransition(element: AnyObject, time: Double, direction: String) {
-        let animation = CATransition()
-        animation.duration = time
-        animation.type = kCATransitionPush
-        animation.subtype = direction
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        element.layer.addAnimation(animation, forKey: nil)
+    func countDown(time: Int) {
+        timeCount = time
+        let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
-    func drawButtons() {
-        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
-        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
-        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
+    func update(count: Int) {
+        if timeCount > 0 {
+            timeCount! -= 1
+            let time = secondsToHoursMinutesSeconds(timeCount!)
+            gameView.timeIndicator.text = String("Time \(time)")
+        }
     }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> String {
+        return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
+    }
+//    func animateTransition(element: AnyObject, time: Double, direction: String) {
+//        let animation = CATransition()
+//        animation.duration = time
+//        animation.type = kCATransitionPush
+//        animation.subtype = direction
+//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+//        element.layer.addAnimation(animation, forKey: nil)
+//    }
+//    
+//    func drawButtons() {
+//        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
+//        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
+//        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
+//    }
 
     /*
     // MARK: - Navigation
