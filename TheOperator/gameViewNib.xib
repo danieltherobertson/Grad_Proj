@@ -115,7 +115,7 @@
                     <constraints>
                         <constraint firstAttribute="height" id="i0y-uM-3kQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
@@ -179,9 +179,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="sFU-Q9-kKB"/>
-                </mask>
                 <mask key="constraints">
                     <exclude reference="9W6-f2-OF9"/>
                     <exclude reference="8cS-c1-Fhz"/>
