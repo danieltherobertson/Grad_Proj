@@ -151,6 +151,7 @@ class GameViewController: UIViewController {
                 gameView.gameText.typeStart(nextDialogue)
                 onTypeComplete = {
                     self.layoutHandler(buttons)
+                    
                 }
 
             }
@@ -185,6 +186,7 @@ class GameViewController: UIViewController {
                 sender.hidden = true
                 triggerCall()
                 self.questionHandler(nextDialogue)
+                popViewController.answerButton.enabled = true
                 
                 onPopUpClose = {
                     if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
@@ -212,6 +214,7 @@ class GameViewController: UIViewController {
             self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPad", bundle: bundle)
             self.popViewController.title = "This is a popup view"
             self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
+            self.popViewController.answerButton.enabled = false
         } else
         {
             if UIScreen.mainScreen().bounds.size.width > 320 {
@@ -219,15 +222,18 @@ class GameViewController: UIViewController {
                     self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: bundle)
                     self.popViewController.title = "This is a popup view"
                     self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
+                    self.popViewController.answerButton.enabled = false
                 } else {
                     self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: bundle)
                     self.popViewController.title = "This is a popup view"
                     self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
+                    self.popViewController.answerButton.enabled = false
                 }
             } else {
                 self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: bundle)
                 self.popViewController.title = "This is a popup view"
                 self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
+                self.popViewController.answerButton.enabled = false
             }
         }
         

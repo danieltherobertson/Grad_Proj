@@ -39,7 +39,7 @@ extension UILabel {
     func typeStart(dialogue: String) {
         let text = dialogue
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.07, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
         timer.fire()
     }
     

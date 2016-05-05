@@ -4,9 +4,16 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewControllerSwift">
             <connections>
+                <outlet property="answerButton" destination="moA-sG-w9U" id="Zud-Ok-p3l"/>
                 <outlet property="logoImg" destination="ddu-ny-h6P" id="6vY-Y3-2fw"/>
                 <outlet property="messageLabel" destination="d9y-sm-xub" id="Y3U-RS-wXc"/>
                 <outlet property="popUpView" destination="FvE-39-pUU" id="drV-PD-bNg"/>
@@ -19,15 +26,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FvE-39-pUU">
-                    <rect key="frame" x="27" y="141" width="320" height="386"/>
+                    <rect key="frame" x="49" y="210" width="277" height="216"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moA-sG-w9U">
-                            <rect key="frame" x="58" y="336" width="203" height="30"/>
+                            <rect key="frame" x="13" y="153" width="251" height="50"/>
+                            <color key="backgroundColor" red="1" green="0.85603412830000003" blue="0.1208624589" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="aHx-2t-gNe"/>
+                                <constraint firstAttribute="height" constant="50" id="aHx-2t-gNe"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Close">
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <state key="normal" title="Answer">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -35,39 +44,39 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-ny-h6P">
-                            <rect key="frame" x="57" y="20" width="206" height="178"/>
+                            <rect key="frame" x="13" y="15" width="251" height="76"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-sm-xub">
-                            <rect key="frame" x="20" y="206" width="280" height="110"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming call!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-sm-xub">
+                            <rect key="frame" x="17" y="105" width="243" height="34"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="110" id="Dwz-kW-iwj"/>
+                                <constraint firstAttribute="height" constant="34" id="Dwz-kW-iwj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.99771278779999995" green="0.2328330592" blue="0.23565995070000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="moA-sG-w9U" secondAttribute="bottom" constant="20" symbolic="YES" id="CfU-vE-qr8"/>
-                        <constraint firstItem="d9y-sm-xub" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="20" symbolic="YES" id="DoN-WE-u9g"/>
+                        <constraint firstAttribute="bottom" secondItem="moA-sG-w9U" secondAttribute="bottom" constant="13" id="CfU-vE-qr8"/>
+                        <constraint firstItem="d9y-sm-xub" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="17" id="DoN-WE-u9g"/>
                         <constraint firstItem="moA-sG-w9U" firstAttribute="centerX" secondItem="d9y-sm-xub" secondAttribute="centerX" id="JBY-EJ-JlQ"/>
-                        <constraint firstItem="moA-sG-w9U" firstAttribute="top" secondItem="d9y-sm-xub" secondAttribute="bottom" constant="20" id="RGl-Ta-eqT"/>
+                        <constraint firstItem="moA-sG-w9U" firstAttribute="top" secondItem="d9y-sm-xub" secondAttribute="bottom" constant="14" id="RGl-Ta-eqT"/>
                         <constraint firstItem="d9y-sm-xub" firstAttribute="centerX" secondItem="ddu-ny-h6P" secondAttribute="centerX" id="U5R-iv-cyJ"/>
-                        <constraint firstItem="moA-sG-w9U" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="58" id="Ve1-OS-7O4"/>
-                        <constraint firstItem="d9y-sm-xub" firstAttribute="top" secondItem="ddu-ny-h6P" secondAttribute="bottom" constant="8" symbolic="YES" id="WHi-qO-CHb"/>
-                        <constraint firstItem="ddu-ny-h6P" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="57" id="rkT-M8-hOC"/>
-                        <constraint firstAttribute="trailing" secondItem="d9y-sm-xub" secondAttribute="trailing" constant="20" symbolic="YES" id="su7-Rw-2vX"/>
-                        <constraint firstItem="ddu-ny-h6P" firstAttribute="top" secondItem="FvE-39-pUU" secondAttribute="top" constant="20" symbolic="YES" id="th5-OE-zhL"/>
+                        <constraint firstItem="moA-sG-w9U" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="13" id="Ve1-OS-7O4"/>
+                        <constraint firstItem="d9y-sm-xub" firstAttribute="top" secondItem="ddu-ny-h6P" secondAttribute="bottom" constant="14" id="WHi-qO-CHb"/>
+                        <constraint firstItem="ddu-ny-h6P" firstAttribute="leading" secondItem="FvE-39-pUU" secondAttribute="leading" constant="13" id="rkT-M8-hOC"/>
+                        <constraint firstAttribute="trailing" secondItem="d9y-sm-xub" secondAttribute="trailing" constant="17" id="su7-Rw-2vX"/>
+                        <constraint firstItem="ddu-ny-h6P" firstAttribute="top" secondItem="FvE-39-pUU" secondAttribute="top" constant="15" id="th5-OE-zhL"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="FvE-39-pUU" secondAttribute="bottom" constant="140" id="R6b-oD-Xs0"/>
-                <constraint firstItem="FvE-39-pUU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="jiN-gm-aGx"/>
+                <constraint firstAttribute="bottom" secondItem="FvE-39-pUU" secondAttribute="bottom" constant="241" id="R6b-oD-Xs0"/>
+                <constraint firstItem="FvE-39-pUU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="49" id="jiN-gm-aGx"/>
                 <constraint firstItem="FvE-39-pUU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sPV-Vy-nUg"/>
-                <constraint firstItem="FvE-39-pUU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="141" id="xRl-Al-rbF"/>
+                <constraint firstItem="FvE-39-pUU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="210" id="xRl-Al-rbF"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="348.5" y="364.5"/>

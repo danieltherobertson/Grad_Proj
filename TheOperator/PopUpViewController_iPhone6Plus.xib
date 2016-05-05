@@ -4,9 +4,16 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewControllerSwift">
             <connections>
+                <outlet property="answerButton" destination="5K9-bf-qnf" id="c0I-4A-3cX"/>
                 <outlet property="logoImg" destination="yDP-ZJ-klu" id="oMX-qq-gMm"/>
                 <outlet property="messageLabel" destination="4bq-P4-Htc" id="2nE-bX-fx3"/>
                 <outlet property="popUpView" destination="HxJ-fg-egd" id="Afl-LM-Hsl"/>
@@ -19,15 +26,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxJ-fg-egd">
-                    <rect key="frame" x="47" y="175" width="320" height="386"/>
+                    <rect key="frame" x="56" y="310" width="303" height="236"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-bf-qnf">
-                            <rect key="frame" x="58" y="336" width="203" height="30"/>
+                            <rect key="frame" x="15" y="171" width="273" height="50"/>
+                            <color key="backgroundColor" red="1" green="0.85603412830000003" blue="0.1208624589" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="1wk-yc-7zh"/>
+                                <constraint firstAttribute="height" constant="50" id="1wk-yc-7zh"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Close">
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <state key="normal" title="Answer">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -35,39 +44,39 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yDP-ZJ-klu">
-                            <rect key="frame" x="57" y="20" width="206" height="178"/>
+                            <rect key="frame" x="15" y="15" width="273" height="95"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="4bq-P4-Htc">
-                            <rect key="frame" x="20" y="206" width="280" height="110"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming call!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="4bq-P4-Htc">
+                            <rect key="frame" x="30" y="124" width="243" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="110" id="8Fa-Ix-wEn"/>
+                                <constraint firstAttribute="height" constant="33" id="8Fa-Ix-wEn"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.99771278779999995" green="0.2328330592" blue="0.23565995070000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="4bq-P4-Htc" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="20" symbolic="YES" id="MHj-51-oxy"/>
-                        <constraint firstAttribute="trailing" secondItem="4bq-P4-Htc" secondAttribute="trailing" constant="20" symbolic="YES" id="U69-TJ-5fL"/>
-                        <constraint firstItem="5K9-bf-qnf" firstAttribute="top" secondItem="4bq-P4-Htc" secondAttribute="bottom" constant="20" id="YuJ-rW-6zB"/>
-                        <constraint firstItem="4bq-P4-Htc" firstAttribute="top" secondItem="yDP-ZJ-klu" secondAttribute="bottom" constant="8" symbolic="YES" id="cSR-33-2mh"/>
-                        <constraint firstAttribute="bottom" secondItem="5K9-bf-qnf" secondAttribute="bottom" constant="20" symbolic="YES" id="hCa-vB-Oea"/>
-                        <constraint firstItem="5K9-bf-qnf" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="58" id="imt-oy-OKn"/>
+                        <constraint firstItem="4bq-P4-Htc" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="30" id="MHj-51-oxy"/>
+                        <constraint firstAttribute="trailing" secondItem="4bq-P4-Htc" secondAttribute="trailing" constant="30" id="U69-TJ-5fL"/>
+                        <constraint firstItem="5K9-bf-qnf" firstAttribute="top" secondItem="4bq-P4-Htc" secondAttribute="bottom" constant="14" id="YuJ-rW-6zB"/>
+                        <constraint firstItem="4bq-P4-Htc" firstAttribute="top" secondItem="yDP-ZJ-klu" secondAttribute="bottom" constant="14" id="cSR-33-2mh"/>
+                        <constraint firstAttribute="bottom" secondItem="5K9-bf-qnf" secondAttribute="bottom" constant="15" id="hCa-vB-Oea"/>
+                        <constraint firstItem="5K9-bf-qnf" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="15" id="imt-oy-OKn"/>
                         <constraint firstItem="5K9-bf-qnf" firstAttribute="centerX" secondItem="4bq-P4-Htc" secondAttribute="centerX" id="inP-TU-wLv"/>
-                        <constraint firstItem="yDP-ZJ-klu" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="57" id="jUE-NO-7dj"/>
+                        <constraint firstItem="yDP-ZJ-klu" firstAttribute="leading" secondItem="HxJ-fg-egd" secondAttribute="leading" constant="15" id="jUE-NO-7dj"/>
                         <constraint firstItem="4bq-P4-Htc" firstAttribute="centerX" secondItem="yDP-ZJ-klu" secondAttribute="centerX" id="mZE-Yk-lTq"/>
-                        <constraint firstItem="yDP-ZJ-klu" firstAttribute="top" secondItem="HxJ-fg-egd" secondAttribute="top" constant="20" symbolic="YES" id="oTr-lx-QyI"/>
+                        <constraint firstItem="yDP-ZJ-klu" firstAttribute="top" secondItem="HxJ-fg-egd" secondAttribute="top" constant="15" id="oTr-lx-QyI"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Bl-ag-Tfq"/>
-                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CRC-V7-ebK"/>
-                <constraint firstItem="HxJ-fg-egd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="47" id="Pcw-Qd-RQe"/>
-                <constraint firstItem="HxJ-fg-egd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="175" id="w5H-Fb-eWF"/>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="60" id="8Bl-ag-Tfq"/>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="0.5" id="CRC-V7-ebK"/>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="56" id="Pcw-Qd-RQe"/>
+                <constraint firstItem="HxJ-fg-egd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="310" id="w5H-Fb-eWF"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="349" y="380"/>
