@@ -249,12 +249,25 @@ class GameViewController: UIViewController {
     }
     
     func update(count: Int) {
-        if timeCount < 10 {
+    
+        
+        if timeCount > 10 {
             timeCount! -= 1
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
-        } else if timeCount <= 10 {
-            let _ = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
+        } else if timeCount == 0 {
+          //   let _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
+        } else if timeCount <= 10 && timeCount > 0 {
+            
+           // var colour = String(gameView.timeIndicator.textColor)
+            if gameView.timeIndicator.textColor == UIColor.redColor() { //if text colour is red
+                gameView.timeIndicator.textColor = .greenColor()
+            } else {
+                gameView.timeIndicator.textColor = .redColor()
+            }
+            
+            
+            //let _ = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(self.flash), userInfo: nil, repeats: true)
             timeCount! -= 1
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
@@ -274,13 +287,7 @@ class GameViewController: UIViewController {
     }
     
     func flash () {
-        var colour = String(gameView.timeIndicator.textColor)
-        print (colour)
-        if colour == "UIDeviceRGBColorSpace 1 0 0 1" {
-            gameView.timeIndicator.textColor = .greenColor()
-        } else {
-            gameView.timeIndicator.textColor = .redColor()
-        }
+        
         
     }
 //    func animateTransition(element: AnyObject, time: Double, direction: String) {
