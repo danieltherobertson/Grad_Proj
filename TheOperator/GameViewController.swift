@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
     override func viewDidLoad() {
+        gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
         currentLev = String(currentLevel.valueForKey("number")!)
@@ -51,13 +52,13 @@ class GameViewController: UIViewController {
         for button in buttons {
             button.setTitle(" ", forState: .Normal)
             button.hidden = true
-            button.addTarget(self, action: #selector(buttonHandler), forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
         stageDialogue = levelDialogue[currentDialogue]
         stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
         numberOfButtons = stageAnswers?.count
-        print("number of buttons: \(numberOfButtons!)")
+        gameView.skipButton.addTarget(self, action: #selector(speedType), forControlEvents: .TouchUpInside)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -74,6 +75,7 @@ class GameViewController: UIViewController {
     }
     
     func startText() { // 2
+        
         UIView.animateWithDuration(1, delay: 0.6, options: [], animations: { () -> Void in
             //hide intro label
             self.gameView.introLabel.alpha = 0
@@ -93,6 +95,7 @@ class GameViewController: UIViewController {
             self.gameView.characterImg.hidden = false
             self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.gameText.typeStart(dialogue)
+            self.gameView.skipButton.hidden = false
             
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
@@ -100,9 +103,17 @@ class GameViewController: UIViewController {
         }
     }
     
+    func speedType () {
+        typeSpeed = 0.01
+        gameView.skipButton.enabled = false
+        gameView.skipButton.hidden = true
+    }
+    
     func layoutHandler(NoOfbuttons: Int) {
         var inUseAnswers = [String]()
         
+        gameView.skipButton.hidden = true
+        gameView.skipButton.enabled = false
         clearButtons()
         
         for answer in stageAnswers {
@@ -156,6 +167,8 @@ class GameViewController: UIViewController {
                 //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
+                gameView.skipButton.hidden = false
+                gameView.skipButton.enabled = true
                 onTypeComplete = {
                     self.layoutHandler(buttons)
                     
@@ -193,6 +206,8 @@ class GameViewController: UIViewController {
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
+                gameView.skipButton.hidden = true
+                gameView.skipButton.enabled = false
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
                 

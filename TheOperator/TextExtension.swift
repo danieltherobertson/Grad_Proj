@@ -11,6 +11,8 @@ import Foundation
 import UIKit
 
 var onTypeComplete: (() -> Void)!
+var typeSpeed = 0.06
+
 extension UILabel {
 
     func setLineHeight(lineHeight: CGFloat, alignment: NSTextAlignment) {
@@ -66,7 +68,6 @@ extension UILabel {
 extension UITextView {
     
     
-    
     func setLineHeight(lineHeight: CGFloat, alignment: NSTextAlignment) {
         let text = self.text
         if let text = text {
@@ -94,7 +95,7 @@ extension UITextView {
     func typeStart(dialogue: String) {
         let text = dialogue
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(0.06, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
+        let timer = NSTimer.scheduledTimerWithTimeInterval(typeSpeed, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
         timer.fire()
     }
     
@@ -106,10 +107,18 @@ extension UITextView {
         
         if self.text!.characters.count >= textArray.count {
             timer.invalidate()
-            
+            typeSpeed = 0.06
             if let callback = onTypeComplete {
                 callback ()
             }
+        } else if typeSpeed == 0.01 {
+            self.text = dialogue
+            timer.invalidate()
+            typeSpeed = 0.06
+            if let callback = onTypeComplete {
+                callback ()
+            }
+
         } else {
             let nextLetterIndex = self.text!.characters.count
             let character = textArray[nextLetterIndex]

@@ -29,6 +29,10 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuAudio = try! AVAudioPlayer(contentsOfURL: operatorTheme)
+        menuAudio.play()
+        menuAudio.numberOfLoops = 30
         // Do any additional setup after loading the view, typically from a nib.
 
         imageView.image = gif

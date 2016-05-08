@@ -16,6 +16,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var timeIndicator: UILabel!
    // @IBOutlet weak var gameText: UILabel!
     @IBOutlet weak var gameText: UITextView!
+    @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var characterImg: UIImageView!
     
@@ -39,6 +40,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)
+            skipButton.buttonStyle(skipButton)
             gameText.clipsToBounds = true
             gameText.textFieldStyle(gameText)
             introLabel.setLineHeight(30, alignment: .Center)
@@ -51,6 +53,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 70))
             gameText.textContainer.exclusionPaths = [imgRect]
             gameText.editable = false
+            gameText.selectable = false
             
             
         }

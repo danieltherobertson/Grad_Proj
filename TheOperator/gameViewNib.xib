@@ -14,6 +14,7 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -27,6 +28,7 @@
                 <outlet property="gameText" destination="aeO-gO-Xef" id="dt0-OE-Ckm"/>
                 <outlet property="introLabel" destination="sFU-Q9-kKB" id="92q-U6-fuA"/>
                 <outlet property="levelIndicator" destination="scJ-L3-bdv" id="sk3-01-YcP"/>
+                <outlet property="skipButton" destination="uoA-yU-DRM" id="lFq-Rg-wq6"/>
                 <outlet property="textViewHeightConstraint" destination="i0y-uM-3kQ" id="pYk-6A-LSV"/>
                 <outlet property="timeIndicator" destination="sPl-cb-Zn3" id="1HC-II-hFt"/>
             </connections>
@@ -36,8 +38,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-eh-NVu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-eh-NVu">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
                     <rect key="frame" x="10" y="475" width="580" height="60"/>
@@ -118,13 +121,25 @@
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
                     <rect key="frame" x="30" y="85" width="50" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="O5C-ye-jY8"/>
                         <constraint firstAttribute="width" constant="50" id="Zxp-xe-0jZ"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
+                    <rect key="frame" x="522" y="281" width="68" height="35"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="1kh-ld-nQb"/>
+                        <constraint firstAttribute="width" constant="68" id="a87-oj-an3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,6 +169,7 @@
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="QuE-L9-OQl"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="U4b-sH-efc"/>
+                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="uoA-yU-DRM" secondAttribute="bottom" constant="19" id="WTl-bD-OmA"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="leading" secondItem="GyC-eh-NVu" secondAttribute="leading" id="WpC-hU-2bA"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="top" id="YC7-rq-3lE"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
@@ -168,6 +184,7 @@
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="iFn-ji-fgy"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" id="nd9-zh-Ozu"/>
                 <constraint firstAttribute="trailing" secondItem="1gr-Zt-XgX" secondAttribute="trailing" constant="10" id="oER-bs-WcB"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="11" id="oOh-d5-mLL"/>
                 <constraint firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="puV-sZ-8Np"/>
@@ -189,7 +206,7 @@
         </view>
     </objects>
     <resources>
+        <image name="1" width="394" height="215"/>
         <image name="operator.gif" width="443" height="154"/>
-        <image name="slots_background.gif" width="504" height="953"/>
     </resources>
 </document>
