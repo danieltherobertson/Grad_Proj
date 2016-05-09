@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CallAlertView" customModule="TheOperator" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuc-cN-6yD">
+                    <rect key="frame" x="178" y="209" width="263" height="194"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0we-sV-Np4">
+                            <rect key="frame" x="20" y="133" width="224" height="50"/>
+                            <color key="backgroundColor" red="1" green="0.85603412830000003" blue="0.1208624589" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3FK-PC-wzH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <state key="normal" title="ANSWER">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeCallAlert:" destination="iN0-l3-epB" eventType="touchUpInside" id="njB-78-DAy"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="qDg-qu-Q30">
+                            <rect key="frame" x="20" y="10" width="224" height="76"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming call!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="243" translatesAutoresizingMaskIntoConstraints="NO" id="L2q-so-rQi">
+                            <rect key="frame" x="10" y="91" width="243" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="OOP-Ac-ckb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99771278779999995" green="0.2328330592" blue="0.23565995070000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="centerX" secondItem="tuc-cN-6yD" secondAttribute="centerX" id="AZT-bE-Btn"/>
+                        <constraint firstItem="0we-sV-Np4" firstAttribute="top" secondItem="L2q-so-rQi" secondAttribute="bottom" constant="8" symbolic="YES" id="GwJ-NQ-kXX"/>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="leading" secondItem="0we-sV-Np4" secondAttribute="leading" id="HAF-WH-jXd"/>
+                        <constraint firstAttribute="bottom" secondItem="0we-sV-Np4" secondAttribute="bottom" constant="11" id="LeL-QC-qSC"/>
+                        <constraint firstItem="L2q-so-rQi" firstAttribute="top" secondItem="qDg-qu-Q30" secondAttribute="bottom" constant="5" id="Wat-ra-1sJ"/>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="centerX" secondItem="tuc-cN-6yD" secondAttribute="centerX" id="hAH-TH-kow"/>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="trailing" secondItem="0we-sV-Np4" secondAttribute="trailing" id="hHV-dZ-fBB"/>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="leading" secondItem="tuc-cN-6yD" secondAttribute="leading" constant="20" id="p3w-1C-hL7"/>
+                        <constraint firstItem="qDg-qu-Q30" firstAttribute="top" secondItem="tuc-cN-6yD" secondAttribute="top" constant="10" id="pRV-L8-Jgn"/>
+                        <constraint firstItem="L2q-so-rQi" firstAttribute="centerX" secondItem="0we-sV-Np4" secondAttribute="centerX" id="pys-Bk-wd8"/>
+                        <constraint firstItem="L2q-so-rQi" firstAttribute="leading" secondItem="tuc-cN-6yD" secondAttribute="leading" constant="10" id="qu6-3n-JpZ"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="hAH-TH-kow"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tuc-cN-6yD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="209" id="6vb-Su-oGP"/>
+                <constraint firstItem="tuc-cN-6yD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="178" id="VHk-G9-0AC"/>
+                <constraint firstAttribute="trailing" secondItem="tuc-cN-6yD" secondAttribute="trailing" constant="159" id="XXo-lY-HK2"/>
+                <constraint firstAttribute="bottom" secondItem="tuc-cN-6yD" secondAttribute="bottom" constant="197" id="p34-Uz-cWi"/>
+            </constraints>
+            <connections>
+                <outlet property="callAlert" destination="tuc-cN-6yD" id="VZH-Oq-Cje"/>
+                <outlet property="callAlertAnswerButton" destination="0we-sV-Np4" id="K0N-4Q-Zbj"/>
+                <outlet property="callAlertImage" destination="qDg-qu-Q30" id="gpH-Q5-lpC"/>
+                <outlet property="callAlertMessage" destination="L2q-so-rQi" id="mE0-ra-kZn"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="operator.gif" width="443" height="154"/>
+    </resources>
+</document>

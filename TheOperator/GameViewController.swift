@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
     var numberOfButtons: Int!
     
     var timeCount: Int!
+    var callAlert: CallAlertView!
     
     var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
@@ -173,8 +174,8 @@ class GameViewController: UIViewController {
                     self.layoutHandler(buttons)
                     
                     if enablesPopUp {
-                        self.popViewController.answerButton.backgroundColor = UIColor(red: 255/255, green: 218/255, blue: 31/255, alpha: 1.0)
-                        self.popViewController.answerButton.enabled = true
+                        self.callAlert.callAlertAnswerButton.backgroundColor = UIColor(red: 255/255, green: 218/255, blue: 31/255, alpha: 1.0)
+                        self.callAlert.callAlertAnswerButton.enabled = true
                     }
                 }
             }
@@ -211,20 +212,6 @@ class GameViewController: UIViewController {
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
                 
-                
-                onPopUpClose = {
-                    if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
-                        let nextDialogue = callGoTo
-                        self.currentDialogue = nextDialogue
-                        self.stageDialogue = self.levelDialogue[self.currentDialogue]
-                        self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-                       
-                        if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
-                            self.countDown(timeLimit)
-                        }
-                         self.questionHandler(callGoTo, enablesPopUp: false)
-                    }
-                }
             } else {
                 sender.hidden = true
                 questionHandler(nextDialogue, enablesPopUp: false)
@@ -233,34 +220,22 @@ class GameViewController: UIViewController {
     }
     
     func triggerCall() {
-        let bundle = NSBundle(forClass: PopUpViewControllerSwift.self)
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
-        {
-            self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPad", bundle: bundle)
-            self.popViewController.title = "This is a popup view"
-            self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
-            self.popViewController.answerButton.enabled = false
-        } else
-        {
-            if UIScreen.mainScreen().bounds.size.width > 320 {
-                if UIScreen.mainScreen().scale == 3 {
-                    self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6Plus", bundle: bundle)
-                    self.popViewController.title = "This is a popup view"
-                    self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
-                    self.popViewController.answerButton.enabled = false
-                } else {
-                    self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController_iPhone6", bundle: bundle)
-                    self.popViewController.title = "This is a popup view"
-                    self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
-                    self.popViewController.answerButton.enabled = false
+        callAlert = CallAlertView.instanceFromNib()
+        callAlert.onPopUpClose = {
+            print("POP UP CLOSE")
+            if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
+                let nextDialogue = callGoTo
+                self.currentDialogue = nextDialogue
+                self.stageDialogue = self.levelDialogue[self.currentDialogue]
+                self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                
+                if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                    self.countDown(timeLimit)
                 }
-            } else {
-                self.popViewController = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: bundle)
-                self.popViewController.title = "This is a popup view"
-                self.popViewController.showInView(self.view, withImage: UIImage(named: "typpzDemo"), withMessage: "Incoming call!", animated: true)
-                self.popViewController.answerButton.enabled = false
+                self.questionHandler(callGoTo, enablesPopUp: false)
             }
         }
+        callAlert.showInView(self.view, message: "Incoming Call!", animated: true)
     }
     
     func countDown(time: Int) {
@@ -269,8 +244,6 @@ class GameViewController: UIViewController {
     }
     
     func update(count: Int) {
-    
-        
         if timeCount > 10 {
             timeCount! -= 1
             let time = secondsToHoursMinutesSeconds(timeCount!)
