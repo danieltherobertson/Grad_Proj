@@ -322,7 +322,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMQ-k1-M8M" customClass="ProgressView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="37" y="113" width="526" height="354"/>
+                                <rect key="frame" x="20" y="113" width="560" height="354"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="354" id="dHr-w3-FA4"/>
@@ -387,9 +387,9 @@
                             <constraint firstItem="ilu-x4-8s9" firstAttribute="top" secondItem="qik-TB-ZDX" secondAttribute="bottom" constant="36" id="HLN-Cu-Q29"/>
                             <constraint firstItem="Xun-yP-d5x" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="57" id="LOA-Cr-so4"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="top" secondItem="PIC-0c-B7D" secondAttribute="bottom" constant="21" id="MJ5-Fp-sfh"/>
-                            <constraint firstItem="lMQ-k1-M8M" firstAttribute="leading" secondItem="Gal-04-7Mc" secondAttribute="leading" constant="37" id="Upc-0g-xLB"/>
+                            <constraint firstItem="lMQ-k1-M8M" firstAttribute="leading" secondItem="Gal-04-7Mc" secondAttribute="leading" constant="20" id="Upc-0g-xLB"/>
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" id="aIE-Ih-JfY"/>
-                            <constraint firstAttribute="trailing" secondItem="lMQ-k1-M8M" secondAttribute="trailing" constant="37" id="fzU-fA-bfL"/>
+                            <constraint firstAttribute="trailing" secondItem="lMQ-k1-M8M" secondAttribute="trailing" constant="20" id="fzU-fA-bfL"/>
                             <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="XtL-HZ-fMS" secondAttribute="bottom" constant="2" id="iHZ-yV-QrJ"/>
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="top" secondItem="CbM-rQ-rZW" secondAttribute="bottom" constant="24" id="oeM-iG-hg0"/>
                             <constraint firstItem="XtL-HZ-fMS" firstAttribute="leading" secondItem="Xun-yP-d5x" secondAttribute="leading" id="qCm-Ye-Qdt"/>

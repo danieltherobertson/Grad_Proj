@@ -19,9 +19,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 300, height: 100)
-        layout.minimumInteritemSpacing = 30
-        layout.minimumLineSpacing = 30
+        //layout.itemSize = CGSize(width: 300, height: 100)
+        //layout.minimumInteritemSpacing = 30
+        //layout.minimumLineSpacing = 30
         
         
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -61,6 +61,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 let gameSlot = levelsData![indexPath.row]
                 let levelName = gameSlot.valueForKey("name")!
                 cell.levelName.text = levelName as? String
+                cell.levelName.setLineHeight(3, alignment: .Left)
                 let levelNumber = gameSlot.valueForKey("number")!
                 toInt = Int(levelNumber as! String)
                 let intAdd = toInt!+1
@@ -104,7 +105,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
     //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(100, 140)
+        let width = self.levelsView.bounds.width
+        let height = self.levelsView.bounds.height/3
+        return CGSize(width: width, height: height)
     }
     
     //-----------------HANDLES THE 4 SCENARIOS FOR TAPPING COLLECTION VIEW CELLS----------------------------------------------

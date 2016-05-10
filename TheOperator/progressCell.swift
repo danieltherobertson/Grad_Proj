@@ -14,6 +14,11 @@ class progressCell: UICollectionViewCell {
     @IBOutlet weak var levelImage: UIImageView!
     var levelStatus: LevelStatus!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        levelName.setLineHeight(3, alignment: .Left)
+    }
+    
     func styleSelected(tag:Int) {
         switch tag {
         case 0:
