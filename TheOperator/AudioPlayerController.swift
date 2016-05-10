@@ -31,7 +31,7 @@ class AudioPlayerController: NSObject {
     
     func fadeOut(completion: ( ()->())? ) {
         if audioPlayer.volume > 0.1 {
-            audioPlayer.volume -= 0.02
+            audioPlayer.volume -= 0.034
             let triggerTime = Int64(0.2 * Double(NSEC_PER_SEC))
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { 
                 self.fadeOut(completion)
@@ -49,7 +49,7 @@ class AudioPlayerController: NSObject {
     func fadeIn(completion: ( ()->())? ) {
         
         if audioPlayer.playing {
-            if audioPlayer.volume < 1 {
+            if audioPlayer.volume < 0.8 {
                 audioPlayer.volume += 0.02
                 let triggerTime = Int64(0.5 * Double(NSEC_PER_SEC))
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
