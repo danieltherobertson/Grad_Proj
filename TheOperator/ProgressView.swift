@@ -83,6 +83,8 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "padlock")
                     cell.levelStatus = LevelStatus.Locked
+                    cell.levelNumber.text = "[Locked]"
+                    cell.levelName.text = "[Level Locked]"
                     cell.tag = 2
                 }
                 cell.levelName.textColor = UIColor.blackColor()
