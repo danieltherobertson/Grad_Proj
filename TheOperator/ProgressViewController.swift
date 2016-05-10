@@ -59,6 +59,10 @@ class ProgressViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        AudioPlayerController.sharedInstance.fadeOut {
+            AudioPlayerController.sharedInstance.startAudio("gameViewAudio")
+        }
+        
         let gameViewVC = (segue.destinationViewController as? GameViewController)
 
         
@@ -84,6 +88,8 @@ class ProgressViewController: UIViewController {
             
         selectedLevelPos = level
         selectedLevel = levels[selectedLevelPos]
+        
+        
         
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)
