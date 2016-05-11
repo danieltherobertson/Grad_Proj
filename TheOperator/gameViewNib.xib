@@ -44,7 +44,7 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
                     <rect key="frame" x="10" y="475" width="580" height="60"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.86086554276315785" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="284" id="LPV-gc-MGD"/>
                         <constraint firstAttribute="height" constant="60" id="v7e-T2-tgR"/>
@@ -61,7 +61,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
                     <rect key="frame" x="10" y="335" width="580" height="60"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.86114823190789469" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="13f-bj-YU2"/>
                     </constraints>
@@ -72,7 +72,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
                     <rect key="frame" x="10" y="405" width="580" height="60"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.86143092105263153" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="fym-lR-jZH"/>
                         <constraint firstAttribute="width" constant="284" id="rD8-rR-If3"/>
@@ -93,7 +93,7 @@
                         <constraint firstAttribute="width" constant="164" id="cjM-xJ-oop"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
@@ -102,7 +102,7 @@
                         <constraint firstAttribute="width" constant="151" id="wjG-L3-CGl"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-Pe-Uij">
@@ -129,11 +129,11 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
-                    <rect key="frame" x="522" y="281" width="68" height="35"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="514" y="250" width="76" height="42"/>
+                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="1kh-ld-nQb"/>
-                        <constraint firstAttribute="width" constant="68" id="a87-oj-an3"/>
+                        <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
+                        <constraint firstAttribute="width" constant="76" id="a87-oj-an3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal" title="Skip">
@@ -166,6 +166,7 @@
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="9" id="IRT-Uu-HNk"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="centerX" secondItem="0SM-i4-EAB" secondAttribute="centerX" id="JJT-Nw-Qzz"/>
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="L4F-al-Hci"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="213" id="Lmt-qA-SbZ"/>
                 <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="QuE-L9-OQl"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="U4b-sH-efc"/>
@@ -183,6 +184,7 @@
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="top" secondItem="0SM-i4-EAB" secondAttribute="bottom" constant="10" id="fHO-0m-5ru"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="iFn-ji-fgy"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" constant="-10" id="jLK-Jg-YDD"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="jvJ-qC-9qA"/>
                 <constraint firstItem="uoA-yU-DRM" firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" id="nd9-zh-Ozu"/>
                 <constraint firstAttribute="trailing" secondItem="1gr-Zt-XgX" secondAttribute="trailing" constant="10" id="oER-bs-WcB"/>
@@ -196,11 +198,16 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="sFU-Q9-kKB"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="9W6-f2-OF9"/>
                     <exclude reference="8cS-c1-Fhz"/>
                     <exclude reference="IRT-Uu-HNk"/>
+                    <exclude reference="WTl-bD-OmA"/>
                     <exclude reference="cfM-Jw-XVp"/>
+                    <exclude reference="nd9-zh-Ozu"/>
                 </mask>
             </variation>
         </view>

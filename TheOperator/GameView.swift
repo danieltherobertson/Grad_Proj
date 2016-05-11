@@ -48,7 +48,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameText.textContainerInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
             gameText.editable = true
             gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
-            gameText.backgroundColor = .greenColor()
+            gameText.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
             gameText.layoutManager.delegate = self
             let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 70))
             gameText.textContainer.exclusionPaths = [imgRect]
