@@ -84,6 +84,15 @@
                                     <segue destination="ZzI-CA-vw3" kind="show" identifier="loadGameSlotsPush" id="ZpM-Vx-JOL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
+                                <rect key="frame" x="170" y="223" width="260" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="F4r-hF-5kt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2G-Hu-3dn">
                                 <rect key="frame" x="190" y="362" width="220" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,15 +110,6 @@
                                     <segue destination="ZzI-CA-vw3" kind="show" identifier="newGameSlotsPush" id="zZc-Sv-334"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
-                                <rect key="frame" x="170" y="223" width="260" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="F4r-hF-5kt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Se-EX-ZKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4203" y="1211"/>
+            <point key="canvasLocation" x="4587" y="1065"/>
         </scene>
         <!--Meme-->
         <scene sceneID="KYZ-W2-Olb">
@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-1R-SDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556" y="1211"/>
+            <point key="canvasLocation" x="3940" y="1065"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GZv-qR-OSf">
@@ -220,7 +220,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Du-fb-Gqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3864" y="394"/>
+            <point key="canvasLocation" x="4248" y="248"/>
         </scene>
         <!--Game Slots View Controller-->
         <scene sceneID="X59-ib-XxO">
@@ -367,9 +367,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="qFA-1n-IiK" kind="show" identifier="startGame" id="MGF-Ys-xHg"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-HZ-fMS">
                                 <rect key="frame" x="37" y="469" width="526" height="53"/>
@@ -405,6 +402,8 @@
                         <outlet property="progressPlayerName" destination="PIC-0c-B7D" id="ega-bt-U7l"/>
                         <outlet property="progressView" destination="lMQ-k1-M8M" id="K4q-6E-aNC"/>
                         <outlet property="startButton" destination="qik-TB-ZDX" id="yHy-N5-3Rz"/>
+                        <segue destination="ayQ-rs-Ewg" kind="show" identifier="tutorialViewSegue" id="KPa-R6-0cu"/>
+                        <segue destination="qFA-1n-IiK" kind="show" identifier="gameViewSegue" id="hOh-mr-gmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwc-fo-Lb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -488,6 +487,39 @@
             </objects>
             <point key="canvasLocation" x="305" y="387"/>
         </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="Xnl-aD-QGt">
+            <objects>
+                <viewController id="ayQ-rs-Ewg" customClass="TutorialViewController" customModule="TheOperator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n6u-qD-Jz3"/>
+                        <viewControllerLayoutGuide type="bottom" id="EyM-rm-L9Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q0w-hU-kIG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLB-tw-QPX" customClass="GameView" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oLB-tw-QPX" firstAttribute="bottom" secondItem="EyM-rm-L9Y" secondAttribute="top" id="83J-03-xN4"/>
+                            <constraint firstAttribute="trailing" secondItem="oLB-tw-QPX" secondAttribute="trailing" id="Dzq-Hi-TGF"/>
+                            <constraint firstItem="oLB-tw-QPX" firstAttribute="top" secondItem="q0w-hU-kIG" secondAttribute="top" id="HCX-DE-Qhk"/>
+                            <constraint firstItem="oLB-tw-QPX" firstAttribute="leading" secondItem="q0w-hU-kIG" secondAttribute="leading" id="zwh-IV-Tpg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="oLB-tw-QPX" id="JBe-BV-PPp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k0a-8J-7zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3193" y="37"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="Hm9-JM-jcy">
             <objects>
@@ -525,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfM-Y2-uYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="387"/>
+            <point key="canvasLocation" x="3193" y="707"/>
         </scene>
     </scenes>
     <resources>
@@ -535,6 +567,6 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zZc-Sv-334"/>
+        <segue reference="ZpM-Vx-JOL"/>
     </inferredMetricsTieBreakers>
 </document>

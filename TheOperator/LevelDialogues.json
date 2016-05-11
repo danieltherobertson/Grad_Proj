@@ -79,7 +79,7 @@
 			{
 				"number": 5,
 				"character": "Chief",
-				"text": "Chief: \n \nOh dear... it looks like it's up to you to help. Did you notice that the timer started when you answered the call? Every call will have a time limit, so you’ve got to be quick!",
+				"text": "\n \nChief: \n \nOh dear... it looks like it's up to you to help. Did you notice that the timer started when you answered the call? Every call will have a time limit, so you’ve got to be quick!",
 	            "buttons": 1,
                 "triggersCall": false,
 	            "acceptedAnswers": [
@@ -92,7 +92,7 @@
 			{
 				"number": 6,
 				"character": "Chief",
-				"text": "Chief: \n \nYou've got three possible choices here, and each will have a different effect. You need to pick carefully to find the best and fastest way to help this civilian.",
+				"text": "\n \nChief: \n \nYou've got three possible choices here, and each will have a different effect. You need to pick carefully to find the best and fastest way to help this civilian.",
 	            "buttons": 3,
                 "triggersCall": false,
                 "triggeredEvent": "Cat killed after call for aid goes unanswered!",

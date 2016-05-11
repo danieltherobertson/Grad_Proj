@@ -67,10 +67,11 @@ class ProgressViewController: UIViewController {
         let gameViewVC = (segue.destinationViewController as? GameViewController)
         let tutorialViewVC = (segue.destinationViewController as? TutorialViewController)
 
-        
-        if segue.identifier == "startGame" {
+        if segue.identifier == "gameViewSegue" {
             gameViewVC?.currentLevel = selectedLevel
             
+        } else {
+            tutorialViewVC?.currentLevel = selectedLevel
         }
     }
     
@@ -96,7 +97,7 @@ class ProgressViewController: UIViewController {
             
         selectedLevel = levels[selectedLevelPos]
         
-        
+        startButton.addTarget(nil, action: #selector(segueToGame), forControlEvents: UIControlEvents.TouchUpInside)
         
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)
@@ -105,6 +106,18 @@ class ProgressViewController: UIViewController {
         
         }
     }
+    func segueToGame() {
+        if isTutorial {
+            performSegueWithIdentifier("tutorialViewSegue", sender: self)
+            print("TUTORIAL")
+        } else {
+            performSegueWithIdentifier("gameViewSegue", sender: self)
+            print("NORMAL LEVER")
+        }
+        
+        
+    }
+   
     
     func getLevels() -> [NSDictionary] {
         var results = [NSDictionary]()

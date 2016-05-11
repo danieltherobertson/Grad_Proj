@@ -12,8 +12,6 @@ class TutorialViewController: UIViewController {
     
     @IBOutlet weak var gameView: GameView!
     
-    
-    
     var levelDialogue = [NSDictionary]()
     var timer: NSTimer?
     var text: String!
@@ -36,6 +34,7 @@ class TutorialViewController: UIViewController {
     var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
     override func viewDidLoad() {
+        print("TUTORIAL VIEW HAS LOADED")
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
@@ -99,7 +98,11 @@ class TutorialViewController: UIViewController {
             self.gameView.characterImg.hidden = false
             self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.gameText.typeStart(dialogue)
-            self.gameView.skipButton.hidden = false
+            if self.currentDialogue == 3 {
+                self.gameView.skipButton.hidden = true
+            } else {
+                self.gameView.skipButton.hidden = false
+            }
             
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
@@ -171,8 +174,13 @@ class TutorialViewController: UIViewController {
                 //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
-                gameView.skipButton.hidden = false
-                gameView.skipButton.enabled = true
+                if dialogueIndex == 3 {
+                    gameView.skipButton.hidden = true
+                    gameView.skipButton.enabled = false
+                } else {
+                    gameView.skipButton.hidden = false
+                    gameView.skipButton.enabled = true
+                }
                 onTypeComplete = {
                     self.layoutHandler(buttons)
                     

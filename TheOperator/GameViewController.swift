@@ -166,7 +166,7 @@ class GameViewController: UIViewController {
                 let nextDialogue = dialogue.valueForKey("text") as! String
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
-                gameView.gameText.text = ""
+//                gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
                 gameView.skipButton.hidden = false
                 gameView.skipButton.enabled = true
