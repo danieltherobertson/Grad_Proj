@@ -34,9 +34,10 @@
 		65510C891CCD8370007C50BC /* operator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C841CCD8370007C50BC /* operator.gif */; };
 		65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C8A1CCD83A1007C50BC /* slots_background.gif */; };
 		6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568DDB31CE2086400E29958 /* AudioPlayerController.swift */; };
-		6568DDB61CE20B7C00E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB51CE20B7C00E29958 /* gameViewAudio.mp3 */; };
+		6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */; };
 		65916FB51CC2D016004961AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65916FB41CC2D016004961AE /* GameView.swift */; };
 		6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */ = {isa = PBXBuildFile; fileRef = 659856791CD0210C00BC9263 /* LevelDialogues.json */; };
+		65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */; };
 		65A4CB961C5A51A400BC5EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */; };
 		65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */; };
 		65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A4CB9E1C5A51A500BC5EEB /* LaunchScreen.storyboard */; };
@@ -101,9 +102,10 @@
 		65510C841CCD8370007C50BC /* operator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = operator.gif; sourceTree = "<group>"; };
 		65510C8A1CCD83A1007C50BC /* slots_background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slots_background.gif; sourceTree = "<group>"; };
 		6568DDB31CE2086400E29958 /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
-		6568DDB51CE20B7C00E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
+		6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
 		65916FB41CC2D016004961AE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		659856791CD0210C00BC9263 /* LevelDialogues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LevelDialogues.json; sourceTree = "<group>"; };
+		65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		65A4CB921C5A51A400BC5EEB /* TheOperator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOperator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A4CB9C1C5A51A500BC5EEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,7 +193,7 @@
 				65510C811CCD8370007C50BC /* monofonto.ttf */,
 				65510C821CCD8370007C50BC /* operator_background_animated.gif */,
 				65510C831CCD8370007C50BC /* operatorTheme.mp3 */,
-				6568DDB51CE20B7C00E29958 /* gameViewAudio.mp3 */,
+				6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */,
 				65510C841CCD8370007C50BC /* operator.gif */,
 			);
 			name = Assets;
@@ -305,6 +307,7 @@
 				65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */,
 				65F8971D1CB3306500CBEE92 /* ProgressViewController.swift */,
 				65510C791CCD82EE007C50BC /* GameViewController.swift */,
+				65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */,
 				6568DDB31CE2086400E29958 /* AudioPlayerController.swift */,
 			);
 			name = "View Controller 🎮";
@@ -429,7 +432,7 @@
 				65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */,
 				652109D41CD90A2100B3E667 /* PopUpViewController.xib in Resources */,
 				65510C871CCD8370007C50BC /* operator_background_animated.gif in Resources */,
-				6568DDB61CE20B7C00E29958 /* gameViewAudio.mp3 in Resources */,
+				6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */,
 				65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */,
 				6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */,
 				65510C851CCD8370007C50BC /* Kemco_Pixel_Bold.ttf in Resources */,
@@ -485,6 +488,7 @@
 				65916FB51CC2D016004961AE /* GameView.swift in Sources */,
 				6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */,
 				651DA2801CBF84850009FA70 /* UIColor.swift in Sources */,
+				65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */,
 				65387A191CA1A2D80070FAD7 /* Call.swift in Sources */,
 				65E05CC11C7627B5002C507D /* GameSlotsViewController.swift in Sources */,
 				651DA2821CBF84990009FA70 /* UIImage.swift in Sources */,

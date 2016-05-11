@@ -2,48 +2,114 @@
 	"levels": [
 		{
 			"number": "0",
-			"name": "Cadet Training"
+			"name": "Cadet Training",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "1",
-			"name": "Lost Down The Bottle"
+			"name": "Lost Down The Bottle",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "2",
-			"name": ""
+			"name": "",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "3",
-			"name": "Pizza For One"
+			"name": "Pizza For One",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "4",
-			"name": "Day 4"
+			"name": "Day 4",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "5",
-			"name": "Day 5"
+			"name": "Day 5",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "6",
-			"name": "Day 6"
+			"name": "Day 6",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "7",
-			"name": "Day 7"
+			"name": "Day 7",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "8",
-			"name": "Day 8"
+			"name": "Day 8",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "9",
-			"name": "Day 9"
+			"name": "Day 9",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
 		},
 		{
 			"number": "10",
-			"name": "Day 10"
-		},
+			"name": "Day 10",
+			"requiredServices": [
+                {
+                    "service":"Fire Brigade",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                }
+            ]
+		}
 	]
 	
 }

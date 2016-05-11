@@ -19,7 +19,7 @@
                 "character": "Chief",
                 "text": "Chief: \n \n...solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!",
                 "buttons": 1,
-                 "triggersCall": false,
+                "triggersCall": false,
                 "acceptedAnswers": [
                      {
                          "text": "Got it, Sir!",
@@ -95,6 +95,7 @@
 				"text": "Chief: \n \nYou've got three possible choices here, and each will have a different effect. You need to pick carefully to find the best and fastest way to help this civilian.",
 	            "buttons": 3,
                 "triggersCall": false,
+                "triggeredEvent": "Cat killed after call for aid goes unanswered!",
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Beep",

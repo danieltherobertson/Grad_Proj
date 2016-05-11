@@ -24,6 +24,7 @@ class ProgressViewController: UIViewController {
     
     var playerName: String!
     var playerProgress: Int!
+    var isTutorial = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class ProgressViewController: UIViewController {
         }
         
         let gameViewVC = (segue.destinationViewController as? GameViewController)
+        let tutorialViewVC = (segue.destinationViewController as? TutorialViewController)
 
         
         if segue.identifier == "startGame" {
@@ -85,8 +87,13 @@ class ProgressViewController: UIViewController {
         startButton.backgroundColor = UIColor.greenColor()
         startButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         startButton.enabled = true
-            
+        
         selectedLevelPos = level
+            
+        if selectedLevelPos == 0 {
+            isTutorial = true
+        }
+            
         selectedLevel = levels[selectedLevelPos]
         
         
