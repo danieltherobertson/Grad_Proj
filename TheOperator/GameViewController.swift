@@ -36,6 +36,9 @@ class GameViewController: UIViewController {
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
+        gameView.characterImg.alpha = 0
+        gameView.speakerName.alpha = 0
+        
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
         currentLevRead = currentLevInt!+1
@@ -96,16 +99,13 @@ class GameViewController: UIViewController {
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
-            //self.gameView.gameTextContainerHeightConstraint.constant = 200
-            //self.gameView.textViewHeightConstraint.constant = 200
             self.gameView.gameTextContainerHeightConstraint.constant = 200
-           // self.gameView.speakerViewHeightConstraint.constant = 80
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = character
-           // self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.speakerName.text = "\(character):"
+            self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
             self.gameView.skipButton.hidden = false
             
@@ -119,6 +119,16 @@ class GameViewController: UIViewController {
         typeSpeed = 0.01
         gameView.skipButton.enabled = false
         gameView.skipButton.hidden = true
+    }
+    
+    func addCharacterDetails() {
+        
+        UIView.animateWithDuration(0.5, delay: 0, options: [], animations: { () -> Void in
+            self.gameView.characterImg.alpha = 1
+            self.gameView.speakerName.alpha = 1
+        }) { (completion) -> Void in
+
+        }
     }
     
     func layoutHandler(NoOfbuttons: Int) {
@@ -232,6 +242,7 @@ class GameViewController: UIViewController {
     
     func triggerCall() {
         callAlert = CallAlertView.instanceFromNib()
+        callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {
             print("POP UP CLOSE")
             if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {

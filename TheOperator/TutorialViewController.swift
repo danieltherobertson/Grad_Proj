@@ -108,6 +108,7 @@ class TutorialViewController: UIViewController {
             self.gameView.speakerName.text = character
             // self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.speakerName.text = "\(character):"
+            self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
             self.gameView.skipButton.hidden = false
             
@@ -121,6 +122,16 @@ class TutorialViewController: UIViewController {
         typeSpeed = 0.01
         gameView.skipButton.enabled = false
         gameView.skipButton.hidden = true
+    }
+    
+    func addCharacterDetails() {
+        
+        UIView.animateWithDuration(0.5, delay: 0, options: [], animations: { () -> Void in
+            self.gameView.characterImg.alpha = 1
+            self.gameView.speakerName.alpha = 1
+        }) { (completion) -> Void in
+            
+        }
     }
     
     func layoutHandler(NoOfbuttons: Int) {
@@ -239,6 +250,7 @@ class TutorialViewController: UIViewController {
     
     func triggerCall() {
         callAlert = CallAlertView.instanceFromNib()
+        callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {
             print("POP UP CLOSE")
             if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
