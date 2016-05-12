@@ -121,11 +121,11 @@
                     <rect key="frame" x="8" y="48" width="584" height="200"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
-                            <rect key="frame" x="10" y="10" width="50" height="70"/>
+                            <rect key="frame" x="10" y="10" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="FM6-Ej-hvI"/>
                                 <constraint firstAttribute="height" constant="70" id="O5C-ye-jY8"/>
-                                <constraint firstAttribute="height" constant="70" id="SKL-5q-egt"/>
+                                <constraint firstAttribute="height" constant="50" id="SKL-5q-egt"/>
                                 <constraint firstAttribute="width" constant="50" id="Zxp-xe-0jZ"/>
                             </constraints>
                             <variation key="default">
@@ -136,7 +136,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMt-ZG-52t">
-                            <rect key="frame" x="76" y="26" width="494" height="29"/>
+                            <rect key="frame" x="76" y="31" width="494" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="CNW-v5-dbx"/>
                             </constraints>
@@ -145,8 +145,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-gO-Xef">
-                            <rect key="frame" x="10" y="83" width="564" height="107"/>
+                            <rect key="frame" x="10" y="63" width="564" height="127"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="127" id="6ON-AK-GgH"/>
                                 <constraint firstAttribute="height" id="i0y-uM-3kQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
@@ -161,16 +162,21 @@
                     <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="14" id="4Ja-Ov-WAQ"/>
-                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="26" id="9GG-nm-lva"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="31" id="9GG-nm-lva"/>
                         <constraint firstAttribute="trailing" secondItem="aeO-gO-Xef" secondAttribute="trailing" constant="10" id="GLq-ks-nPS"/>
                         <constraint firstItem="FZp-yZ-ONi" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="V9X-O2-tan"/>
                         <constraint firstItem="FZp-yZ-ONi" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="10" id="WTx-xM-yCs"/>
                         <constraint firstAttribute="height" constant="200" id="anL-JC-Skf"/>
                         <constraint firstAttribute="bottom" secondItem="aeO-gO-Xef" secondAttribute="bottom" constant="10" id="i3Z-zD-2P2"/>
                         <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="pvB-fx-Mrz"/>
-                        <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="PMt-ZG-52t" secondAttribute="bottom" constant="28" id="x7L-NO-Nwo"/>
+                        <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="PMt-ZG-52t" secondAttribute="bottom" constant="23" id="x7L-NO-Nwo"/>
                         <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="FZp-yZ-ONi" secondAttribute="trailing" constant="16" id="ybT-1o-5dI"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="x7L-NO-Nwo"/>
+                        </mask>
+                    </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

@@ -55,7 +55,8 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameText.clipsToBounds = true
             //gameText.textFieldStyle(gameText)
             introLabel.setLineHeight(30, alignment: .Center)
-            textViewHeightConstraint.constant = 0
+            //textViewHeightConstraint.constant = 0
+            gameTextContainerHeightConstraint.constant = 0
            // gameText.textContainerInset = UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20)
             gameText.editable = true
             gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
