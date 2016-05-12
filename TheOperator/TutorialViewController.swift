@@ -31,7 +31,7 @@ class TutorialViewController: UIViewController {
     var timeCount: Int!
     var callAlert: CallAlertView!
     
-    var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+  //  var popViewController: CallAlertView = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
     
     override func viewDidLoad() {
         print("TUTORIAL VIEW HAS LOADED")

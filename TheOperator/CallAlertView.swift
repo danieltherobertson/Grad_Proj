@@ -15,6 +15,8 @@ class CallAlertView: UIView {
     
     
     @IBOutlet weak var callAlert: UIView!
+    @IBOutlet weak var callAlertContainer: UIView!
+    @IBOutlet weak var CallAlertInnerContainer: UIView!
     @IBOutlet weak var callAlertImage: UIImageView!
     @IBOutlet weak var callAlertMessage: UILabel!
     @IBOutlet weak var callAlertAnswerButton: UIButton!
@@ -28,10 +30,15 @@ class CallAlertView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.0)
-        callAlert.layer.cornerRadius = 5
-        callAlert.layer.cornerRadius = 20
-        callAlert.layer.borderWidth = 4
-        callAlert.layer.borderColor = UIColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+       // callAlertContainer.layer.cornerRadius = 5
+        callAlertContainer.layer.cornerRadius = 20
+        callAlertContainer.layer.borderWidth = 4
+        callAlertContainer.layer.borderColor = UIColor(red:190/255, green: 0/255, blue: 0/255, alpha: 1).CGColor
+        
+        CallAlertInnerContainer.layer.addBorder(.Left, color: UIColor(red:190/255, green: 0/255, blue: 0/255, alpha: 1), thickness: 4)
+         CallAlertInnerContainer.layer.addBorder(.Right, color: UIColor(red:190/255, green: 0/255, blue: 0/255, alpha: 1), thickness: 4)
+         CallAlertInnerContainer.layer.addBorder(.Top, color: UIColor(red:190/255, green: 0/255, blue: 0/255, alpha: 1), thickness: 4)
+        
         callAlertAnswerButton.backgroundColor = UIColor.lightGrayColor()
         callAlertAnswerButton.buttonStyle(callAlertAnswerButton, colour: ButtonColour.Red)
         

@@ -29,8 +29,8 @@ class GameViewController: UIViewController {
     
     var timeCount: Int!
     var callAlert: CallAlertView!
-    
-    var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+  
+   // var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
     override func viewDidLoad() {
         gameView.skipButton.hidden = true

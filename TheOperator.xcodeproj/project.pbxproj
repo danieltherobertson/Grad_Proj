@@ -14,8 +14,6 @@
 		651DA2801CBF84850009FA70 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA27F1CBF84850009FA70 /* UIColor.swift */; };
 		651DA2821CBF84990009FA70 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA2811CBF84990009FA70 /* UIImage.swift */; };
 		651DA2841CBF84A20009FA70 /* ZAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA2831CBF84A20009FA70 /* ZAlertView.swift */; };
-		652109D41CD90A2100B3E667 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652109CF1CD90A2100B3E667 /* PopUpViewController.xib */; };
-		652109D51CD90A2100B3E667 /* PopUpViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652109D01CD90A2100B3E667 /* PopUpViewControllerSwift.swift */; };
 		652400041C5BFFEF009C9FE6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652400031C5BFFEF009C9FE6 /* MenuViewController.swift */; };
 		652709271CC97523003DB5CB /* GameSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652709261CC97523003DB5CB /* GameSaveTests.swift */; };
 		6532B36E1C5FC12600D734EF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532B36D1C5FC12600D734EF /* Question.swift */; };
@@ -53,6 +51,7 @@
 		65CECF731C9EF78500F563BF /* GameSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CECF721C9EF78500F563BF /* GameSave.swift */; };
 		65E05CBF1C76212B002C507D /* gameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CBE1C76212B002C507D /* gameCell.swift */; };
 		65E05CC11C7627B5002C507D /* GameSlotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */; };
+		65E5E01D1CE4CFEA002A3048 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E5E01C1CE4CFEA002A3048 /* CALayerExtension.swift */; };
 		65F8971C1CB2BF7C00CBEE92 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F8971B1CB2BF7C00CBEE92 /* ProgressView.swift */; };
 		65F8971E1CB3306500CBEE92 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F8971D1CB3306500CBEE92 /* ProgressViewController.swift */; };
 /* End PBXBuildFile section */
@@ -82,8 +81,6 @@
 		651DA27F1CBF84850009FA70 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		651DA2811CBF84990009FA70 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		651DA2831CBF84A20009FA70 /* ZAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlertView.swift; sourceTree = "<group>"; };
-		652109CF1CD90A2100B3E667 /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
-		652109D01CD90A2100B3E667 /* PopUpViewControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerSwift.swift; sourceTree = "<group>"; };
 		652400031C5BFFEF009C9FE6 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		652709261CC97523003DB5CB /* GameSaveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSaveTests.swift; sourceTree = "<group>"; };
 		6532B36D1C5FC12600D734EF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -127,6 +124,7 @@
 		65CECF721C9EF78500F563BF /* GameSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSave.swift; sourceTree = "<group>"; };
 		65E05CBE1C76212B002C507D /* gameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameCell.swift; sourceTree = "<group>"; };
 		65E05CC01C7627B5002C507D /* GameSlotsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSlotsViewController.swift; sourceTree = "<group>"; };
+		65E5E01C1CE4CFEA002A3048 /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		65F8971B1CB2BF7C00CBEE92 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		65F8971D1CB3306500CBEE92 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,7 +157,6 @@
 		651DA27D1CBF83A60009FA70 /* Frameworks 🌐 */ = {
 			isa = PBXGroup;
 			children = (
-				652109CB1CD90A0200B3E667 /* NMPopUpView */,
 				651DA27E1CBF846A0009FA70 /* ZAlertView */,
 				6506D8331CB5BB1B00C0D188 /* UIImage+Gif.swift */,
 			);
@@ -174,15 +171,6 @@
 				651DA2831CBF84A20009FA70 /* ZAlertView.swift */,
 			);
 			name = ZAlertView;
-			sourceTree = "<group>";
-		};
-		652109CB1CD90A0200B3E667 /* NMPopUpView */ = {
-			isa = PBXGroup;
-			children = (
-				652109D01CD90A2100B3E667 /* PopUpViewControllerSwift.swift */,
-				652109CF1CD90A2100B3E667 /* PopUpViewController.xib */,
-			);
-			name = NMPopUpView;
 			sourceTree = "<group>";
 		};
 		65510C7F1CCD8343007C50BC /* Assets */ = {
@@ -295,6 +283,7 @@
 				6532B36F1C5FC14E00D734EF /* PaddedLabel.swift */,
 				653F6F141CBFD582008EEF21 /* TextExtension.swift */,
 				65510C7D1CCD830B007C50BC /* ButtonExtension.swift */,
+				65E5E01C1CE4CFEA002A3048 /* CALayerExtension.swift */,
 			);
 			name = "View 🖥";
 			sourceTree = "<group>";
@@ -430,7 +419,6 @@
 				65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */,
 				65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */,
 				65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */,
-				652109D41CD90A2100B3E667 /* PopUpViewController.xib in Resources */,
 				65510C871CCD8370007C50BC /* operator_background_animated.gif in Resources */,
 				6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */,
 				65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */,
@@ -480,12 +468,12 @@
 				65510C7E1CCD830B007C50BC /* ButtonExtension.swift in Sources */,
 				650428091CE0C0440092B3B6 /* CallAlertView.swift in Sources */,
 				650B49801CB7FCA8002B10BF /* CreditsViewController.swift in Sources */,
-				652109D51CD90A2100B3E667 /* PopUpViewControllerSwift.swift in Sources */,
 				651DA2841CBF84A20009FA70 /* ZAlertView.swift in Sources */,
 				6506D8341CB5BB1B00C0D188 /* UIImage+Gif.swift in Sources */,
 				6532B36E1C5FC12600D734EF /* Question.swift in Sources */,
 				65C9A87D1CC7B27E000A4FAD /* AutomaticTypable.swift in Sources */,
 				65916FB51CC2D016004961AE /* GameView.swift in Sources */,
+				65E5E01D1CE4CFEA002A3048 /* CALayerExtension.swift in Sources */,
 				6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */,
 				651DA2801CBF84850009FA70 /* UIColor.swift in Sources */,
 				65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */,

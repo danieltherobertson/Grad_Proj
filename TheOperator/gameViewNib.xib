@@ -15,6 +15,7 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -110,22 +111,15 @@
                     <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-Pe-Uij">
-                    <rect key="frame" x="206" y="545" width="189" height="55"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="55" id="Atx-fb-6Me"/>
-                        <constraint firstAttribute="width" constant="189" id="dkA-Vx-biU"/>
-                    </constraints>
-                </imageView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNX-u4-MWf">
                     <rect key="frame" x="8" y="48" width="584" height="200"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
-                            <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chief" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
+                            <rect key="frame" x="10" y="10" width="64" height="64"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="FM6-Ej-hvI"/>
+                                <constraint firstAttribute="width" constant="64" id="FM6-Ej-hvI"/>
                                 <constraint firstAttribute="height" constant="70" id="O5C-ye-jY8"/>
-                                <constraint firstAttribute="height" constant="50" id="SKL-5q-egt"/>
+                                <constraint firstAttribute="height" constant="64" id="SKL-5q-egt"/>
                                 <constraint firstAttribute="width" constant="50" id="Zxp-xe-0jZ"/>
                             </constraints>
                             <variation key="default">
@@ -136,18 +130,18 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMt-ZG-52t">
-                            <rect key="frame" x="76" y="31" width="494" height="29"/>
+                            <rect key="frame" x="80" y="35" width="482" height="29"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="29" id="CNW-v5-dbx"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-gO-Xef">
-                            <rect key="frame" x="10" y="63" width="564" height="127"/>
+                            <rect key="frame" x="10" y="82" width="564" height="108"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="127" id="6ON-AK-GgH"/>
+                                <constraint firstAttribute="height" constant="108" id="6ON-AK-GgH"/>
                                 <constraint firstAttribute="height" id="i0y-uM-3kQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
@@ -161,8 +155,8 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="14" id="4Ja-Ov-WAQ"/>
-                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="31" id="9GG-nm-lva"/>
+                        <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="22" id="4Ja-Ov-WAQ"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="35" id="9GG-nm-lva"/>
                         <constraint firstAttribute="trailing" secondItem="aeO-gO-Xef" secondAttribute="trailing" constant="10" id="GLq-ks-nPS"/>
                         <constraint firstItem="FZp-yZ-ONi" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="V9X-O2-tan"/>
                         <constraint firstItem="FZp-yZ-ONi" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="10" id="WTx-xM-yCs"/>
@@ -170,7 +164,7 @@
                         <constraint firstAttribute="bottom" secondItem="aeO-gO-Xef" secondAttribute="bottom" constant="10" id="i3Z-zD-2P2"/>
                         <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="pvB-fx-Mrz"/>
                         <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="PMt-ZG-52t" secondAttribute="bottom" constant="23" id="x7L-NO-Nwo"/>
-                        <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="FZp-yZ-ONi" secondAttribute="trailing" constant="16" id="ybT-1o-5dI"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="FZp-yZ-ONi" secondAttribute="trailing" constant="6" id="ybT-1o-5dI"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -197,6 +191,13 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dispatch" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-Pe-Uij">
+                    <rect key="frame" x="163" y="536" width="275" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="Atx-fb-6Me"/>
+                        <constraint firstAttribute="width" constant="275" id="dkA-Vx-biU"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -207,7 +208,7 @@
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="7Bd-gP-ypT"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" id="8MZ-hj-7qL"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8cS-c1-Fhz"/>
-                <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="10" id="ASi-ga-NKO"/>
+                <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="1" id="ASi-ga-NKO"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="Auk-Yn-hBu"/>
                 <constraint firstAttribute="bottom" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="552" id="BIM-0Y-6DQ"/>
                 <constraint firstItem="LR2-Pe-Uij" firstAttribute="centerX" secondItem="h0E-Oh-Paf" secondAttribute="centerX" id="DSf-mU-9Lu"/>
@@ -284,7 +285,7 @@
         </view>
     </objects>
     <resources>
-        <image name="1" width="394" height="215"/>
-        <image name="operator.gif" width="443" height="154"/>
+        <image name="chief" width="200" height="200"/>
+        <image name="dispatch" width="329" height="83"/>
     </resources>
 </document>
