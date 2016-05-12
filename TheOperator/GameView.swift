@@ -15,7 +15,13 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var levelIndicator: UILabel!
     @IBOutlet weak var timeIndicator: UILabel!
    // @IBOutlet weak var gameText: UILabel!
+    @IBOutlet weak var gameTextContainer: UIView!
+    @IBOutlet weak var gameTextContainerHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var gameText: UITextView!
+  //  @IBOutlet weak var speakerView: UITextView!
+    @IBOutlet weak var speakerName: UILabel!
+    
     @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var characterImg: UIImageView!
@@ -29,6 +35,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
     
 
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var speakerViewHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,21 +44,28 @@ class GameView: UIView, NSLayoutManagerDelegate {
         if let contentView = nib.instantiateWithOwner(self, options: nil).first as? UIView {
             self.addSubview(contentView)
             
+            gameTextContainer.layer.cornerRadius = 20
+            gameTextContainer.layer.borderWidth = 4
+            gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+            
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)
             skipButton.buttonStyle(skipButton)
             gameText.clipsToBounds = true
-            gameText.textFieldStyle(gameText)
+            //gameText.textFieldStyle(gameText)
             introLabel.setLineHeight(30, alignment: .Center)
             textViewHeightConstraint.constant = 0
-            gameText.textContainerInset = UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
+           // gameText.textContainerInset = UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20)
             gameText.editable = true
             gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
-            gameText.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+            speakerName.font = UIFont(name: "KemcoPixelBold", size: 14)
+            //gameText.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
             gameText.layoutManager.delegate = self
-            let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 70))
-            gameText.textContainer.exclusionPaths = [imgRect]
+            let gameTextWidth = gameText.frame.width
+            let gameTextHeight = gameText.frame.height
+           // let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 80))
+           // gameText.textContainer.exclusionPaths = [imgRect]
             gameText.editable = false
             gameText.selectable = false
             

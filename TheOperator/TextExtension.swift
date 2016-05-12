@@ -118,15 +118,12 @@ extension UITextView {
             if let callback = onTypeComplete {
                 callback ()
             }
-
+            
         } else {
             let nextLetterIndex = self.text!.characters.count
             let character = textArray[nextLetterIndex]
             self.text = text! + String(character)
-            
-            let range = NSMakeRange(self.text!.characters.count - 1, 1);
-            self.scrollRangeToVisible(range)
         }
     }
-
+    
 }

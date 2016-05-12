@@ -4,7 +4,7 @@
 			{
 				"number": 0,
 				"character": "Chief",
-				"text": "Chief: \n \nWelcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet...",
+				"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet...",
 	            "buttons": 1,
                 "triggersCall": false,
 	            "acceptedAnswers": [

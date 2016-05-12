@@ -85,17 +85,27 @@ class GameViewController: UIViewController {
         }
         //get next dialogue, starts at 0 for start of level.
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
-        gameView.gameText.textColor = UIColor.blackColor()
-        gameView.gameText.text = ""
+        let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
+        print(character)
+        
+        gameView.speakerName.textColor = .blackColor()
+        gameView.speakerName.text = ""
+        
+        gameView.gameText.textColor = .blackColor()
+        
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
+            self.gameView.gameTextContainerHeightConstraint.constant = 200
             self.gameView.textViewHeightConstraint.constant = 200
+           // self.gameView.speakerViewHeightConstraint.constant = 80
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.characterImg.hidden = false
+            //self.gameView.speakerName.text = character
             self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.gameText.typeStart(dialogue)
+            //self.gameView.speakerName.typeStart(character)
             self.gameView.skipButton.hidden = false
             
             onTypeComplete = {
@@ -166,7 +176,7 @@ class GameViewController: UIViewController {
                 let nextDialogue = dialogue.valueForKey("text") as! String
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
-//                gameView.gameText.text = ""
+                gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
                 gameView.skipButton.hidden = false
                 gameView.skipButton.enabled = true
