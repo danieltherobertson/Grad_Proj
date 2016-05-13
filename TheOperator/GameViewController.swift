@@ -29,6 +29,7 @@ class GameViewController: UIViewController {
     
     var timeCount: Int!
     var callAlert: CallAlertView!
+    var dispatchMenu: DispatchMenuView!
   
    // var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
@@ -42,6 +43,8 @@ class GameViewController: UIViewController {
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
         currentLevRead = currentLevInt!+1
+        
+        gameView.dispatchButton.addTarget(self, action: #selector(displayDispatchMenu), forControlEvents: .TouchUpInside)
         
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
@@ -298,6 +301,11 @@ class GameViewController: UIViewController {
         } else {
             return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
         }
+    }
+    
+    func displayDispatchMenu() {
+        dispatchMenu = DispatchMenuView.instanceFromNib()
+        dispatchMenu.showInView(self.view, message: "", animated: true)
     }
 //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()

@@ -109,10 +109,8 @@ class ProgressViewController: UIViewController {
     func segueToGame() {
         if isTutorial {
             performSegueWithIdentifier("tutorialViewSegue", sender: self)
-            print("TUTORIAL")
         } else {
             performSegueWithIdentifier("gameViewSegue", sender: self)
-            print("NORMAL LEVER")
         }
         
         

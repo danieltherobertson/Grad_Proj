@@ -49,8 +49,7 @@ class CallAlertView: UIView {
     }
     
     
-    func showInView(aView: UIView!, message: String!, animated: Bool)
-    {
+    func showInView(aView: UIView!, message: String!, animated: Bool) {
         aView.addSubview(self)
         self.center = aView.center
         callAlertMessage.textColor = .whiteColor()

@@ -30,6 +30,10 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
     
+    
+    @IBOutlet weak var dispatchButton: UIButton!
+    
+    
     @IBOutlet weak var introLabel: UILabel!
 
     

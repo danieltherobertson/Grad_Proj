@@ -103,7 +103,18 @@
                 <constraint firstAttribute="trailing" secondItem="eUM-ix-ft7" secondAttribute="trailing" constant="20" id="zmc-6W-rFp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="306.5" y="281.5"/>
+            <connections>
+                <outlet property="ambulanceLabel" destination="deF-Mu-WD0" id="ysy-2J-tOB"/>
+                <outlet property="ambulanceSwitch" destination="ee9-Ce-8O6" id="dE8-Qz-R88"/>
+                <outlet property="dispatchButton" destination="yUl-OK-ACK" id="juV-2o-6wL"/>
+                <outlet property="dispatchViewMessage" destination="mMr-1c-v6n" id="rzE-2j-jxc"/>
+                <outlet property="dispatchViewTitle" destination="BnP-WO-lM7" id="6fM-Hr-De4"/>
+                <outlet property="fireLabel" destination="kv9-TW-F5y" id="Yp7-p1-Dbq"/>
+                <outlet property="fireSwitch" destination="8dE-Ju-oge" id="69b-9S-Tmt"/>
+                <outlet property="policeLabel" destination="bUb-u4-0my" id="H6p-cP-4uR"/>
+                <outlet property="policeSwitch" destination="eUM-ix-ft7" id="lnf-sW-TMK"/>
+            </connections>
+            <point key="canvasLocation" x="362.5" y="266"/>
         </view>
     </objects>
 </document>

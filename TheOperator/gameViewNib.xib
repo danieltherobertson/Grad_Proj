@@ -16,6 +16,7 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -23,6 +24,7 @@
             <connections>
                 <outlet property="characterImg" destination="FZp-yZ-ONi" id="znW-0R-2Z6"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
+                <outlet property="dispatchButton" destination="jKz-uA-mTD" id="cZU-h7-fkh"/>
                 <outlet property="gameAnswerOne" destination="0SM-i4-EAB" id="hpg-pD-nC9"/>
                 <outlet property="gameAnswerThree" destination="h0E-Oh-Paf" id="Hzz-1u-Ze0"/>
                 <outlet property="gameAnswerTwo" destination="1gr-Zt-XgX" id="D8F-Ze-NJM"/>
@@ -91,11 +93,11 @@
                         </mask>
                     </variation>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-cb-Zn3">
-                    <rect key="frame" x="418" y="15" width="142" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
+                    <rect key="frame" x="8" y="15" width="151" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="142" id="cjM-xJ-oop"/>
-                        <constraint firstAttribute="height" constant="21" id="z8f-EE-rr8"/>
+                        <constraint firstAttribute="width" constant="151" id="KMb-Qb-TOb"/>
+                        <constraint firstAttribute="height" constant="21" id="kH9-Vc-Uug"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,7 +127,7 @@
                                 <constraint firstAttribute="height" constant="29" id="CNW-v5-dbx"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-gO-Xef">
@@ -181,23 +183,28 @@
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dispatch" translatesAutoresizingMaskIntoConstraints="NO" id="LR2-Pe-Uij">
-                    <rect key="frame" x="163" y="536" width="275" height="64"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-cb-Zn3">
+                    <rect key="frame" x="450" y="15" width="142" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="Atx-fb-6Me"/>
-                        <constraint firstAttribute="width" constant="275" id="dkA-Vx-biU"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-L3-bdv">
-                    <rect key="frame" x="40" y="15" width="151" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="151" id="KMb-Qb-TOb"/>
-                        <constraint firstAttribute="height" constant="21" id="kH9-Vc-Uug"/>
+                        <constraint firstAttribute="width" constant="142" id="cjM-xJ-oop"/>
+                        <constraint firstAttribute="height" constant="21" id="z8f-EE-rr8"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKz-uA-mTD">
+                    <rect key="frame" x="210" y="540" width="180" height="60"/>
+                    <color key="backgroundColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ijG-is-46o"/>
+                        <constraint firstAttribute="width" constant="180" id="vWA-LP-BdD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                    <state key="normal" title="Dispatch">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -208,10 +215,7 @@
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="7Bd-gP-ypT"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" id="8MZ-hj-7qL"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8cS-c1-Fhz"/>
-                <constraint firstItem="LR2-Pe-Uij" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="1" id="ASi-ga-NKO"/>
-                <constraint firstItem="LR2-Pe-Uij" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="Auk-Yn-hBu"/>
                 <constraint firstAttribute="bottom" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="552" id="BIM-0Y-6DQ"/>
-                <constraint firstItem="LR2-Pe-Uij" firstAttribute="centerX" secondItem="h0E-Oh-Paf" secondAttribute="centerX" id="DSf-mU-9Lu"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="leading" secondItem="scJ-L3-bdv" secondAttribute="leading" id="Fj4-DX-wge"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="top" secondItem="1gr-Zt-XgX" secondAttribute="bottom" constant="10" id="FvS-B9-S5N"/>
                 <constraint firstAttribute="trailing" secondItem="uoA-yU-DRM" secondAttribute="trailing" constant="10" id="GNf-X0-9ys"/>
@@ -223,10 +227,13 @@
                 <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="214" id="Lmt-qA-SbZ"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="11" id="MPo-WD-5X4"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
+                <constraint firstItem="jKz-uA-mTD" firstAttribute="centerX" secondItem="h0E-Oh-Paf" secondAttribute="centerX" id="SXL-7N-epe"/>
+                <constraint firstItem="jKz-uA-mTD" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="5" id="TE6-9a-Xll"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="U4b-sH-efc"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="uoA-yU-DRM" secondAttribute="bottom" constant="19" id="WTl-bD-OmA"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="leading" secondItem="GyC-eh-NVu" secondAttribute="leading" id="WpC-hU-2bA"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="top" id="YC7-rq-3lE"/>
+                <constraint firstItem="jKz-uA-mTD" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="YW8-cc-ZMt"/>
                 <constraint firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="ZKE-KT-KLl"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="48" id="aJw-hu-vX3"/>
                 <constraint firstAttribute="trailing" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="b0z-OB-0Ja"/>
@@ -249,9 +256,9 @@
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="v2A-3d-SIt"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vJ0-1p-zZH"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x3u-h3-Y7C"/>
-                <constraint firstItem="scJ-L3-bdv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="xNm-EW-UbO"/>
+                <constraint firstItem="scJ-L3-bdv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="xNm-EW-UbO"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="top" secondItem="0SM-i4-EAB" secondAttribute="bottom" constant="10" id="y4U-h9-4P0"/>
-                <constraint firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" constant="40" id="ygH-hJ-ecf"/>
+                <constraint firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" constant="8" id="ygH-hJ-ecf"/>
                 <constraint firstAttribute="trailing" secondItem="lNX-u4-MWf" secondAttribute="trailing" constant="8" id="zaZ-qK-jqO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -286,6 +293,5 @@
     </objects>
     <resources>
         <image name="chief" width="200" height="200"/>
-        <image name="dispatch" width="329" height="83"/>
     </resources>
 </document>
