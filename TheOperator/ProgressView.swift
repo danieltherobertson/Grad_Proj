@@ -69,19 +69,19 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 cell.levelNumber.text = toString
                 
                 if indexPath.row < playerProgress {
-                    cell.levelImage.image = UIImage(named: "tick")
+                    cell.levelImage.image = UIImage(named: "complete")
                     cell.levelStatus = LevelStatus.Completed
                     cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
                     nextLevel = indexPath.row+1
-                    cell.levelImage.image = nil
+                    cell.levelImage.image = UIImage(named: "current")
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
                     cell.tag = 1
                     
                 } else if indexPath.row > playerProgress {
-                    cell.levelImage.image = UIImage(named: "padlock")
+                    cell.levelImage.image = UIImage(named: "locked")
                     cell.levelStatus = LevelStatus.Locked
                     cell.levelNumber.text = "[Locked]"
                     cell.levelName.text = "[Level Locked]"
