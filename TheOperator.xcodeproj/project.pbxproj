@@ -33,6 +33,8 @@
 		65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C8A1CCD83A1007C50BC /* slots_background.gif */; };
 		6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568DDB31CE2086400E29958 /* AudioPlayerController.swift */; };
 		6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */; };
+		6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */; };
+		6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D2641CE61BB900753E00 /* DispatchMenuView.swift */; };
 		65916FB51CC2D016004961AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65916FB41CC2D016004961AE /* GameView.swift */; };
 		6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */ = {isa = PBXBuildFile; fileRef = 659856791CD0210C00BC9263 /* LevelDialogues.json */; };
 		65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */; };
@@ -100,6 +102,8 @@
 		65510C8A1CCD83A1007C50BC /* slots_background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slots_background.gif; sourceTree = "<group>"; };
 		6568DDB31CE2086400E29958 /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
+		6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dispatchMenuViewNib.xib; sourceTree = "<group>"; };
+		6589D2641CE61BB900753E00 /* DispatchMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchMenuView.swift; sourceTree = "<group>"; };
 		65916FB41CC2D016004961AE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		659856791CD0210C00BC9263 /* LevelDialogues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LevelDialogues.json; sourceTree = "<group>"; };
 		65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 			children = (
 				650428061CE0BF7C0092B3B6 /* callAlertViewNib.xib */,
 				650428081CE0C0440092B3B6 /* CallAlertView.swift */,
+				6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */,
+				6589D2641CE61BB900753E00 /* DispatchMenuView.swift */,
 				65CECF701C9EC87300F563BF /* gameCellNib.xib */,
 				65510C7B1CCD82FD007C50BC /* SlotsView.swift */,
 				65E05CBE1C76212B002C507D /* gameCell.swift */,
@@ -427,6 +433,7 @@
 				65510C891CCD8370007C50BC /* operator.gif in Resources */,
 				654B417D1CBBF4B100D9953C /* Levels.json in Resources */,
 				65ACF7641CB5DEDC0042FBB7 /* gameProgressNib.xib in Resources */,
+				6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */,
 				650428071CE0BF7C0092B3B6 /* callAlertViewNib.xib in Resources */,
 				65510C861CCD8370007C50BC /* monofonto.ttf in Resources */,
 				65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */,
@@ -459,6 +466,7 @@
 				6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */,
 				65510C7C1CCD82FD007C50BC /* SlotsView.swift in Sources */,
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
+				6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */,
 				65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */,
 				65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */,
 				65510C7A1CCD82EE007C50BC /* GameViewController.swift in Sources */,
