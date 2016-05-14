@@ -13,8 +13,11 @@ class DispatchMenuView: UIView {
     var onPopUpClose: (() -> Void)!
     var onPopUpOpen: (() -> Void)!
     
+    var services = [UISwitch]()
     var enabledServices = [Int]()
  
+    var enabledServicesCount = Int()
+    
     @IBOutlet weak var dispatchViewTitle: UILabel!
     @IBOutlet weak var dispatchViewMessage: UILabel!
     
@@ -35,6 +38,17 @@ class DispatchMenuView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        self.layer.cornerRadius = 5
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        
+        enabledServicesCount = 0
+        
+        dispatchButton.backgroundColor = .lightGrayColor()
+        dispatchButton.setTitleColor(.darkGrayColor(), forState: .Normal)
+        
         dispatchViewTitle.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         dispatchViewMessage.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         policeLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
@@ -52,6 +66,7 @@ class DispatchMenuView: UIView {
         fireSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
         fireSwitch.tag = 2
         
+        services.append(policeSwitch); services.append(ambulanceSwitch); services.append(fireSwitch)
         dispatchButton.enabled = false
     }
     
@@ -59,9 +74,14 @@ class DispatchMenuView: UIView {
         return UINib(nibName: "dispatchMenuViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! DispatchMenuView
     }
     
-    func showInView(aView: UIView!, message: String!, animated: Bool) {
-        aView.addSubview(self)
-        self.center = aView.center
+    func showInView(mainView: UIView!, message: String!, animated: Bool) {
+        let shadow = UIView()
+        shadow.frame = UIScreen.mainScreen().bounds
+        shadow.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        //self.addSubview(shadow)
+        shadow.addSubview(self)
+        mainView.addSubview(shadow)
+        self.center = shadow.center
         
         if let callback = onPopUpOpen {
         callback ()
@@ -98,23 +118,40 @@ class DispatchMenuView: UIView {
     func enableButton(sender: UISwitch) {
         
         if sender.on {
-            if !enabledServices.contains(sender.tag) {
-                enabledServices.append(sender.tag)
-            }
+            enabledServicesCount+=1
+            print("turning a service on")
+            print(enabledServicesCount)
+        } else {
+            enabledServicesCount-=1
+            print("turing a service off")
+            print(enabledServicesCount)
         }
         
-        if sender.on == false {
-            for service in enabledServices {
-                if service == sender.tag {
+        if enabledServicesCount >= 1 {
+            dispatchButton.enabled = true
+            print("button is activated")
+            dispatchButton.backgroundColor = UIColor(red: 23/255, green: 120/255, blue: 61/255, alpha: 1.0)
+            dispatchButton.setTitleColor(.whiteColor(), forState: .Normal)
+        } else {
+            dispatchButton.enabled = false
+            print("button is deactivated")
+            dispatchButton.backgroundColor = .lightGrayColor()
+            dispatchButton.setTitleColor(.darkGrayColor(), forState: .Normal)
+        }
+    }
+    
 
-                } else {
-                    break
-                }
-            }
+    
+    @IBAction func sendDispatch(sender: AnyObject) {
+
+        let filteredServces = services.filter { (service) -> Bool in
+            return service.on
         }
         
-        dispatchButton.enabled = true
-        print(enabledServices)
+        for service in filteredServces {
+            print(service.tag)
+        }
+        
     }
     
     @IBAction func closeCallAlert(sender: AnyObject) {

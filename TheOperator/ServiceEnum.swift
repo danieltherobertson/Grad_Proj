@@ -7,9 +7,27 @@
 //
 
 import Foundation
+import UIKit
+
+
+    
 
 enum Service {
     case Police
     case Ambulance
     case Fire
+    
+    var service: String {
+        get {
+            switch  self {
+            case .Police: return "Police"
+            case .Ambulance: return "Ambulance"
+            case .Fire: return "Fire"
+            }
+        }
+    }
+            
+            
+
+    
 }

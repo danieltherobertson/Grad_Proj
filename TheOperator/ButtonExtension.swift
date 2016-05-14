@@ -29,9 +29,9 @@ enum ButtonColour {
     var color: UIColor {
         get {
             switch self {
-            case .Green: return UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1);
-            case .Red: return UIColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1);
-            case .White: return UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1);
+            case .Green: return UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1)
+            case .Red: return UIColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1)
+            case .White: return UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
 
             }
         }
