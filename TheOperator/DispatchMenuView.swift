@@ -13,8 +13,8 @@ class DispatchMenuView: UIView {
     var onPopUpClose: (() -> Void)!
     var onPopUpOpen: (() -> Void)!
     
-
-    
+    var enabledServices = [Int]()
+ 
     @IBOutlet weak var dispatchViewTitle: UILabel!
     @IBOutlet weak var dispatchViewMessage: UILabel!
     
@@ -35,7 +35,24 @@ class DispatchMenuView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        dispatchViewTitle.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        dispatchViewMessage.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        policeLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        ambulanceLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        fireLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         
+        policeSwitch.on = false
+        policeSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
+        policeSwitch.tag = 0
+        
+        ambulanceSwitch.on = false
+        ambulanceSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
+        ambulanceSwitch.tag = 1
+        fireSwitch.on = false
+        fireSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
+        fireSwitch.tag = 2
+        
+        dispatchButton.enabled = false
     }
     
     class func instanceFromNib() -> DispatchMenuView {
@@ -56,20 +73,16 @@ class DispatchMenuView: UIView {
         }
     }
     
-    func showAnimate()
-    {
+    func showAnimate() {
         self.transform = CGAffineTransformMakeScale(1.3, 1.3)
         self.alpha = 0
         UIView.animateWithDuration(0.25, animations: {
             self.alpha = 1.0
             self.transform = CGAffineTransformMakeScale(1.0, 1.0)
         });
-        
-        
     }
     
-    func removeAnimate()
-    {
+    func removeAnimate() {
         UIView.animateWithDuration(0.25, animations: {
             self.transform = CGAffineTransformMakeScale(1.3, 1.3)
             self.alpha = 0.0;
@@ -81,8 +94,28 @@ class DispatchMenuView: UIView {
                 }
         });
     }
-    
-    
+
+    func enableButton(sender: UISwitch) {
+        
+        if sender.on {
+            if !enabledServices.contains(sender.tag) {
+                enabledServices.append(sender.tag)
+            }
+        }
+        
+        if sender.on == false {
+            for service in enabledServices {
+                if service == sender.tag {
+
+                } else {
+                    break
+                }
+            }
+        }
+        
+        dispatchButton.enabled = true
+        print(enabledServices)
+    }
     
     @IBAction func closeCallAlert(sender: AnyObject) {
         self.removeAnimate()
@@ -91,6 +124,4 @@ class DispatchMenuView: UIView {
         }
         
     }
-
-    
 }

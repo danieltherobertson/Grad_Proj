@@ -33,6 +33,7 @@
 		65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C8A1CCD83A1007C50BC /* slots_background.gif */; };
 		6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568DDB31CE2086400E29958 /* AudioPlayerController.swift */; };
 		6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */; };
+		657C9A6A1CE78A8B0044E068 /* ServiceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C9A691CE78A8B0044E068 /* ServiceEnum.swift */; };
 		6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */; };
 		6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D2641CE61BB900753E00 /* DispatchMenuView.swift */; };
 		65916FB51CC2D016004961AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65916FB41CC2D016004961AE /* GameView.swift */; };
@@ -102,6 +103,7 @@
 		65510C8A1CCD83A1007C50BC /* slots_background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slots_background.gif; sourceTree = "<group>"; };
 		6568DDB31CE2086400E29958 /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
+		657C9A691CE78A8B0044E068 /* ServiceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEnum.swift; sourceTree = "<group>"; };
 		6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dispatchMenuViewNib.xib; sourceTree = "<group>"; };
 		6589D2641CE61BB900753E00 /* DispatchMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchMenuView.swift; sourceTree = "<group>"; };
 		65916FB41CC2D016004961AE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		65C345741CA0797600F1BAFC /* Model 👾 */ = {
 			isa = PBXGroup;
 			children = (
+				657C9A691CE78A8B0044E068 /* ServiceEnum.swift */,
 				65CECF721C9EF78500F563BF /* GameSave.swift */,
 				65ACF7611CB5D6390042FBB7 /* Level.swift */,
 				65387A181CA1A2D80070FAD7 /* Call.swift */,
@@ -461,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				657C9A6A1CE78A8B0044E068 /* ServiceEnum.swift in Sources */,
 				653F6F151CBFD582008EEF21 /* TextExtension.swift in Sources */,
 				65CECF731C9EF78500F563BF /* GameSave.swift in Sources */,
 				6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */,
