@@ -82,7 +82,7 @@ class DispatchMenuView: UIView {
         return UINib(nibName: "dispatchMenuViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! DispatchMenuView
     }
     
-    func showInView(mainView: UIView!, message: String!, animated: Bool) {
+    func showInView(mainView: UIView!, animated: Bool) {
         shadow.frame = UIScreen.mainScreen().bounds
         shadow.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
 

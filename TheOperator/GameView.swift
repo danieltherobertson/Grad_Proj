@@ -30,18 +30,11 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
     
-    
     @IBOutlet weak var bottomBar: UIView!
-
-    
     @IBOutlet weak var dispatchButton: UIButton!
-
     @IBOutlet weak var pauseButton: UIButton!
     
-    
     @IBOutlet weak var introLabel: UILabel!
-
-    
 
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
  //   @IBOutlet weak var speakerViewHeightConstraint: NSLayoutConstraint!

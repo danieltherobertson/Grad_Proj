@@ -239,7 +239,7 @@ public class ZAlertView: UIViewController {
         // Setup alert view
         self.alertView = UIView(frame: CGRectMake(0, 0, width, height))
         self.alertView.backgroundColor = UIColor.greenColor()
-        self.alertView.layer.cornerRadius = ZAlertView.CornerRadius
+        self.alertView.layer.cornerRadius = 10
         self.view.addSubview(alertView)
         
         // Setup title

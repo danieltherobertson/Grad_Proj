@@ -19,9 +19,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        //layout.itemSize = CGSize(width: 300, height: 100)
-        //layout.minimumInteritemSpacing = 30
-        //layout.minimumLineSpacing = 30
+        layout.minimumLineSpacing = 20
         
         
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -110,7 +108,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = self.levelsView.bounds.width
-        let height = self.levelsView.bounds.height/3
+        let height = self.levelsView.bounds.height/4
         return CGSize(width: width, height: height)
     }
     
