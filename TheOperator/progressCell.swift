@@ -23,7 +23,7 @@ class progressCell: UICollectionViewCell {
         switch tag {
         case 0:
             self.layer.borderWidth = 3.0
-            self.layer.borderColor = UIColor.cyanColor().CGColor
+            self.layer.borderColor = UIColor.whiteColor().CGColor
         case 1:
             self.layer.borderWidth = 3.0
             self.layer.borderColor = UIColor.whiteColor().CGColor

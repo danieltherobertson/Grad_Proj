@@ -163,8 +163,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        activeCell?.layer.borderWidth = 0
-        activeCell?.layer.borderColor = nil
+        activeCell?.layer.cornerRadius = 20
+        activeCell?.layer.borderWidth = 4
+        activeCell?.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+
         
         //collectionView.reloadItemsAtIndexPaths([indexPath])
     }

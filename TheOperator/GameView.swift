@@ -31,7 +31,12 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var gameAnswerThree: UIButton!
     
     
+    @IBOutlet weak var bottomBar: UIView!
+
+    
     @IBOutlet weak var dispatchButton: UIButton!
+
+    @IBOutlet weak var pauseButton: UIButton!
     
     
     @IBOutlet weak var introLabel: UILabel!
@@ -48,7 +53,11 @@ class GameView: UIView, NSLayoutManagerDelegate {
         if let contentView = nib.instantiateWithOwner(self, options: nil).first as? UIView {
             self.addSubview(contentView)
             
-            dispatchButton.buttonStyle(dispatchButton)
+            dispatchButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+            dispatchButton.layer.borderWidth = 4
+            
+            //dispatchButton.buttonStyle(dispatchButton, colour: .JuicyDark)
+         //   dispatchButton.layer.addBorder(.Right, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
 //            dispatchButton.layer.addBorder(.Top, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
 //            dispatchButton.layer.addBorder(.Left, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
 //            dispatchButton.layer.addBorder(.Right, color: UIColor(red: 25/255, green: 165/255, blue: 38/2555, alpha: 1), thickness: 4)
@@ -57,6 +66,8 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameTextContainer.layer.cornerRadius = 20
             gameTextContainer.layer.borderWidth = 4
             gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+            
+           //bottomBar.layer.addBorder(.Top, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
             
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
