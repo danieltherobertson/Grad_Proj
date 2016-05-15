@@ -51,6 +51,7 @@ class DispatchMenuView: UIView {
         
         dispatchViewTitle.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         dispatchViewMessage.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        dispatchViewMessage.setLineHeight(3, alignment: .Center)
         policeLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         ambulanceLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         fireLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
@@ -78,7 +79,7 @@ class DispatchMenuView: UIView {
         let shadow = UIView()
         shadow.frame = UIScreen.mainScreen().bounds
         shadow.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
-        //self.addSubview(shadow)
+
         shadow.addSubview(self)
         mainView.addSubview(shadow)
         self.center = shadow.center
