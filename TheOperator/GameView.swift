@@ -48,6 +48,12 @@ class GameView: UIView, NSLayoutManagerDelegate {
         if let contentView = nib.instantiateWithOwner(self, options: nil).first as? UIView {
             self.addSubview(contentView)
             
+            dispatchButton.buttonStyle(dispatchButton)
+//            dispatchButton.layer.addBorder(.Top, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
+//            dispatchButton.layer.addBorder(.Left, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
+//            dispatchButton.layer.addBorder(.Right, color: UIColor(red: 25/255, green: 165/255, blue: 38/2555, alpha: 1), thickness: 4)
+
+            
             gameTextContainer.layer.cornerRadius = 20
             gameTextContainer.layer.borderWidth = 4
             gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor

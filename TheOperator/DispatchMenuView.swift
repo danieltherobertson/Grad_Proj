@@ -18,6 +18,9 @@ class DispatchMenuView: UIView {
  
     var enabledServicesCount = Int()
     
+    let shadow = UIView()
+
+    
     @IBOutlet weak var dispatchViewTitle: UILabel!
     @IBOutlet weak var dispatchViewMessage: UILabel!
     
@@ -76,7 +79,6 @@ class DispatchMenuView: UIView {
     }
     
     func showInView(mainView: UIView!, message: String!, animated: Bool) {
-        let shadow = UIView()
         shadow.frame = UIScreen.mainScreen().bounds
         shadow.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
 
@@ -88,8 +90,7 @@ class DispatchMenuView: UIView {
         callback ()
         }
         
-        if animated
-        {
+        if animated {
         self.showAnimate()
         }
     }
@@ -97,16 +98,22 @@ class DispatchMenuView: UIView {
     func showAnimate() {
         self.transform = CGAffineTransformMakeScale(1.3, 1.3)
         self.alpha = 0
+        shadow.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        shadow.alpha = 0
         UIView.animateWithDuration(0.25, animations: {
             self.alpha = 1.0
             self.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.shadow.alpha = 1.0
+            self.shadow.transform = CGAffineTransformMakeScale(1.0, 1.0)
         });
     }
     
     func removeAnimate() {
         UIView.animateWithDuration(0.25, animations: {
             self.transform = CGAffineTransformMakeScale(1.3, 1.3)
-            self.alpha = 0.0;
+            self.alpha = 0.0
+            self.shadow.transform = CGAffineTransformMakeScale(1.3, 1.3)
+            self.shadow.alpha = 0.0
             }, completion:{(finished : Bool)  in
                 if (finished)
                 {
@@ -141,6 +148,14 @@ class DispatchMenuView: UIView {
         }
     }
     
+    
+    @IBAction func closeDispatchView(sender: AnyObject) {
+        self.removeAnimate()
+        if let callback = onPopUpClose {
+            callback ()
+        }
+    }
+    
 
     
     @IBAction func sendDispatch(sender: AnyObject) {
@@ -151,14 +166,6 @@ class DispatchMenuView: UIView {
         
         for service in filteredServces {
             print(service.tag)
-        }
-        
-    }
-    
-    @IBAction func closeCallAlert(sender: AnyObject) {
-        self.removeAnimate()
-        if let callback = onPopUpClose {
-            callback ()
         }
         
     }
