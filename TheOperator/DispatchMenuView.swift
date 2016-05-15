@@ -20,6 +20,7 @@ class DispatchMenuView: UIView {
     
     let shadow = UIView()
 
+    @IBOutlet weak var innerContainer: UIView!
     
     @IBOutlet weak var dispatchViewTitle: UILabel!
     @IBOutlet weak var dispatchViewMessage: UILabel!
@@ -42,7 +43,8 @@ class DispatchMenuView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        innerContainer.layer.borderWidth = 4
+        innerContainer.layer.borderColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0).CGColor
         self.layer.cornerRadius = 5
         self.layer.shadowOpacity = 0.8
         self.layer.shadowOffset = CGSizeMake(0.0, 0.0)
@@ -51,6 +53,8 @@ class DispatchMenuView: UIView {
         
         dispatchButton.backgroundColor = .lightGrayColor()
         dispatchButton.setTitleColor(.darkGrayColor(), forState: .Normal)
+        dispatchButton.layer.borderWidth = 4
+        dispatchButton.layer.borderColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0).CGColor
         
         dispatchViewTitle.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         dispatchViewMessage.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)

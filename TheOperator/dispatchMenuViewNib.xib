@@ -18,71 +18,90 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DispatchMenuView" customModule="TheOperator" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="287" height="370"/>
+            <rect key="frame" x="0.0" y="0.0" width="287" height="362"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUM-ix-ft7">
-                    <rect key="frame" x="218" y="126" width="51" height="31"/>
-                    <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                </switch>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dE-Ju-oge">
-                    <rect key="frame" x="218" y="245" width="51" height="31"/>
-                    <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Police" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-u4-0my">
-                    <rect key="frame" x="105" y="135" width="85" height="15"/>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambulance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deF-Mu-WD0">
-                    <rect key="frame" x="62" y="189" width="127" height="15"/>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Brigade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kv9-TW-F5y">
-                    <rect key="frame" x="20" y="250" width="169" height="21"/>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dispatch Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-WO-lM7">
-                    <rect key="frame" x="20" y="43" width="247" height="30"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G01-fo-dPP">
+                    <rect key="frame" x="10" y="43" width="267" height="245"/>
+                    <subviews>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUM-ix-ft7">
+                            <rect key="frame" x="208" y="198" width="51" height="31"/>
+                            <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </switch>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dE-Ju-oge">
+                            <rect key="frame" x="208" y="148" width="51" height="31"/>
+                            <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Police" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-u4-0my">
+                            <rect key="frame" x="94" y="109" width="85" height="15"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ambulance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deF-Mu-WD0">
+                            <rect key="frame" x="52" y="156" width="127" height="15"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Brigade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kv9-TW-F5y">
+                            <rect key="frame" x="10" y="203" width="169" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="1Un-gW-TEE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dispatch Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnP-WO-lM7">
+                            <rect key="frame" x="10" y="15" width="247" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Bbs-sY-34B"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select services to dispatch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-1c-v6n">
+                            <rect key="frame" x="10" y="55" width="247" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="2mE-lo-DVh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-Ce-8O6">
+                            <rect key="frame" x="208" y="101" width="51" height="31"/>
+                            <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </switch>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="6gW-WE-Hs8"/>
+                        <constraint firstItem="BnP-WO-lM7" firstAttribute="top" secondItem="G01-fo-dPP" secondAttribute="top" constant="15" id="0p1-Rr-DSX"/>
+                        <constraint firstItem="mMr-1c-v6n" firstAttribute="top" secondItem="BnP-WO-lM7" secondAttribute="bottom" constant="10" id="5ou-Bb-5Et"/>
+                        <constraint firstItem="8dE-Ju-oge" firstAttribute="leading" secondItem="deF-Mu-WD0" secondAttribute="trailing" constant="29" id="6Id-Iw-jUd"/>
+                        <constraint firstItem="mMr-1c-v6n" firstAttribute="leading" secondItem="G01-fo-dPP" secondAttribute="leading" constant="10" id="A9e-Hh-exj"/>
+                        <constraint firstItem="deF-Mu-WD0" firstAttribute="top" secondItem="bUb-u4-0my" secondAttribute="bottom" constant="32" id="HP7-ZJ-B3Z"/>
+                        <constraint firstItem="kv9-TW-F5y" firstAttribute="leading" secondItem="G01-fo-dPP" secondAttribute="leading" constant="10" id="IUs-m7-2RY"/>
+                        <constraint firstAttribute="trailing" secondItem="ee9-Ce-8O6" secondAttribute="trailing" constant="10" id="JG6-Wp-Pre"/>
+                        <constraint firstItem="kv9-TW-F5y" firstAttribute="top" secondItem="deF-Mu-WD0" secondAttribute="bottom" constant="32" id="Lkh-D7-syF"/>
+                        <constraint firstItem="ee9-Ce-8O6" firstAttribute="top" secondItem="mMr-1c-v6n" secondAttribute="bottom" constant="10" id="NQu-jV-8Wn"/>
+                        <constraint firstItem="bUb-u4-0my" firstAttribute="leading" secondItem="G01-fo-dPP" secondAttribute="leading" constant="94" id="Na6-dV-cw6"/>
+                        <constraint firstAttribute="trailing" secondItem="BnP-WO-lM7" secondAttribute="trailing" constant="10" id="O4z-ug-ckB"/>
+                        <constraint firstItem="deF-Mu-WD0" firstAttribute="leading" secondItem="G01-fo-dPP" secondAttribute="leading" constant="52" id="PgK-lu-xlK"/>
+                        <constraint firstAttribute="trailing" secondItem="mMr-1c-v6n" secondAttribute="trailing" constant="10" id="UPB-FK-n4Z"/>
+                        <constraint firstItem="BnP-WO-lM7" firstAttribute="leading" secondItem="G01-fo-dPP" secondAttribute="leading" constant="10" id="Xe6-t7-AYK"/>
+                        <constraint firstItem="ee9-Ce-8O6" firstAttribute="width" secondItem="8dE-Ju-oge" secondAttribute="width" id="YNu-Z9-cIU"/>
+                        <constraint firstAttribute="trailing" secondItem="8dE-Ju-oge" secondAttribute="trailing" constant="10" id="bMV-ql-qmE"/>
+                        <constraint firstAttribute="trailing" secondItem="eUM-ix-ft7" secondAttribute="trailing" constant="10" id="fJV-3e-4S0"/>
+                        <constraint firstItem="eUM-ix-ft7" firstAttribute="top" secondItem="8dE-Ju-oge" secondAttribute="bottom" constant="19" id="fpN-AR-hC6"/>
+                        <constraint firstItem="eUM-ix-ft7" firstAttribute="leading" secondItem="kv9-TW-F5y" secondAttribute="trailing" constant="29" id="fxt-20-KaZ"/>
+                        <constraint firstItem="bUb-u4-0my" firstAttribute="top" secondItem="mMr-1c-v6n" secondAttribute="bottom" constant="18" id="iD8-Gd-emu"/>
+                        <constraint firstItem="8dE-Ju-oge" firstAttribute="top" secondItem="ee9-Ce-8O6" secondAttribute="bottom" constant="16" id="q4l-cN-fK8"/>
+                        <constraint firstItem="8dE-Ju-oge" firstAttribute="width" secondItem="eUM-ix-ft7" secondAttribute="width" id="uPr-Ld-Fva"/>
+                        <constraint firstItem="ee9-Ce-8O6" firstAttribute="leading" secondItem="bUb-u4-0my" secondAttribute="trailing" constant="29" id="xKL-X6-Qkx"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select services to dispatch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMr-1c-v6n">
-                    <rect key="frame" x="20" y="74" width="247" height="36"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="kXG-QP-3xI"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
-                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-OK-ACK">
-                    <rect key="frame" x="20" y="296" width="247" height="54"/>
-                    <color key="backgroundColor" red="0.090196078431372548" green="0.47058823529411764" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="54" id="WhQ-Q7-eHq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
-                    <state key="normal" title="Dispatch units">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="sendDispatch:" destination="iN0-l3-epB" eventType="touchUpInside" id="9mE-SZ-eIy"/>
-                    </connections>
-                </button>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-Ce-8O6">
-                    <rect key="frame" x="218" y="181" width="51" height="31"/>
-                    <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                </switch>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQg-g5-KJE">
                     <rect key="frame" x="10" y="10" width="25" height="25"/>
                     <constraints>
@@ -94,36 +113,32 @@
                         <action selector="closeDispatchView:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ed3-oP-4xR"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-OK-ACK">
+                    <rect key="frame" x="10" y="302" width="267" height="50"/>
+                    <color key="backgroundColor" red="0.090196078431372548" green="0.47058823529411764" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WhQ-Q7-eHq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                    <state key="normal" title="Dispatch units">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="sendDispatch:" destination="iN0-l3-epB" eventType="touchUpInside" id="9mE-SZ-eIy"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="kv9-TW-F5y" firstAttribute="centerY" secondItem="8dE-Ju-oge" secondAttribute="centerY" id="2XD-TF-aLO"/>
-                <constraint firstItem="ee9-Ce-8O6" firstAttribute="leading" secondItem="deF-Mu-WD0" secondAttribute="trailing" constant="29" id="6IQ-5I-rx9"/>
-                <constraint firstItem="ee9-Ce-8O6" firstAttribute="width" secondItem="8dE-Ju-oge" secondAttribute="width" id="DpD-KW-YjV"/>
-                <constraint firstItem="BnP-WO-lM7" firstAttribute="trailing" secondItem="mMr-1c-v6n" secondAttribute="trailing" id="JJK-Mx-ibo"/>
-                <constraint firstAttribute="trailing" secondItem="yUl-OK-ACK" secondAttribute="trailing" constant="20" id="Keg-2d-Rcq"/>
-                <constraint firstItem="yUl-OK-ACK" firstAttribute="top" secondItem="kv9-TW-F5y" secondAttribute="bottom" constant="25" id="La2-Ll-il7"/>
-                <constraint firstItem="8dE-Ju-oge" firstAttribute="leading" secondItem="kv9-TW-F5y" secondAttribute="trailing" constant="29" id="Nf4-UM-ZLe"/>
+                <constraint firstItem="G01-fo-dPP" firstAttribute="top" secondItem="MQg-g5-KJE" secondAttribute="bottom" constant="8" id="6og-Xg-AUx"/>
+                <constraint firstAttribute="trailing" secondItem="yUl-OK-ACK" secondAttribute="trailing" constant="10" id="Keg-2d-Rcq"/>
+                <constraint firstAttribute="trailing" secondItem="G01-fo-dPP" secondAttribute="trailing" constant="10" id="Pdm-AB-QDd"/>
                 <constraint firstItem="MQg-g5-KJE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="R6P-tg-5zs"/>
-                <constraint firstItem="eUM-ix-ft7" firstAttribute="width" secondItem="ee9-Ce-8O6" secondAttribute="width" id="RoI-fA-68C"/>
-                <constraint firstItem="yUl-OK-ACK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="TdO-Ua-k1t"/>
-                <constraint firstItem="yUl-OK-ACK" firstAttribute="top" secondItem="8dE-Ju-oge" secondAttribute="bottom" constant="20" id="W2T-6x-oEy"/>
-                <constraint firstItem="eUM-ix-ft7" firstAttribute="top" secondItem="mMr-1c-v6n" secondAttribute="bottom" constant="16" id="XnQ-st-GP8"/>
-                <constraint firstItem="eUM-ix-ft7" firstAttribute="top" secondItem="mMr-1c-v6n" secondAttribute="bottom" constant="16" id="aQz-nD-vZ8"/>
-                <constraint firstAttribute="trailing" secondItem="ee9-Ce-8O6" secondAttribute="trailing" constant="20" id="aue-Ad-GM1"/>
-                <constraint firstItem="deF-Mu-WD0" firstAttribute="centerY" secondItem="ee9-Ce-8O6" secondAttribute="centerY" id="btd-FW-vAy"/>
-                <constraint firstItem="BnP-WO-lM7" firstAttribute="top" secondItem="MQg-g5-KJE" secondAttribute="bottom" constant="8" id="cJ7-Kg-N5A"/>
-                <constraint firstItem="8dE-Ju-oge" firstAttribute="top" secondItem="ee9-Ce-8O6" secondAttribute="bottom" constant="33" id="d45-OB-Czg"/>
-                <constraint firstAttribute="trailing" secondItem="mMr-1c-v6n" secondAttribute="trailing" constant="20" id="dK9-MU-3J8"/>
-                <constraint firstItem="bUb-u4-0my" firstAttribute="centerY" secondItem="eUM-ix-ft7" secondAttribute="centerY" constant="1" id="iNZ-hf-LH1"/>
-                <constraint firstAttribute="bottom" secondItem="yUl-OK-ACK" secondAttribute="bottom" constant="20" id="pQw-Vq-4WS"/>
-                <constraint firstItem="BnP-WO-lM7" firstAttribute="leading" secondItem="mMr-1c-v6n" secondAttribute="leading" id="pvk-mT-YFn"/>
+                <constraint firstItem="yUl-OK-ACK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="TdO-Ua-k1t"/>
+                <constraint firstItem="yUl-OK-ACK" firstAttribute="top" secondItem="G01-fo-dPP" secondAttribute="bottom" constant="14" id="cok-ld-ftA"/>
+                <constraint firstItem="G01-fo-dPP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="jxF-oX-qTm"/>
+                <constraint firstAttribute="bottom" secondItem="yUl-OK-ACK" secondAttribute="bottom" constant="10" id="pQw-Vq-4WS"/>
                 <constraint firstItem="MQg-g5-KJE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="rkc-OS-5Ef"/>
-                <constraint firstItem="ee9-Ce-8O6" firstAttribute="top" secondItem="eUM-ix-ft7" secondAttribute="bottom" constant="24" id="sgt-kK-avp"/>
-                <constraint firstItem="mMr-1c-v6n" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="v9c-qP-fgX"/>
-                <constraint firstAttribute="trailing" secondItem="8dE-Ju-oge" secondAttribute="trailing" constant="20" id="y1m-bW-zT9"/>
-                <constraint firstItem="eUM-ix-ft7" firstAttribute="leading" secondItem="bUb-u4-0my" secondAttribute="trailing" constant="28" id="yah-uQ-Sjm"/>
-                <constraint firstAttribute="trailing" secondItem="eUM-ix-ft7" secondAttribute="trailing" constant="20" id="zmc-6W-rFp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -134,10 +149,11 @@
                 <outlet property="dispatchViewTitle" destination="BnP-WO-lM7" id="6fM-Hr-De4"/>
                 <outlet property="fireLabel" destination="kv9-TW-F5y" id="Yp7-p1-Dbq"/>
                 <outlet property="fireSwitch" destination="8dE-Ju-oge" id="69b-9S-Tmt"/>
+                <outlet property="innerContainer" destination="G01-fo-dPP" id="scI-FC-IKE"/>
                 <outlet property="policeLabel" destination="bUb-u4-0my" id="H6p-cP-4uR"/>
                 <outlet property="policeSwitch" destination="eUM-ix-ft7" id="lnf-sW-TMK"/>
             </connections>
-            <point key="canvasLocation" x="362.5" y="254"/>
+            <point key="canvasLocation" x="362.5" y="250"/>
         </view>
     </objects>
     <resources>
