@@ -31,6 +31,7 @@ class SlotsView: UIView {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 300, height: 100)
+        layout.minimumLineSpacing = 20
         
         gamesView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         gamesView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,6 +91,10 @@ extension SlotsView: UICollectionViewDataSource {
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("gameCell", forIndexPath: indexPath) as! gameCell
+        
+        cell.layer.cornerRadius = 20
+        cell.layer.borderWidth = 4
+        cell.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         
         //if coming from NewGame segue...
         if tagID == 0 {
@@ -151,8 +156,9 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         let activeCell = collectionView.cellForItemAtIndexPath(indexPath)
  
         func reset() {
-            activeCell?.layer.borderWidth = 0
-            activeCell?.layer.borderColor = nil
+            activeCell?.layer.cornerRadius = 20
+            activeCell?.layer.borderWidth = 4
+            activeCell?.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
             activeCell?.backgroundColor = UIColor.greenColor()
             collectionView.userInteractionEnabled = true
             activeCell?.userInteractionEnabled = true
@@ -168,7 +174,8 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         //If segue is New Game and the clicked cell is populated...
         if tagID == 0 && activeCell?.tag == 0 {
             
-            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.cornerRadius = 20
+            activeCell?.layer.borderWidth = 4
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
@@ -204,7 +211,8 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         //If segue is New Game and the clicked cell is not populated...
         if tagID == 0 && activeCell?.tag == 1  {
             
-            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.cornerRadius = 20
+            activeCell?.layer.borderWidth = 4
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
@@ -245,7 +253,8 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         }
         //----SCENARIO 3----
         if tagID == 1 && activeCell?.tag == 0 {
-            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.cornerRadius = 20
+            activeCell?.layer.borderWidth = 4
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false
@@ -267,7 +276,8 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         }
         //----SCENARIO 4----
         if tagID == 1 && activeCell?.tag == 1 {
-            activeCell?.layer.borderWidth = 2.0
+            activeCell?.layer.cornerRadius = 20
+            activeCell?.layer.borderWidth = 4
             activeCell?.layer.borderColor = UIColor.redColor().CGColor
             activeCell?.userInteractionEnabled = false
             collectionView.userInteractionEnabled = false

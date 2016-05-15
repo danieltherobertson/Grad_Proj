@@ -238,25 +238,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
-                                <rect key="frame" x="20" y="55" width="560" height="20"/>
+                                <rect key="frame" x="20" y="50" width="560" height="20"/>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
-                                <rect key="frame" x="157" y="452" width="287" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="287" id="5Qo-ip-zU9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="110" width="560" height="334"/>
+                                <rect key="frame" x="20" y="90" width="560" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="334" id="qPr-8J-lt2"/>
+                                    <constraint firstAttribute="height" constant="347" id="qPr-8J-lt2"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovg-Ah-o2f">
@@ -275,25 +266,41 @@
                                     <action selector="backButton:" destination="ZzI-CA-vw3" eventType="touchUpInside" id="nba-Hk-4xF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
+                                <rect key="frame" x="20" y="453" width="560" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="524" id="5Qo-ip-zU9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Qo-ip-zU9"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="3Ay-PE-uEt"/>
                             <constraint firstItem="p7E-6W-Tze" firstAttribute="bottom" secondItem="oFS-r1-4ql" secondAttribute="top" id="5Tw-ke-esw"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="7IB-xi-aH2"/>
                             <constraint firstAttribute="trailing" secondItem="p7E-6W-Tze" secondAttribute="trailing" id="BEv-ko-O5I"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="35" id="CV5-dP-uiK"/>
-                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="35" id="E2D-hO-Clb"/>
+                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="20" id="CV5-dP-uiK"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="30" id="E2D-hO-Clb"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="HTl-uo-ZkX"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="p7E-6W-Tze" secondAttribute="bottom" constant="-70" id="Sgu-sD-NCH"/>
                             <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UDj-70-dYx"/>
                             <constraint firstItem="p7E-6W-Tze" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UzT-Xu-aiK"/>
                             <constraint firstItem="p7E-6W-Tze" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leading" id="aFm-Ql-cP3"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="4Vh-9y-FiR" secondAttribute="leading" id="eqd-LL-Doo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="flX-Ps-bJE" secondAttribute="trailing" id="g6d-Cf-0GL"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="trailing" secondItem="4Vh-9y-FiR" secondAttribute="trailing" id="gf0-Hc-INg"/>
                             <constraint firstAttribute="bottom" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" symbolic="YES" id="gtt-aj-0o3"/>
                             <constraint firstItem="4Vh-9y-FiR" firstAttribute="centerX" secondItem="flX-Ps-bJE" secondAttribute="centerX" id="hxU-UC-7WG"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-75" id="rfE-lK-e7H"/>
-                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="8" id="yxW-Ub-erD"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-70" id="rfE-lK-e7H"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="16" id="yxW-Ub-erD"/>
                         </constraints>
                     </view>
                     <connections>

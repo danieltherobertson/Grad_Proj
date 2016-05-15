@@ -51,9 +51,11 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("progressCell", forIndexPath: indexPath) as! progressCell
-        
-        cell.layer.borderWidth = 0
-        cell.layer.borderColor = nil
+      
+        cell.layer.cornerRadius = 20
+        cell.layer.borderWidth = 4
+        cell.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+
         
         let playerProgress = viewedSave.progress
             //Get saved games and populate cells
