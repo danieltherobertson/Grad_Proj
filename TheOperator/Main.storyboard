@@ -527,6 +527,7 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="oLB-tw-QPX" id="JBe-BV-PPp"/>
+                        <segue destination="ePp-jN-sCJ" kind="show" identifier="tutorialReturnToProgressView" id="uvf-40-4AI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0a-8J-7zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,6 +567,7 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="dhb-mY-gwP" id="FKm-XA-PSr"/>
+                        <segue destination="ePp-jN-sCJ" kind="show" identifier="gameReturnToProgressView" id="hTk-yP-2Gf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfM-Y2-uYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,5 +583,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="hTk-yP-2Gf"/>
     </inferredMetricsTieBreakers>
 </document>

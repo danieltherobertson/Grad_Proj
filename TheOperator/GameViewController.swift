@@ -329,8 +329,17 @@ class GameViewController: UIViewController {
         
         pauseMenu = PauseMenuView.instanceFromNib()
         pauseMenu.resume = resumeType
+        pauseMenu.exitLevelButton.addTarget(nil, action: #selector(returnToProgressView), forControlEvents: .TouchUpInside)
         pauseMenu.showInView(self.view, animated: true)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }
+    
+    func returnToProgressView() {
+        performSegueWithIdentifier("gameReturnToProgressView", sender: self)
     }
     
     func resumeType () {
@@ -338,7 +347,8 @@ class GameViewController: UIViewController {
         print(currentDialogue)
         gameView.gameText.typeStart(resumeDialogue)
     }
-//    func animateTransition(element: AnyObject, time: Double, direction: String) {
+    
+    //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()
 //        animation.duration = time
 //        animation.type = kCATransitionPush
@@ -352,15 +362,4 @@ class GameViewController: UIViewController {
 //        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
 //        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
 //    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
