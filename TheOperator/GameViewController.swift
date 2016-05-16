@@ -23,6 +23,8 @@ class GameViewController: UIViewController {
     
     var currentDialogue = 0
     
+    var resumeDialogue: String!
+    
     var stageDialogue: NSDictionary!
     var stageAnswers: Array<NSDictionary>!
     var numberOfButtons: Int!
@@ -42,6 +44,7 @@ class GameViewController: UIViewController {
         
         gameView.characterImg.alpha = 0
         gameView.speakerName.alpha = 0
+        
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
@@ -95,6 +98,7 @@ class GameViewController: UIViewController {
         }
         //get next dialogue, starts at 0 for start of level.
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
+        resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
         print(character)
         
@@ -194,6 +198,7 @@ class GameViewController: UIViewController {
             if number == dialogueIndex {
                 //So we then set nextDialogue to be the text value of the dialogue set at that index.
                 let nextDialogue = dialogue.valueForKey("text") as! String
+                resumeDialogue = nextDialogue
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
                 gameView.gameText.text = ""
@@ -323,8 +328,15 @@ class GameViewController: UIViewController {
         }
         
         pauseMenu = PauseMenuView.instanceFromNib()
+        pauseMenu.resume = resumeType
         pauseMenu.showInView(self.view, animated: true)
         
+    }
+    
+    func resumeType () {
+        let currentText = gameView.gameText.text
+        print(currentDialogue)
+        gameView.gameText.typeStart(resumeDialogue)
     }
 //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()
