@@ -31,6 +31,8 @@ class GameViewController: UIViewController {
     var callAlert: CallAlertView!
     var dispatchMenu: DispatchMenuView!
     var pauseMenu: PauseMenuView!
+    
+    var isTyping = false
   
    // var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
 
@@ -112,9 +114,11 @@ class GameViewController: UIViewController {
             self.gameView.speakerName.text = "\(character):"
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
+            self.isTyping = true
             self.gameView.skipButton.hidden = false
             
             onTypeComplete = {
+                self.isTyping = false
                 self.layoutHandler(self.numberOfButtons)
             }
         }
@@ -194,9 +198,11 @@ class GameViewController: UIViewController {
                 //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
+                isTyping = true
                 gameView.skipButton.hidden = false
                 gameView.skipButton.enabled = true
                 onTypeComplete = {
+                    self.isTyping = false
                     self.layoutHandler(buttons)
                     
                     if enablesPopUp {
@@ -311,6 +317,11 @@ class GameViewController: UIViewController {
     }
     
     func displayPauseMenu() {
+        
+        if isTyping {
+            gameView.gameText.stopType()
+        }
+        
         pauseMenu = PauseMenuView.instanceFromNib()
         pauseMenu.showInView(self.view, animated: true)
         

@@ -48,20 +48,9 @@ class GameView: UIView, NSLayoutManagerDelegate {
             
             dispatchButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
             dispatchButton.layer.borderWidth = 4
-            
-            //dispatchButton.buttonStyle(dispatchButton, colour: .JuicyDark)
-         //   dispatchButton.layer.addBorder(.Right, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
-//            dispatchButton.layer.addBorder(.Top, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
-//            dispatchButton.layer.addBorder(.Left, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
-//            dispatchButton.layer.addBorder(.Right, color: UIColor(red: 25/255, green: 165/255, blue: 38/2555, alpha: 1), thickness: 4)
-
-            
             gameTextContainer.layer.cornerRadius = 20
             gameTextContainer.layer.borderWidth = 4
             gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
-            
-           //bottomBar.layer.addBorder(.Top, color: UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1), thickness: 4)
-            
             gameAnswerOne.buttonStyle(gameAnswerOne)
             gameAnswerTwo.buttonStyle(gameAnswerTwo)
             gameAnswerThree.buttonStyle(gameAnswerThree)

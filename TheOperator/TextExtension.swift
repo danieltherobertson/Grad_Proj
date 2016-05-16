@@ -12,8 +12,10 @@ import UIKit
 
 var onTypeComplete: (() -> Void)!
 var typeSpeed = 0.05
+var timer:NSTimer!
 
 extension UILabel {
+    
 
     func setLineHeight(lineHeight: CGFloat, alignment: NSTextAlignment) {
         let text = self.text
@@ -92,10 +94,15 @@ extension UITextView {
         return tView
     }
     
+    func stopType() -> String {
+        timer.invalidate()
+        return ""
+    }
+    
     func typeStart(dialogue: String) {
         let text = dialogue
         
-        let timer = NSTimer.scheduledTimerWithTimeInterval(typeSpeed, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(typeSpeed, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
         timer.fire()
     }
     

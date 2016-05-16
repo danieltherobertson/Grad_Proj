@@ -126,13 +126,10 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             collectionView.userInteractionEnabled = true
         }
         
-        
         if activeCell?.tag == 0 {
  
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 0)
-            
-            
         }
         
         if activeCell?.tag == 1 {
@@ -141,15 +138,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             
             print(currentCellPos)
             if currentCellPos == 0 {
-                
-//                let dialogue = ZAlertView(title: "Play Tutorial?", message: "Already know how to play? You can skip the tutorial!", alertType: .MultipleChoice)
-//                dialogue.addButton("Skip", touchHandler: { (alertView) in
-//                    alertView.dismiss()
-//                })
-//                dialogue.addButton("Play", touchHandler: { (alertView) in
-//                    alertView.dismiss()
-//                })
-                
                 let dialogue = ZAlertView(title: "Play Tutorial?", message: "Already know how to play? You can skip the tutorial!", isOkButtonLeft: true, okButtonText: "Play", cancelButtonText: "Skip", okButtonHandler: { (alertView) in
                         self.currentGameSelected(level: currentCellPos, tag: 1)
                         self.playTutorial()
@@ -160,17 +148,14 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                         collectionView.reloadData()
                         alertView.dismiss()
                 })
-                
                 dialogue.allowTouchOutsideToDismiss = false
                 dialogue.show()
             } else {
                 currentGameSelected(level: currentCellPos, tag: 1)
             }
-
         }
         
         if activeCell?.tag == 2 {
-            
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 2)
             
@@ -181,7 +166,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             })
             dialogue.allowTouchOutsideToDismiss = false
             dialogue.show()
-
         }
     }
     //-----------------HANDLES DESELECTING CELLS IN THE COLLECTION VIEW----------------------------------------------

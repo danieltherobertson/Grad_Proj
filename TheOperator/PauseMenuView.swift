@@ -50,6 +50,7 @@ class PauseMenuView: UIView {
         self.center = shadow.center
 
         if animated {
+            print("cattle train")
             self.showAnimate()
         }
     }
