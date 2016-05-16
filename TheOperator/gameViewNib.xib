@@ -288,9 +288,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="sFU-Q9-kKB"/>
-                </mask>
                 <mask key="constraints">
                     <exclude reference="Kk7-Ad-JCk"/>
                     <exclude reference="4q1-JZ-Joh"/>

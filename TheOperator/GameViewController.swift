@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     var levelDialogue = [NSDictionary]()
     var timer: NSTimer?
     var text: String!
+    var currentSave: GameSave!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
     
@@ -335,13 +336,23 @@ class GameViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        let progressVC = (segue.destinationViewController as? ProgressViewController)
+        progressVC?.currentSave = currentSave
     }
     
     func returnToProgressView() {
-        performSegueWithIdentifier("gameReturnToProgressView", sender: self)
-    }
+        
+        let dialogue = ZAlertView(title: "Exit Level?", message: "Your current progress in this level will not be saved!", isOkButtonLeft: true, okButtonText: "Cancel", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
+            alertView.dismiss()
+            }, cancelButtonHandler: { (alertView) in
+                self.performSegueWithIdentifier("gameReturnToProgressView", sender: self)
+                alertView.dismiss()
+        })
+        dialogue.allowTouchOutsideToDismiss = false
+        dialogue.show()
     
+    }
+
     func resumeType () {
         let currentText = gameView.gameText.text
         print(currentDialogue)

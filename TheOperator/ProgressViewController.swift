@@ -71,6 +71,7 @@ class ProgressViewController: UIViewController {
 
         if segue.identifier == "gameViewSegue" {
             gameViewVC?.currentLevel = selectedLevel
+            gameViewVC?.currentSave = currentSave
             
         } else {
             tutorialViewVC?.currentLevel = selectedLevel
