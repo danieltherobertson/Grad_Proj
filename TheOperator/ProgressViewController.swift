@@ -95,6 +95,7 @@ class ProgressViewController: UIViewController {
             
         if selectedLevelPos == 0 {
             isTutorial = true
+            print("start button ready and tut")
         }
             
         selectedLevel = levels[selectedLevelPos]

@@ -155,6 +155,9 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                         self.playTutorial()
                         alertView.dismiss()
                     }, cancelButtonHandler: { (alertView) in
+                        self.viewedSave.progress!+=1
+                        reset()
+                        collectionView.reloadData()
                         alertView.dismiss()
                 })
                 
