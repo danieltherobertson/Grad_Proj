@@ -49,6 +49,8 @@ class ProgressViewController: UIViewController {
         progressView.viewedSave = currentSave
         
         progressView.currentGameSelected = startButtonReady
+        
+        progressView.playTutorial = segueToGame
     }
 
     override func didReceiveMemoryWarning() {

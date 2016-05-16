@@ -16,6 +16,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var toString:String?
     var nextLevel: Int?
     var currentGameSelected: ((level: Int, tag: Int) -> ())!
+    var playTutorial: (() -> ())!
     
     override func layoutSubviews() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -127,17 +128,41 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         
         if activeCell?.tag == 0 {
-            
-            
+ 
             let currentCellPos = indexPath.row
             currentGameSelected(level: currentCellPos, tag: 0)
+            
+            
         }
         
         if activeCell?.tag == 1 {
-            
 
             let currentCellPos = indexPath.row
-            currentGameSelected(level: currentCellPos, tag: 1)
+            
+            print(currentCellPos)
+            if currentCellPos == 0 {
+                
+//                let dialogue = ZAlertView(title: "Play Tutorial?", message: "Already know how to play? You can skip the tutorial!", alertType: .MultipleChoice)
+//                dialogue.addButton("Skip", touchHandler: { (alertView) in
+//                    alertView.dismiss()
+//                })
+//                dialogue.addButton("Play", touchHandler: { (alertView) in
+//                    alertView.dismiss()
+//                })
+                
+                let dialogue = ZAlertView(title: "Play Tutorial?", message: "Already know how to play? You can skip the tutorial!", isOkButtonLeft: true, okButtonText: "Play", cancelButtonText: "Skip", okButtonHandler: { (alertView) in
+                        self.currentGameSelected(level: currentCellPos, tag: 1)
+                        self.playTutorial()
+                        alertView.dismiss()
+                    }, cancelButtonHandler: { (alertView) in
+                        alertView.dismiss()
+                })
+                
+                dialogue.allowTouchOutsideToDismiss = false
+                dialogue.show()
+            } else {
+                currentGameSelected(level: currentCellPos, tag: 1)
+            }
 
         }
         
