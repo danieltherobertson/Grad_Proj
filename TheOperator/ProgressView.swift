@@ -136,7 +136,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 
             let currentCellPos = indexPath.row
             
-            print(currentCellPos)
             if currentCellPos == 0 {
                 let dialogue = ZAlertView(title: "Play Tutorial?", message: "Already know how to play? You can skip the tutorial!", isOkButtonLeft: true, okButtonText: "Play", cancelButtonText: "Skip", okButtonHandler: { (alertView) in
                         self.currentGameSelected(level: currentCellPos, tag: 1)

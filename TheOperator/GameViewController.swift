@@ -101,7 +101,6 @@ class GameViewController: UIViewController {
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
         resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
-        print(character)
         
         gameView.speakerName.textColor = .blackColor()
         gameView.speakerName.text = ""
@@ -261,7 +260,6 @@ class GameViewController: UIViewController {
         callAlert = CallAlertView.instanceFromNib()
         callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {
-            print("POP UP CLOSE")
             if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
                 let nextDialogue = callGoTo
                 self.currentDialogue = nextDialogue
@@ -357,7 +355,6 @@ class GameViewController: UIViewController {
 
     func resumeType () {
         let currentText = gameView.gameText.text
-        print(currentDialogue)
         gameView.gameText.typeStart(resumeDialogue)
         countDownTimer?.invalidate()
         if isTiming {

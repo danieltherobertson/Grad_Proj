@@ -5,21 +5,13 @@
 				"number": 0,
 				"character": "Chief",
 				"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet...",
-	            "buttons": 3,
+	            "buttons": 1,
                 "triggersCall": false,
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Go on...",
 	                 	"goTo": 1
-	                 },
-                    {
-                    "text": "Go on...",
-                    "goTo": 1
-                    },
-                    {
-                    "text": "Go on...",
-                    "goTo": 1
-                    }
+	                 }
 	            ]
 			},
             {
