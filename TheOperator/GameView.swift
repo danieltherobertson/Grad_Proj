@@ -66,8 +66,6 @@ class GameView: UIView, NSLayoutManagerDelegate {
             speakerName.font = UIFont(name: "KemcoPixelBold", size: 16)
             //gameText.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
             gameText.layoutManager.delegate = self
-            let gameTextWidth = gameText.frame.width
-            let gameTextHeight = gameText.frame.height
            // let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 80))
            // gameText.textContainer.exclusionPaths = [imgRect]
             gameText.editable = false

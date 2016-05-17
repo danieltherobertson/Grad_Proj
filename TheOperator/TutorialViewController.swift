@@ -40,7 +40,6 @@ class TutorialViewController: UIViewController {
     var isTiming = false
     
     override func viewDidLoad() {
-        print("TUTORIAL VIEW HAS LOADED")
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
@@ -98,7 +97,6 @@ class TutorialViewController: UIViewController {
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
         resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
-        print(character)
         
         gameView.speakerName.textColor = .blackColor()
         gameView.speakerName.text = ""
@@ -265,7 +263,6 @@ class TutorialViewController: UIViewController {
         callAlert = CallAlertView.instanceFromNib()
         callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {
-            print("POP UP CLOSE")
             if let callGoTo = self.stageDialogue.valueForKey("callGoTo") as? Int {
                 let nextDialogue = callGoTo
                 self.currentDialogue = nextDialogue
@@ -330,7 +327,6 @@ class TutorialViewController: UIViewController {
     func displayPauseMenu() {
         
         if isTyping {
-            print("WE R TYPE")
             gameView.gameText.stopType()
         }
         countDownTimer?.invalidate()
@@ -345,8 +341,6 @@ class TutorialViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let progressVC = (segue.destinationViewController as? ProgressViewController)
         progressVC?.currentSave = currentSave
-        print("WPPOOPOP")
-        print(currentSave.name)
     }
     
     func returnToProgressView() {
@@ -363,8 +357,7 @@ class TutorialViewController: UIViewController {
     }
     
     func resumeType () {
-        let currentText = gameView.gameText.text
-        print(currentDialogue)
+       // let currentText = gameView.gameText.text
         gameView.gameText.typeStart(resumeDialogue)
         countDownTimer?.invalidate()
         if isTiming {

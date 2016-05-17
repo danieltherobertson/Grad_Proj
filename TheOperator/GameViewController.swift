@@ -354,7 +354,7 @@ class GameViewController: UIViewController {
     }
 
     func resumeType () {
-        let currentText = gameView.gameText.text
+       // let currentText = gameView.gameText.text
         gameView.gameText.typeStart(resumeDialogue)
         countDownTimer?.invalidate()
         if isTiming {

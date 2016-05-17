@@ -131,22 +131,16 @@ class DispatchMenuView: UIView {
         
         if sender.on {
             enabledServicesCount+=1
-            print("turning a service on")
-            print(enabledServicesCount)
         } else {
             enabledServicesCount-=1
-            print("turing a service off")
-            print(enabledServicesCount)
         }
         
         if enabledServicesCount >= 1 {
             dispatchButton.enabled = true
-            print("button is activated")
             dispatchButton.backgroundColor = UIColor(red: 23/255, green: 120/255, blue: 61/255, alpha: 1.0)
             dispatchButton.setTitleColor(.whiteColor(), forState: .Normal)
         } else {
             dispatchButton.enabled = false
-            print("button is deactivated")
             dispatchButton.backgroundColor = .lightGrayColor()
             dispatchButton.setTitleColor(.darkGrayColor(), forState: .Normal)
         }
@@ -169,7 +163,6 @@ class DispatchMenuView: UIView {
         }
         
         for service in filteredServces {
-            print(service.tag)
         }
         
     }
