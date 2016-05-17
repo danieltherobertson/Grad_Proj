@@ -75,6 +75,7 @@ class ProgressViewController: UIViewController {
             
         } else {
             tutorialViewVC?.currentLevel = selectedLevel
+            tutorialViewVC?.currentSave = currentSave
         }
     }
     

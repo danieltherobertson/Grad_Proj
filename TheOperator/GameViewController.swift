@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gameView: GameView!
     var levelDialogue = [NSDictionary]()
     var timer: NSTimer?
+    var countDownTimer: NSTimer?
     var text: String!
     var currentSave: GameSave!
     var currentLevel: NSDictionary!
@@ -36,8 +37,7 @@ class GameViewController: UIViewController {
     var pauseMenu: PauseMenuView!
     
     var isTyping = false
-  
-   // var popViewController: PopUpViewControllerSwift = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+    var isTiming = false
 
     override func viewDidLoad() {
         gameView.skipButton.hidden = true
@@ -278,8 +278,9 @@ class GameViewController: UIViewController {
     }
     
     func countDown(time: Int) {
+        isTiming = true
         timeCount = time
-        let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func update(count: Int) {
@@ -327,6 +328,7 @@ class GameViewController: UIViewController {
         if isTyping {
             gameView.gameText.stopType()
         }
+        countDownTimer?.invalidate()
         
         pauseMenu = PauseMenuView.instanceFromNib()
         pauseMenu.resume = resumeType
@@ -357,6 +359,10 @@ class GameViewController: UIViewController {
         let currentText = gameView.gameText.text
         print(currentDialogue)
         gameView.gameText.typeStart(resumeDialogue)
+        countDownTimer?.invalidate()
+        if isTiming {
+            countDown(timeCount)
+        }
     }
     
     //    func animateTransition(element: AnyObject, time: Double, direction: String) {

@@ -14,7 +14,9 @@ class TutorialViewController: UIViewController {
     
     var levelDialogue = [NSDictionary]()
     var timer: NSTimer?
+    var countDownTimer: NSTimer?
     var text: String!
+    var currentSave: GameSave!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
     
@@ -23,6 +25,7 @@ class TutorialViewController: UIViewController {
     var currentLevRead: Int!
     
     var currentDialogue = 0
+    var resumeDialogue: String!
     
     var stageDialogue: NSDictionary!
     var stageAnswers: Array<NSDictionary>!
@@ -33,7 +36,8 @@ class TutorialViewController: UIViewController {
     var dispatchMenu: DispatchMenuView!
     var pauseMenu: PauseMenuView!
     
-  //  var popViewController: CallAlertView = PopUpViewControllerSwift(nibName: "PopUpViewController", bundle: nil)
+    var isTyping = false
+    var isTiming = false
     
     override func viewDidLoad() {
         print("TUTORIAL VIEW HAS LOADED")
@@ -92,6 +96,7 @@ class TutorialViewController: UIViewController {
         }
         //get next dialogue, starts at 0 for start of level.
         let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
+        resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
         print(character)
         
@@ -115,6 +120,7 @@ class TutorialViewController: UIViewController {
             self.gameView.speakerName.text = "\(character):"
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
+            self.isTyping = true
             self.gameView.skipButton.hidden = false
             
             onTypeComplete = {
@@ -193,10 +199,12 @@ class TutorialViewController: UIViewController {
             if number == dialogueIndex {
                 //So we then set nextDialogue to be the text value of the dialogue set at that index.
                 let nextDialogue = dialogue.valueForKey("text") as! String
+                resumeDialogue = nextDialogue
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
                 gameView.gameText.text = ""
                 gameView.gameText.typeStart(nextDialogue)
+                isTyping = true
                 if dialogueIndex == 3 {
                     gameView.skipButton.hidden = true
                     gameView.skipButton.enabled = false
@@ -274,8 +282,9 @@ class TutorialViewController: UIViewController {
     }
     
     func countDown(time: Int) {
+        isTiming = true
         timeCount = time
-        let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     func update(count: Int) {
@@ -316,14 +325,51 @@ class TutorialViewController: UIViewController {
     func displayDispatchMenu() {
         dispatchMenu = DispatchMenuView.instanceFromNib()
         dispatchMenu.showInView(self.view, animated: true)
-        print("callum")
     }
     
     func displayPauseMenu() {
-        pauseMenu = PauseMenuView.instanceFromNib()
-        pauseMenu.showInView(self.view, animated: true)
-        print("becky")
         
+        if isTyping {
+            print("WE R TYPE")
+            gameView.gameText.stopType()
+        }
+        countDownTimer?.invalidate()
+        
+        pauseMenu = PauseMenuView.instanceFromNib()
+        pauseMenu.resume = resumeType
+        pauseMenu.exitLevelButton.addTarget(nil, action: #selector(returnToProgressView), forControlEvents: .TouchUpInside)
+        pauseMenu.showInView(self.view, animated: true)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let progressVC = (segue.destinationViewController as? ProgressViewController)
+        progressVC?.currentSave = currentSave
+        print("WPPOOPOP")
+        print(currentSave.name)
+    }
+    
+    func returnToProgressView() {
+        
+        let dialogue = ZAlertView(title: "Exit Level?", message: "Your current progress in this level will not be saved!", isOkButtonLeft: true, okButtonText: "Cancel", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
+            alertView.dismiss()
+            }, cancelButtonHandler: { (alertView) in
+                self.performSegueWithIdentifier("tutorialReturnToProgressView", sender: self)
+                alertView.dismiss()
+        })
+        dialogue.allowTouchOutsideToDismiss = false
+        dialogue.show()
+        
+    }
+    
+    func resumeType () {
+        let currentText = gameView.gameText.text
+        print(currentDialogue)
+        gameView.gameText.typeStart(resumeDialogue)
+        countDownTimer?.invalidate()
+        if isTiming {
+            countDown(timeCount)
+        }
     }
     //    func animateTransition(element: AnyObject, time: Double, direction: String) {
     //        let animation = CATransition()
