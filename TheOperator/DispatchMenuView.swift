@@ -19,6 +19,7 @@ class DispatchMenuView: UIView {
     var enabledServicesCount = Int()
     
     let shadow = UIView()
+    var resume: (() -> ())?
 
     @IBOutlet weak var innerContainer: UIView!
     
@@ -149,6 +150,9 @@ class DispatchMenuView: UIView {
     
     @IBAction func closeDispatchView(sender: AnyObject) {
         self.removeAnimate()
+        if let resume = resume {
+            resume()
+        }
         if let callback = onPopUpClose {
             callback ()
         }

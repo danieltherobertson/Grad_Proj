@@ -318,6 +318,11 @@ class GameViewController: UIViewController {
     
     func displayDispatchMenu() {
         dispatchMenu = DispatchMenuView.instanceFromNib()
+        if isTyping {
+            gameView.gameText.stopType()
+        }
+        dispatchMenu.resume = resumeType
+        countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
     }
     
@@ -355,8 +360,9 @@ class GameViewController: UIViewController {
 
     func resumeType () {
        // let currentText = gameView.gameText.text
+        if isTyping {
         gameView.gameText.typeStart(resumeDialogue)
-        countDownTimer?.invalidate()
+        }
         if isTiming {
             countDown(timeCount)
         }

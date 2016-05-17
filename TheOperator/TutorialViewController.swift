@@ -321,6 +321,11 @@ class TutorialViewController: UIViewController {
     
     func displayDispatchMenu() {
         dispatchMenu = DispatchMenuView.instanceFromNib()
+        if isTyping {
+            gameView.gameText.stopType()
+        }
+        dispatchMenu.resume = resumeType
+        countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
     }
     
@@ -348,7 +353,7 @@ class TutorialViewController: UIViewController {
         let dialogue = ZAlertView(title: "Exit Level?", message: "Your current progress in this level will not be saved!", isOkButtonLeft: true, okButtonText: "Cancel", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
             alertView.dismiss()
             }, cancelButtonHandler: { (alertView) in
-                self.performSegueWithIdentifier("tutorialReturnToProgressView", sender: self)
+                self.performSegueWithIdentifier("gameReturnToProgressView", sender: self)
                 alertView.dismiss()
         })
         dialogue.allowTouchOutsideToDismiss = false
@@ -357,9 +362,10 @@ class TutorialViewController: UIViewController {
     }
     
     func resumeType () {
-       // let currentText = gameView.gameText.text
-        gameView.gameText.typeStart(resumeDialogue)
-        countDownTimer?.invalidate()
+        // let currentText = gameView.gameText.text
+        if isTyping {
+            gameView.gameText.typeStart(resumeDialogue)
+        }
         if isTiming {
             countDown(timeCount)
         }
