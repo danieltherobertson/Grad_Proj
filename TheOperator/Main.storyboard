@@ -20,6 +20,8 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -183,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Se-EX-ZKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4587" y="1065"/>
+            <point key="canvasLocation" x="4571" y="2497"/>
         </scene>
         <!--Meme-->
         <scene sceneID="KYZ-W2-Olb">
@@ -202,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-1R-SDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3940" y="1065"/>
+            <point key="canvasLocation" x="3924" y="2497"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GZv-qR-OSf">
@@ -220,7 +222,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Du-fb-Gqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4248" y="248"/>
+            <point key="canvasLocation" x="4232" y="1680"/>
         </scene>
         <!--Game Slots View Controller-->
         <scene sceneID="X59-ib-XxO">
@@ -528,11 +530,47 @@
                     <connections>
                         <outlet property="gameView" destination="oLB-tw-QPX" id="JBe-BV-PPp"/>
                         <segue destination="ePp-jN-sCJ" kind="show" identifier="tutorialReturnToProgressView" id="uvf-40-4AI"/>
+                        <segue destination="UIe-of-48G" kind="show" identifier="tutorialViewToLevelReview" id="ddf-Jd-XPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k0a-8J-7zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3193" y="37"/>
+        </scene>
+        <!--Level Review View Controller-->
+        <scene sceneID="m6g-Hh-km9">
+            <objects>
+                <viewController id="UIe-of-48G" customClass="LevelReviewViewController" customModule="TheOperator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TlF-qp-e0I"/>
+                        <viewControllerLayoutGuide type="bottom" id="LqB-rA-986"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iU5-C8-Dct">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Performance Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-hk-47F">
+                                <rect key="frame" x="138" y="28" width="324" height="53"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-BT-BiV">
+                                <rect key="frame" x="20" y="89" width="560" height="316"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="reviewText" destination="eKf-BT-BiV" id="Q6s-Ke-bGs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axO-cV-lMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3851" y="380"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Hm9-JM-jcy">
@@ -568,6 +606,7 @@
                     <connections>
                         <outlet property="gameView" destination="dhb-mY-gwP" id="FKm-XA-PSr"/>
                         <segue destination="ePp-jN-sCJ" kind="show" identifier="gameReturnToProgressView" id="hTk-yP-2Gf"/>
+                        <segue destination="UIe-of-48G" kind="show" identifier="gameViewToLevelReview" id="VLw-BQ-xSv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfM-Y2-uYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,6 +622,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZpM-Vx-JOL"/>
-        <segue reference="hTk-yP-2Gf"/>
+        <segue reference="uvf-40-4AI"/>
+        <segue reference="ddf-Jd-XPx"/>
     </inferredMetricsTieBreakers>
 </document>
