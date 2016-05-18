@@ -353,7 +353,7 @@ class TutorialViewController: UIViewController {
         let dialogue = ZAlertView(title: "Exit Level?", message: "Your current progress in this level will not be saved!", isOkButtonLeft: true, okButtonText: "Cancel", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
             alertView.dismiss()
             }, cancelButtonHandler: { (alertView) in
-                self.performSegueWithIdentifier("gameReturnToProgressView", sender: self)
+                self.performSegueWithIdentifier("tutorialReturnToProgressView", sender: self)
                 alertView.dismiss()
         })
         dialogue.allowTouchOutsideToDismiss = false
