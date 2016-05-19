@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UIe-of-48G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,15 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -158,73 +167,6 @@
             </objects>
             <point key="canvasLocation" x="1117" y="387"/>
         </scene>
-        <!--Doot-->
-        <scene sceneID="Aq5-b9-kmg">
-            <objects>
-                <viewController title="Doot" id="WHO-7m-7hT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ojS-47-1lX"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gme-bv-08n"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B8k-nG-5np">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mockMap" translatesAutoresizingMaskIntoConstraints="NO" id="GXG-iv-M1A">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="GXG-iv-M1A" secondAttribute="trailing" id="VyI-Wa-hIe"/>
-                            <constraint firstItem="GXG-iv-M1A" firstAttribute="leading" secondItem="B8k-nG-5np" secondAttribute="leading" id="dgn-TI-dih"/>
-                            <constraint firstItem="GXG-iv-M1A" firstAttribute="top" secondItem="B8k-nG-5np" secondAttribute="top" id="j8T-4s-2ry"/>
-                            <constraint firstItem="GXG-iv-M1A" firstAttribute="bottom" secondItem="Gme-bv-08n" secondAttribute="top" id="mBk-ld-5sz"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="p1G-V1-nvC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Se-EX-ZKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4571" y="2497"/>
-        </scene>
-        <!--Meme-->
-        <scene sceneID="KYZ-W2-Olb">
-            <objects>
-                <viewController title="Meme" id="66R-ZY-DEJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JQZ-gA-QLy"/>
-                        <viewControllerLayoutGuide type="bottom" id="K5y-Bd-VHo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Dd-9h-nhw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="tC4-5f-ejp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ccg-1R-SDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3924" y="2497"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="GZv-qR-OSf">
-            <objects>
-                <tabBarController id="ltD-TQ-57u" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="C1S-A5-nTB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="66R-ZY-DEJ" kind="relationship" relationship="viewControllers" id="m1i-kZ-QyV"/>
-                        <segue destination="WHO-7m-7hT" kind="relationship" relationship="viewControllers" id="smM-Ix-zab"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Du-fb-Gqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4232" y="1680"/>
-        </scene>
         <!--Game Slots View Controller-->
         <scene sceneID="X59-ib-XxO">
             <objects>
@@ -237,7 +179,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="p7E-6W-Tze">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="p7E-6W-Tze">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
@@ -565,17 +507,8 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-BT-BiV">
-                                <rect key="frame" x="20" y="103" width="560" height="359"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="359" id="FjS-fM-mvn"/>
-                                </constraints>
-                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-ZT-YLd" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="484" width="560" height="50"/>
+                                <rect key="frame" x="20" y="388" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OxR-tt-Ngd"/>
                                 </constraints>
@@ -583,29 +516,89 @@
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bz-vA-3Ol" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="495" width="560" height="50"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ER-2L-rJr" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="445" width="560" height="50"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNP-Sa-aDE">
+                                <rect key="frame" x="20" y="94" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7p-D4-pTD">
+                                <rect key="frame" x="20" y="121" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRh-zc-csS">
+                                <rect key="frame" x="20" y="163" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-zb-hgg">
+                                <rect key="frame" x="20" y="190" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6R1-rG-qkr">
+                                <rect key="frame" x="20" y="237" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkg-Ar-dyt">
+                                <rect key="frame" x="20" y="264" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bS-iB-DTi">
+                                <rect key="frame" x="15" y="312" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo6-Nb-jSa">
+                                <rect key="frame" x="15" y="339" width="560" height="21"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eKf-BT-BiV" firstAttribute="top" secondItem="5SG-hk-47F" secondAttribute="bottom" constant="20" id="7lo-NA-utB"/>
-                            <constraint firstItem="eKf-BT-BiV" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="PPY-4a-uON"/>
-                            <constraint firstItem="LqB-rA-986" firstAttribute="top" secondItem="EFa-ZT-YLd" secondAttribute="bottom" constant="66" id="U46-rN-ie9"/>
-                            <constraint firstItem="eKf-BT-BiV" firstAttribute="top" secondItem="5SG-hk-47F" secondAttribute="bottom" constant="5" id="Ye0-C4-4i5"/>
-                            <constraint firstAttribute="trailing" secondItem="eKf-BT-BiV" secondAttribute="trailing" constant="20" id="aeo-bw-yHO"/>
+                            <constraint firstAttribute="trailing" secondItem="4bz-vA-3Ol" secondAttribute="trailing" constant="20" id="10S-XK-WCA"/>
+                            <constraint firstItem="4bz-vA-3Ol" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="BDG-lV-suh"/>
+                            <constraint firstItem="4bz-vA-3Ol" firstAttribute="top" secondItem="2ER-2L-rJr" secondAttribute="bottom" id="Dyv-No-PIZ"/>
+                            <constraint firstItem="LqB-rA-986" firstAttribute="top" secondItem="EFa-ZT-YLd" secondAttribute="bottom" constant="162" id="U46-rN-ie9"/>
+                            <constraint firstItem="2ER-2L-rJr" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="VPa-WD-RYe"/>
                             <constraint firstItem="5SG-hk-47F" firstAttribute="top" secondItem="TlF-qp-e0I" secondAttribute="bottom" constant="10" id="dMV-FS-TBB"/>
                             <constraint firstItem="EFa-ZT-YLd" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="dYx-Uh-p3j"/>
+                            <constraint firstItem="LqB-rA-986" firstAttribute="top" secondItem="4bz-vA-3Ol" secondAttribute="bottom" constant="55" id="ghh-pd-292"/>
                             <constraint firstAttribute="trailing" secondItem="5SG-hk-47F" secondAttribute="trailing" constant="20" id="h72-Ae-xvP"/>
+                            <constraint firstItem="2ER-2L-rJr" firstAttribute="top" secondItem="EFa-ZT-YLd" secondAttribute="bottom" constant="7" id="j81-i8-zR1"/>
                             <constraint firstAttribute="trailing" secondItem="EFa-ZT-YLd" secondAttribute="trailing" constant="20" id="kp3-0Y-owB"/>
+                            <constraint firstItem="4bz-vA-3Ol" firstAttribute="top" secondItem="EFa-ZT-YLd" secondAttribute="bottom" constant="57" id="pJ3-hH-R0W"/>
+                            <constraint firstAttribute="trailing" secondItem="2ER-2L-rJr" secondAttribute="trailing" constant="20" id="rKG-5U-BjN"/>
                             <constraint firstItem="5SG-hk-47F" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="wgc-61-Jbk"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="7lo-NA-utB"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
+                        <outlet property="reviewChief" destination="2ER-2L-rJr" id="qpJ-au-GA7"/>
+                        <outlet property="reviewFeedback" destination="4bz-vA-3Ol" id="KzB-j6-VNA"/>
                         <outlet property="reviewRank" destination="EFa-ZT-YLd" id="uKp-Gk-BAG"/>
-                        <outlet property="reviewText" destination="eKf-BT-BiV" id="Q6s-Ke-bGs"/>
                         <outlet property="reviewTitle" destination="5SG-hk-47F" id="xnl-D6-pel"/>
                     </connections>
                 </viewController>
@@ -656,7 +649,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mockMap" width="450" height="746"/>
         <image name="operator.gif" width="443" height="154"/>
         <image name="operator_background" width="504" height="953"/>
         <image name="slots_background.gif" width="504" height="953"/>

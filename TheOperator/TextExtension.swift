@@ -93,7 +93,7 @@ extension UITextView {
             tView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         }
         
-        tView.setLineHeight(10, alignment: .Left)
+        tView.setLineHeight(3, alignment: .Left)
         
         return tView
     }
@@ -133,6 +133,11 @@ extension UITextView {
         } else {
             let nextLetterIndex = self.text!.characters.count
             let character = textArray[nextLetterIndex]
+            
+            if character == "\n" {
+                print("space")
+            }
+            
             self.text = text! + String(character)
             
             let range = NSMakeRange(self.text.characters.count - 1, 1);

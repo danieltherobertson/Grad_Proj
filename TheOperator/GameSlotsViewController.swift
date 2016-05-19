@@ -19,14 +19,18 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
     var pageTitle: String?
     var pageLabel: String?
     var tagID: Int!
+    let shadow = UIView()
     
     var selectedSave: GameSave?
     
     let gif = UIImage.gifWithName("slots_background")
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        gameSlotsView.alpha = 0
+        self.collectionTitle.alpha = 0
+        self.collectionLabel.alpha = 0
+        self.backButton.alpha = 0
         
         gameSlotsView.backgroundColor = UIColor.clearColor()
         backButton.buttonStyle(backButton)
@@ -47,6 +51,14 @@ class GameSlotsViewController: UIViewController, UITextFieldDelegate, UIAlertVie
         backButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         gameSlotsView.tagID = tagID
         collectionTitle.text = pageTitle
+        
+        UIView.animateWithDuration(1, delay: 0.5, options: [], animations: { () -> Void in
+            self.gameSlotsView.alpha = 1
+            self.collectionTitle.alpha = 1
+            self.collectionLabel.alpha = 1
+            self.backButton.alpha = 1
+        }) { (completion) -> Void in
+        }
     }
     
     @IBAction func backButton(sender: AnyObject) {

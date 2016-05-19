@@ -26,11 +26,15 @@
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUM-ix-ft7">
                             <rect key="frame" x="208" y="198" width="51" height="31"/>
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="thumbTintColor" red="0.074509803921568626" green="0.30980392156862746" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         </switch>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dE-Ju-oge">
                             <rect key="frame" x="208" y="148" width="51" height="31"/>
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="thumbTintColor" red="0.074509803921568626" green="0.30980392156862746" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Police" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-u4-0my">
                             <rect key="frame" x="94" y="109" width="85" height="15"/>
@@ -73,7 +77,9 @@
                         </label>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ee9-Ce-8O6">
                             <rect key="frame" x="208" y="101" width="51" height="31"/>
+                            <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="onTintColor" red="0.090196078430000007" green="0.47058823529999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="thumbTintColor" red="0.074509803921568626" green="0.30980392156862746" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                         </switch>
                     </subviews>
                     <constraints>

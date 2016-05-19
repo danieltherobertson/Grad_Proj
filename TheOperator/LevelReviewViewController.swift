@@ -13,6 +13,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     @IBOutlet weak var reviewTitle: UILabel!
     @IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var reviewRank: UILabel!
+    @IBOutlet weak var reviewChief: CenteredLabel!
+    @IBOutlet weak var reviewFeedback: CenteredLabel!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -24,22 +26,33 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         super.viewDidLoad()
         reviewText.editable = true
         reviewText.text = ""
-        reviewText.setLineHeight(3, alignment: .Left)
         reviewText.backgroundColor = UIColor.blackColor()
         reviewText.font = UIFont(name: "KemcoPixelBold", size: 16)
         reviewText.textColor = UIColor(red:0.00, green:0.86, blue:0.00, alpha:1.0)
         reviewRank.setLineHeight(3, alignment: .Left)
         reviewText.layoutManager.delegate = self
         reviewText.editable = false
+        reviewText.selectable = false
         
-        let feedback = "Remaining Time: \n\n00:27 \n \n \nReported Issue: \n\nGrand Theft Auto \n \n \nDispatched Units: \n\nPolice \n \n\nRecommended Dispatch Action: \n\nPolice, Ambulance"
+        
+       
+        
+        let feedback = "Remaining Time: \r 00:27 \r \r \rReported Issue: \r Grand Theft Auto \r \r \r Dispatched Units: \r Police \r \r \r Recommended Dispatch Action: \r Police, Ambulance"
         let rank = "Rewarded Rank: Recruit"
+        let comment = "Is that the best you can do? I expected better from you."
         reviewText.typeStart(feedback)
+
        // reviewText.setLineHeight(3, alignment: .Left)
         onTypeComplete = {
             self.reviewRank.typeStart(rank)
             onTypeComplete = {
-                print("doot")
+                self.reviewChief.typeStart("Cheif's comments:")
+                onTypeComplete = {
+                    self.reviewFeedback.typeStart(comment)
+                    onTypeComplete = {
+                        
+                    }
+                }
             }
         }
         
