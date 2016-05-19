@@ -11,6 +11,7 @@
 		650428091CE0C0440092B3B6 /* CallAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650428081CE0C0440092B3B6 /* CallAlertView.swift */; };
 		6506D8341CB5BB1B00C0D188 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6506D8331CB5BB1B00C0D188 /* UIImage+Gif.swift */; };
 		650B49801CB7FCA8002B10BF /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B497F1CB7FCA8002B10BF /* CreditsViewController.swift */; };
+		650B8B371CEDFBB600C179B3 /* GlobalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */; };
 		651DA2801CBF84850009FA70 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA27F1CBF84850009FA70 /* UIColor.swift */; };
 		651DA2821CBF84990009FA70 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA2811CBF84990009FA70 /* UIImage.swift */; };
 		651DA2841CBF84A20009FA70 /* ZAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651DA2831CBF84A20009FA70 /* ZAlertView.swift */; };
@@ -84,6 +85,7 @@
 		650428081CE0C0440092B3B6 /* CallAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallAlertView.swift; sourceTree = "<group>"; };
 		6506D8331CB5BB1B00C0D188 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		650B497F1CB7FCA8002B10BF /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelpers.swift; sourceTree = "<group>"; };
 		651DA27F1CBF84850009FA70 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		651DA2811CBF84990009FA70 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		651DA2831CBF84A20009FA70 /* ZAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZAlertView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		65A4CB941C5A51A400BC5EEB /* TheOperator */ = {
 			isa = PBXGroup;
 			children = (
+				650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */,
 				65510C7F1CCD8343007C50BC /* Assets */,
 				65C9A87B1CC7B21A000A4FAD /* Protocols */,
 				65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */,
@@ -480,6 +483,7 @@
 				653AD3151CEC7EB1008E7E7E /* LevelReviewViewController.swift in Sources */,
 				6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */,
 				65510C7C1CCD82FD007C50BC /* SlotsView.swift in Sources */,
+				650B8B371CEDFBB600C179B3 /* GlobalHelpers.swift in Sources */,
 				65E05CBF1C76212B002C507D /* gameCell.swift in Sources */,
 				6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */,
 				65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */,
