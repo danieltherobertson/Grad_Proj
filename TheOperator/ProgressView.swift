@@ -10,7 +10,7 @@ import UIKit
 class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var levelsView: UICollectionView!
-    var viewedSave: GameSave?
+    var viewedSave: GameSave!
     var levelsData: [NSDictionary]!
     var toInt:Int?
     var toString:String?
@@ -36,6 +36,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         //Load any existing gameSave types from gameSaves
         
         
@@ -43,7 +44,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     
     //-----------------NUMBER OF CELLS----------------------------------------------
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return levelsData.count
+        return levelsData!.count
     }
     
     //-----------------ADDS DATA TO THE CELLS, OR DRAWS THEM AS EMPTY----------------------------------------------
@@ -55,7 +56,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         cell.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
 
         
-        let playerProgress = viewedSave!.progress
+        let playerProgress = viewedSave.progress
             //Get saved games and populate cells
             if indexPath.row < levelsData!.count {
                 let gameSlot = levelsData![indexPath.row]
@@ -141,8 +142,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                         self.playTutorial()
                         alertView.dismiss()
                     }, cancelButtonHandler: { (alertView) in
-                        self.viewedSave!.progress!+=1
-                        self.overwriteGame()
+                        self.viewedSave.progress!+=1
                         reset()
                         collectionView.reloadData()
                         alertView.dismiss()
@@ -179,7 +179,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         
         //collectionView.reloadItemsAtIndexPaths([indexPath])
     }
-    
+        //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
     func loadLevels(levels: [NSDictionary]) {
         levelsData = levels
     }
@@ -187,39 +187,4 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     func startButtonReady(button: UIButton) {
         button.enabled = true
     }
-    
-    func overwriteGame() {
-        
-        if viewedSave != nil {
-        
-            let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-            
-            if paths.count > 0 {
-                let directPath = paths[0]
-                let path = directPath.stringByAppendingString("/gameSlots.json")
-                
-                let fileManager = NSFileManager.defaultManager()
-                if fileManager.fileExistsAtPath(path) {
-                    let data = NSData(contentsOfFile: path)!
-                    var gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
-                    print(gameSaves)
-                    for (index, save) in gameSaves.enumerate() {
-                        print(save.name)
-                        print(viewedSave!.name)
-                        if save.name == viewedSave!.name {
-                            //FOUND THE RIGHT SAVE
-                            gameSaves[index] = viewedSave!
-                            
-                            let data = NSKeyedArchiver.archivedDataWithRootObject(gameSaves)
-                            data.writeToFile(path, atomically: true)
-                            
-                            break
-                        }
-                    }
-                    
-                }
-            }
-        }
-    }
-        //-----------------LOADS THE GAMESAVE ARRAY----------------------------------------------
 }
