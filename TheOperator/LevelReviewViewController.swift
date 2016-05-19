@@ -27,13 +27,13 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     @IBOutlet weak var label_4a: UILabel!
     
     let review_1 = "Remaining Time:"
-    let review_1a = "  00:27"
+    let review_1a = "00:27"
     let review_2 = "Reported Issue:"
-    let review_2a = "  Grand Theft Auto"
+    let review_2a = "Grand Theft Auto"
     let review_3 = "Dispatched Units:"
-    let review_3a = "  Police"
+    let review_3a = "Police"
     let review_4 = "Suggested Dispatch:"
-    let review_4a = "  Police, Ambulance"
+    let review_4a = "Police, Ambulance"
     
     var reviewTexts = [String]()
     var reviewLabels = [UILabel]()
