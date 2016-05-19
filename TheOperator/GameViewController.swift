@@ -86,7 +86,7 @@ class GameViewController: UIViewController {
         onTypeComplete = {
             let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
             onTypeComplete = nil
-        }
+        } 
     }
     
     func startText() { // 2
