@@ -69,7 +69,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
                     <rect key="frame" x="10" y="297" width="580" height="60"/>
-                    <color key="backgroundColor" red="0.0" green="0.86114823190789469" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="13f-bj-YU2"/>
                     </constraints>
@@ -288,6 +288,9 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="sFU-Q9-kKB"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="Kk7-Ad-JCk"/>
                     <exclude reference="4q1-JZ-Joh"/>

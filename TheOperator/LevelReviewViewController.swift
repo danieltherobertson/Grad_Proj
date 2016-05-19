@@ -8,15 +8,49 @@
 
 import UIKit
 
-class LevelReviewViewController: UIViewController {
+class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
 
+    @IBOutlet weak var reviewTitle: UILabel!
     @IBOutlet weak var reviewText: UITextView!
+    @IBOutlet weak var reviewRank: UILabel!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+                reviewTitle.setLineHeight(3, alignment: .Center)
+       
+        //reviewRank.setLineHeight(3, alignment: .Center)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let feedback = ""
+        reviewText.editable = true
+        reviewText.text = ""
+        reviewText.setLineHeight(3, alignment: .Left)
+        reviewText.backgroundColor = UIColor.blackColor()
+        reviewText.font = UIFont(name: "KemcoPixelBold", size: 16)
+        reviewText.textColor = UIColor(red:0.00, green:0.86, blue:0.00, alpha:1.0)
+        reviewRank.setLineHeight(3, alignment: .Left)
+        reviewText.layoutManager.delegate = self
+        reviewText.editable = false
+        
+        let feedback = "Remaining Time: \n\n00:27 \n \n \nReported Issue: \n\nGrand Theft Auto \n \n \nDispatched Units: \n\nPolice \n \n\nRecommended Dispatch Action: \n\nPolice, Ambulance"
+        let rank = "Rewarded Rank: Recruit"
         reviewText.typeStart(feedback)
+       // reviewText.setLineHeight(3, alignment: .Left)
+        onTypeComplete = {
+            self.reviewRank.typeStart(rank)
+            onTypeComplete = {
+                print("doot")
+            }
+        }
+        
+        
+    
 
         // Do any additional setup after loading the view.
+    }
+    
+    func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return 5
     }
 
     override func didReceiveMemoryWarning() {

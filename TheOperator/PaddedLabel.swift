@@ -16,3 +16,20 @@ class PaddedLabel: UILabel {
         super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
     }
 }
+
+class CenteredLabel: UILabel {
+    override func drawTextInRect(rect: CGRect) {
+        let insets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 10)
+        setLineHeight(3, alignment: .Center)
+        
+        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
+    }
+    
+}
+
+class PaddedTextView: UITextView {
+    func layoutManagerD(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return 3
+    }
+}
+

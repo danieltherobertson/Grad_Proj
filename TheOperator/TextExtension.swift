@@ -83,13 +83,17 @@ extension UITextView {
         }
     }
     
-    func textFieldStyle(textView: UITextView) -> UITextView {
+    func textFieldStyle(textView: UITextView, borders: Bool) -> UITextView {
         
         let tView = textView
-        tView.layer.cornerRadius = 20
-        tView.layer.borderWidth = 4
-        tView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
-        tView.setLineHeight(30, alignment: .Left)
+        
+        if borders {
+            tView.layer.cornerRadius = 20
+            tView.layer.borderWidth = 4
+            tView.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+        }
+        
+        tView.setLineHeight(10, alignment: .Left)
         
         return tView
     }

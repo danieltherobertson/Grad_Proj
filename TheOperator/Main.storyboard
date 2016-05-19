@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UIe-of-48G">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -549,23 +550,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Performance Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-hk-47F">
-                                <rect key="frame" x="138" y="28" width="324" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Performance Review" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-hk-47F" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="560" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="hcU-x8-3iE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="hyA-gV-q7u"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hyA-gV-q7u"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-BT-BiV">
-                                <rect key="frame" x="20" y="89" width="560" height="316"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-BT-BiV">
+                                <rect key="frame" x="20" y="103" width="560" height="359"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="359" id="FjS-fM-mvn"/>
+                                </constraints>
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-ZT-YLd" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="484" width="560" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OxR-tt-Ngd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eKf-BT-BiV" firstAttribute="top" secondItem="5SG-hk-47F" secondAttribute="bottom" constant="20" id="7lo-NA-utB"/>
+                            <constraint firstItem="eKf-BT-BiV" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="PPY-4a-uON"/>
+                            <constraint firstItem="LqB-rA-986" firstAttribute="top" secondItem="EFa-ZT-YLd" secondAttribute="bottom" constant="66" id="U46-rN-ie9"/>
+                            <constraint firstItem="eKf-BT-BiV" firstAttribute="top" secondItem="5SG-hk-47F" secondAttribute="bottom" constant="5" id="Ye0-C4-4i5"/>
+                            <constraint firstAttribute="trailing" secondItem="eKf-BT-BiV" secondAttribute="trailing" constant="20" id="aeo-bw-yHO"/>
+                            <constraint firstItem="5SG-hk-47F" firstAttribute="top" secondItem="TlF-qp-e0I" secondAttribute="bottom" constant="10" id="dMV-FS-TBB"/>
+                            <constraint firstItem="EFa-ZT-YLd" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="dYx-Uh-p3j"/>
+                            <constraint firstAttribute="trailing" secondItem="5SG-hk-47F" secondAttribute="trailing" constant="20" id="h72-Ae-xvP"/>
+                            <constraint firstAttribute="trailing" secondItem="EFa-ZT-YLd" secondAttribute="trailing" constant="20" id="kp3-0Y-owB"/>
+                            <constraint firstItem="5SG-hk-47F" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="wgc-61-Jbk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7lo-NA-utB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="reviewRank" destination="EFa-ZT-YLd" id="uKp-Gk-BAG"/>
                         <outlet property="reviewText" destination="eKf-BT-BiV" id="Q6s-Ke-bGs"/>
+                        <outlet property="reviewTitle" destination="5SG-hk-47F" id="xnl-D6-pel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axO-cV-lMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
