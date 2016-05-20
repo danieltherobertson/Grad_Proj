@@ -284,6 +284,7 @@ class GameViewController: UIViewController {
     func update(count: Int) {
         if timeCount > 10 {
             timeCount! -= 1
+            print("timecount is \(timeCount)")
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
         } else if timeCount == 0 {
