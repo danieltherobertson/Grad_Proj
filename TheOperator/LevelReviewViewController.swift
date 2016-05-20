@@ -54,7 +54,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         super.viewDidLoad()
         
         
-        timeToInt("07:08")
+        timeToInt("01:08")
+        calculateTimeScore(180, timeLeft: 68)
         continueButton.buttonStyle(continueButton)
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]

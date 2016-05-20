@@ -17,17 +17,6 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
-func secondsToHoursMinutesSeconds (seconds : Int) -> String {
-    let secondsRaw = (seconds % 3600) % 60
-    var secondsConverted = String()
-    if secondsRaw < 10 {
-        secondsConverted = "0\(secondsRaw)"
-        return "0\(((seconds % 3600) / 60)):\(secondsConverted)"
-    } else {
-        return "0\(((seconds % 3600) / 60)):\((seconds % 3600) % 60)"
-    }
-}
-
 func timeToInt(time: String) -> Int{
     var numOfSec = Int()
     var timeCharacters = Array(time.characters)
@@ -59,11 +48,64 @@ func timeToInt(time: String) -> Int{
     let numOfMin = secInt!*60
     //COMBINES THE SECONDS AND THE MINUTES CONVERTED TO SECONDS
     let timeInSeconds = numOfMin+numOfSec
-    print(timeInSeconds)
+   // print(timeInSeconds)
+    print("\(timeInSeconds) seconds out of 180")
     return timeInSeconds
 }
 
-func calculateTimeScore(totalTime: Int, timeLeft: Int) -> Int {
-    let timeRemaining = totalTime-timeLeft
-    return timeRemaining
+
+func calculateTimeScore(startingTime: Int, timeLeft: Int) -> String {
+    //PART 1
+    let increment = startingTime/10
+    //To get the score, we divide the total time by 10 to scale down values e.g 120 seconds/10 = 12. To get the player's remaining time score (the bit on the left side of '...out of...'), If the player has 31 seconds, we need to scale that down proportionally to the total score. This is done by calculating the number of times one tenth of the total score can be mltipled into the remaining time e.g 12*3 is 36, that's the multiple of 12 closest to 36. So we know they got 3 out of 12. The total time is halved as a level shouldn't be beatable in under half the time so the score is done based on how much of half the time remains, so it becomes 3 out of 6. Both sides of the score are then multiplied by 5 to upscale a bit, so it becomes 15/30.
+    let scoreTime = nearestIndex(increment, remainingTime: timeLeft, totalTime: startingTime)
+
+    let finalTime = totalTimeConverter(startingTime)
+    let playerTimeScore = "equals \(scoreTime) out of \(finalTime) points"
+    
+    print(playerTimeScore)
+    return playerTimeScore
 }
+
+func nearestIndex(increment: Int, remainingTime: Int, totalTime: Int) -> Int {
+    //PART 2
+    let incrementLocal = increment
+    let remainingTimeLocal = remainingTime
+    var indexMultiple = 1
+    var scale = [Int]()
+    var sum = incrementLocal*indexMultiple
+    var scoreTime = Int()
+    var reperform = false
+    
+    //FIGURE OUT A SCALE WHERE EACH VALUE IS A MULTIPLE OF INCREMENT, WHICH IS THE REMAINING TIME DIVIDED BY 10.
+    func getScale() {
+        repeat {
+            let scaleValue = indexMultiple*incrementLocal
+            scale.append(scaleValue)
+            indexMultiple += 1
+        } while scale.last < totalTime
+    }
+    
+    func checkTime() {
+        let localRange = incrementLocal/2
+        for (index,number) in scale.enumerate() {
+            if number+localRange >= remainingTimeLocal && number-localRange <= remainingTimeLocal {
+                let indexRead = index+1
+                scoreTime = indexRead*5
+                break
+            }
+        }
+    }
+    getScale()
+    checkTime()
+    return scoreTime
+}
+
+func totalTimeConverter(startingTime: Int) -> Int {
+    //PART 3
+    let timeHalf = startingTime/2
+    let timeFormat = timeHalf/10
+    let finalTime = timeFormat*5
+    return finalTime
+}
+
