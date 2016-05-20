@@ -24,7 +24,11 @@ class TutorialViewController: UIViewController {
     var currentLevInt: Int!
     var currentLevRead: Int!
     
+    var requiredServices = [String]()
+    var servicesEvent = [String]()
+    
     var currentDialogue = 0
+    var specialPoints = 0
     var resumeDialogue: String!
     
     var stageDialogue: NSDictionary!
@@ -49,6 +53,8 @@ class TutorialViewController: UIViewController {
         
         gameView.dispatchButton.addTarget(self, action: #selector(displayDispatchMenu), forControlEvents: .TouchUpInside)
         gameView.pauseButton.addTarget(self, action: #selector(displayPauseMenu), forControlEvents: .TouchUpInside)
+        gameView.dispatchButton.enabled = false
+        gameView.pauseButton.enabled = false
         
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
@@ -120,6 +126,8 @@ class TutorialViewController: UIViewController {
             self.gameView.gameText.typeStart(dialogue)
             self.isTyping = true
             self.gameView.skipButton.hidden = false
+            self.gameView.dispatchButton.enabled = true
+            self.gameView.pauseButton.enabled = true
             
             onTypeComplete = {
                 self.layoutHandler(self.numberOfButtons)
@@ -235,6 +243,29 @@ class TutorialViewController: UIViewController {
                 let text = String(answer.valueForKey("text")!)
                 
                 if text == buttonAnswer! {
+                    if let special = answer.valueForKey("special") as? String{
+                        var specialChar = Array(special.characters)
+                        var add = false
+                        for (index,char) in specialChar.enumerate() {
+                            if char == "+" {
+                                add = true
+                                specialChar.removeAtIndex(index)
+                            } else if char == "-" {
+                                add = false
+                                specialChar.removeAtIndex(index)
+                            }
+                        }
+                        let points = String(specialChar[0])
+                        let pointsInt = Int(points)
+                        if pointsInt != nil {
+                            if add {
+                                specialPoints += pointsInt!
+                            } else {
+                                specialPoints -= pointsInt!
+                            }
+                        }
+                    }
+                    print(specialPoints)
                     nextDialogue = goTo
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]

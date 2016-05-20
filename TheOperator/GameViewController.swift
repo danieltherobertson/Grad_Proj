@@ -23,7 +23,11 @@ class GameViewController: UIViewController {
     var currentLevInt: Int!
     var currentLevRead: Int!
     
+    var requiredServices = [String]()
+    var servicesEvent = [String]()
+    
     var currentDialogue = 0
+    var specialPoints = 0
     
     var resumeDialogue: String!
     
@@ -40,6 +44,7 @@ class GameViewController: UIViewController {
     var isTiming = false
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
@@ -53,11 +58,14 @@ class GameViewController: UIViewController {
         
         gameView.dispatchButton.addTarget(self, action: #selector(displayDispatchMenu), forControlEvents: .TouchUpInside)
         gameView.pauseButton.addTarget(self, action: #selector(displayPauseMenu), forControlEvents: .TouchUpInside)
+        gameView.dispatchButton.enabled = false
+        gameView.pauseButton.enabled = false
         
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
         
-        super.viewDidLoad()
+        print(requiredServices)
+        print(servicesEvent)
 
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
@@ -120,6 +128,8 @@ class GameViewController: UIViewController {
             self.gameView.gameText.typeStart(dialogue)
             self.isTyping = true
             self.gameView.skipButton.hidden = false
+            self.gameView.dispatchButton.enabled = true
+            self.gameView.pauseButton.enabled = true
             
             onTypeComplete = {
                 self.isTyping = false
@@ -230,8 +240,30 @@ class GameViewController: UIViewController {
             for answer in answers {
                 let goTo = answer.valueForKey("goTo") as! Int
                 let text = String(answer.valueForKey("text")!)
-
-                if text == buttonAnswer! {
+                    if text == buttonAnswer! {
+                        if let special = answer.valueForKey("special") as? String{
+                            var specialChar = Array(special.characters)
+                            var add = false
+                            for (index,char) in specialChar.enumerate() {
+                                if char == "+" {
+                                    add = true
+                                    specialChar.removeAtIndex(index)
+                                } else if char == "-" {
+                                    add = false
+                                    specialChar.removeAtIndex(index)
+                                }
+                            }
+                            let points = String(specialChar[0])
+                            let pointsInt = Int(points)
+                            if pointsInt != nil {
+                                if add {
+                                    specialPoints += pointsInt!
+                                } else {
+                                    specialPoints -= pointsInt!
+                                }
+                            }
+                        }
+                        print(specialPoints)
                     nextDialogue = goTo
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]

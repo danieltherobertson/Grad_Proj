@@ -22,7 +22,7 @@ class DialogueRetriever {
                     let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     //If that works, we create an array of dictionaries excepting a string as a key and an any object as its value
                     if let dialogues = jsonResult["levelDialogues"] as?  [String: [ NSDictionary ] ] {
-                        
+
                         if let levelDialogue = dialogues[level] {
                             
                             for dialogue in levelDialogue {

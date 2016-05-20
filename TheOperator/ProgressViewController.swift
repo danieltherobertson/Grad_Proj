@@ -22,6 +22,9 @@ class ProgressViewController: UIViewController {
     var selectedLevelPos: Int!
     var selectedLevel = NSDictionary()
     
+    var levelRequiredServices = [String]()
+    var levelServicesEvent = [String]()
+    
     var playerName: String!
     var playerProgress: Int!
     var isTutorial = false
@@ -72,10 +75,14 @@ class ProgressViewController: UIViewController {
         if segue.identifier == "gameViewSegue" {
             gameViewVC?.currentLevel = selectedLevel
             gameViewVC?.currentSave = currentSave
+            gameViewVC?.requiredServices = levelRequiredServices
+            gameViewVC?.servicesEvent = levelServicesEvent
             
         } else {
             tutorialViewVC?.currentLevel = selectedLevel
             tutorialViewVC?.currentSave = currentSave
+            tutorialViewVC?.requiredServices = levelRequiredServices
+            tutorialViewVC?.servicesEvent = levelServicesEvent
         }
     }
     
@@ -102,7 +109,15 @@ class ProgressViewController: UIViewController {
         selectedLevel = levels[selectedLevelPos]
         
         startButton.addTarget(nil, action: #selector(segueToGame), forControlEvents: UIControlEvents.TouchUpInside)
-        
+            
+        if let requiredServices = selectedLevel.valueForKey("requiredServices") as? Array<AnyObject> {
+            for service in requiredServices {
+                var serviceTemp = service.valueForKey("service") as! String
+                levelRequiredServices.append(serviceTemp)
+                var eventTemp = service.valueForKey("ifFails") as! String
+                levelServicesEvent.append(eventTemp)
+            }
+        }
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)
         let currentLevRead = currentLevInt!+1

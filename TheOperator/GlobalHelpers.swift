@@ -57,7 +57,7 @@ func timeToInt(time: String) -> Int{
 func calculateTimeScore(startingTime: Int, timeLeft: Int) -> String {
     //PART 1
     let increment = startingTime/10
-    //To get the score, we divide the total time by 10 to scale down values e.g 120 seconds/10 = 12. To get the player's remaining time score (the bit on the left side of '...out of...'), If the player has 31 seconds, we need to scale that down proportionally to the total score. This is done by calculating the number of times one tenth of the total score can be mltipled into the remaining time e.g 12*3 is 36, that's the multiple of 12 closest to 36. So we know they got 3 out of 12. The total time is halved as a level shouldn't be beatable in under half the time so the score is done based on how much of half the time remains, so it becomes 3 out of 6. Both sides of the score are then multiplied by 5 to upscale a bit, so it becomes 15/30.
+    //To get the score, we divide the total time by 10 to scale down values e.g 120 seconds/10 = 12. To get the player's remaining time score (the bit on the left side of '...out of...'), If the player has 31 seconds, we need to scale that down proportionally to the total score. This is done by calculating the number of times one tenth of the total score can be mltipled into the remaining time e.g 12*3 is 36, that's the multiple of 12 closest to 36. So we know they got 3 out of 12. This is done as it converts the remaining time into a whole number that is also a multiple of the total time.If this wasn't done, the score would be 3.1/12. The total time is halved as a level shouldn't be beatable in under half the time so the score is done based on how much of half the time remains, so it becomes 3 out of 6. Both sides of the score are then multiplied by 5 to upscale a bit, so it becomes 15/30.
     let scoreTime = nearestIndex(increment, remainingTime: timeLeft, totalTime: startingTime)
 
     let finalTime = totalTimeConverter(startingTime)
@@ -107,5 +107,9 @@ func totalTimeConverter(startingTime: Int) -> Int {
     let timeFormat = timeHalf/10
     let finalTime = timeFormat*5
     return finalTime
+}
+
+func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) {
+    
 }
 

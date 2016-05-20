@@ -36,7 +36,8 @@
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Okay!",
-	                 	"goTo": 3
+	                 	"goTo": 3,
+                        "special": "+5"
 	                 },
                     {
                         "text": "I love this!",
@@ -72,7 +73,8 @@
 	                 },
                      {
                          "text": "Doot doot",
-                         "goTo": 5
+                         "goTo": 5,
+                         "special": "-5"
                      }
 	            ]
 			},
