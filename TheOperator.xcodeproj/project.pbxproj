@@ -233,10 +233,10 @@
 		65A4CB941C5A51A400BC5EEB /* TheOperator */ = {
 			isa = PBXGroup;
 			children = (
-				650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */,
 				65510C7F1CCD8343007C50BC /* Assets */,
 				65C9A87B1CC7B21A000A4FAD /* Protocols */,
 				65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */,
+				650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */,
 				65C345761CA0799700F1BAFC /* View Controller 🎮 */,
 				65C345751CA0798A00F1BAFC /* View 🖥 */,
 				65C345741CA0797600F1BAFC /* Model 👾 */,

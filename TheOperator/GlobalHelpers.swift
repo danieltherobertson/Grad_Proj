@@ -186,3 +186,29 @@ func calculateScore(startingTime: Int, remainingTime: String, dispatchedServices
     return totalScore
 }
 
+func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String]) -> String {
+    let totalScore = calculateScore(startingTime, remainingTime: remainingTime, dispatchedServices: dispatchedServices, requiredServices: requiredServices)
+    let outOf = totalScore[1]
+    let quarterScore = outOf/4
+    let playerScore = totalScore[0]
+    var playerRank = String()
+    
+    if playerScore <= quarterScore {
+        playerRank = "Recruit"
+    }
+    
+    if playerScore <= quarterScore*2 && playerScore > quarterScore {
+        playerRank = "Rookie"
+    }
+    
+    if playerScore <= quarterScore*3 && playerScore > quarterScore*2{
+        playerRank = "Sweet Talker"
+    }
+    
+    if playerScore <= outOf && playerScore > quarterScore*3 {
+        playerRank = "Telephone Hero"
+    }
+    print(playerRank)
+    return playerRank
+}
+
