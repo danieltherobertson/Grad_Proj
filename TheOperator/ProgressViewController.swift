@@ -112,9 +112,9 @@ class ProgressViewController: UIViewController {
             
         if let requiredServices = selectedLevel.valueForKey("requiredServices") as? Array<AnyObject> {
             for service in requiredServices {
-                var serviceTemp = service.valueForKey("service") as! String
+                let serviceTemp = service.valueForKey("service") as! String
                 levelRequiredServices.append(serviceTemp)
-                var eventTemp = service.valueForKey("ifFails") as! String
+                let eventTemp = service.valueForKey("ifFails") as! String
                 levelServicesEvent.append(eventTemp)
             }
         }

@@ -53,6 +53,7 @@
 		65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACF7651CB5E0CD0042FBB7 /* progressCell.swift */; };
 		65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B08D6B1C7D24C300FABC2E /* Main.storyboard */; };
 		65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */; };
+		65C799AD1CF0CF1100430421 /* scoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C799AC1CF0CF1100430421 /* scoreCalculator.swift */; };
 		65C9A87D1CC7B27E000A4FAD /* AutomaticTypable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9A87C1CC7B27E000A4FAD /* AutomaticTypable.swift */; };
 		65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CECF701C9EC87300F563BF /* gameCellNib.xib */; };
 		65CECF731C9EF78500F563BF /* GameSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CECF721C9EF78500F563BF /* GameSave.swift */; };
@@ -133,6 +134,7 @@
 		65ACF7651CB5E0CD0042FBB7 /* progressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = progressCell.swift; sourceTree = "<group>"; };
 		65B08D6B1C7D24C300FABC2E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueRetriever.swift; sourceTree = "<group>"; };
+		65C799AC1CF0CF1100430421 /* scoreCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scoreCalculator.swift; sourceTree = "<group>"; };
 		65C9A87C1CC7B27E000A4FAD /* AutomaticTypable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticTypable.swift; sourceTree = "<group>"; };
 		65CECF701C9EC87300F563BF /* gameCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gameCellNib.xib; sourceTree = "<group>"; };
 		65CECF721C9EF78500F563BF /* GameSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSave.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				65C9A87B1CC7B21A000A4FAD /* Protocols */,
 				65A4CB951C5A51A400BC5EEB /* AppDelegate.swift */,
 				650B8B361CEDFBB600C179B3 /* GlobalHelpers.swift */,
+				65C799AC1CF0CF1100430421 /* scoreCalculator.swift */,
 				65C345761CA0799700F1BAFC /* View Controller 🎮 */,
 				65C345751CA0798A00F1BAFC /* View 🖥 */,
 				65C345741CA0797600F1BAFC /* Model 👾 */,
@@ -481,6 +484,7 @@
 				653F6F151CBFD582008EEF21 /* TextExtension.swift in Sources */,
 				65CECF731C9EF78500F563BF /* GameSave.swift in Sources */,
 				653AD3151CEC7EB1008E7E7E /* LevelReviewViewController.swift in Sources */,
+				65C799AD1CF0CF1100430421 /* scoreCalculator.swift in Sources */,
 				6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */,
 				65510C7C1CCD82FD007C50BC /* SlotsView.swift in Sources */,
 				650B8B371CEDFBB600C179B3 /* GlobalHelpers.swift in Sources */,

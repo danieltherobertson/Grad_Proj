@@ -166,7 +166,7 @@ class DispatchMenuView: UIView {
             return service.on
         }
         
-        for service in filteredServces {
+        for _ in filteredServces {
         }
         
     }

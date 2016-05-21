@@ -58,7 +58,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]
         reviewLabels = [label_1,label_1a,label_2,label_2a,label_3,label_3a,label_4,label_4a]
         
-        var activeLine = 0
+        activeLine = 0
 
         reviewRank.setLineHeight(3, alignment: .Left)
         rank = "Rewarded Rank: Recruit"
