@@ -109,12 +109,15 @@ func totalTimeConverter(startingTime: Int) -> Int {
     return finalTime
 }
 
-func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) -> String {
-    
+func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) /*-> String */{
     var dispatchedServicesString = [String]()
-    var numberOfReqService = requiredServices.count
-    var numberOfDisService = dispatchedServices.count
+    var wrongServices = [String]()
+    var rightServices = [String]()
+    var missingServices = [String]()
     var servicesWrong = 0
+    var penalty = 0
+    
+    
     
     for service in dispatchedServices {
         if service == 0 {
@@ -126,20 +129,77 @@ func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) -> St
         }
     }
     
-    if numberOfReqService == numberOfDisService {
-        servicesWrong = 0
+    print("required: \(requiredServices)")
+    print("actually sent \(dispatchedServicesString)")
+    
+    for requiredService in requiredServices {
+        for dispatchedService in dispatchedServicesString {
+            if dispatchedServicesString.contains(requiredService) == false && missingServices.contains(requiredService) == false {
+                missingServices.append(requiredService)
+            }
+            if dispatchedServicesString.contains(requiredService) && rightServices.contains(requiredService) == false {
+                rightServices.append(requiredService)
+            }
+            if requiredServices.contains(dispatchedService) == false && wrongServices.contains(dispatchedService) == false {
+                wrongServices.append(dispatchedService)
+            }
+        }
     }
-    if numberOfReqService > numberOfDisService {
-        servicesWrong = numberOfReqService-numberOfDisService
-    }
-    if numberOfDisService > numberOfReqService {
-        servicesWrong = numberOfDisService-numberOfReqService
-    }
-    var servicesPoints = numberOfReqService*10
-    var lostPoints = servicesWrong*10
-    var dispatchScore = servicesPoints-lostPoints
-    var scoreRead = "\(dispatchScore) out of \(servicesPoints) points"
-    print(scoreRead)
-    return scoreRead
+    
+    print("The one we got right: \(rightServices)")
+    print("The ones we got wrong: \(wrongServices)")
+    print("The ones we're missing: \(missingServices)")
+    
+    
+   
+//    for (index, requiredService) in requiredServices.enumerate() {
+//         for (index2, dispatchedService) in dispatchedServicesString.enumerate() {
+//            print("TEST: \(requiredService), \(dispatchedService)")
+//            if requiredService == dispatchedService {
+//                print("RIGHT: \(requiredService), \(dispatchedService)")
+//                dispatchedServicesString.removeAtIndex(index2)
+//                rightServices.append(dispatchedService)
+//            } else {
+//                print("WRONG: \(requiredService), \(dispatchedService)")
+//                missingServices.append(requiredService)
+//                wrongServices.append(dispatchedService)
+//                dispatchedServicesString.removeAtIndex(index)
+//            }
+//        }
+//    }
+    
+  //  print("wrong services: \(wrongServices)")
+  //   print("missing services: \(missingServices)")
+    
+//    if rightServices.count == numberOfReqService {
+//        print ("None wrong, full marks")
+//    }
+//    
+//    if dispatchedServicesString.count > numberOfReqService {
+//        for dispatchedService in dispatchedServicesString {
+//            
+//        }
+//        var mistakes = rightServices.count-numberOfReqService
+//        penalty = mistakes/2
+//    }
+//    
+//    
+//    if numberOfReqService == numberOfDisService {
+//        servicesWrong = 0
+//    }
+//    if numberOfReqService > numberOfDisService {
+//        servicesWrong = numberOfReqService-numberOfDisService
+//    }
+//    
+//    
+//    if numberOfDisService > numberOfReqService {
+//        servicesWrong = numberOfDisService-numberOfReqService
+//    }
+//    var servicesPoints = numberOfReqService*10
+//    var lostPoints = servicesWrong*10
+//    var dispatchScore = servicesPoints-lostPoints
+//    var scoreRead = "\(dispatchScore) out of \(servicesPoints) points"
+//    print(scoreRead)
+//    return scoreRead
 }
 

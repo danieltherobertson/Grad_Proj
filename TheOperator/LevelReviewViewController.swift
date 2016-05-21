@@ -56,7 +56,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         
         timeToInt("01:08")
         calculateTimeScore(180, timeLeft: 68)
-        dispatchScore([1,2], requiredServices: ["Police","Fire Brigade"])
+        dispatchScore([0,1], requiredServices: ["Fire Brigade", "Ambulance"])
         continueButton.buttonStyle(continueButton)
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]
