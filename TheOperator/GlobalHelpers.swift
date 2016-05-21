@@ -109,7 +109,37 @@ func totalTimeConverter(startingTime: Int) -> Int {
     return finalTime
 }
 
-func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) {
+func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) -> String {
     
+    var dispatchedServicesString = [String]()
+    var numberOfReqService = requiredServices.count
+    var numberOfDisService = dispatchedServices.count
+    var servicesWrong = 0
+    
+    for service in dispatchedServices {
+        if service == 0 {
+            dispatchedServicesString.append("Police")
+        } else if service == 1 {
+            dispatchedServicesString.append("Ambulance")
+        } else if service == 2 {
+            dispatchedServicesString.append("Fire Brigade")
+        }
+    }
+    
+    if numberOfReqService == numberOfDisService {
+        servicesWrong = 0
+    }
+    if numberOfReqService > numberOfDisService {
+        servicesWrong = numberOfReqService-numberOfDisService
+    }
+    if numberOfDisService > numberOfReqService {
+        servicesWrong = numberOfDisService-numberOfReqService
+    }
+    var servicesPoints = numberOfReqService*10
+    var lostPoints = servicesWrong*10
+    var dispatchScore = servicesPoints-lostPoints
+    var scoreRead = "\(dispatchScore) out of \(servicesPoints) points"
+    print(scoreRead)
+    return scoreRead
 }
 
