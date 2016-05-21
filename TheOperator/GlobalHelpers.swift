@@ -49,21 +49,21 @@ func timeToInt(time: String) -> Int{
     //COMBINES THE SECONDS AND THE MINUTES CONVERTED TO SECONDS
     let timeInSeconds = numOfMin+numOfSec
    // print(timeInSeconds)
-    print("\(timeInSeconds) seconds out of 180")
+  //  print("\(timeInSeconds) seconds out of 180")
     return timeInSeconds
 }
 
 
-func calculateTimeScore(startingTime: Int, timeLeft: Int) -> String {
+func calculateTimeScore(startingTime: Int, timeLeft: Int) -> [Int] {
     //PART 1
     let increment = startingTime/10
     //To get the score, we divide the total time by 10 to scale down values e.g 120 seconds/10 = 12. To get the player's remaining time score (the bit on the left side of '...out of...'), If the player has 31 seconds, we need to scale that down proportionally to the total score. This is done by calculating the number of times one tenth of the total score can be mltipled into the remaining time e.g 12*3 is 36, that's the multiple of 12 closest to 36. So we know they got 3 out of 12. This is done as it converts the remaining time into a whole number that is also a multiple of the total time.If this wasn't done, the score would be 3.1/12. The total time is halved as a level shouldn't be beatable in under half the time so the score is done based on how much of half the time remains, so it becomes 3 out of 6. Both sides of the score are then multiplied by 5 to upscale a bit, so it becomes 15/30.
     let scoreTime = nearestIndex(increment, remainingTime: timeLeft, totalTime: startingTime)
-
     let finalTime = totalTimeConverter(startingTime)
-    let playerTimeScore = "equals \(scoreTime) out of \(finalTime) points"
+    let playerTimeScoreRead = "equals \(scoreTime) out of \(finalTime) points"
     
-    print(playerTimeScore)
+   // print(playerTimeScoreRead)
+    let playerTimeScore = [scoreTime,finalTime]
     return playerTimeScore
 }
 
@@ -109,16 +109,14 @@ func totalTimeConverter(startingTime: Int) -> Int {
     return finalTime
 }
 
-func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) /*-> String */{
+func calculateDispatchScore (dispatchedServices: [Int], requiredServices: [String]) -> [Int] {
     var dispatchedServicesString = [String]()
     var wrongServices = [String]()
     var rightServices = [String]()
     var missingServices = [String]()
     var servicesWrong = 0
     var penalty = 0
-    
-    
-    
+
     for service in dispatchedServices {
         if service == 0 {
             dispatchedServicesString.append("Police")
@@ -128,9 +126,6 @@ func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) /*-> 
             dispatchedServicesString.append("Fire Brigade")
         }
     }
-    
-    print("required: \(requiredServices)")
-    print("actually sent \(dispatchedServicesString)")
     
     for requiredService in requiredServices {
         for dispatchedService in dispatchedServicesString {
@@ -146,60 +141,48 @@ func dispatchScore (dispatchedServices: [Int], requiredServices: [String]) /*-> 
         }
     }
     
-    print("The one we got right: \(rightServices)")
-    print("The ones we got wrong: \(wrongServices)")
-    print("The ones we're missing: \(missingServices)")
+//    print("The one we got right: \(rightServices)")
+//    print("The ones we got wrong: \(wrongServices)")
+//    print("The ones we're missing: \(missingServices)")
     
+    var scoreOutOf = requiredServices.count*10
+    var playerScore = Int()
     
-   
-//    for (index, requiredService) in requiredServices.enumerate() {
-//         for (index2, dispatchedService) in dispatchedServicesString.enumerate() {
-//            print("TEST: \(requiredService), \(dispatchedService)")
-//            if requiredService == dispatchedService {
-//                print("RIGHT: \(requiredService), \(dispatchedService)")
-//                dispatchedServicesString.removeAtIndex(index2)
-//                rightServices.append(dispatchedService)
-//            } else {
-//                print("WRONG: \(requiredService), \(dispatchedService)")
-//                missingServices.append(requiredService)
-//                wrongServices.append(dispatchedService)
-//                dispatchedServicesString.removeAtIndex(index)
-//            }
-//        }
-//    }
+    if rightServices.count == requiredServices.count {
+        playerScore = scoreOutOf
+    } else {
+        playerScore = rightServices.count*10
+    }
     
-  //  print("wrong services: \(wrongServices)")
-  //   print("missing services: \(missingServices)")
+    for service in wrongServices {
+        penalty += 5
+    }
     
-//    if rightServices.count == numberOfReqService {
-//        print ("None wrong, full marks")
-//    }
-//    
-//    if dispatchedServicesString.count > numberOfReqService {
-//        for dispatchedService in dispatchedServicesString {
-//            
-//        }
-//        var mistakes = rightServices.count-numberOfReqService
-//        penalty = mistakes/2
-//    }
-//    
-//    
-//    if numberOfReqService == numberOfDisService {
-//        servicesWrong = 0
-//    }
-//    if numberOfReqService > numberOfDisService {
-//        servicesWrong = numberOfReqService-numberOfDisService
-//    }
-//    
-//    
-//    if numberOfDisService > numberOfReqService {
-//        servicesWrong = numberOfDisService-numberOfReqService
-//    }
-//    var servicesPoints = numberOfReqService*10
-//    var lostPoints = servicesWrong*10
-//    var dispatchScore = servicesPoints-lostPoints
-//    var scoreRead = "\(dispatchScore) out of \(servicesPoints) points"
-//    print(scoreRead)
-//    return scoreRead
+    for service in missingServices {
+        penalty += 5
+    }
+    var finalScore = playerScore-penalty
+    var dispatchScoreRead = "\(finalScore) out of \(scoreOutOf) points"
+   // print(dispatchScoreRead)
+    let dispatchScore = [finalScore,scoreOutOf]
+    return dispatchScore
+}
+
+func calculateTotalScore(timeScore: [Int], dispatchScore: [Int]) -> [Int] {
+    let totalPossibleScore = timeScore[1]+dispatchScore[1]
+    let totalPlayerScore = timeScore.first!+dispatchScore.first!
+    let totalScore = [totalPlayerScore,totalPossibleScore]
+    
+    return totalScore
+}
+
+func calculateScore(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String]) -> [Int] {
+    let convertedTime = timeToInt(remainingTime)
+    let timeScore = calculateTimeScore(startingTime, timeLeft: convertedTime)
+    let dispatchScore = calculateDispatchScore(dispatchedServices, requiredServices: requiredServices)
+    let totalScore = calculateTotalScore(timeScore, dispatchScore: dispatchScore)
+    
+    print("We got \(totalScore[0]) out of \(totalScore[1])")
+    return totalScore
 }
 
