@@ -74,6 +74,7 @@ class GameViewController: UIViewController {
         
         for button in buttons {
             button.setTitle(" ", forState: .Normal)
+            button.titleLabel?.setLineHeight(10, alignment: .Left)
             button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
@@ -355,6 +356,7 @@ class GameViewController: UIViewController {
             gameView.gameText.stopType()
         }
         dispatchMenu.resume = resumeType
+        dispatchMenu.dispatchSent = levelEnding
         countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
         print(dispatchMenu.policeSwitch.tag)
@@ -403,6 +405,23 @@ class GameViewController: UIViewController {
         if isTiming {
             countDown(timeCount)
         }
+    }
+    
+    func levelEnding(dispatched: String) {
+        stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
+        let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
+        let attributeString = NSMutableAttributedString(string: buttonText)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 3
+        style.alignment = .Left
+        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, textTest.characters.count))
+        gameView.gameText.text = ""
+        clearButtons()
+        buttons[1].hidden = false
+        buttons[1].setAttributedTitle(attributeString, forState: .Normal)
+        gameView.buttonTwoHeightConstraint.constant = 80
+        view.layoutIfNeeded()
+    
     }
     
     //    func animateTransition(element: AnyObject, time: Double, direction: String) {

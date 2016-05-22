@@ -10,7 +10,7 @@ import UIKit
 
 class DispatchMenuView: UIView {
     
-    var onPopUpClose: (() -> Void)!
+//    var onPopUpClose: (() -> Void)!
     var onPopUpOpen: (() -> Void)!
     
     var services = [UISwitch]()
@@ -20,6 +20,8 @@ class DispatchMenuView: UIView {
     
     let shadow = UIView()
     var resume: (() -> ())?
+    var dispatchSent: ((String) -> ())?
+    var dispatched = ""
 
     @IBOutlet weak var innerContainer: UIView!
     
@@ -154,9 +156,9 @@ class DispatchMenuView: UIView {
         if let resume = resume {
             resume()
         }
-        if let callback = onPopUpClose {
-            callback ()
-        }
+//        if let callback = onPopUpClose {
+//            callback ()
+//        }
     }
     
 
@@ -199,18 +201,32 @@ class DispatchMenuView: UIView {
         print(service2)
         print(service3)
         var dispatchMessage = ""
+        var dispatched = ""
         if service2 == "" && service3 == "" {
             dispatchMessage = "Are you sure you want to dispatch the \(service1)?"
+            dispatched = "the \(service1)"
         }
         if service3 == "" && service1 != "" && service2 != "" {
             dispatchMessage = "Are you sure you want to dispatch the \(service1) and the \(service2)?"
+            dispatched = "the \(service1) and the \(service2)"
         }
         if service3 != "" && service2 != "" && service1 != "" {
             dispatchMessage = "Are you sure you want to dispatch the \(service1), the \(service2) and the \(service3)?"
+            dispatched = "the \(service1), the \(service2) and the \(service3)"
         }
         
         let dialogue = ZAlertView(title: "Confirm Dispatch", message: "\(dispatchMessage) This cannot be undone.", isOkButtonLeft: true, okButtonText: "Dispatch!", cancelButtonText: "Cancel", okButtonHandler: { (ZAlertView) in
-            
+            ZAlertView.dismiss()
+            self.removeAnimate()
+            if let resume = self.resume {
+              //  resume()
+            }
+            if let dispatchSent = self.dispatchSent {
+                dispatchSent(dispatched)
+            }
+//            if let callback = self.onPopUpClose {
+//                callback ()
+//            }
             }) { (ZAlertView) in
                 self.reset()
                 ZAlertView.dismiss()

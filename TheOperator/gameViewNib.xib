@@ -23,6 +23,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameView" customModule="TheOperator" customModuleProvider="target">
             <connections>
                 <outlet property="bottomBar" destination="ykR-wS-v9Y" id="zvx-bY-SKw"/>
+                <outlet property="buttonTwoHeightConstraint" destination="fym-lR-jZH" id="1Z5-69-vmZ"/>
                 <outlet property="characterImg" destination="FZp-yZ-ONi" id="znW-0R-2Z6"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
                 <outlet property="dispatchButton" destination="jKz-uA-mTD" id="cZU-h7-fkh"/>
@@ -50,7 +51,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
                     <rect key="frame" x="10" y="437" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86086554276315785" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -67,7 +68,7 @@
                         </mask>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
                     <rect key="frame" x="10" y="297" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -78,7 +79,7 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
                     <rect key="frame" x="10" y="367" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -86,6 +87,7 @@
                         <constraint firstAttribute="width" constant="284" id="rD8-rR-If3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -251,6 +253,7 @@
                 <constraint firstItem="ykR-wS-v9Y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LB8-iB-DZh"/>
                 <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="214" id="Lmt-qA-SbZ"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="11" id="MPo-WD-5X4"/>
+                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-303" id="NJ9-M8-Upn"/>
                 <constraint firstAttribute="trailing" secondItem="ykR-wS-v9Y" secondAttribute="trailing" id="Qoq-2G-To2"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R9b-oO-NXS"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="U4b-sH-efc"/>
@@ -306,6 +309,7 @@
                     <exclude reference="rDI-mX-7Vg"/>
                     <exclude reference="8cS-c1-Fhz"/>
                     <exclude reference="IRT-Uu-HNk"/>
+                    <exclude reference="NJ9-M8-Upn"/>
                     <exclude reference="WTl-bD-OmA"/>
                     <exclude reference="cfM-Jw-XVp"/>
                     <exclude reference="jLK-Jg-YDD"/>

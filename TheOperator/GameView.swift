@@ -29,6 +29,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var gameAnswerOne: UIButton!
     @IBOutlet weak var gameAnswerTwo: UIButton!
     @IBOutlet weak var gameAnswerThree: UIButton!
+    @IBOutlet weak var buttonTwoHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var dispatchButton: UIButton!
@@ -60,6 +61,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             introLabel.setLineHeight(30, alignment: .Center)
             //textViewHeightConstraint.constant = 0
             gameTextContainerHeightConstraint.constant = 0
+            buttonTwoHeightConstraint.constant = 60
            // gameText.textContainerInset = UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20)
             gameText.editable = true
             gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
