@@ -66,14 +66,15 @@ class DispatchMenuView: UIView {
         
         policeSwitch.on = false
         policeSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
-        policeSwitch.tag = 0
+        policeSwitch.tag = 1
         
         ambulanceSwitch.on = false
         ambulanceSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
-        ambulanceSwitch.tag = 1
+        ambulanceSwitch.tag = 2
+        
         fireSwitch.on = false
         fireSwitch.addTarget(self, action: #selector(enableButton), forControlEvents: .TouchUpInside)
-        fireSwitch.tag = 2
+        fireSwitch.tag = 3
         
         services.append(policeSwitch); services.append(ambulanceSwitch); services.append(fireSwitch)
         dispatchButton.enabled = false
@@ -129,7 +130,7 @@ class DispatchMenuView: UIView {
     }
 
     func enableButton(sender: UISwitch) {
-        
+        print(sender.tag)
         if sender.on {
             enabledServicesCount+=1
         } else {
@@ -162,12 +163,72 @@ class DispatchMenuView: UIView {
     
     @IBAction func sendDispatch(sender: AnyObject) {
 
-        let filteredServces = services.filter { (service) -> Bool in
+        let filteredServices = services.filter { (service) -> Bool in
             return service.on
         }
+        print(filteredServices)
+        var servicesString = [String]()
         
-        for _ in filteredServces {
+        for filteredService in filteredServices {
+            if filteredService.tag == 2 {
+                servicesString.append("Police")
+            } else if filteredService.tag == 3 {
+                servicesString.append("Ambulance")
+            } else if filteredService.tag == 1 {
+                servicesString.append("Fire Brigade")
+            }
+        }
+        print(servicesString)
+        
+        var service1 = ""
+        var service2 = ""
+        var service3 = ""
+        
+        for (index, item) in servicesString.enumerate() {
+            if index == 0 {
+                service1 = item
+            }
+            if index == 1 {
+                service2 = item
+            }
+            if index == 2 {
+                service3 = item
+            }
+        }
+        print(service1)
+        print(service2)
+        print(service3)
+        var dispatchMessage = ""
+        if service2 == "" && service3 == "" {
+            dispatchMessage = "Are you sure you want to dispatch the \(service1)?"
+        }
+        if service3 == "" && service1 != "" && service2 != "" {
+            dispatchMessage = "Are you sure you want to dispatch the \(service1) and the \(service2)?"
+        }
+        if service3 != "" && service2 != "" && service1 != "" {
+            dispatchMessage = "Are you sure you want to dispatch the \(service1), the \(service2) and the \(service3)?"
         }
         
+        let dialogue = ZAlertView(title: "Confirm Dispatch", message: "\(dispatchMessage) This cannot be undone.", isOkButtonLeft: true, okButtonText: "Dispatch!", cancelButtonText: "Cancel", okButtonHandler: { (ZAlertView) in
+            
+            }) { (ZAlertView) in
+                self.reset()
+                ZAlertView.dismiss()
+        }
+        dialogue.show()
+        
+    }
+    
+    func reset() {
+        policeSwitch.on = false
+        ambulanceSwitch.on = false
+        fireSwitch.on = false
+        policeSwitch.tag = 1
+        ambulanceSwitch.tag = 2
+        fireSwitch.tag = 3
+        dispatchButton.enabled = false
+        dispatchButton.backgroundColor = .lightGrayColor()
+        dispatchButton.setTitleColor(.darkGrayColor(), forState: .Normal)
+        enabledServicesCount = 0
     }
 }

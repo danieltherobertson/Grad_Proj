@@ -357,6 +357,10 @@ class GameViewController: UIViewController {
         dispatchMenu.resume = resumeType
         countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
+        print(dispatchMenu.policeSwitch.tag)
+        print(dispatchMenu.ambulanceSwitch.tag)
+        print(dispatchMenu.fireSwitch.tag)
+        
     }
     
     func displayPauseMenu() {
