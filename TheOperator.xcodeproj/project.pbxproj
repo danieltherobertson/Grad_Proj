@@ -40,6 +40,8 @@
 		657C9A6A1CE78A8B0044E068 /* ServiceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C9A691CE78A8B0044E068 /* ServiceEnum.swift */; };
 		6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */; };
 		6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D2641CE61BB900753E00 /* DispatchMenuView.swift */; };
+		658B218F1CF129D900A9B6D9 /* eventViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B218E1CF129D900A9B6D9 /* eventViewNib.xib */; };
+		658B21921CF134C900A9B6D9 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B21911CF134C900A9B6D9 /* EventView.swift */; };
 		65916FB51CC2D016004961AE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65916FB41CC2D016004961AE /* GameView.swift */; };
 		6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */ = {isa = PBXBuildFile; fileRef = 659856791CD0210C00BC9263 /* LevelDialogues.json */; };
 		65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */; };
@@ -115,6 +117,9 @@
 		657C9A691CE78A8B0044E068 /* ServiceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEnum.swift; sourceTree = "<group>"; };
 		6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dispatchMenuViewNib.xib; sourceTree = "<group>"; };
 		6589D2641CE61BB900753E00 /* DispatchMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchMenuView.swift; sourceTree = "<group>"; };
+		658B218E1CF129D900A9B6D9 /* eventViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventViewNib.xib; sourceTree = "<group>"; };
+		658B21901CF12B0200A9B6D9 /* headline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = headline.ttf; sourceTree = "<group>"; };
+		658B21911CF134C900A9B6D9 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		65916FB41CC2D016004961AE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		659856791CD0210C00BC9263 /* LevelDialogues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LevelDialogues.json; sourceTree = "<group>"; };
 		65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +199,7 @@
 			children = (
 				65510C8A1CCD83A1007C50BC /* slots_background.gif */,
 				65510C801CCD8370007C50BC /* Kemco_Pixel_Bold.ttf */,
+				658B21901CF12B0200A9B6D9 /* headline.ttf */,
 				65510C811CCD8370007C50BC /* monofonto.ttf */,
 				65510C821CCD8370007C50BC /* operator_background_animated.gif */,
 				65510C831CCD8370007C50BC /* operatorTheme.mp3 */,
@@ -307,6 +313,8 @@
 				653F6F141CBFD582008EEF21 /* TextExtension.swift */,
 				65510C7D1CCD830B007C50BC /* ButtonExtension.swift */,
 				65E5E01C1CE4CFEA002A3048 /* CALayerExtension.swift */,
+				658B218E1CF129D900A9B6D9 /* eventViewNib.xib */,
+				658B21911CF134C900A9B6D9 /* EventView.swift */,
 			);
 			name = "View 🖥";
 			sourceTree = "<group>";
@@ -449,6 +457,7 @@
 				6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */,
 				65510C851CCD8370007C50BC /* Kemco_Pixel_Bold.ttf in Resources */,
 				6532216C1CE92CDD007B9412 /* pauseMenuViewNib.xib in Resources */,
+				658B218F1CF129D900A9B6D9 /* eventViewNib.xib in Resources */,
 				65510C891CCD8370007C50BC /* operator.gif in Resources */,
 				654B417D1CBBF4B100D9953C /* Levels.json in Resources */,
 				65ACF7641CB5DEDC0042FBB7 /* gameProgressNib.xib in Resources */,
@@ -509,6 +518,7 @@
 				6532B3701C5FC14E00D734EF /* PaddedLabel.swift in Sources */,
 				651DA2801CBF84850009FA70 /* UIColor.swift in Sources */,
 				65A2B9081CE2A9A200836FAA /* TutorialViewController.swift in Sources */,
+				658B21921CF134C900A9B6D9 /* EventView.swift in Sources */,
 				65387A191CA1A2D80070FAD7 /* Call.swift in Sources */,
 				65E05CC11C7627B5002C507D /* GameSlotsViewController.swift in Sources */,
 				651DA2821CBF84990009FA70 /* UIImage.swift in Sources */,
