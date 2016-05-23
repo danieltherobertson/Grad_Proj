@@ -497,14 +497,23 @@
                                 <rect key="frame" x="20" y="121" width="560" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-Nq-n63">
+                                <rect key="frame" x="180" y="258" width="241" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="pud-9a-dKN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="101" id="I9Z-7h-sbt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
+                            <constraint firstItem="PJR-Nq-n63" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="Nda-iJ-JNW"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
                             <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="147" id="bNF-IS-iwc"/>
+                            <constraint firstItem="PJR-Nq-n63" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="238" id="h1R-X9-aKB"/>
+                            <constraint firstItem="PJR-Nq-n63" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="iIP-p8-TdO"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="trailing" secondItem="mEk-am-Y8H" secondAttribute="trailingMargin" id="x1s-Vg-cp7"/>
                         </constraints>
                         <variation key="default">
@@ -516,6 +525,7 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="bxs-da-txE" id="XYc-Bk-eCl"/>
+                        <outlet property="sirensGif" destination="PJR-Nq-n63" id="RfT-ZM-sNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rng-js-Oh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
