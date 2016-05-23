@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uex-oO-kqo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -516,6 +516,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="segueToReviewScreen:" destination="uex-oO-kqo" eventType="touchUpInside" id="lLs-7t-Zxb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming news update!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-vL-46N">
                                 <rect key="frame" x="20" y="71" width="560" height="61"/>
@@ -558,6 +561,7 @@
                         <outlet property="continueButton" destination="AZG-YJ-VjU" id="yy2-tM-cHv"/>
                         <outlet property="incomingNews" destination="HYi-vL-46N" id="UBn-ho-G9s"/>
                         <outlet property="sirensGif" destination="PJR-Nq-n63" id="RfT-ZM-sNf"/>
+                        <segue destination="UIe-of-48G" kind="show" identifier="resultsToReviewScreen" id="bCg-AP-KbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rng-js-Oh9" userLabel="First Responder" sceneMemberID="firstResponder"/>

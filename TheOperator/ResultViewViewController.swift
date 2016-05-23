@@ -41,27 +41,29 @@ class ResultViewViewController: UIViewController {
                     let triggerTime = Int64(3 * (NSEC_PER_SEC))
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                         self.sirensGif.alpha = 0
-                        UIView.animateWithDuration(0.50, animations: {
+                        UIView.animateWithDuration(0.5, animations: {
                             self.incomingNews.stopAnimation()
                             self.containerView.alpha = 1.0
-                            self.containerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                            self.containerView.transform = CGAffineTransformMakeScale(0.8, 0.8)
                             self.continueButton.alpha = 1.0
-                        });
+                         }, completion: { (true) in
+                                UIView.animateWithDuration(0.095, animations: {
+                                    self.containerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                            })
+                        })
                     })
             })
         })
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func segueToReviewScreen(sender: AnyObject) {
+        performSegueWithIdentifier("resultsToReviewScreen", sender: self)
     }
-    */
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let reviewVC = (segue.destinationViewController as? LevelReviewViewController)
+
+    }
+
 
 }
