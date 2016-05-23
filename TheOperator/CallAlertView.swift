@@ -42,6 +42,7 @@ class CallAlertView: UIView {
         callAlertAnswerButton.backgroundColor = UIColor.lightGrayColor()
         callAlertAnswerButton.buttonStyle(callAlertAnswerButton, colour: ButtonColour.Red)
         
+        
     }
     
     class func instanceFromNib() -> CallAlertView {
@@ -50,6 +51,7 @@ class CallAlertView: UIView {
     
     
     func showInView(aView: UIView!, message: String!, animated: Bool) {
+        
         aView.addSubview(self)
         self.center = aView.center
         callAlertMessage.textColor = .whiteColor()

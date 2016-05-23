@@ -281,22 +281,23 @@ class GameViewController: UIViewController {
                 gameView.skipButton.enabled = false
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
+            } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
+                if triggersDispatch == true {
+                    gameView.gameText.text = ""
+                    clearButtons()
+                    gameView.gameText.typeStart("Please send help")
+                    onTypeComplete = {
+                        let triggerTime = Int64(2 * (NSEC_PER_SEC))
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                            self.displayDispatchMenu()
+                        })
+                    }
+                } else {
+                sender.hidden = true
+                questionHandler(nextDialogue, enablesPopUp: false)
+                }
             }
-        } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
-            if triggersDispatch == true {
-                gameView.gameText.text = ""
-                clearButtons()
-                gameView.gameText.typeStart("Please send help")
-                let triggerTime = Int64(2 * (NSEC_PER_SEC))
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
-                    self.displayDispatchMenu()
-                })
-            }
-        } else {
-            sender.hidden = true
-            questionHandler(nextDialogue, enablesPopUp: false)
         }
-   
     }
     
     func triggerCall() {
@@ -335,6 +336,41 @@ class GameViewController: UIViewController {
                 gameView.timeIndicator.textColor = .greenColor()
             } else {
                 gameView.timeIndicator.textColor = .redColor()
+                countDownTimer?.invalidate()
+            }
+            let timeFail = "<Error: Signal lost> \n<Error: No time remaining>\n System log: Call Failed"
+            gameView.gameText.text = ""
+            clearButtons()
+            gameView.gameText.typeStart(timeFail)
+            onTypeComplete = {
+                let dialogue = ZAlertView(title: "No time remaining", message: "You've run out of time! Do you want to restart the level or exit?", isOkButtonLeft: true, okButtonText: "Restart", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
+                    for button in self.buttons {
+                        button.setTitle(" ", forState: .Normal)
+                        button.titleLabel?.setLineHeight(10, alignment: .Left)
+                    }
+                    self.gameView.skipButton.enabled = true
+                    self.gameView.characterImg.alpha = 0
+                    self.gameView.speakerName.alpha = 0
+                    self.gameView.speakerName.textColor = .blackColor()
+                    self.gameView.speakerName.text = ""
+                    self.gameView.gameText.text = ""
+                    self.gameView.timeIndicator.textColor = .greenColor()
+                    self.clearButtons()
+                    self.gameView.gameTextContainerHeightConstraint.constant = 0
+                    self.view.layoutIfNeeded()
+                    self.currentDialogue = 0
+                    self.levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
+                    self.stageDialogue = self.levelDialogue[self.currentDialogue]
+                    self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                    self.numberOfButtons = self.stageAnswers?.count
+                    alertView.dismiss()
+                    self.startText()
+                    }, cancelButtonHandler: { (alertView) in
+                        self.performSegueWithIdentifier("gameReturnToProgressView", sender: self)
+                        alertView.dismiss()
+                })
+                dialogue.allowTouchOutsideToDismiss = false
+                dialogue.show()
             }
         } else if timeCount <= 10 && timeCount > 0 {
             if gameView.timeIndicator.textColor == UIColor.redColor() {
@@ -464,8 +500,6 @@ class GameViewController: UIViewController {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                 self.segueToResultsView()
             })
-
-
         }
     }
     
