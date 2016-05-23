@@ -286,7 +286,9 @@ class GameViewController: UIViewController {
                     gameView.gameText.text = ""
                     clearButtons()
                     gameView.gameText.typeStart("Please send help")
+                    isTyping = true
                     onTypeComplete = {
+                        self.isTyping = false
                         let triggerTime = Int64(2 * (NSEC_PER_SEC))
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                             self.displayDispatchMenu()
@@ -342,7 +344,9 @@ class GameViewController: UIViewController {
             gameView.gameText.text = ""
             clearButtons()
             gameView.gameText.typeStart(timeFail)
+            isTyping = true
             onTypeComplete = {
+                self.isTyping = false
                 let dialogue = ZAlertView(title: "No time remaining", message: "You've run out of time! Do you want to restart the level or exit?", isOkButtonLeft: true, okButtonText: "Restart", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
                     for button in self.buttons {
                         button.setTitle(" ", forState: .Normal)
@@ -401,6 +405,7 @@ class GameViewController: UIViewController {
         dispatchMenu = DispatchMenuView.instanceFromNib()
         if isTyping {
             gameView.gameText.stopType()
+            isTyping = false
             dispatchMenu.resumeType = resumeType
         }
         
@@ -423,6 +428,7 @@ class GameViewController: UIViewController {
         
         if isTyping {
             gameView.gameText.stopType()
+            isTyping = false
         }
         
         if isTiming {
@@ -485,9 +491,10 @@ class GameViewController: UIViewController {
     
     func levelEnding(dispatched: String) {
         countDownTimer?.invalidate()
-        resumeType()
-        resumeTime()
-        speedType()
+    
+        //resumeType()
+       // resumeTime()
+       // speedType()
         onTypeComplete = {
             
         }
