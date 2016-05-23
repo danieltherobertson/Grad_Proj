@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uex-oO-kqo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -494,20 +494,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-da-txE" customClass="EventView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="71" width="560" height="455"/>
+                                <rect key="frame" x="20" y="121" width="560" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="6N2-2Z-3uk"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="Eip-oV-X6C"/>
-                            <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="HHI-0v-JSU"/>
-                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="74" id="JSd-Y4-axM"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="101" id="I9Z-7h-sbt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="iAk-mc-gh9"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="rPI-0g-8Ts"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
+                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="147" id="bNF-IS-iwc"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="trailing" secondItem="mEk-am-Y8H" secondAttribute="trailingMargin" id="x1s-Vg-cp7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

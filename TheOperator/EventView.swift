@@ -9,6 +9,7 @@
 import UIKit
 
 class EventView: UIView {
+    @IBOutlet weak var headlineLabel: UILabel!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -23,11 +24,12 @@ class EventView: UIView {
 //        super.init(coder: aDecoder)
 //    }
 //    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//    }
-//    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        headlineLabel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+       
+    }
+//
 //    class func instanceFromNib() -> EventView {
 //        return UINib(nibName: "eventViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! EventView
 //    }

@@ -14,16 +14,17 @@ class ResultViewViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
 //        let triggerTime = Int64(4 * (NSEC_PER_SEC))
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
 //            let newsPaper = EventView.instanceFromNib()
 //            newsPaper.frame = CGRect(x: 0, y: 0, width: self.containerView.bounds.width, height: self.containerView.bounds.height)
 //            newsPaper.showInView(self.containerView, animated: true)
 //        })
-//
-//    }
+
+    }
 
     
 

@@ -56,6 +56,7 @@
 		65ACF7661CB5E0CD0042FBB7 /* progressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACF7651CB5E0CD0042FBB7 /* progressCell.swift */; };
 		65B08D6C1C7D24C300FABC2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B08D6B1C7D24C300FABC2E /* Main.storyboard */; };
 		65BAEC0E1CD0F26F002BBBD9 /* DialogueRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BAEC0D1CD0F26F002BBBD9 /* DialogueRetriever.swift */; };
+		65BE679D1CF391A60064BD1F /* headline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 658B21901CF12B0200A9B6D9 /* headline.ttf */; };
 		65C799AD1CF0CF1100430421 /* scoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C799AC1CF0CF1100430421 /* scoreCalculator.swift */; };
 		65C9A87D1CC7B27E000A4FAD /* AutomaticTypable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9A87C1CC7B27E000A4FAD /* AutomaticTypable.swift */; };
 		65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65CECF701C9EC87300F563BF /* gameCellNib.xib */; };
@@ -449,6 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BE679D1CF391A60064BD1F /* headline.ttf in Resources */,
 				6548CD311CC6758F001B2C78 /* gameViewNib.xib in Resources */,
 				65510C881CCD8370007C50BC /* operatorTheme.mp3 in Resources */,
 				65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */,
