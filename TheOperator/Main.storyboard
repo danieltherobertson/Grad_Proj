@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uex-oO-kqo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,8 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Kemco_Pixel_Bold.ttf">
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -494,7 +496,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-da-txE" customClass="EventView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="121" width="560" height="332"/>
+                                <rect key="frame" x="20" y="151" width="560" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-Nq-n63">
@@ -503,17 +505,45 @@
                                     <constraint firstAttribute="width" constant="241" id="pud-9a-dKN"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-YJ-VjU">
+                                <rect key="frame" x="225" y="540" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="R4y-z8-8ij"/>
+                                    <constraint firstAttribute="height" constant="50" id="sI4-Wi-jjg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="21"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming news update!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-vL-46N">
+                                <rect key="frame" x="20" y="71" width="560" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Wci-CC-e1G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="101" id="I9Z-7h-sbt"/>
+                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="19Y-KB-lXN"/>
+                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="AZG-YJ-VjU" secondAttribute="bottom" constant="10" id="B4d-hX-zs7"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="131" id="I9Z-7h-sbt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
                             <constraint firstItem="PJR-Nq-n63" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="Nda-iJ-JNW"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
-                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="147" id="bNF-IS-iwc"/>
+                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="eOA-04-p0V"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="HYi-vL-46N" secondAttribute="bottom" constant="19" id="fJM-2c-svq"/>
                             <constraint firstItem="PJR-Nq-n63" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="238" id="h1R-X9-aKB"/>
+                            <constraint firstAttribute="trailing" secondItem="HYi-vL-46N" secondAttribute="trailing" constant="20" id="iCh-C4-pDD"/>
                             <constraint firstItem="PJR-Nq-n63" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="iIP-p8-TdO"/>
+                            <constraint firstItem="HYi-vL-46N" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="lE0-Oi-KHb"/>
+                            <constraint firstItem="HYi-vL-46N" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="uPy-H9-CZL"/>
+                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="wlM-vi-CHz"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="trailing" secondItem="mEk-am-Y8H" secondAttribute="trailingMargin" id="x1s-Vg-cp7"/>
                         </constraints>
                         <variation key="default">
@@ -525,6 +555,8 @@
                     </view>
                     <connections>
                         <outlet property="containerView" destination="bxs-da-txE" id="XYc-Bk-eCl"/>
+                        <outlet property="continueButton" destination="AZG-YJ-VjU" id="yy2-tM-cHv"/>
+                        <outlet property="incomingNews" destination="HYi-vL-46N" id="UBn-ho-G9s"/>
                         <outlet property="sirensGif" destination="PJR-Nq-n63" id="RfT-ZM-sNf"/>
                     </connections>
                 </viewController>
@@ -659,11 +691,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f02-Gh-sYc">
-                                <rect key="frame" x="205" y="540" width="190" height="50"/>
+                                <rect key="frame" x="225" y="540" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gUz-mZ-uWw"/>
-                                    <constraint firstAttribute="width" constant="190" id="jpW-ZF-DAR"/>
+                                    <constraint firstAttribute="width" constant="150" id="jpW-ZF-DAR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
                                 <state key="normal" title="Continue">
@@ -790,8 +822,8 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xht-o0-MF9"/>
-        <segue reference="hTk-yP-2Gf"/>
+        <segue reference="x7D-2a-gvU"/>
         <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="Xht-o0-MF9"/>
     </inferredMetricsTieBreakers>
 </document>

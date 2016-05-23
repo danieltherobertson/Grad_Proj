@@ -30,6 +30,20 @@ extension UILabel {
         }
     }
     
+    func blink(duration: Double) {
+        self.alpha = 0.0;
+        UIView.animateWithDuration(duration, //Time duration you want,
+            delay: 0.0,
+            options: [.CurveEaseInOut, .Autoreverse, .Repeat],
+            animations: { [weak self] in self?.alpha = 1.0 },
+            completion: { [weak self] _ in self?.alpha = 0.0 })
+    }
+    
+    func stopAnimation() {
+        self.layer.removeAllAnimations()
+    }
+    
+    
     func labelStyle(label: UILabel) -> UILabel {
         
         let label = label
