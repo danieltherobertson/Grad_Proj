@@ -10,12 +10,36 @@ import UIKit
 
 class EventView: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
-    */
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    class func instanceFromNib() -> EventView {
+        return UINib(nibName: "eventViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! EventView
+    }
+    
+    func showInView(mainView: UIView!, animated: Bool) {
+        mainView.addSubview(self)
+        
+        if animated {
+            self.showAnimate()
+        }
+    }
+    
+    func showAnimate() {
+        self.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.alpha = 0
+
+        UIView.animateWithDuration(0.25, animations: {
+            self.alpha = 1.0
+            self.transform = CGAffineTransformMakeScale(1.0, 1.0)
+        });
+    }
+
 
 }

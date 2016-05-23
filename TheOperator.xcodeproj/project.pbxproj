@@ -37,6 +37,7 @@
 		65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C8A1CCD83A1007C50BC /* slots_background.gif */; };
 		6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568DDB31CE2086400E29958 /* AudioPlayerController.swift */; };
 		6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */; };
+		657129A11CF278CD0056DBF4 /* ResultViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657129A01CF278CD0056DBF4 /* ResultViewViewController.swift */; };
 		657C9A6A1CE78A8B0044E068 /* ServiceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C9A691CE78A8B0044E068 /* ServiceEnum.swift */; };
 		6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */; };
 		6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D2641CE61BB900753E00 /* DispatchMenuView.swift */; };
@@ -114,6 +115,7 @@
 		65510C8A1CCD83A1007C50BC /* slots_background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slots_background.gif; sourceTree = "<group>"; };
 		6568DDB31CE2086400E29958 /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 		6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
+		657129A01CF278CD0056DBF4 /* ResultViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewViewController.swift; sourceTree = "<group>"; };
 		657C9A691CE78A8B0044E068 /* ServiceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEnum.swift; sourceTree = "<group>"; };
 		6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dispatchMenuViewNib.xib; sourceTree = "<group>"; };
 		6589D2641CE61BB900753E00 /* DispatchMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchMenuView.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				65510C791CCD82EE007C50BC /* GameViewController.swift */,
 				65A2B9071CE2A9A200836FAA /* TutorialViewController.swift */,
 				6568DDB31CE2086400E29958 /* AudioPlayerController.swift */,
+				657129A01CF278CD0056DBF4 /* ResultViewViewController.swift */,
 			);
 			name = "View Controller 🎮";
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				65F8971E1CB3306500CBEE92 /* ProgressViewController.swift in Sources */,
 				65510C7E1CCD830B007C50BC /* ButtonExtension.swift in Sources */,
 				650428091CE0C0440092B3B6 /* CallAlertView.swift in Sources */,
+				657129A11CF278CD0056DBF4 /* ResultViewViewController.swift in Sources */,
 				650B49801CB7FCA8002B10BF /* CreditsViewController.swift in Sources */,
 				651DA2841CBF84A20009FA70 /* ZAlertView.swift in Sources */,
 				6506D8341CB5BB1B00C0D188 /* UIImage+Gif.swift in Sources */,

@@ -264,7 +264,6 @@ class GameViewController: UIViewController {
                                 }
                             }
                         }
-                        print(specialPoints)
                     nextDialogue = goTo
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]
@@ -274,6 +273,7 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
@@ -281,12 +281,22 @@ class GameViewController: UIViewController {
                 gameView.skipButton.enabled = false
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
-                
-            } else {
-                sender.hidden = true
-                questionHandler(nextDialogue, enablesPopUp: false)
             }
+        } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
+            if triggersDispatch == true {
+                gameView.gameText.text = ""
+                clearButtons()
+                gameView.gameText.typeStart("Please send help")
+                let triggerTime = Int64(2 * (NSEC_PER_SEC))
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                    self.displayDispatchMenu()
+                })
+            }
+        } else {
+            sender.hidden = true
+            questionHandler(nextDialogue, enablesPopUp: false)
         }
+   
     }
     
     func triggerCall() {
@@ -381,7 +391,20 @@ class GameViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let progressVC = (segue.destinationViewController as? ProgressViewController)
-        progressVC?.currentSave = currentSave
+        
+        
+        if segue.identifier == "gameReturnToProgressView" {
+            progressVC?.currentSave = currentSave
+        }
+        
+        let resultViewVC = (segue.destinationViewController as? ResultViewViewController)
+        if segue.identifier == "gameViewToResultView" {
+            
+        }
+        if segue.identifier == "tutorialViewToResultView" {
+            
+        }
+
     }
     
     func returnToProgressView() {
@@ -408,22 +431,47 @@ class GameViewController: UIViewController {
     }
     
     func levelEnding(dispatched: String) {
+        buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
+        gameView.skipButton.enabled = false
+        gameView.skipButton.hidden = true
         stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
         let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
         let attributeString = NSMutableAttributedString(string: buttonText)
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3
         style.alignment = .Left
-        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, textTest.characters.count))
-        gameView.gameText.text = ""
+        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, buttonText.characters.count))
+        //gameView.gameText.text = ""
         clearButtons()
         buttons[1].hidden = false
         buttons[1].setAttributedTitle(attributeString, forState: .Normal)
+        buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
+        buttons[1].addTarget(self, action: #selector(randomResponse), forControlEvents: .TouchUpInside)
         gameView.buttonTwoHeightConstraint.constant = 80
         view.layoutIfNeeded()
-    
     }
     
+    func randomResponse() {
+        buttons[1].enabled = false
+        buttons[1].hidden = true
+        let random = Int(arc4random_uniform(6))
+        let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
+        let reply = replies[random]
+        gameView.gameText.text = ""
+        gameView.gameText.typeStart(reply)
+        onTypeComplete = {
+            let triggerTime = Int64(2 * (NSEC_PER_SEC))
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                self.segueToResultsView()
+            })
+
+
+        }
+    }
+    
+    func segueToResultsView(){
+        performSegueWithIdentifier("gameViewToResultView", sender: self)
+    }    
     //    func animateTransition(element: AnyObject, time: Double, direction: String) {
 //        let animation = CATransition()
 //        animation.duration = time
