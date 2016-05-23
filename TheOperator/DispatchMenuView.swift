@@ -19,7 +19,8 @@ class DispatchMenuView: UIView {
     var enabledServicesCount = Int()
     
     let shadow = UIView()
-    var resume: (() -> ())?
+    var resumeType: (() -> ())?
+    var resumeTime: (() -> ())?
     var dispatchSent: ((String) -> ())?
     var dispatched = ""
 
@@ -153,8 +154,11 @@ class DispatchMenuView: UIView {
     
     @IBAction func closeDispatchView(sender: AnyObject) {
         self.removeAnimate()
-        if let resume = resume {
-            resume()
+        if let resumeType = resumeType {
+            resumeType()
+        }
+        if let resumeTime = resumeTime {
+            resumeTime()
         }
 //        if let callback = onPopUpClose {
 //            callback ()
@@ -218,9 +222,7 @@ class DispatchMenuView: UIView {
         let dialogue = ZAlertView(title: "Confirm Dispatch", message: "\(dispatchMessage) This cannot be undone.", isOkButtonLeft: true, okButtonText: "Dispatch!", cancelButtonText: "Cancel", okButtonHandler: { (ZAlertView) in
             ZAlertView.dismiss()
             self.removeAnimate()
-            if let resume = self.resume {
-              //  resume()
-            }
+
             if let dispatchSent = self.dispatchSent {
                 dispatchSent(dispatched)
             }

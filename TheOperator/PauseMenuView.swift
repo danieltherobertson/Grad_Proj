@@ -11,7 +11,8 @@ import UIKit
 class PauseMenuView: UIView {
     
     let shadow = UIView()
-    var resume: (() -> ())?
+    var resumeType: (() -> ())?
+    var resumeTime: (() -> ())?
     
     @IBOutlet weak var gamePausedLabel: UILabel!
     @IBOutlet weak var resumeButton: UIButton!
@@ -82,8 +83,12 @@ class PauseMenuView: UIView {
     }
     
     @IBAction func resumeGame(sender: AnyObject) {
-        if let resume = resume {
-            resume()
+        if let resumeType = resumeType {
+            resumeType()
+        }
+        
+        if let resumeTime = resumeTime {
+            resumeTime()
         }
         removeAnimate()
     }

@@ -52,7 +52,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculateRank(180, remainingTime: "01:08", dispatchedServices: [0,1], requiredServices: ["Fire Brigade","Ambulance"])
+        let playerRank = calculateRank(180, remainingTime: "00:40", dispatchedServices: [1], requiredServices: ["Fire Brigade","Police"])
         continueButton.buttonStyle(continueButton)
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]
@@ -61,7 +61,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         activeLine = 0
 
         reviewRank.setLineHeight(3, alignment: .Left)
-        rank = "Rewarded Rank: Recruit"
+        rank = "Rewarded Rank: \(playerRank)"
         comment = "Is that the best you can do? I expected better from you."
 
         type()

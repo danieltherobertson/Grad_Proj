@@ -9,37 +9,46 @@
 import UIKit
 
 class EventView: UIView {
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         
-    }
-    
-    class func instanceFromNib() -> EventView {
-        return UINib(nibName: "eventViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! EventView
-    }
-    
-    func showInView(mainView: UIView!, animated: Bool) {
-        mainView.addSubview(self)
-        
-        if animated {
-            self.showAnimate()
+        if let nibsView = NSBundle.mainBundle().loadNibNamed("eventViewNib", owner: self, options: nil) as? [UIView] {
+            let nibRoot = nibsView[0]
+            self.addSubview(nibRoot)
+            nibRoot.frame = self.bounds
         }
     }
-    
-    func showAnimate() {
-        self.transform = CGAffineTransformMakeScale(1.3, 1.3)
-        self.alpha = 0
 
-        UIView.animateWithDuration(0.25, animations: {
-            self.alpha = 1.0
-            self.transform = CGAffineTransformMakeScale(1.0, 1.0)
-        });
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//    }
+//    
+//    class func instanceFromNib() -> EventView {
+//        return UINib(nibName: "eventViewNib", bundle: nil).instantiateWithOwner(nil, options: nil).first as! EventView
+//    }
+//    
+//    func showInView(mainView: UIView!, animated: Bool) {
+//        mainView.addSubview(self)
+//        
+//        if animated {
+//            self.showAnimate()
+//        }
+//    }
+//    
+//    func showAnimate() {
+//        self.transform = CGAffineTransformMakeScale(1.3, 1.3)
+//        self.alpha = 0
+//
+//        UIView.animateWithDuration(0.25, animations: {
+//            self.alpha = 1.0
+//            self.transform = CGAffineTransformMakeScale(1.0, 1.0)
+//        });
+//    }
 
 
 }

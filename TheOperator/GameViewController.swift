@@ -349,6 +349,7 @@ class GameViewController: UIViewController {
                         button.titleLabel?.setLineHeight(10, alignment: .Left)
                     }
                     self.gameView.skipButton.enabled = true
+                    self.gameView.dispatchButton.enabled = false
                     self.gameView.characterImg.alpha = 0
                     self.gameView.speakerName.alpha = 0
                     self.gameView.speakerName.textColor = .blackColor()
@@ -400,10 +401,17 @@ class GameViewController: UIViewController {
         dispatchMenu = DispatchMenuView.instanceFromNib()
         if isTyping {
             gameView.gameText.stopType()
+            dispatchMenu.resumeType = resumeType
         }
-        dispatchMenu.resume = resumeType
+        
+        if isTiming {
+            countDownTimer?.invalidate()
+            isTiming = false
+            dispatchMenu.resumeTime = resumeTime
+        }
+        
         dispatchMenu.dispatchSent = levelEnding
-        countDownTimer?.invalidate()
+        //countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
         print(dispatchMenu.policeSwitch.tag)
         print(dispatchMenu.ambulanceSwitch.tag)
@@ -416,10 +424,15 @@ class GameViewController: UIViewController {
         if isTyping {
             gameView.gameText.stopType()
         }
-        countDownTimer?.invalidate()
+        
+        if isTiming {
+            countDownTimer?.invalidate()
+            isTiming = false
+        }
         
         pauseMenu = PauseMenuView.instanceFromNib()
-        pauseMenu.resume = resumeType
+        pauseMenu.resumeType = resumeType
+        pauseMenu.resumeTime = resumeTime
         pauseMenu.exitLevelButton.addTarget(nil, action: #selector(returnToProgressView), forControlEvents: .TouchUpInside)
         pauseMenu.showInView(self.view, animated: true)
         
@@ -461,12 +474,23 @@ class GameViewController: UIViewController {
         if isTyping {
         gameView.gameText.typeStart(resumeDialogue)
         }
+        
+    }
+    
+    func resumeTime() {
         if isTiming {
             countDown(timeCount)
         }
     }
     
     func levelEnding(dispatched: String) {
+        countDownTimer?.invalidate()
+        resumeType()
+        resumeTime()
+        speedType()
+        onTypeComplete = {
+            
+        }
         buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         gameView.skipButton.enabled = false
         gameView.skipButton.hidden = true
@@ -477,7 +501,6 @@ class GameViewController: UIViewController {
         style.lineSpacing = 3
         style.alignment = .Left
         attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, buttonText.characters.count))
-        //gameView.gameText.text = ""
         clearButtons()
         buttons[1].hidden = false
         buttons[1].setAttributedTitle(attributeString, forState: .Normal)

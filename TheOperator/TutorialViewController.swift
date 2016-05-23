@@ -355,7 +355,7 @@ class TutorialViewController: UIViewController {
         if isTyping {
             gameView.gameText.stopType()
         }
-        dispatchMenu.resume = resumeType
+        dispatchMenu.resumeType = resumeType
         countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
     }
@@ -368,7 +368,7 @@ class TutorialViewController: UIViewController {
         countDownTimer?.invalidate()
         
         pauseMenu = PauseMenuView.instanceFromNib()
-        pauseMenu.resume = resumeType
+        pauseMenu.resumeType = resumeType
         pauseMenu.exitLevelButton.addTarget(nil, action: #selector(returnToProgressView), forControlEvents: .TouchUpInside)
         pauseMenu.showInView(self.view, animated: true)
         

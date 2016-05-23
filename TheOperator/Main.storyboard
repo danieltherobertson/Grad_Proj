@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -98,7 +97,7 @@
                                     <segue destination="ZzI-CA-vw3" kind="show" identifier="loadGameSlotsPush" id="ZpM-Vx-JOL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
                                 <rect key="frame" x="170" y="223" width="260" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="F4r-hF-5kt"/>
@@ -181,16 +180,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="p7E-6W-Tze">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="p7E-6W-Tze">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
                                 <rect key="frame" x="20" y="65" width="560" height="20"/>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="TheOperator" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="105" width="560" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -213,7 +212,7 @@
                                     <action selector="backButton:" destination="ZzI-CA-vw3" eventType="touchUpInside" id="nba-Hk-4xF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
                                 <rect key="frame" x="20" y="464" width="560" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="524" id="5Qo-ip-zU9"/>
@@ -494,24 +493,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-da-txE" customClass="EventView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="112" y="95" width="376" height="410"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-da-txE" customClass="EventView" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="71" width="560" height="455"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bxs-da-txE" secondAttribute="height" multiplier="188:205" id="VDq-kg-Zgn"/>
-                                    <constraint firstAttribute="height" constant="410" id="kOI-mF-7ys"/>
-                                    <constraint firstAttribute="width" constant="376" id="tn0-bm-kHe"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="6tp-hT-lsK"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="dnu-Dy-16o"/>
+                            <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="6N2-2Z-3uk"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="Eip-oV-X6C"/>
+                            <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="HHI-0v-JSU"/>
+                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="74" id="JSd-Y4-axM"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="iAk-mc-gh9"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="rPI-0g-8Ts"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="10w-wm-ha6"/>
+                                <exclude reference="MRD-Ip-nvi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="newsPaper" destination="bxs-da-txE" id="2IN-BP-MgL"/>
+                        <outlet property="containerView" destination="bxs-da-txE" id="XYc-Bk-eCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rng-js-Oh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
