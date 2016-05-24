@@ -64,14 +64,16 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
            // print(serviceToDispatch)
             if let ifFails = item.valueForKey("ifFails") as? String {
                 if let ifPresent = item.valueForKey("ifPresent") as? String {
-                    if serviceToDispatch == "Police" {
-                        service1.append(serviceToDispatch); service1.append(ifFails); service1.append(ifPresent)
-                    }
-                    if serviceToDispatch == "Ambulance" {
-                        service2.append(serviceToDispatch); service2.append(ifFails); service2.append(ifPresent)
-                    }
-                    if serviceToDispatch == "Fire Brigade" {
-                        service3.append(serviceToDispatch); service3.append(ifFails); service3.append(ifPresent)
+                    if let critical = item.valueForKey("isCritical") as? String {
+                        if serviceToDispatch == "Police" {
+                            service1.append(serviceToDispatch); service1.append(ifFails); service1.append(ifPresent); service1.append(critical)
+                        }
+                        if serviceToDispatch == "Ambulance" {
+                            service2.append(serviceToDispatch); service2.append(ifFails); service2.append(ifPresent); service2.append(critical)
+                        }
+                        if serviceToDispatch == "Fire Brigade" {
+                            service3.append(serviceToDispatch); service3.append(ifFails); service3.append(ifPresent); service3.append(critical)
+                        }
                     }
                 }
             }
@@ -86,28 +88,67 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
     for missingService in missingServices {
         if missingService == service1.first {
             failHeadlines.append(service1[1])
+            failHeadlines.append(service1[3])
         }
         if missingService == service2.first {
             failHeadlines.append(service2[1])
+            failHeadlines.append(service2[3])
         }
         if missingService == service3.first {
             failHeadlines.append(service3[1])
+            failHeadlines.append(service3[3])
         }
     }
     print(rightServices)
     for rightService in rightServices {
         if rightService == service1.first {
             passHeadlines.append(service1[2])
+            passHeadlines.append(service1[3])
         }
         if rightService == service2.first {
             passHeadlines.append(service2[2])
+            passHeadlines.append(service2[3])
         }
         if rightService == service3.first {
             passHeadlines.append(service3[2])
+            passHeadlines.append(service3[3])
         }
     }
     print("PASS \(passHeadlines)")
     print("FAIL \(failHeadlines)")
+    
+    var eventPosition = 0
+    var event = String()
+    var eventIsInPass = false
+    
+    for (index, headline) in passHeadlines .enumerate(){
+        if headline == "true" {
+            eventIsInPass = true
+            eventPosition = index-1
+        }
+    }
+    
+    for (index, headline) in failHeadlines .enumerate(){
+        if headline == "true" {
+            eventIsInPass = false
+            eventPosition = index-1
+        }
+    }
+    
+    if eventIsInPass {
+        for (index, headline) in passHeadlines .enumerate(){
+            if index == eventPosition {
+                event = headline
+            }
+        }
+    } else {
+        for (index, headline) in failHeadlines .enumerate(){
+            if index == eventPosition {
+                event = headline
+            }
+        }
+    }
+    print(event)
     
     return ""
 }

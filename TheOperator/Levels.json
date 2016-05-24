@@ -24,11 +24,13 @@
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
+                    "isCritical":"true",
                     "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
                     "ifPresent":"Fire Brigade save cat!"
                 },
                 {
                     "service":"Police",
+                    "isCritical":"false",
                     "ifFails":"Because the Police were not called, the cat has died.",
                     "ifPresent":"Police save cat!"
                 }
