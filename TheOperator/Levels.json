@@ -24,7 +24,7 @@
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
-                    "isCritical":"true",
+                    "isCritical":"false",
                     "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
                     "ifPresent":"Fire Brigade save cat!"
                 },
@@ -33,6 +33,12 @@
                     "isCritical":"false",
                     "ifFails":"Because the Police were not called, the cat has died.",
                     "ifPresent":"Police save cat!"
+                },
+                {
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save wounded child",
+                    "ifPresent":"Hero Operator saves child"
                 }
             ]
 		},

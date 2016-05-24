@@ -80,9 +80,9 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
         }
     }
     
-//    print(service1)
-//    print(service2)
-//    print(service3)
+    print(service1)
+    print(service2)
+    print(service3)
     
     //Finding the headlines that match to each missing and correct service, adding those headlines to an array of fail headlines and an array of pass headLines
     for missingService in missingServices {
@@ -117,12 +117,13 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
     print("PASS \(passHeadlines)")
     print("FAIL \(failHeadlines)")
     
-    var eventPosition = 0
+    var eventPosition = Int()
     var event = String()
-    var eventIsInPass = false
+    var eventIsInPass = Bool()
     
     for (index, headline) in passHeadlines .enumerate(){
         if headline == "true" {
+            //print(index)
             eventIsInPass = true
             eventPosition = index-1
         }
@@ -131,10 +132,11 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
     for (index, headline) in failHeadlines .enumerate(){
         if headline == "true" {
             eventIsInPass = false
+        //    print(index)
             eventPosition = index-1
         }
     }
-    
+    //print(eventPosition)
     if eventIsInPass {
         for (index, headline) in passHeadlines .enumerate(){
             if index == eventPosition {
@@ -148,7 +150,7 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
             }
         }
     }
-    print(event)
+print(event)
     
     return ""
 }
