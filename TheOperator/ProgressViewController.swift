@@ -23,7 +23,7 @@ class ProgressViewController: UIViewController {
     var selectedLevel = NSDictionary()
     
     var levelRequiredServices = [String]()
-    var levelServicesEvent = [String]()
+    var levelServicesEvent = [NSDictionary]()
     
     var playerName: String!
     var playerProgress: Int!
@@ -110,12 +110,11 @@ class ProgressViewController: UIViewController {
         
         startButton.addTarget(nil, action: #selector(segueToGame), forControlEvents: UIControlEvents.TouchUpInside)
             
-        if let requiredServices = selectedLevel.valueForKey("requiredServices") as? Array<AnyObject> {
+        if let requiredServices = selectedLevel.valueForKey("requiredServices") as? Array<NSDictionary> {
             for service in requiredServices {
                 let serviceTemp = service.valueForKey("service") as! String
                 levelRequiredServices.append(serviceTemp)
-                let eventTemp = service.valueForKey("ifFails") as! String
-                levelServicesEvent.append(eventTemp)
+                levelServicesEvent = requiredServices
             }
         }
         let currentLev = String(selectedLevel.valueForKey("number")!)

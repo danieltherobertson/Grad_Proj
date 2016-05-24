@@ -25,7 +25,7 @@ class TutorialViewController: UIViewController {
     var currentLevRead: Int!
     
     var requiredServices = [String]()
-    var servicesEvent = [String]()
+    var servicesEvent = [NSDictionary]()
     
     var currentDialogue = 0
     var specialPoints = 0

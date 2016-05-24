@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     var currentLevRead: Int!
     
     var requiredServices = [String]()
-    var servicesEvent = [String]()
+    var servicesEvent = [NSDictionary]()
     
     var currentDialogue = 0
     var specialPoints = 0
@@ -64,8 +64,7 @@ class GameViewController: UIViewController {
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
         
-        print(requiredServices)
-        print(servicesEvent)
+        generateHeadline([0,1], requiredServices: requiredServices, headlines: servicesEvent)
 
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo

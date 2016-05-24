@@ -525,7 +525,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="Wci-CC-e1G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

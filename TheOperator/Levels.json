@@ -3,10 +3,18 @@
 		{
 			"number": "0",
 			"name": "Cadet Training",
+            "failedHeadline":"",
+            "passedHeadline":"",
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
+                    "ifPresent":""
+                },
+                {
+                    "service":"Police",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
+                    "ifPresent":""
                 }
             ]
 		},
@@ -16,7 +24,13 @@
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
+                    "ifPresent":"Fire Brigade save cat!"
+                },
+                {
+                    "service":"Police",
+                    "ifFails":"Because the Police were not called, the cat has died.",
+                    "ifPresent":"Police save cat!"
                 }
             ]
 		},
