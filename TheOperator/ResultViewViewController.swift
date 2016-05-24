@@ -11,9 +11,9 @@ import UIKit
 class ResultViewViewController: UIViewController {
     
 
-
+    var headline = String()
     @IBOutlet weak var sirensGif: UIImageView!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var eventView: EventView!
     @IBOutlet weak var incomingNews: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
@@ -22,14 +22,16 @@ class ResultViewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventView.headlineLabel.text = headline
+        eventView.headlineLabel.adjustsFontSizeToFitWidth = true
         incomingNews.setLineHeight(3, alignment: .Center)
         incomingNews.alpha = 0
         continueButton.alpha = 0
         sirensGif.image = gif
         sirensGif.alpha = 0
         sirensGif.transform = CGAffineTransformMakeScale(3.3, 3.3)
-        containerView.alpha = 0
-        self.containerView.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        eventView.alpha = 0
+        self.eventView.transform = CGAffineTransformMakeScale(1.3, 1.3)
         let triggerTime = Int64(2 * (NSEC_PER_SEC))
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
             UIView.animateWithDuration(0.50, animations: { 
@@ -43,12 +45,12 @@ class ResultViewViewController: UIViewController {
                         self.sirensGif.alpha = 0
                         UIView.animateWithDuration(0.5, animations: {
                             self.incomingNews.stopAnimation()
-                            self.containerView.alpha = 1.0
-                            self.containerView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                            self.eventView.alpha = 1.0
+                            self.eventView.transform = CGAffineTransformMakeScale(0.8, 0.8)
                             self.continueButton.alpha = 1.0
                          }, completion: { (true) in
                                 UIView.animateWithDuration(0.095, animations: {
-                                    self.containerView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                    self.eventView.transform = CGAffineTransformMakeScale(1.0, 1.0)
                             })
                         })
                     })

@@ -557,8 +557,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="bxs-da-txE" id="XYc-Bk-eCl"/>
                         <outlet property="continueButton" destination="AZG-YJ-VjU" id="yy2-tM-cHv"/>
+                        <outlet property="eventView" destination="bxs-da-txE" id="OZk-d8-nOI"/>
                         <outlet property="incomingNews" destination="HYi-vL-46N" id="UBn-ho-G9s"/>
                         <outlet property="sirensGif" destination="PJR-Nq-n63" id="RfT-ZM-sNf"/>
                         <segue destination="UIe-of-48G" kind="show" identifier="resultsToReviewScreen" id="bCg-AP-KbV"/>

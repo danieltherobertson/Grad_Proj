@@ -24,7 +24,9 @@ class GameViewController: UIViewController {
     var currentLevRead: Int!
     
     var requiredServices = [String]()
+    var dispatchServices = [Int]()
     var servicesEvent = [NSDictionary]()
+    var headline = String()
     
     var currentDialogue = 0
     var specialPoints = 0
@@ -63,8 +65,6 @@ class GameViewController: UIViewController {
         
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
-        
-        generateHeadline([0,1], requiredServices: requiredServices, headlines: servicesEvent)
 
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
@@ -453,7 +453,7 @@ class GameViewController: UIViewController {
         
         let resultViewVC = (segue.destinationViewController as? ResultViewViewController)
         if segue.identifier == "gameViewToResultView" {
-            
+            resultViewVC?.headline = headline
         }
         if segue.identifier == "tutorialViewToResultView" {
             
@@ -502,6 +502,9 @@ class GameViewController: UIViewController {
         gameView.skipButton.hidden = true
         stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
         let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
+        let servicesConvert = servicesStringToInt(dispatched)
+        headline = generateHeadline(servicesConvert, requiredServices: requiredServices, headlines: servicesEvent)
+        print(headline)
         let attributeString = NSMutableAttributedString(string: buttonText)
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3

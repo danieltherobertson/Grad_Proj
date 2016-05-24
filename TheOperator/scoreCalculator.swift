@@ -8,6 +8,149 @@
 
 import Foundation
 
+
+func servicesStringToInt(services: String) -> [Int] {
+    var servicesCut = services.componentsSeparatedByString(" ")
+    var servicesConvert = [Int]()
+    for (index, word) in servicesCut.enumerate() {
+        if word == "Police"  {
+            servicesConvert.append(0)
+        }
+        if word == "Ambulance" {
+            servicesConvert.append(1)
+        }
+        if word == "Fire" {
+            servicesConvert.append(2)
+        }
+    }
+    print("services convert:: \(servicesConvert)")
+    return servicesConvert
+}
+
+func generateHeadline (dispatchedServices: [Int], requiredServices: [String], headlines: [NSDictionary]) -> String {
+    var dispatchedServicesString = [String]()
+    var wrongServices = [String]()
+    var rightServices = [String]()
+    var missingServices = [String]()
+    var service1 = [String]()
+    var service2 = [String]()
+    var service3 = [String]()
+    var failHeadlines = [String]()
+    var passHeadlines = [String]()
+    
+    //Convert dispatched services to strings
+    for service in dispatchedServices {
+        if service == 0 {
+            dispatchedServicesString.append("Police")
+        } else if service == 1 {
+            dispatchedServicesString.append("Ambulance")
+        } else if service == 2 {
+            dispatchedServicesString.append("Fire Brigade")
+        }
+    }
+    
+    print("juicy memes \(dispatchedServicesString)")
+    
+    for requiredService in requiredServices {
+        for dispatchedService in dispatchedServicesString {
+            if dispatchedServicesString.contains(requiredService) == false && missingServices.contains(requiredService) == false {
+                missingServices.append(requiredService)
+            }
+            if dispatchedServicesString.contains(requiredService) && rightServices.contains(requiredService) == false {
+                rightServices.append(requiredService)
+            }
+            if requiredServices.contains(dispatchedService) == false && wrongServices.contains(dispatchedService) == false {
+                wrongServices.append(dispatchedService)
+            }
+        }
+    }
+    
+    //Getting the ifFails and ifPresent headlines for each requiredService, seperating them out into Police headlines, Ambulance headlines and Fire headlines
+    for item in headlines {
+        if let serviceToDispatch = item.valueForKey("service") as? String {
+            // print(serviceToDispatch)
+            if let ifFails = item.valueForKey("ifFails") as? String {
+                if let ifPresent = item.valueForKey("ifPresent") as? String {
+                    if let critical = item.valueForKey("isCritical") as? String {
+                        if serviceToDispatch == "Police" {
+                            service1.append(serviceToDispatch); service1.append(ifFails); service1.append(ifPresent); service1.append(critical)
+                        }
+                        if serviceToDispatch == "Ambulance" {
+                            service2.append(serviceToDispatch); service2.append(ifFails); service2.append(ifPresent); service2.append(critical)
+                        }
+                        if serviceToDispatch == "Fire Brigade" {
+                            service3.append(serviceToDispatch); service3.append(ifFails); service3.append(ifPresent); service3.append(critical)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //Finding the headlines that match to each missing and correct service, adding those headlines to an array of fail headlines and an array of pass headLines
+    for missingService in missingServices {
+        if missingService == service1.first {
+            failHeadlines.append(service1[1])
+            failHeadlines.append(service1[3])
+        }
+        if missingService == service2.first {
+            failHeadlines.append(service2[1])
+            failHeadlines.append(service2[3])
+        }
+        if missingService == service3.first {
+            failHeadlines.append(service3[1])
+            failHeadlines.append(service3[3])
+        }
+    }
+    
+    for rightService in rightServices {
+        if rightService == service1.first {
+            passHeadlines.append(service1[2])
+            passHeadlines.append(service1[3])
+        }
+        if rightService == service2.first {
+            passHeadlines.append(service2[2])
+            passHeadlines.append(service2[3])
+        }
+        if rightService == service3.first {
+            passHeadlines.append(service3[2])
+            passHeadlines.append(service3[3])
+        }
+    }
+    
+    var eventPosition = Int()
+    var event = String()
+    var eventIsInPass = Bool()
+    
+    for (index, headline) in passHeadlines .enumerate(){
+        if headline == "true" {
+            eventIsInPass = true
+            eventPosition = index-1
+        }
+    }
+    
+    for (index, headline) in failHeadlines .enumerate(){
+        if headline == "true" {
+            eventIsInPass = false
+            eventPosition = index-1
+        }
+    }
+    if eventIsInPass {
+        for (index, headline) in passHeadlines .enumerate(){
+            if index == eventPosition {
+                event = headline
+            }
+        }
+    } else {
+        for (index, headline) in failHeadlines .enumerate(){
+            if index == eventPosition {
+                event = headline
+            }
+        }
+    }
+    return event
+}
+
 func timeToInt(time: String) -> Int{
     var numOfSec = Int()
     var timeCharacters = Array(time.characters)
@@ -39,8 +182,6 @@ func timeToInt(time: String) -> Int{
     let numOfMin = secInt!*60
     //COMBINES THE SECONDS AND THE MINUTES CONVERTED TO SECONDS
     let timeInSeconds = numOfMin+numOfSec
-    // print(timeInSeconds)
-    //  print("\(timeInSeconds) seconds out of 180")
     return timeInSeconds
 }
 
@@ -127,10 +268,6 @@ func calculateDispatchScore (dispatchedServices: [Int], requiredServices: [Strin
             }
         }
     }
-    
-    //    print("The one we got right: \(rightServices)")
-    //    print("The ones we got wrong: \(wrongServices)")
-    //    print("The ones we're missing: \(missingServices)")
     
     let scoreOutOf = requiredServices.count*10
     var playerScore = Int()

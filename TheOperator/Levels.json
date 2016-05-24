@@ -38,7 +38,7 @@
                     "service":"Ambulance",
                     "isCritical":"true",
                     "ifFails":"911 Operator fails to save wounded child",
-                    "ifPresent":"Hero Operator saves child"
+                    "ifPresent":"Hero dispatch operator saves hurt child"
                 }
             ]
 		},
