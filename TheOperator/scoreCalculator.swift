@@ -67,7 +67,6 @@ func servicesStringToInt(services: String) -> [Int] {
             servicesConvert.append(2)
         }
     }
-    print("services convert:: \(servicesConvert)")
     return servicesConvert
 }
 
@@ -92,8 +91,6 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
             dispatchedServicesString.append("Fire Brigade")
         }
     }
-    
-    print("juicy memes \(dispatchedServicesString)")
     
     for requiredService in requiredServices {
         for dispatchedService in dispatchedServicesString {
@@ -197,7 +194,9 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
 
 func timeToInt(time: String) -> Int{
     var numOfSec = Int()
-    var timeCharacters = Array(time.characters)
+    var time2 = time.stringByReplacingOccurrencesOfString("Time ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    
+    var timeCharacters = Array(time2.characters)
     //REMOVING COLON
     for (index, character) in timeCharacters.enumerate() {
         if character == ":" {

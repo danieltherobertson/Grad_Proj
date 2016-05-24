@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     var currentSave: GameSave!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
+    var startingTime = Int()
     
     var currentLev: String!
     var currentLevInt: Int!
@@ -319,6 +320,7 @@ class GameViewController: UIViewController {
                 self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                 
                 if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                    self.startingTime = timeLimit
                     self.timeHasStarted = true
                     self.countDown(timeLimit)
                 }
@@ -337,7 +339,6 @@ class GameViewController: UIViewController {
     func update(count: Int) {
         if timeCount > 10 {
             timeCount! -= 1
-            print("timecount is \(timeCount)")
             let time = secondsToHoursMinutesSeconds(timeCount!)
             gameView.timeIndicator.text = String("Time \(time)")
         } else if timeCount == 0 {
@@ -426,9 +427,6 @@ class GameViewController: UIViewController {
         dispatchMenu.dispatchSent = levelEnding
         //countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
-        print(dispatchMenu.policeSwitch.tag)
-        print(dispatchMenu.ambulanceSwitch.tag)
-        print(dispatchMenu.fireSwitch.tag)
         
     }
     
@@ -468,6 +466,8 @@ class GameViewController: UIViewController {
             resultViewVC?.dispatchedUnits = dispatchedUnits
             let convertedUnits = dispatchConverter(requiredServices)
             resultViewVC?.expectedUnits = convertedUnits
+            resultViewVC?.expectedUnitsArray = requiredServices
+            resultViewVC?.startingTime = startingTime
         }
     
 
@@ -518,7 +518,6 @@ class GameViewController: UIViewController {
         let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
         let servicesConvert = servicesStringToInt(dispatched)
         headline = generateHeadline(servicesConvert, requiredServices: requiredServices, headlines: servicesEvent)
-        print(headline)
         let attributeString = NSMutableAttributedString(string: buttonText)
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3

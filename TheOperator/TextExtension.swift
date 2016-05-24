@@ -151,7 +151,6 @@ extension UITextView {
             let character = textArray[nextLetterIndex]
             
             if character == "\n" {
-                print("space")
             }
             
             self.text = text! + String(character)

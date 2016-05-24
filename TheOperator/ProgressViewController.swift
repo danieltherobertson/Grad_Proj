@@ -120,7 +120,6 @@ class ProgressViewController: UIViewController {
             }
         }
         if let issue = selectedLevel.valueForKey("issue") as? String {
-            print(issue)
             levelIssue = issue
         }
         let currentLev = String(selectedLevel.valueForKey("number")!)

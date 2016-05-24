@@ -133,7 +133,6 @@ class DispatchMenuView: UIView {
     }
 
     func enableButton(sender: UISwitch) {
-        print(sender.tag)
         if sender.on {
             enabledServicesCount+=1
         } else {
@@ -172,7 +171,6 @@ class DispatchMenuView: UIView {
         let filteredServices = services.filter { (service) -> Bool in
             return service.on
         }
-        print(filteredServices)
         var servicesString = [String]()
         
         for filteredService in filteredServices {
@@ -184,7 +182,6 @@ class DispatchMenuView: UIView {
                 servicesString.append("the Fire Brigade")
             }
         }
-        print(servicesString)
         
         var service1 = ""
         var service2 = ""
@@ -201,9 +198,6 @@ class DispatchMenuView: UIView {
                 service3 = item
             }
         }
-        print(service1)
-        print(service2)
-        print(service3)
         var dispatchMessage = ""
         var dispatched = ""
         if service2 == "" && service3 == "" {

@@ -203,10 +203,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 if fileManager.fileExistsAtPath(path) {
                     let data = NSData(contentsOfFile: path)!
                     var gameSaves = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Array<GameSave>
-                    print(gameSaves)
                     for (index, save) in gameSaves.enumerate() {
-                        print(save.name)
-                        print(viewedSave!.name)
                         if save.name == viewedSave!.name {
                             //FOUND THE RIGHT SAVE
                             gameSaves[index] = viewedSave!

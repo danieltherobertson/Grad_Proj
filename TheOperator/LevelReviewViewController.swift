@@ -13,8 +13,6 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     @IBOutlet weak var reviewTitle: UILabel!
     @IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var reviewRank: UILabel!
-    @IBOutlet weak var reviewChief: CenteredLabel!
-    @IBOutlet weak var reviewFeedback: CenteredLabel!
     @IBOutlet weak var continueButton: UIButton!
     
     @IBOutlet weak var label_1: UILabel!
@@ -26,21 +24,25 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     @IBOutlet weak var label_4: UILabel!
     @IBOutlet weak var label_4a: UILabel!
     
+    var requiredServices = String()
+    
     let review_1 = "Remaining Time:"
-    let review_1a = "00:27"
+    var review_1a = String()
     let review_2 = "Reported Issue:"
-    let review_2a = "Grand Theft Auto"
+    var review_2a = String()
     let review_3 = "Dispatched Units:"
-    let review_3a = "Police"
+    var review_3a = String()
     let review_4 = "Suggested Dispatch:"
-    let review_4a = "Police, Ambulance"
+    var review_4a = String()
     
     var reviewTexts = [String]()
     var reviewLabels = [UILabel]()
     var activeLine = Int()
-    
     var rank = String()
     var comment = String()
+    
+    var requiredServicesArray = [String]()
+    var startingTime = Int()
 
     
     
@@ -52,7 +54,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let playerRank = calculateRank(180, remainingTime: "00:40", dispatchedServices: [1], requiredServices: ["Fire Brigade","Police"])
+        let servicesInt = servicesStringToInt(review_3a)
+        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray)
         continueButton.buttonStyle(continueButton)
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]
@@ -92,18 +95,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
                 delay(0.5, closure: { 
                     self.reviewRank.typeStart(self.rank)
                     onTypeComplete = {
-                        delay(0.5, closure: { 
-                            self.reviewChief.typeStart("Cheif's comments:")
-                            onTypeComplete = {
-                                delay(0.5, closure: { 
-                                    self.reviewFeedback.typeStart(self.comment)
-                                    onTypeComplete = {
-                                        
-                                    }
-                                })
-                            }
-                        })
-                   }
+                                           }
                 })
             }
             else {

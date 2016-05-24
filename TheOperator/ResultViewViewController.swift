@@ -14,6 +14,8 @@ class ResultViewViewController: UIViewController {
     var theIssue = String()
     var dispatchedUnits = String()
     var expectedUnits = String()
+    var expectedUnitsArray = [String]()
+    var startingTime = Int()
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -25,10 +27,6 @@ class ResultViewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(remainingTime)
-        print(theIssue)
-        print(dispatchedUnits)
-        print(expectedUnits)
         eventView.headlineLabel.text = headline
         eventView.headlineLabel.adjustsFontSizeToFitWidth = true
         incomingNews.setLineHeight(3, alignment: .Center)
@@ -68,7 +66,13 @@ class ResultViewViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let reviewVC = (segue.destinationViewController as? LevelReviewViewController)
-
+        reviewVC?.review_1a = remainingTime
+        reviewVC?.review_2a = theIssue
+        reviewVC?.review_3a = dispatchedUnits
+        reviewVC?.review_4a = expectedUnits
+        reviewVC?.requiredServices = expectedUnits
+        reviewVC?.requiredServicesArray = expectedUnitsArray
+        reviewVC?.startingTime = startingTime
     }
 
 
