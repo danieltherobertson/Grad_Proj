@@ -12,7 +12,6 @@ class ResultViewViewController: UIViewController {
     
 
     var headline = String()
-    @IBOutlet weak var sirensGif: UIImageView!
     @IBOutlet weak var eventView: EventView!
     @IBOutlet weak var incomingNews: UILabel!
     @IBOutlet weak var continueButton: UIButton!
@@ -27,30 +26,27 @@ class ResultViewViewController: UIViewController {
         incomingNews.setLineHeight(3, alignment: .Center)
         incomingNews.alpha = 0
         continueButton.alpha = 0
-        sirensGif.image = gif
-        sirensGif.alpha = 0
-        sirensGif.transform = CGAffineTransformMakeScale(3.3, 3.3)
+        continueButton.enabled = false
         eventView.alpha = 0
-        self.eventView.transform = CGAffineTransformMakeScale(1.3, 1.3)
+        self.eventView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         let triggerTime = Int64(2 * (NSEC_PER_SEC))
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.50, animations: { 
-                self.sirensGif.alpha = 1.0
+            UIView.animateWithDuration(0.50, animations: {
                 self.incomingNews.alpha = 1.0
                 self.incomingNews.blink(0.2)
-                self.sirensGif.transform = CGAffineTransformMakeScale(1.0, 1.0)
                 }, completion: { (true) in
                     let triggerTime = Int64(3 * (NSEC_PER_SEC))
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
-                        self.sirensGif.alpha = 0
-                        UIView.animateWithDuration(0.5, animations: {
+                        UIView.animateWithDuration(0.8, animations: {
                             self.incomingNews.stopAnimation()
                             self.eventView.alpha = 1.0
-                            self.eventView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                            self.eventView.transform = CGAffineTransformMakeScale(1.1, 1.1)
                             self.continueButton.alpha = 1.0
                          }, completion: { (true) in
-                                UIView.animateWithDuration(0.095, animations: {
+                                UIView.animateWithDuration(0.2, animations: {
                                     self.eventView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                    self.continueButton.alpha = 1.0
+                                    self.continueButton.enabled = true
                             })
                         })
                     })

@@ -499,12 +499,6 @@
                                 <rect key="frame" x="20" y="151" width="560" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-Nq-n63">
-                                <rect key="frame" x="180" y="258" width="241" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="pud-9a-dKN"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-YJ-VjU">
                                 <rect key="frame" x="225" y="540" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -521,9 +515,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming news update!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-vL-46N">
-                                <rect key="frame" x="20" y="71" width="560" height="61"/>
+                                <rect key="frame" x="20" y="269" width="560" height="61"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="Wci-CC-e1G"/>
+                                    <constraint firstAttribute="height" constant="61" id="7Bf-rD-6qv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -535,17 +529,14 @@
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
                             <constraint firstItem="AZG-YJ-VjU" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="19Y-KB-lXN"/>
                             <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="AZG-YJ-VjU" secondAttribute="bottom" constant="10" id="B4d-hX-zs7"/>
+                            <constraint firstItem="HYi-vL-46N" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="E8F-jv-4io"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="131" id="I9Z-7h-sbt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
-                            <constraint firstItem="PJR-Nq-n63" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="Nda-iJ-JNW"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
                             <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="eOA-04-p0V"/>
-                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="HYi-vL-46N" secondAttribute="bottom" constant="19" id="fJM-2c-svq"/>
-                            <constraint firstItem="PJR-Nq-n63" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="238" id="h1R-X9-aKB"/>
-                            <constraint firstAttribute="trailing" secondItem="HYi-vL-46N" secondAttribute="trailing" constant="20" id="iCh-C4-pDD"/>
-                            <constraint firstItem="PJR-Nq-n63" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="iIP-p8-TdO"/>
-                            <constraint firstItem="HYi-vL-46N" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="lE0-Oi-KHb"/>
-                            <constraint firstItem="HYi-vL-46N" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="51" id="uPy-H9-CZL"/>
+                            <constraint firstItem="HYi-vL-46N" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="mvA-55-SFC"/>
+                            <constraint firstItem="HYi-vL-46N" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="om5-a0-LtL"/>
+                            <constraint firstAttribute="trailing" secondItem="HYi-vL-46N" secondAttribute="trailing" constant="20" id="psX-Gq-H6c"/>
                             <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="wlM-vi-CHz"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="trailing" secondItem="mEk-am-Y8H" secondAttribute="trailingMargin" id="x1s-Vg-cp7"/>
                         </constraints>
@@ -560,7 +551,6 @@
                         <outlet property="continueButton" destination="AZG-YJ-VjU" id="yy2-tM-cHv"/>
                         <outlet property="eventView" destination="bxs-da-txE" id="OZk-d8-nOI"/>
                         <outlet property="incomingNews" destination="HYi-vL-46N" id="UBn-ho-G9s"/>
-                        <outlet property="sirensGif" destination="PJR-Nq-n63" id="RfT-ZM-sNf"/>
                         <segue destination="UIe-of-48G" kind="show" identifier="resultsToReviewScreen" id="bCg-AP-KbV"/>
                     </connections>
                 </viewController>

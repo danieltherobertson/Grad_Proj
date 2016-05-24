@@ -515,7 +515,7 @@ class GameViewController: UIViewController {
         buttons[1].setAttributedTitle(attributeString, forState: .Normal)
         buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         buttons[1].addTarget(self, action: #selector(randomResponse), forControlEvents: .TouchUpInside)
-        gameView.buttonTwoHeightConstraint.constant = 80
+        gameView.buttonTwoHeightConstraint.constant = 100
         view.layoutIfNeeded()
     }
     

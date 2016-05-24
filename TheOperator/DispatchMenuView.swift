@@ -177,11 +177,11 @@ class DispatchMenuView: UIView {
         
         for filteredService in filteredServices {
             if filteredService.tag == 2 {
-                servicesString.append("Police")
+                servicesString.append("the Police")
             } else if filteredService.tag == 3 {
-                servicesString.append("Ambulance")
+                servicesString.append("an Ambulance")
             } else if filteredService.tag == 1 {
-                servicesString.append("Fire Brigade")
+                servicesString.append("the Fire Brigade")
             }
         }
         print(servicesString)
@@ -207,16 +207,16 @@ class DispatchMenuView: UIView {
         var dispatchMessage = ""
         var dispatched = ""
         if service2 == "" && service3 == "" {
-            dispatchMessage = "Are you sure you want to dispatch the \(service1)?"
-            dispatched = "the \(service1)"
+            dispatchMessage = "Are you sure you want to dispatch \(service1)?"
+            dispatched = "\(service1)"
         }
         if service3 == "" && service1 != "" && service2 != "" {
-            dispatchMessage = "Are you sure you want to dispatch the \(service1) and the \(service2)?"
-            dispatched = "the \(service1) and the \(service2)"
+            dispatchMessage = "Are you sure you want to dispatch \(service1) and \(service2)?"
+            dispatched = "\(service1) and \(service2)"
         }
         if service3 != "" && service2 != "" && service1 != "" {
-            dispatchMessage = "Are you sure you want to dispatch the \(service1), the \(service2) and the \(service3)?"
-            dispatched = "the \(service1), the \(service2) and the \(service3)"
+            dispatchMessage = "Are you sure you want to dispatch \(service1), \(service2) and \(service3)?"
+            dispatched = "\(service1), \(service2) and \(service3)"
         }
         
         let dialogue = ZAlertView(title: "Confirm Dispatch", message: "\(dispatchMessage) This cannot be undone.", isOkButtonLeft: true, okButtonText: "Dispatch!", cancelButtonText: "Cancel", okButtonHandler: { (ZAlertView) in
