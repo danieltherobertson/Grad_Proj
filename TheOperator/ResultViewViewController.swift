@@ -10,6 +10,10 @@ import UIKit
 
 class ResultViewViewController: UIViewController {
     
+    var remainingTime = String()
+    var theIssue = String()
+    var dispatchedUnits = String()
+    var expectedUnits = String()
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -21,6 +25,10 @@ class ResultViewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(remainingTime)
+        print(theIssue)
+        print(dispatchedUnits)
+        print(expectedUnits)
         eventView.headlineLabel.text = headline
         eventView.headlineLabel.adjustsFontSizeToFitWidth = true
         incomingNews.setLineHeight(3, alignment: .Center)

@@ -28,6 +28,11 @@ class GameViewController: UIViewController {
     var servicesEvent = [NSDictionary]()
     var headline = String()
     
+    var remainingTime = String()
+    var theIssue = String()
+    var dispatchedUnits = String()
+    
+    
     var currentDialogue = 0
     var specialPoints = 0
     
@@ -44,9 +49,11 @@ class GameViewController: UIViewController {
     
     var isTyping = false
     var isTiming = false
+    var timeHasStarted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        typeSpeed = 0.05
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
         
@@ -128,7 +135,6 @@ class GameViewController: UIViewController {
             self.gameView.gameText.typeStart(dialogue)
             self.isTyping = true
             self.gameView.skipButton.hidden = false
-            self.gameView.dispatchButton.enabled = true
             self.gameView.pauseButton.enabled = true
             
             onTypeComplete = {
@@ -276,6 +282,7 @@ class GameViewController: UIViewController {
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
+                gameView.dispatchButton.enabled = true
                 gameView.skipButton.hidden = true
                 gameView.skipButton.enabled = false
                 triggerCall()
@@ -312,6 +319,7 @@ class GameViewController: UIViewController {
                 self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                 
                 if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                    self.timeHasStarted = true
                     self.countDown(timeLimit)
                 }
                 self.questionHandler(callGoTo, enablesPopUp: false)
@@ -412,6 +420,7 @@ class GameViewController: UIViewController {
             countDownTimer?.invalidate()
             isTiming = false
             dispatchMenu.resumeTime = resumeTime
+            
         }
         
         dispatchMenu.dispatchSent = levelEnding
@@ -452,12 +461,15 @@ class GameViewController: UIViewController {
         }
         
         let resultViewVC = (segue.destinationViewController as? ResultViewViewController)
-        if segue.identifier == "gameViewToResultView" {
+        if segue.identifier == "gameViewToResultView" || segue.identifier == "tutorialViewToResultView" {
             resultViewVC?.headline = headline
+            resultViewVC?.remainingTime = remainingTime
+            resultViewVC?.theIssue = theIssue
+            resultViewVC?.dispatchedUnits = dispatchedUnits
+            let convertedUnits = dispatchConverter(requiredServices)
+            resultViewVC?.expectedUnits = convertedUnits
         }
-        if segue.identifier == "tutorialViewToResultView" {
-            
-        }
+    
 
     }
     
@@ -476,14 +488,14 @@ class GameViewController: UIViewController {
 
     func resumeType () {
        // let currentText = gameView.gameText.text
-        if isTyping {
+        if isTyping != true {
         gameView.gameText.typeStart(resumeDialogue)
         }
         
     }
     
     func resumeTime() {
-        if isTiming {
+        if isTiming != true && timeHasStarted == true {
             countDown(timeCount)
         }
     }
@@ -497,9 +509,11 @@ class GameViewController: UIViewController {
         onTypeComplete = {
             
         }
+        remainingTime = gameView.timeIndicator.text!
         buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         gameView.skipButton.enabled = false
         gameView.skipButton.hidden = true
+        dispatchedUnits = dispatched
         stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
         let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
         let servicesConvert = servicesStringToInt(dispatched)

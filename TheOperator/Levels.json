@@ -3,8 +3,7 @@
 		{
 			"number": "0",
 			"name": "Cadet Training",
-            "failedHeadline":"",
-            "passedHeadline":"",
+            "issue":"Trapped animal",
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
@@ -21,6 +20,7 @@
 		{
 			"number": "1",
 			"name": "Lost Down The Bottle",
+            "issue":"Trapped animal",
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",

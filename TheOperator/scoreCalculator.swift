@@ -8,6 +8,50 @@
 
 import Foundation
 
+func dispatchConverter(units: [String]) -> String {
+    var service1 = ""
+    var service2 = ""
+    var service3 = ""
+    
+    var servicesFiltered = [String]()
+    
+    for unit in units {
+        if unit == "Police" {
+            servicesFiltered.append("Police")
+        } else if unit == "Ambulance" {
+            servicesFiltered.append("Ambulance")
+        } else if unit == "Fire Brigade" {
+            servicesFiltered.append("Fire Brigade")
+        }
+    }
+
+    
+    for (index, item) in servicesFiltered.enumerate() {
+        if index == 0 {
+            service1 = item
+        }
+        if index == 1 {
+            service2 = item
+        }
+        if index == 2 {
+            service3 = item
+        }
+    }
+    
+    var dispatchedString = ""
+    if service2 == "" && service3 == "" {
+        dispatchedString = "\(service1)"
+    }
+    if service3 == "" && service1 != "" && service2 != "" {
+        dispatchedString = "\(service1) and \(service2)"
+    }
+    if service3 != "" && service2 != "" && service1 != "" {
+        dispatchedString = "\(service1), \(service2) and \(service3)"
+    }
+
+
+    return dispatchedString
+}
 
 func servicesStringToInt(services: String) -> [Int] {
     var servicesCut = services.componentsSeparatedByString(" ")
