@@ -648,7 +648,7 @@
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bS-iB-DTi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bS-iB-DTi" customClass="SpacingLabel" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="428" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="xKd-71-yAQ"/>
@@ -700,7 +700,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="wRM-X5-UMS"/>
                                     <constraint firstAttribute="height" constant="20" id="ytY-mg-Pew"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -775,11 +775,12 @@
                         <outlet property="label_5a" destination="xo6-Nb-jSa" id="6wP-Bh-fIh"/>
                         <outlet property="reviewRank" destination="EFa-ZT-YLd" id="uKp-Gk-BAG"/>
                         <outlet property="reviewTitle" destination="5SG-hk-47F" id="xnl-D6-pel"/>
+                        <segue destination="ePp-jN-sCJ" kind="show" identifier="levelReviewToProgressView" id="YzN-Zc-icn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axO-cV-lMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4535" y="387"/>
+            <point key="canvasLocation" x="4511" y="387"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Hm9-JM-jcy">
@@ -829,8 +830,8 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x7D-2a-gvU"/>
         <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="YzN-Zc-icn"/>
         <segue reference="Xht-o0-MF9"/>
     </inferredMetricsTieBreakers>
 </document>

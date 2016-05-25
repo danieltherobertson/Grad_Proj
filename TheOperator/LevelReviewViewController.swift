@@ -48,6 +48,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     var availableSpecialPoints = Int()
     var levelPassed = Bool()
     var passedString = String()
+    var activeSave: GameSave!
+    var playerRank = String()
     
     var requiredServicesArray = [String]()
     var startingTime = Int()
@@ -62,8 +64,9 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        continueButton.addTarget(self, action: #selector(segueToProgressView), forControlEvents: .TouchUpInside)
         let servicesInt = servicesStringToInt(review_3a)
-        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints, passed: levelPassed)
+        playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints, passed: levelPassed)
         continueButton.buttonStyle(continueButton)
         
         if levelPassed {
@@ -137,15 +140,23 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func segueToProgressView() {
+        performSegueWithIdentifier("levelReviewToProgressView", sender: self)
     }
-    */
+
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let progressVC = (segue.destinationViewController as? ProgressViewController)
+        
+        
+        if segue.identifier == "levelReviewToProgressView" {
+            if levelPassed {
+                activeSave.progress!+=1
+                activeSave.rankings.append(playerRank)
+            }
+            progressVC?.currentSave = activeSave
+        }
+    }
+    
 
 }

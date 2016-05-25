@@ -466,6 +466,7 @@ class GameViewController: UIViewController {
             resultViewVC?.availableSpecialPoints = availableSpecialPoints
             resultViewVC?.specialPoints = specialPoints
             resultViewVC?.levelPassed = isPassed
+            resultViewVC?.activeSave = currentSave
         }
     
 

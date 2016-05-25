@@ -19,6 +19,7 @@ class ResultViewViewController: UIViewController {
     var availableSpecialPoints = Int()
     var specialPoints = Int()
     var levelPassed = Bool()
+    var activeSave: GameSave!
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -79,6 +80,7 @@ class ResultViewViewController: UIViewController {
         reviewVC?.availableSpecialPoints = availableSpecialPoints
         reviewVC?.specialPoints = specialPoints
         reviewVC?.levelPassed = levelPassed
+        reviewVC?.activeSave = activeSave
     }
 
 
