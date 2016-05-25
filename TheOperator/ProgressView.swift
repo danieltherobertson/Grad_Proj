@@ -149,6 +149,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                         alertView.dismiss()
                     }, cancelButtonHandler: { (alertView) in
                         self.viewedSave!.progress!+=1
+                        self.viewedSave!.rankings.append("Cadet")
                         self.overwriteGame()
                         reset()
                         collectionView.reloadData()

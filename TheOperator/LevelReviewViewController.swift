@@ -11,7 +11,7 @@ import UIKit
 class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
 
     @IBOutlet weak var reviewTitle: UILabel!
-    @IBOutlet weak var reviewText: UITextView!
+    //@IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var reviewRank: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
@@ -40,6 +40,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     var activeLine = Int()
     var rank = String()
     var comment = String()
+    var specialPoints = Int()
+    var availableSpecialPoints = Int()
     
     var requiredServicesArray = [String]()
     var startingTime = Int()
@@ -55,7 +57,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         let servicesInt = servicesStringToInt(review_3a)
-        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray)
+        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints)
         continueButton.buttonStyle(continueButton)
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]

@@ -16,6 +16,8 @@ class ResultViewViewController: UIViewController {
     var expectedUnits = String()
     var expectedUnitsArray = [String]()
     var startingTime = Int()
+    var availableSpecialPoints = Int()
+    var specialPoints = Int()
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -73,6 +75,8 @@ class ResultViewViewController: UIViewController {
         reviewVC?.requiredServices = expectedUnits
         reviewVC?.requiredServicesArray = expectedUnitsArray
         reviewVC?.startingTime = startingTime
+        reviewVC?.availableSpecialPoints = availableSpecialPoints
+        reviewVC?.specialPoints = specialPoints
     }
 
 

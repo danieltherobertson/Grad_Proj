@@ -25,6 +25,7 @@ class ProgressViewController: UIViewController {
     var levelRequiredServices = [String]()
     var levelServicesEvent = [NSDictionary]()
     var levelIssue = String()
+    var levelPoints = Int()
     
     var playerName: String!
     var playerProgress: Int!
@@ -79,6 +80,7 @@ class ProgressViewController: UIViewController {
             gameViewVC?.requiredServices = levelRequiredServices
             gameViewVC?.servicesEvent = levelServicesEvent
             gameViewVC?.theIssue = levelIssue
+            gameViewVC?.availableSpecialPoints = levelPoints
             
         } else {
             tutorialViewVC?.currentLevel = selectedLevel
@@ -121,6 +123,9 @@ class ProgressViewController: UIViewController {
         }
         if let issue = selectedLevel.valueForKey("issue") as? String {
             levelIssue = issue
+        }
+        if let specialPoints = selectedLevel.valueForKey("specialPoints") as? Int {
+            levelPoints = specialPoints
         }
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)

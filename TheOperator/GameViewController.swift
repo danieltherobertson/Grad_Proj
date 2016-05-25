@@ -35,6 +35,8 @@ class GameViewController: UIViewController {
     
     
     var currentDialogue = 0
+    var specialPoints = 0
+    var availableSpecialPoints = Int()
     
     var resumeDialogue: String!
     
@@ -247,6 +249,19 @@ class GameViewController: UIViewController {
                 let goTo = answer.valueForKey("goTo") as! Int
                 let text = String(answer.valueForKey("text")!)
                     if text == buttonAnswer! {
+                        if let special = answer.valueForKey("special") as? String{
+                            var specialChar = Array(special.characters)
+                            for (index,char) in specialChar.enumerate() {
+                                if char == "+" {
+                                    specialChar.removeAtIndex(index)
+                                }
+                            }
+                            let points = String(specialChar[0])
+                            let pointsInt = Int(points)
+                            if pointsInt != nil {
+                                    specialPoints += pointsInt!
+                            }
+                        }
                     nextDialogue = goTo
                     currentDialogue = nextDialogue
                     stageDialogue = levelDialogue[currentDialogue]
@@ -445,6 +460,8 @@ class GameViewController: UIViewController {
             resultViewVC?.expectedUnits = convertedUnits
             resultViewVC?.expectedUnitsArray = requiredServices
             resultViewVC?.startingTime = startingTime
+            resultViewVC?.availableSpecialPoints = availableSpecialPoints
+            resultViewVC?.specialPoints = specialPoints
         }
     
 

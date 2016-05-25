@@ -4,6 +4,7 @@
 			"number": "0",
 			"name": "Cadet Training",
             "issue":"Trapped animal",
+            "specialPoints": 0,
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
@@ -21,6 +22,7 @@
 			"number": "1",
 			"name": "Lost Down The Bottle",
             "issue":"Trapped animal",
+            "specialPoints": 5,
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",

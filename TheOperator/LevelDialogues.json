@@ -78,8 +78,7 @@
 	                 },
                      {
                          "text": "Doot doot",
-                         "goTo": 5,
-                         "special": "-5"
+                         "goTo": 5
                      }
 	            ]
 			},

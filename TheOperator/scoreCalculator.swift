@@ -371,13 +371,16 @@ func calculateScore(startingTime: Int, remainingTime: String, dispatchedServices
     return totalScore
 }
 
-func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String]) -> String {
+func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String], availablePoints: Int, points: Int) -> String {
     let totalScore = calculateScore(startingTime, remainingTime: remainingTime, dispatchedServices: dispatchedServices, requiredServices: requiredServices)
-    let outOf = totalScore[1]
+    let outOf = totalScore[1]+availablePoints
+    print("score before: \(totalScore[1]), score now: \(outOf)")
+    print("gained points: \(points)")
     let quarterScore = outOf/4
-    let playerScore = totalScore[0]
+    let playerScore = totalScore[0]+points
+    print("player score before: \(totalScore[0]), player score now: \(playerScore)")
     var playerRank = String()
-    
+    print("ACTUAL TOTAL SCORE IS \(playerScore) out of \(outOf)")
     if playerScore <= quarterScore {
         playerRank = "Recruit"
     }
