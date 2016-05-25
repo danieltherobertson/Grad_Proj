@@ -70,7 +70,7 @@
 	            "buttons": 2,
                 "triggersCall": false,
                 "triggersDispatch": false,
-                "timeLimit": 10,
+                "timeLimit": 90,
 	             "acceptedAnswers": [
 	              	{
 	                 	"text": "Uhhh...",
