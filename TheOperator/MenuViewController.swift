@@ -138,7 +138,7 @@ class MenuViewController: UIViewController {
     
             let gameSlotsVC = (segue.destinationViewController as? GameSlotsViewController)
             gameSlotsVC?.pageTitle = "New Game"
-            gameSlotsVC?.pageLabel = "Select an empty game slot to start. Click an existing save to delete it."
+            gameSlotsVC?.pageLabel = "Select an empty slot, or select a filled slot to delete that game."
             
             gameSlotsVC?.tagID = 0
             
