@@ -11,9 +11,9 @@ import Foundation
 class GameSave: NSObject, NSCoding {
     var name: String!
     var progress: Int!
-    var rankings: [NSDictionary]!
+    var rankings: [String]!
     
-    init(name: String, progress: Int, rankings: [NSDictionary]) {
+    init(name: String, progress: Int, rankings: [String]) {
         self.name = name
         self.progress = progress
         self.rankings = rankings
@@ -28,6 +28,6 @@ class GameSave: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObjectForKey("name") as? String
         self.progress = aDecoder.decodeObjectForKey("progress") as? Int
-        self.rankings = aDecoder.decodeObjectForKey("rankings") as? [NSDictionary]
+        self.rankings = aDecoder.decodeObjectForKey("rankings") as? [String]
     }
 }

@@ -57,46 +57,52 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 
         
         let playerProgress = viewedSave!.progress
+        let playerRanks = viewedSave!.rankings
             //Get saved games and populate cells
             if indexPath.row < levelsData!.count {
                 let gameSlot = levelsData![indexPath.row]
                 let levelName = gameSlot.valueForKey("name")!
                 cell.levelName.text = levelName as? String
                 cell.levelName.setLineHeight(3, alignment: .Left)
-                let levelNumber = gameSlot.valueForKey("number")!
-                toInt = Int(levelNumber as! String)
-                let intAdd = toInt!+1
-                toString = String(intAdd)
-                cell.levelNumber.text = toString
                 
                 if indexPath.row < playerProgress {
+                    cell.levelName.text = levelName as? String
                     cell.levelImage.image = UIImage(named: "complete")
                     cell.levelStatus = LevelStatus.Completed
+                    cell.levelCompleted.text = "Completed"
+                    cell.levelCompleted.textColor = .blackColor()
+                    cell.levelRank.text = ("Rank: \(playerRanks[indexPath.row])")
                     cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
                     nextLevel = indexPath.row+1
+                    cell.levelName.text = levelName as? String
                     cell.levelImage.image = UIImage(named: "current")
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
+                    cell.levelCompleted.text = "Incomplete"
+                    cell.levelCompleted.textColor = .redColor()
+                    cell.levelRank.text = ("Rank: ----")
                     cell.tag = 1
                     
                 } else if indexPath.row > playerProgress {
                     cell.levelImage.image = UIImage(named: "locked")
                     cell.levelStatus = LevelStatus.Locked
-                    cell.levelNumber.text = "[Locked]"
-                    cell.levelName.text = "[Level Locked]"
+                    cell.levelCompleted.text = "[Level Locked]"
+                    cell.levelCompleted.textColor = .blackColor()
+                    cell.levelName.text = " "
+                    cell.levelRank.text = " "
                     cell.tag = 2
                 }
                 cell.levelName.textColor = UIColor.blackColor()
-                cell.levelNumber.textColor = UIColor.blackColor()
+               // cell.levelNumber.textColor = UIColor.blackColor()
 
                 //Unpopulated cells are drawn like...
             } else {
                 cell.levelName.textColor = UIColor.blackColor()
-                cell.levelNumber.textColor = UIColor.blackColor()
+                //cell.levelNumber.textColor = UIColor.blackColor()
                 cell.levelName.text = "[Empty]"
-                cell.levelNumber.text = "[Empty]"
+               // cell.levelNumber.text = "[Empty]"
             }
         
         if cell.selected {
@@ -109,7 +115,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     //-----------------SETTING A CELL'S SIZE----------------------------------------------
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = self.levelsView.bounds.width
-        let height = self.levelsView.bounds.height/4
+        let height = self.levelsView.bounds.height/3
         return CGSize(width: width, height: height)
     }
     

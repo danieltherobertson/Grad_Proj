@@ -30,8 +30,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let playerRank = calculateRank(90, remainingTime: "Time 00:30", dispatchedServices: [0,1,2], requiredServices: ["Ambulance", "Police", "Fire Brigade"])
-        
         //AudioPlayerController.sharedInstance.startAudio("operatorTheme")
         // Do any additional setup after loading the view, typically from a nib.
 

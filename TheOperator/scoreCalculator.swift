@@ -54,9 +54,9 @@ func dispatchConverter(units: [String]) -> String {
 }
 
 func servicesStringToInt(services: String) -> [Int] {
-    var servicesCut = services.componentsSeparatedByString(" ")
+    let servicesCut = services.componentsSeparatedByString(" ")
     var servicesConvert = [Int]()
-    for (index, word) in servicesCut.enumerate() {
+    for (_, word) in servicesCut.enumerate() {
         if word == "Police"  {
             servicesConvert.append(0)
         }
@@ -195,7 +195,7 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
 func timeToInt(time: String) -> Int{
     var numOfSec = String()
     var numOfSecInt = Int()
-    var time2 = time.stringByReplacingOccurrencesOfString("Time ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    let time2 = time.stringByReplacingOccurrencesOfString("Time ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
     
     var timeCharacters = Array(time2.characters)
     //REMOVING COLON
@@ -236,17 +236,13 @@ func timeToInt(time: String) -> Int{
 func calculateTimeScore(startingTime: Int, timeLeft: Int) -> [Int] {
     //PART 1
     let increment = startingTime/10
-    print(timeLeft)
     //To get the score, we divide the total time by 10 to scale down values e.g 120 seconds/10 = 12. To get the player's remaining time score (the bit on the left side of '...out of...'), If the player has 31 seconds, we need to scale that down proportionally to the total score. This is done by calculating the number of times one tenth of the total score can be mltipled into the remaining time e.g 12*3 is 36, that's the multiple of 12 closest to 36. So we know they got 3 out of 12. This is done as it converts the remaining time into a whole number that is also a multiple of the total time.If this wasn't done, the score would be 3.1/12. The total time is halved as a level shouldn't be beatable in under half the time so the score is done based on how much of half the time remains, so it becomes 3 out of 6. Both sides of the score are then multiplied by 5 to upscale a bit, so it becomes 15/30.
     var scoreTime = nearestIndex(increment, remainingTime: timeLeft, totalTime: startingTime)
-   print(scoreTime)
     let finalTime = totalTimeConverter(startingTime)
-print(finalTime)
     if scoreTime > finalTime {
         scoreTime = finalTime
     }
     let playerTimeScore = [scoreTime,finalTime]
-    print(playerTimeScore)
     return playerTimeScore
 }
 
@@ -254,7 +250,6 @@ func nearestIndex(increment: Int, remainingTime: Int, totalTime: Int) -> Int {
     //PART 2
     let incrementLocal = increment
     let remainingTimeLocal = remainingTime
-    print("memes \(remainingTimeLocal)")
     var indexMultiple = 1
     var scale = [Int]()
     var sum = incrementLocal*indexMultiple
@@ -269,21 +264,16 @@ func nearestIndex(increment: Int, remainingTime: Int, totalTime: Int) -> Int {
         repeat {
             let scaleValue = indexMultiple*incrementLocal
             scale.append(scaleValue)
-           print(scaleValue)
             indexMultiple += 1
         } while scale.last < totalTime
     }
     
     func checkTime() {
         let localRange = incrementLocal/2
-        print("local Range \(localRange)")
-        print("remaining Time \(remainingTimeLocal)")
         for (index,number) in scale.enumerate() {
             if number+localRange >= remainingTimeLocal && number-localRange <= remainingTimeLocal {
                 let indexRead = index+1
-              print("index read = \(indexRead)")
                 scoreTime = indexRead*5
-               
               //  print("score time = \(scoreTime)")
                  break
             }
@@ -314,6 +304,7 @@ func calculateDispatchScore (dispatchedServices: [Int], requiredServices: [Strin
     var rightServices = [String]()
     var missingServices = [String]()
     var penalty = 0
+    
     
     for service in dispatchedServices {
         if service == 0 {
@@ -348,6 +339,8 @@ func calculateDispatchScore (dispatchedServices: [Int], requiredServices: [Strin
         playerScore = rightServices.count*10
     }
     
+    print("playerScore is \(playerScore)")
+    
     for _ in wrongServices {
         penalty += 5
     }
@@ -357,7 +350,6 @@ func calculateDispatchScore (dispatchedServices: [Int], requiredServices: [Strin
     }
     let finalScore = playerScore-penalty
     let dispatchScore = [finalScore,scoreOutOf]
-    print(dispatchScore)
     return dispatchScore
 }
 
@@ -370,7 +362,6 @@ func calculateTotalScore(timeScore: [Int], dispatchScore: [Int]) -> [Int] {
 }
 
 func calculateScore(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String]) -> [Int] {
-    print("remaingingTime: \(remainingTime)")
     let convertedTime = timeToInt(remainingTime)
     let timeScore = calculateTimeScore(startingTime, timeLeft: convertedTime)
     let dispatchScore = calculateDispatchScore(dispatchedServices, requiredServices: requiredServices)

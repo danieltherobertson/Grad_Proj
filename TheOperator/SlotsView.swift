@@ -236,7 +236,7 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
                 }
                 dialogue.getTextFieldWithIdentifier("nameTextField")?.endEditing(true)
                 let newName = text!.text!
-                let gameSave = GameSave(name: newName, progress: 0, rankings: [[:]])
+                let gameSave = GameSave(name: newName, progress: 2, rankings: ["Noob","Twat"])
                 self.appendGameSaves(gameSave)
                 self.activeSave = gameSave
                 activeCell!.tag = 0

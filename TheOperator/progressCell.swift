@@ -11,12 +11,20 @@ import UIKit
 class progressCell: UICollectionViewCell {
     @IBOutlet weak var levelName: UILabel!
     @IBOutlet weak var levelNumber: UILabel!
+    
+    @IBOutlet weak var levelCompleted: UILabel!
+    
+    @IBOutlet weak var levelRank: UILabel!
+    
     @IBOutlet weak var levelImage: UIImageView!
     var levelStatus: LevelStatus!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         levelName.setLineHeight(3, alignment: .Left)
+        levelRank.textColor = .blackColor()
+        levelRank.setLineHeight(3, alignment: .Left)
+        levelCompleted.textColor = .blackColor()
     }
     
     func styleSelected(tag:Int) {
