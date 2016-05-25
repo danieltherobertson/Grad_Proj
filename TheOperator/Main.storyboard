@@ -601,7 +601,7 @@
                                 <color key="textColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7p-D4-pTD" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7p-D4-pTD" customClass="PaddedLabel" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="129" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0h6-6R-Omi"/>
@@ -619,7 +619,7 @@
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-zb-hgg" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-zb-hgg" customClass="PaddedLabel" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="196" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2bq-wZ-FVM"/>
@@ -637,7 +637,7 @@
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkg-Ar-dyt" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkg-Ar-dyt" customClass="PaddedLabel" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="267" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ux3-GL-Xid"/>
@@ -655,7 +655,7 @@
                                 <color key="textColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo6-Nb-jSa" customClass="CenteredLabel" customModule="TheOperator" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xo6-Nb-jSa" customClass="PaddedLabel" customModule="TheOperator" customModuleProvider="target">
                                 <rect key="frame" x="20" y="363" width="560" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2Tc-QZ-q72"/>
@@ -667,11 +667,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f02-Gh-sYc">
-                                <rect key="frame" x="225" y="540" width="150" height="50"/>
+                                <rect key="frame" x="202" y="540" width="198" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gUz-mZ-uWw"/>
-                                    <constraint firstAttribute="width" constant="150" id="jpW-ZF-DAR"/>
+                                    <constraint firstAttribute="width" constant="198" id="jpW-ZF-DAR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
                                 <state key="normal" title="Continue">
@@ -690,7 +690,7 @@
                             <constraint firstItem="3bS-iB-DTi" firstAttribute="top" secondItem="Mkg-Ar-dyt" secondAttribute="bottom" constant="20" id="Evf-oN-bm6"/>
                             <constraint firstItem="Mkg-Ar-dyt" firstAttribute="leading" secondItem="iU5-C8-Dct" secondAttribute="leading" constant="20" id="Gqk-wY-cJ0"/>
                             <constraint firstItem="3bS-iB-DTi" firstAttribute="top" secondItem="Mkg-Ar-dyt" secondAttribute="bottom" constant="20" id="If1-9h-SKo"/>
-                            <constraint firstItem="f02-Gh-sYc" firstAttribute="centerX" secondItem="iU5-C8-Dct" secondAttribute="centerX" id="Q0U-IJ-hFE"/>
+                            <constraint firstItem="f02-Gh-sYc" firstAttribute="centerX" secondItem="iU5-C8-Dct" secondAttribute="centerX" constant="1" id="Q0U-IJ-hFE"/>
                             <constraint firstAttribute="trailing" secondItem="3bS-iB-DTi" secondAttribute="trailing" constant="20" id="Qp1-UE-q17"/>
                             <constraint firstItem="xRh-zc-csS" firstAttribute="top" secondItem="a7p-D4-pTD" secondAttribute="bottom" constant="20" id="Rk5-gB-R3C"/>
                             <constraint firstItem="a7p-D4-pTD" firstAttribute="top" secondItem="VNP-Sa-aDE" secondAttribute="bottom" constant="5" id="Rul-Sp-OLC"/>
