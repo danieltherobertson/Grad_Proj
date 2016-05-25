@@ -104,8 +104,10 @@ extension SlotsView: UICollectionViewDataSource {
                 let gameSlot = gameSaves[indexPath.row]
                 let gameNameText = gameSlot.name
                 cell.gameName.text = "Name: \(gameNameText!)"
-                let gameLevelText = gameSlot.progress
-                cell.gameLevel.text = "Progress: \(gameLevelText)"
+                let gameLevelText = gameSlot.progress+1
+                cell.gameLevel.text = "Level: \(gameLevelText)"
+                cell.gameName.setLineHeight(5, alignment: .Left)
+
                 cell.gameName.textColor = UIColor.blackColor()
                 cell.gameLevel.textColor = UIColor.blackColor()
                 cell.tag = 0
@@ -125,8 +127,10 @@ extension SlotsView: UICollectionViewDataSource {
                 let gameSlot = gameSaves[indexPath.row]
                 let gameNameText = gameSlot.name
                 cell.gameName.text = "Name: \(gameNameText!)"
-                let gameLevelText = gameSlot.progress
-                cell.gameLevel.text = "Progress: \(gameLevelText)"
+                let gameLevelText = gameSlot.progress+1
+                cell.gameLevel.text = "Level: \(gameLevelText)"
+                cell.gameName.setLineHeight(5, alignment: .Left)
+
                 cell.gameName.textColor = UIColor.blackColor()
                 cell.gameLevel.textColor = UIColor.blackColor()
 

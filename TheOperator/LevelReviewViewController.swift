@@ -65,9 +65,13 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.addTarget(self, action: #selector(segueToProgressView), forControlEvents: .TouchUpInside)
+        continueButton.enabled = false
+         continueButton.buttonStyle(continueButton)
+        continueButton.backgroundColor = .lightGrayColor()
+        continueButton.layer.borderColor = UIColor.darkGrayColor().CGColor
         let servicesInt = servicesStringToInt(review_3a)
         playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints, passed: levelPassed)
-        continueButton.buttonStyle(continueButton)
+       
         
         if levelPassed {
             passedString = "Yes, congratulations!"
@@ -117,7 +121,9 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
                         onTypeComplete = {
                             self.reviewRank.typeStart(self.rank)
                             onTypeComplete = {
-                                
+                                self.continueButton.enabled = true
+                                self.continueButton.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                                self.continueButton.buttonStyle(self.continueButton)
                             }
                         }
                    }
@@ -155,6 +161,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
                 activeSave.rankings.append(playerRank)
             }
             progressVC?.currentSave = activeSave
+            overwriteGame(activeSave)
         }
     }
     

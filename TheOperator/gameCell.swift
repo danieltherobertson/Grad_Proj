@@ -13,5 +13,4 @@ class gameCell: UICollectionViewCell {
     @IBOutlet weak var gameName: UILabel!
     @IBOutlet weak var gameLevel: UILabel!
     var inUse: Bool!
-    
 }

@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ouz-7v-kBD">
-                        <rect key="frame" x="103" y="54" width="297" height="33"/>
+                        <rect key="frame" x="94" y="48" width="297" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="8Gi-8J-tKI"/>
                         </constraints>
@@ -36,8 +36,8 @@
                         <nil key="highlightedColor"/>
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-3A-xGi">
-                        <rect key="frame" x="103" y="13" width="297" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-3A-xGi">
+                        <rect key="frame" x="94" y="10" width="297" height="33"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="33" id="k2x-gF-BWO"/>
                         </constraints>
@@ -52,14 +52,14 @@
             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ymu-pe-ajQ" firstAttribute="leading" secondItem="ScP-Ud-FXJ" secondAttribute="leading" constant="10" id="A4a-dr-xFh"/>
-                <constraint firstItem="MGo-3A-xGi" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="19" id="V6t-V8-TXH"/>
-                <constraint firstItem="Ouz-7v-kBD" firstAttribute="top" secondItem="MGo-3A-xGi" secondAttribute="bottom" constant="8" id="WgD-OS-4mQ"/>
-                <constraint firstItem="MGo-3A-xGi" firstAttribute="top" secondItem="ScP-Ud-FXJ" secondAttribute="top" constant="13" id="Yjj-vi-Dhf"/>
-                <constraint firstAttribute="trailing" secondItem="Ouz-7v-kBD" secondAttribute="trailing" id="ZX5-VU-1cx"/>
-                <constraint firstAttribute="bottom" secondItem="Ouz-7v-kBD" secondAttribute="bottom" constant="13" id="Zkz-cW-OZR"/>
-                <constraint firstAttribute="trailing" secondItem="MGo-3A-xGi" secondAttribute="trailing" id="cVR-Hm-BFP"/>
+                <constraint firstItem="MGo-3A-xGi" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="10" id="V6t-V8-TXH"/>
+                <constraint firstItem="Ouz-7v-kBD" firstAttribute="top" secondItem="MGo-3A-xGi" secondAttribute="bottom" constant="5" id="WgD-OS-4mQ"/>
+                <constraint firstItem="MGo-3A-xGi" firstAttribute="top" secondItem="ScP-Ud-FXJ" secondAttribute="top" constant="10" id="Yjj-vi-Dhf"/>
+                <constraint firstAttribute="trailing" secondItem="Ouz-7v-kBD" secondAttribute="trailing" constant="9" id="ZX5-VU-1cx"/>
+                <constraint firstAttribute="bottom" secondItem="Ouz-7v-kBD" secondAttribute="bottom" constant="19" id="Zkz-cW-OZR"/>
+                <constraint firstAttribute="trailing" secondItem="MGo-3A-xGi" secondAttribute="trailing" constant="9" id="cVR-Hm-BFP"/>
                 <constraint firstItem="ymu-pe-ajQ" firstAttribute="top" secondItem="ScP-Ud-FXJ" secondAttribute="top" constant="10" id="lMH-38-6NJ"/>
-                <constraint firstItem="Ouz-7v-kBD" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="19" id="ueU-9a-HB3"/>
+                <constraint firstItem="Ouz-7v-kBD" firstAttribute="leading" secondItem="ymu-pe-ajQ" secondAttribute="trailing" constant="10" id="ueU-9a-HB3"/>
             </constraints>
             <size key="customSize" width="400" height="100"/>
             <connections>
