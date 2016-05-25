@@ -22,7 +22,10 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     @IBOutlet weak var label_3: UILabel!
     @IBOutlet weak var label_3a: UILabel!
     @IBOutlet weak var label_4: UILabel!
-    @IBOutlet weak var label_4a: UILabel!
+    @IBOutlet weak var label_4a: SpacingLabel!
+    @IBOutlet weak var label_5: UILabel!
+    @IBOutlet weak var label_5a: LeftLabel!
+
     
     var requiredServices = String()
     
@@ -34,6 +37,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     var review_3a = String()
     let review_4 = "Suggested Dispatch:"
     var review_4a = String()
+    let review_5 = "Level Passed?"
     
     var reviewTexts = [String]()
     var reviewLabels = [UILabel]()
@@ -42,6 +46,8 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     var comment = String()
     var specialPoints = Int()
     var availableSpecialPoints = Int()
+    var levelPassed = Bool()
+    var passedString = String()
     
     var requiredServicesArray = [String]()
     var startingTime = Int()
@@ -57,8 +63,15 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         let servicesInt = servicesStringToInt(review_3a)
-        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints)
+        let playerRank = calculateRank(startingTime, remainingTime: review_1a, dispatchedServices: servicesInt, requiredServices: requiredServicesArray, availablePoints: availableSpecialPoints, points: specialPoints, passed: levelPassed)
         continueButton.buttonStyle(continueButton)
+        
+        if levelPassed {
+            passedString = "Yes, congratulations!"
+        } else {
+            passedString = "No, you've failed!"
+            label_5a.textColor = .redColor()
+        }
         
         reviewTexts = [review_1,review_1a,review_2,review_2a,review_3,review_3a,review_4,review_4a]
         reviewLabels = [label_1,label_1a,label_2,label_2a,label_3,label_3a,label_4,label_4a]
@@ -95,9 +108,16 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
             self.activeLine += 1
             if self.activeLine >= self.reviewTexts.count {
                 delay(0.5, closure: { 
-                    self.reviewRank.typeStart(self.rank)
+                    self.label_5.typeStart(self.review_5)
                     onTypeComplete = {
-                                           }
+                        self.label_5a.typeStart(self.passedString)
+                        onTypeComplete = {
+                            self.reviewRank.typeStart(self.rank)
+                            onTypeComplete = {
+                                
+                            }
+                        }
+                   }
                 })
             }
             else {

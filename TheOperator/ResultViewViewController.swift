@@ -18,6 +18,7 @@ class ResultViewViewController: UIViewController {
     var startingTime = Int()
     var availableSpecialPoints = Int()
     var specialPoints = Int()
+    var levelPassed = Bool()
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -77,6 +78,7 @@ class ResultViewViewController: UIViewController {
         reviewVC?.startingTime = startingTime
         reviewVC?.availableSpecialPoints = availableSpecialPoints
         reviewVC?.specialPoints = specialPoints
+        reviewVC?.levelPassed = levelPassed
     }
 
 

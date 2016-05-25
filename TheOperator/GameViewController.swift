@@ -27,7 +27,9 @@ class GameViewController: UIViewController {
     var requiredServices = [String]()
     var dispatchServices = [Int]()
     var servicesEvent = [NSDictionary]()
+    var headlineGen: (String, Bool)!
     var headline = String()
+    var isPassed = Bool()
     
     var remainingTime = String()
     var theIssue = String()
@@ -55,6 +57,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("currentSave: \(currentSave.rankings)")
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
@@ -462,6 +465,7 @@ class GameViewController: UIViewController {
             resultViewVC?.startingTime = startingTime
             resultViewVC?.availableSpecialPoints = availableSpecialPoints
             resultViewVC?.specialPoints = specialPoints
+            resultViewVC?.levelPassed = isPassed
         }
     
 
@@ -511,7 +515,10 @@ class GameViewController: UIViewController {
         stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
         let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
         let servicesConvert = servicesStringToInt(dispatched)
-        headline = generateHeadline(servicesConvert, requiredServices: requiredServices, headlines: servicesEvent)
+        headlineGen = generateHeadline(servicesConvert, requiredServices: requiredServices, headlines: servicesEvent)
+        headline = headlineGen.0
+        isPassed = headlineGen.1
+        print(isPassed)
         let attributeString = NSMutableAttributedString(string: buttonText)
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3

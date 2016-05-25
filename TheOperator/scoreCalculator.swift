@@ -70,7 +70,7 @@ func servicesStringToInt(services: String) -> [Int] {
     return servicesConvert
 }
 
-func generateHeadline (dispatchedServices: [Int], requiredServices: [String], headlines: [NSDictionary]) -> String {
+func generateHeadline (dispatchedServices: [Int], requiredServices: [String], headlines: [NSDictionary]) -> (String, Bool) {
     var dispatchedServicesString = [String]()
     var wrongServices = [String]()
     var rightServices = [String]()
@@ -162,6 +162,7 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
     var eventPosition = Int()
     var event = String()
     var eventIsInPass = Bool()
+    var passed = Bool()
     
     for (index, headline) in passHeadlines .enumerate(){
         if headline == "true" {
@@ -180,16 +181,19 @@ func generateHeadline (dispatchedServices: [Int], requiredServices: [String], he
         for (index, headline) in passHeadlines .enumerate(){
             if index == eventPosition {
                 event = headline
+                passed = true
             }
         }
     } else {
         for (index, headline) in failHeadlines .enumerate(){
             if index == eventPosition {
                 event = headline
+                passed = false
             }
         }
     }
-    return event
+    
+    return (event,passed)
 }
 
 func timeToInt(time: String) -> Int{
@@ -371,7 +375,7 @@ func calculateScore(startingTime: Int, remainingTime: String, dispatchedServices
     return totalScore
 }
 
-func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String], availablePoints: Int, points: Int) -> String {
+func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices: [Int], requiredServices: [String], availablePoints: Int, points: Int, passed: Bool) -> String {
     let totalScore = calculateScore(startingTime, remainingTime: remainingTime, dispatchedServices: dispatchedServices, requiredServices: requiredServices)
     let outOf = totalScore[1]+availablePoints
     print("score before: \(totalScore[1]), score now: \(outOf)")
@@ -381,20 +385,24 @@ func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices:
     print("player score before: \(totalScore[0]), player score now: \(playerScore)")
     var playerRank = String()
     print("ACTUAL TOTAL SCORE IS \(playerScore) out of \(outOf)")
-    if playerScore <= quarterScore {
+    if playerScore <= quarterScore && passed == true {
         playerRank = "Recruit"
     }
     
-    if playerScore <= quarterScore*2 && playerScore > quarterScore {
+    if playerScore <= quarterScore*2 && playerScore > quarterScore && passed == true {
         playerRank = "Rookie"
     }
     
-    if playerScore <= quarterScore*3 && playerScore > quarterScore*2{
+    if playerScore <= quarterScore*3 && playerScore > quarterScore*2 && passed == true{
         playerRank = "Sweet Talker"
     }
     
-    if playerScore <= outOf && playerScore > quarterScore*3 {
+    if playerScore <= outOf && playerScore > quarterScore*3 && passed == true {
         playerRank = "Telephone Hero"
+    }
+    
+    if passed == false {
+        playerRank = "No rank awarded"
     }
     print(playerRank)
     return playerRank
