@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -150,6 +149,7 @@
             <connections>
                 <outlet property="ambulanceLabel" destination="deF-Mu-WD0" id="ysy-2J-tOB"/>
                 <outlet property="ambulanceSwitch" destination="ee9-Ce-8O6" id="dE8-Qz-R88"/>
+                <outlet property="closeButton" destination="MQg-g5-KJE" id="pxE-uQ-jnj"/>
                 <outlet property="dispatchButton" destination="yUl-OK-ACK" id="juV-2o-6wL"/>
                 <outlet property="dispatchViewMessage" destination="mMr-1c-v6n" id="rzE-2j-jxc"/>
                 <outlet property="dispatchViewTitle" destination="BnP-WO-lM7" id="6fM-Hr-De4"/>
@@ -163,6 +163,6 @@
         </view>
     </objects>
     <resources>
-        <image name="close" width="136" height="136"/>
+        <image name="close" width="133" height="133"/>
     </resources>
 </document>

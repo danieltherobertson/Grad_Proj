@@ -19,10 +19,17 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var playTutorial: (() -> ())!
     
     override func layoutSubviews() {
+       
+    levelsView.frame = self.bounds
+    
+    }
+    //-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
+    // MARK: Initialization
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 20
-        
-        
         levelsView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         levelsView.dataSource = self
         levelsView.delegate = self
@@ -31,12 +38,6 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         levelsView.registerNib(nib, forCellWithReuseIdentifier: "progressCell")
         
         self.addSubview(levelsView)
-    }
-    //-----------------INITIALISING THE COLLECTION VIEW INSIDE THE UIVIEW ----------------------------------------------
-    // MARK: Initialization
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
         //Load any existing gameSave types from gameSaves
         
         
@@ -67,22 +68,26 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                 
                 if indexPath.row < playerProgress {
                     cell.levelName.text = levelName as? String
+                    cell.levelName.setLineHeight(3, alignment: .Left)
                     cell.levelImage.image = UIImage(named: "complete")
                     cell.levelStatus = LevelStatus.Completed
                     cell.levelCompleted.text = "Completed"
                     cell.levelCompleted.textColor = .blackColor()
                     cell.levelRank.text = ("Rank: \(playerRanks[indexPath.row])")
+                    cell.levelRank.setLineHeight(3, alignment: .Left)
                     cell.tag = 0
                 
                 } else if indexPath.row == playerProgress {
                     nextLevel = indexPath.row+1
                     cell.levelName.text = levelName as? String
+                    cell.levelName.setLineHeight(3, alignment: .Left)
                     cell.levelImage.image = UIImage(named: "current")
                     cell.userInteractionEnabled = true
                     cell.levelStatus = LevelStatus.Current
                     cell.levelCompleted.text = "Incomplete"
                     cell.levelCompleted.textColor = .redColor()
                     cell.levelRank.text = ("Rank: ----")
+                    cell.levelRank.setLineHeight(3, alignment: .Left)
                     cell.tag = 1
                     
                 } else if indexPath.row > playerProgress {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QQC-7g-6Bk">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -50,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator_background" translatesAutoresizingMaskIntoConstraints="NO" id="x72-EG-ZT8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator_background_animated.gif" translatesAutoresizingMaskIntoConstraints="NO" id="x72-EG-ZT8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwL-La-M31">
@@ -128,6 +127,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YKq-V1-gxH" firstAttribute="top" secondItem="lg0-7L-NlO" secondAttribute="bottom" constant="5" id="6s4-NI-vps"/>
                             <constraint firstItem="lg0-7L-NlO" firstAttribute="centerX" secondItem="YKq-V1-gxH" secondAttribute="centerX" constant="2" id="75C-pa-lc5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TwL-La-M31" secondAttribute="bottom" constant="175" id="BCO-if-f6W"/>
                             <constraint firstItem="x72-EG-ZT8" firstAttribute="centerX" secondItem="kl0-Z0-wle" secondAttribute="centerX" id="Bhl-0F-mzA"/>
@@ -150,6 +150,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="75C-pa-lc5"/>
+                                <exclude reference="dCS-aT-bNJ"/>
                                 <exclude reference="TZn-M7-qD3"/>
                                 <exclude reference="bbI-cv-aS7"/>
                                 <exclude reference="BCO-if-f6W"/>
@@ -276,23 +278,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-yP-d5x">
-                                <rect key="frame" x="37" y="540" width="100" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="2Gd-da-alB"/>
-                                    <constraint firstAttribute="width" constant="100" id="NbM-AQ-cim"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
-                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="EXIT">
-                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="exitButton:" destination="ePp-jN-sCJ" eventType="touchUpInside" id="ZsW-El-pfF"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIC-0c-B7D">
                                 <rect key="frame" x="158" y="33" width="285" height="48"/>
                                 <constraints>
@@ -303,10 +288,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qik-TB-ZDX">
-                                <rect key="frame" x="463" y="540" width="100" height="50"/>
+                                <rect key="frame" x="450" y="540" width="130" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="XNa-VG-1Mo"/>
+                                    <constraint firstAttribute="width" constant="130" id="XNa-VG-1Mo"/>
                                     <constraint firstAttribute="height" constant="50" id="nXD-Aa-AQU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
@@ -329,10 +314,27 @@
                                     <constraint firstAttribute="height" constant="408" id="dHr-w3-FA4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-yP-d5x">
+                                <rect key="frame" x="20" y="540" width="130" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2Gd-da-alB"/>
+                                    <constraint firstAttribute="width" constant="130" id="NbM-AQ-cim"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                <state key="normal" title="EXIT">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitButton:" destination="ePp-jN-sCJ" eventType="touchUpInside" id="ZsW-El-pfF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qik-TB-ZDX" secondAttribute="trailing" constant="37" id="0BA-Lo-WKf"/>
+                            <constraint firstAttribute="trailing" secondItem="qik-TB-ZDX" secondAttribute="trailing" constant="20" id="0BA-Lo-WKf"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" id="0vt-Au-X6Z"/>
                             <constraint firstItem="ilu-x4-8s9" firstAttribute="top" secondItem="Xun-yP-d5x" secondAttribute="bottom" constant="10" id="7uL-Ul-d0L"/>
                             <constraint firstItem="XtL-HZ-fMS" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="8" id="Avu-YZ-WPT"/>
@@ -345,11 +347,11 @@
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" id="hkV-Kf-hUq"/>
                             <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="XtL-HZ-fMS" secondAttribute="bottom" constant="10" id="iHZ-yV-QrJ"/>
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="top" secondItem="CbM-rQ-rZW" secondAttribute="bottom" constant="13" id="oeM-iG-hg0"/>
-                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="leading" secondItem="Xun-yP-d5x" secondAttribute="leading" constant="-17" id="qCm-Ye-Qdt"/>
+                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="leading" secondItem="Xun-yP-d5x" secondAttribute="leading" id="qCm-Ye-Qdt"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="top" secondItem="PIC-0c-B7D" secondAttribute="bottom" constant="5" id="qeW-gd-QoE"/>
-                            <constraint firstItem="Xun-yP-d5x" firstAttribute="leading" secondItem="Gal-04-7Mc" secondAttribute="leading" constant="37" id="sAh-xP-1Pd"/>
+                            <constraint firstItem="Xun-yP-d5x" firstAttribute="leading" secondItem="Gal-04-7Mc" secondAttribute="leading" constant="20" id="sAh-xP-1Pd"/>
                             <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="46" id="sD9-IB-egk"/>
-                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="trailing" secondItem="qik-TB-ZDX" secondAttribute="trailing" constant="17" id="v67-z5-XVd"/>
+                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="trailing" secondItem="qik-TB-ZDX" secondAttribute="trailing" id="v67-z5-XVd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -499,21 +501,6 @@
                                 <rect key="frame" x="20" y="151" width="560" height="332"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-YJ-VjU">
-                                <rect key="frame" x="225" y="540" width="150" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="R4y-z8-8ij"/>
-                                    <constraint firstAttribute="height" constant="50" id="sI4-Wi-jjg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="21"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="segueToReviewScreen:" destination="uex-oO-kqo" eventType="touchUpInside" id="lLs-7t-Zxb"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming news update!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYi-vL-46N">
                                 <rect key="frame" x="20" y="269" width="560" height="61"/>
                                 <constraints>
@@ -523,21 +510,35 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-YJ-VjU">
+                                <rect key="frame" x="168" y="542" width="265" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="Gn5-gq-hWb"/>
+                                    <constraint firstAttribute="height" constant="50" id="iBP-ki-Inp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="21"/>
+                                <state key="normal" title="Chief's Report">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="segueToReviewScreen:" destination="uex-oO-kqo" eventType="touchUpInside" id="lLs-7t-Zxb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
-                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="19Y-KB-lXN"/>
-                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="AZG-YJ-VjU" secondAttribute="bottom" constant="10" id="B4d-hX-zs7"/>
+                            <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="AZG-YJ-VjU" secondAttribute="bottom" constant="8" id="BNs-3O-URj"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="E8F-jv-4io"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="131" id="I9Z-7h-sbt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
-                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="eOA-04-p0V"/>
+                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="59" id="eND-pV-CpS"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="mvA-55-SFC"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="om5-a0-LtL"/>
                             <constraint firstAttribute="trailing" secondItem="HYi-vL-46N" secondAttribute="trailing" constant="20" id="psX-Gq-H6c"/>
-                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="57" id="wlM-vi-CHz"/>
+                            <constraint firstItem="AZG-YJ-VjU" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="qt7-XX-rxt"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="trailing" secondItem="mEk-am-Y8H" secondAttribute="trailingMargin" id="x1s-Vg-cp7"/>
                         </constraints>
                         <variation key="default">
@@ -705,8 +706,8 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="wRM-X5-UMS"/>
                                         <exclude reference="8Ex-7F-zmc"/>
+                                        <exclude reference="wRM-X5-UMS"/>
                                     </mask>
                                 </variation>
                             </label>
@@ -826,7 +827,7 @@
     </scenes>
     <resources>
         <image name="operator.gif" width="443" height="154"/>
-        <image name="operator_background" width="504" height="953"/>
+        <image name="operator_background_animated.gif" width="504" height="953"/>
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>

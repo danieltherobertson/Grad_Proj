@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuc-cN-6yD">
                     <rect key="frame" x="169" y="238" width="263" height="163"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dispatch2" translatesAutoresizingMaskIntoConstraints="NO" id="qDg-qu-Q30">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dispatch" translatesAutoresizingMaskIntoConstraints="NO" id="qDg-qu-Q30">
                             <rect key="frame" x="0.0" y="6" width="263" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Pbf-Fx-lqT"/>
@@ -110,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="dispatch2" width="290" height="37"/>
+        <image name="dispatch" width="290" height="37"/>
     </resources>
 </document>

@@ -20,6 +20,7 @@ class ResultViewViewController: UIViewController {
     var specialPoints = Int()
     var levelPassed = Bool()
     var activeSave: GameSave!
+    var activeLevel = Int()
 
     var headline = String()
     @IBOutlet weak var eventView: EventView!
@@ -37,6 +38,7 @@ class ResultViewViewController: UIViewController {
         incomingNews.alpha = 0
         continueButton.alpha = 0
         continueButton.enabled = false
+        continueButton.buttonStyle(continueButton)
         eventView.alpha = 0
         self.eventView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         let triggerTime = Int64(2 * (NSEC_PER_SEC))
@@ -81,6 +83,7 @@ class ResultViewViewController: UIViewController {
         reviewVC?.specialPoints = specialPoints
         reviewVC?.levelPassed = levelPassed
         reviewVC?.activeSave = activeSave
+        reviewVC?.activeLevel = activeLevel
     }
 
 

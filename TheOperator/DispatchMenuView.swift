@@ -39,6 +39,7 @@ class DispatchMenuView: UIView {
     @IBOutlet weak var fireSwitch: UISwitch!
     
     @IBOutlet weak var dispatchButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

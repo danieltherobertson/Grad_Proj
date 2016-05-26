@@ -125,6 +125,7 @@ class GameViewController: UIViewController {
         gameView.speakerName.textColor = .blackColor()
         gameView.speakerName.text = ""
         
+        
         gameView.gameText.textColor = .blackColor()
         
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
@@ -134,8 +135,12 @@ class GameViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.characterImg.hidden = false
-            self.gameView.speakerName.text = character
             self.gameView.speakerName.text = "\(character):"
+            if character == "Chief" {
+                self.gameView.characterImg.image = UIImage(named: "chief")
+            } else {
+                self.gameView.characterImg.image = UIImage(named: "headset")
+            }
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
             self.isTyping = true
@@ -223,6 +228,13 @@ class GameViewController: UIViewController {
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
                 gameView.gameText.text = ""
+                let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
+                self.gameView.speakerName.text = "\(character):"
+                if character == "Chief" {
+                    gameView.characterImg.image = UIImage(named: "chief")
+                } else {
+                    gameView.characterImg.image = UIImage(named: "headset")
+                }
                 gameView.gameText.typeStart(nextDialogue)
                 isTyping = true
                 gameView.skipButton.hidden = false
@@ -248,29 +260,32 @@ class GameViewController: UIViewController {
         
         outer: for dialogue in levelDialogue {
             let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
+          //  print(answers)
             for answer in answers {
-                let goTo = answer.valueForKey("goTo") as! Int
-                let text = String(answer.valueForKey("text")!)
-                    if text == buttonAnswer! {
-                        if let special = answer.valueForKey("special") as? String{
-                            var specialChar = Array(special.characters)
-                            for (index,char) in specialChar.enumerate() {
-                                if char == "+" {
-                                    specialChar.removeAtIndex(index)
+                print(answer)
+                if let goTo = answer.valueForKey("goTo") as? Int {
+                    let text = String(answer.valueForKey("text")!)
+                        if text == buttonAnswer! {
+                            if let special = answer.valueForKey("special") as? String{
+                                var specialChar = Array(special.characters)
+                                for (index,char) in specialChar.enumerate() {
+                                    if char == "+" {
+                                        specialChar.removeAtIndex(index)
+                                    }
+                                }
+                                let points = String(specialChar[0])
+                                let pointsInt = Int(points)
+                                if pointsInt != nil {
+                                        specialPoints += pointsInt!
                                 }
                             }
-                            let points = String(specialChar[0])
-                            let pointsInt = Int(points)
-                            if pointsInt != nil {
-                                    specialPoints += pointsInt!
-                            }
-                        }
-                    nextDialogue = goTo
-                    currentDialogue = nextDialogue
-                    stageDialogue = levelDialogue[currentDialogue]
-                    stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-                    numberOfButtons = stageAnswers?.count
-                    break outer
+                        nextDialogue = goTo
+                        currentDialogue = nextDialogue
+                        stageDialogue = levelDialogue[currentDialogue]
+                        stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                        numberOfButtons = stageAnswers?.count
+                        break outer
+                    }
                 }
             }
         }
@@ -294,6 +309,8 @@ class GameViewController: UIViewController {
                         let triggerTime = Int64(2 * (NSEC_PER_SEC))
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                             self.displayDispatchMenu()
+                           // self.dispatchMenu.closeButton.enabled = false
+                           // self.dispatchMenu.closeButton.hidden = true
                         })
                     }
                 } else {
@@ -467,6 +484,7 @@ class GameViewController: UIViewController {
             resultViewVC?.specialPoints = specialPoints
             resultViewVC?.levelPassed = isPassed
             resultViewVC?.activeSave = currentSave
+            resultViewVC?.activeLevel = currentLevInt
         }
     
 

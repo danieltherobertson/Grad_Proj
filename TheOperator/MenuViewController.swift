@@ -127,6 +127,7 @@ class MenuViewController: UIViewController {
             let nextLetterIndex = tagLine.text!.characters.count
             let character = textArray[nextLetterIndex]
             tagLine.text = tagLine.text! + String(character)
+            tagLine.setLineHeight(4, alignment: .Center)
         }
     }
 

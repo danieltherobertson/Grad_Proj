@@ -11,7 +11,6 @@ import UIKit
 class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
 
     @IBOutlet weak var reviewTitle: UILabel!
-    //@IBOutlet weak var reviewText: UITextView!
     @IBOutlet weak var reviewRank: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
@@ -49,6 +48,7 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     var levelPassed = Bool()
     var passedString = String()
     var activeSave: GameSave!
+    var activeLevel = Int()
     var playerRank = String()
     
     var requiredServicesArray = [String]()
@@ -64,8 +64,10 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(activeLevel)
         continueButton.addTarget(self, action: #selector(segueToProgressView), forControlEvents: .TouchUpInside)
         continueButton.enabled = false
+        continueButton.buttonStyle(continueButton)
          continueButton.buttonStyle(continueButton)
         continueButton.backgroundColor = .lightGrayColor()
         continueButton.layer.borderColor = UIColor.darkGrayColor().CGColor
@@ -87,7 +89,6 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
 
         reviewRank.setLineHeight(3, alignment: .Left)
         rank = "Rewarded Rank: \(playerRank)"
-        comment = "Is that the best you can do? I expected better from you."
 
         type()
         // Do any additional setup after loading the view.
@@ -157,8 +158,12 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
         
         if segue.identifier == "levelReviewToProgressView" {
             if levelPassed {
-                activeSave.progress!+=1
-                activeSave.rankings.append(playerRank)
+                if activeSave.progress == activeLevel {
+                    activeSave.progress!+=1
+                    activeSave.rankings.append(playerRank)
+                } else if activeSave.progress > activeLevel {
+                    activeSave.rankings[activeLevel] = playerRank
+                }
             }
             progressVC?.currentSave = activeSave
             overwriteGame(activeSave)

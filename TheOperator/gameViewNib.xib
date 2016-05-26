@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -320,7 +319,7 @@
         </view>
     </objects>
     <resources>
-        <image name="chief" width="200" height="200"/>
-        <image name="pause" width="150" height="150"/>
+        <image name="chief" width="194" height="194"/>
+        <image name="pause" width="105" height="133"/>
     </resources>
 </document>
