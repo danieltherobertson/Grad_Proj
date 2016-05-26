@@ -34,8 +34,8 @@ class ProgressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        exitButton.buttonStyle(exitButton)
-        startButton.buttonStyle(startButton)
+        exitButton.buttonStyleInset(exitButton)
+        startButton.buttonStyleInset(startButton)
         
         instructions.text = "Select a level to begin!"
         instructions.setLineHeight(3, alignment: .Center)

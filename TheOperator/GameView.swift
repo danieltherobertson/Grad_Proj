@@ -64,12 +64,13 @@ class GameView: UIView, NSLayoutManagerDelegate {
             buttonTwoHeightConstraint.constant = 60
            // gameText.textContainerInset = UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20)
             gameText.editable = true
-            gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
+           // gameText.font = UIFont(name: "American_Captain", size: 14)
             speakerName.font = UIFont(name: "KemcoPixelBold", size: 16)
             //gameText.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
             gameText.layoutManager.delegate = self
            // let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 80))
            // gameText.textContainer.exclusionPaths = [imgRect]
+            gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
             gameText.editable = false
             gameText.selectable = false
             

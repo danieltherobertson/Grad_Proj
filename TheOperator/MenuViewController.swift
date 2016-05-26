@@ -102,9 +102,9 @@ class MenuViewController: UIViewController {
                
         }
 
-        newGame.buttonStyle(newGame)
-        loadGame.buttonStyle(loadGame)
-        help.buttonStyle(help)
+        newGame.buttonStyleInset(newGame)
+        loadGame.buttonStyleInset(loadGame)
+        help.buttonStyleInset(help)
         
  
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)

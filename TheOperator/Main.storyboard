@@ -7,18 +7,18 @@
     <customFonts key="customFonts">
         <mutableArray key="American_Captain.ttf">
             <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
         </mutableArray>
         <mutableArray key="Kemco_Pixel_Bold.ttf">
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
-            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="width" constant="220" id="BJd-MS-oVi"/>
                                     <constraint firstAttribute="height" constant="50" id="Xhn-pT-dWY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <state key="normal" title="CREDITS">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -90,9 +90,9 @@
                                     <constraint firstAttribute="height" constant="50" id="EpX-qj-C46"/>
                                     <constraint firstAttribute="width" constant="220" id="Gfo-24-yNt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="LOAD GAME">
+                                <state key="normal" title="LOAD  GAME">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -117,9 +117,9 @@
                                     <constraint firstAttribute="height" constant="50" id="Zbj-42-boz"/>
                                     <constraint firstAttribute="width" constant="220" id="jto-nc-Nc9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                <state key="normal" title="NEW GAME">
+                                <state key="normal" title="NEW  GAME">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -190,14 +190,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slots_background.gif" translatesAutoresizingMaskIntoConstraints="NO" id="p7E-6W-Tze">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
-                                <rect key="frame" x="20" y="65" width="560" height="20"/>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDy-P7-FIQ">
+                                <rect key="frame" x="20" y="43" width="560" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="feb-W4-dc1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="38"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Vh-9y-FiR" customClass="SlotsView" customModule="TheOperator" customModuleProvider="target">
-                                <rect key="frame" x="20" y="105" width="560" height="347"/>
+                                <rect key="frame" x="20" y="89" width="560" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="347" id="qPr-8J-lt2"/>
@@ -209,7 +212,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="gcx-SK-afb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                 <state key="normal" title="BACK">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -220,11 +223,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flX-Ps-bJE">
-                                <rect key="frame" x="20" y="464" width="560" height="53"/>
+                                <rect key="frame" x="20" y="447" width="560" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="524" id="5Qo-ip-zU9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -238,10 +241,10 @@
                         <constraints>
                             <constraint firstItem="flX-Ps-bJE" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="3Ay-PE-uEt"/>
                             <constraint firstItem="p7E-6W-Tze" firstAttribute="bottom" secondItem="oFS-r1-4ql" secondAttribute="top" id="5Tw-ke-esw"/>
-                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="13" id="7IB-xi-aH2"/>
+                            <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="flX-Ps-bJE" secondAttribute="bottom" constant="6" id="7IB-xi-aH2"/>
                             <constraint firstAttribute="trailing" secondItem="p7E-6W-Tze" secondAttribute="trailing" id="BEv-ko-O5I"/>
-                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="20" id="CV5-dP-uiK"/>
-                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="45" id="E2D-hO-Clb"/>
+                            <constraint firstItem="4Vh-9y-FiR" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="2" id="CV5-dP-uiK"/>
+                            <constraint firstItem="dDy-P7-FIQ" firstAttribute="top" secondItem="mmC-ll-I8M" secondAttribute="bottom" constant="23" id="E2D-hO-Clb"/>
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="leading" secondItem="gvP-Ca-5Hq" secondAttribute="leadingMargin" id="HTl-uo-ZkX"/>
                             <constraint firstItem="Ovg-Ah-o2f" firstAttribute="top" secondItem="p7E-6W-Tze" secondAttribute="bottom" constant="-70" id="Sgu-sD-NCH"/>
                             <constraint firstItem="flX-Ps-bJE" firstAttribute="centerX" secondItem="Ovg-Ah-o2f" secondAttribute="centerX" id="UDj-70-dYx"/>
@@ -252,8 +255,8 @@
                             <constraint firstItem="dDy-P7-FIQ" firstAttribute="trailing" secondItem="4Vh-9y-FiR" secondAttribute="trailing" id="gf0-Hc-INg"/>
                             <constraint firstAttribute="bottom" secondItem="Ovg-Ah-o2f" secondAttribute="bottom" constant="20" symbolic="YES" id="gtt-aj-0o3"/>
                             <constraint firstItem="4Vh-9y-FiR" firstAttribute="centerX" secondItem="flX-Ps-bJE" secondAttribute="centerX" id="hxU-UC-7WG"/>
-                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-85" id="rfE-lK-e7H"/>
-                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="12" id="yxW-Ub-erD"/>
+                            <constraint firstItem="p7E-6W-Tze" firstAttribute="top" secondItem="dDy-P7-FIQ" secondAttribute="bottom" constant="-87" id="rfE-lK-e7H"/>
+                            <constraint firstItem="flX-Ps-bJE" firstAttribute="top" secondItem="4Vh-9y-FiR" secondAttribute="bottom" constant="11" id="yxW-Ub-erD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -286,7 +289,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="284.5" id="UeE-Ob-HO2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="26"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="38"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -297,7 +300,7 @@
                                     <constraint firstAttribute="width" constant="130" id="XNa-VG-1Mo"/>
                                     <constraint firstAttribute="height" constant="50" id="nXD-Aa-AQU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -305,8 +308,8 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-HZ-fMS">
-                                <rect key="frame" x="20" y="502" width="560" height="28"/>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <rect key="frame" x="20" y="501" width="560" height="36"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -324,7 +327,7 @@
                                     <constraint firstAttribute="height" constant="50" id="2Gd-da-alB"/>
                                     <constraint firstAttribute="width" constant="130" id="NbM-AQ-cim"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                 <state key="normal" title="EXIT">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,7 +343,7 @@
                             <constraint firstAttribute="trailing" secondItem="qik-TB-ZDX" secondAttribute="trailing" constant="20" id="0BA-Lo-WKf"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" id="0vt-Au-X6Z"/>
                             <constraint firstItem="ilu-x4-8s9" firstAttribute="top" secondItem="Xun-yP-d5x" secondAttribute="bottom" constant="10" id="7uL-Ul-d0L"/>
-                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="8" id="Avu-YZ-WPT"/>
+                            <constraint firstItem="XtL-HZ-fMS" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="7" id="Avu-YZ-WPT"/>
                             <constraint firstItem="ilu-x4-8s9" firstAttribute="top" secondItem="qik-TB-ZDX" secondAttribute="bottom" constant="10" id="HLN-Cu-Q29"/>
                             <constraint firstItem="Xun-yP-d5x" firstAttribute="top" secondItem="lMQ-k1-M8M" secondAttribute="bottom" constant="46" id="LOA-Cr-so4"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="top" secondItem="PIC-0c-B7D" secondAttribute="bottom" constant="5" id="MJ5-Fp-sfh"/>
@@ -348,7 +351,7 @@
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" constant="0.5" id="aIE-Ih-JfY"/>
                             <constraint firstAttribute="trailing" secondItem="lMQ-k1-M8M" secondAttribute="trailing" constant="20" id="fzU-fA-bfL"/>
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="centerX" secondItem="Gal-04-7Mc" secondAttribute="centerX" id="hkV-Kf-hUq"/>
-                            <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="XtL-HZ-fMS" secondAttribute="bottom" constant="10" id="iHZ-yV-QrJ"/>
+                            <constraint firstItem="qik-TB-ZDX" firstAttribute="top" secondItem="XtL-HZ-fMS" secondAttribute="bottom" constant="3" id="iHZ-yV-QrJ"/>
                             <constraint firstItem="PIC-0c-B7D" firstAttribute="top" secondItem="CbM-rQ-rZW" secondAttribute="bottom" constant="13" id="oeM-iG-hg0"/>
                             <constraint firstItem="XtL-HZ-fMS" firstAttribute="leading" secondItem="Xun-yP-d5x" secondAttribute="leading" id="qCm-Ye-Qdt"/>
                             <constraint firstItem="lMQ-k1-M8M" firstAttribute="top" secondItem="PIC-0c-B7D" secondAttribute="bottom" constant="5" id="qeW-gd-QoE"/>
@@ -834,8 +837,8 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1hI-d4-aYS"/>
-        <segue reference="YzN-Zc-icn"/>
         <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="x7D-2a-gvU"/>
+        <segue reference="1hI-d4-aYS"/>
     </inferredMetricsTieBreakers>
 </document>

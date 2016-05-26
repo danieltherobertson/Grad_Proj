@@ -16,9 +16,19 @@ extension UIButton {
         button.layer.cornerRadius = 20
         button.layer.borderWidth = 4
         button.layer.borderColor = colour.color.CGColor
-        
         return button
     }
+    
+    func buttonStyleInset(button: UIButton, colour: ButtonColour = .Green) -> UIButton {
+        
+        let button = button
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 4
+        button.layer.borderColor = colour.color.CGColor
+        button.contentEdgeInsets = UIEdgeInsetsMake(7,0,0,0)
+        return button
+    }
+
 }
 
 enum ButtonColour {
