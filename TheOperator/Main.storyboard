@@ -5,8 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="American_Captain.ttf">
+            <string>AmericanCaptain</string>
+        </mutableArray>
         <mutableArray key="Kemco_Pixel_Bold.ttf">
-            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -68,10 +70,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="operator.gif" translatesAutoresizingMaskIntoConstraints="NO" id="lg0-7L-NlO">
-                                <rect key="frame" x="9" y="54" width="586" height="164"/>
+                                <rect key="frame" x="9" y="74" width="586" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="443" id="7bA-hF-gib"/>
-                                    <constraint firstAttribute="height" constant="164" id="CId-z5-7ri"/>
+                                    <constraint firstAttribute="height" constant="144" id="CId-z5-7ri"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="145" id="RK6-7b-KW3"/>
                                 </constraints>
                                 <variation key="default">
@@ -98,12 +100,13 @@
                                     <segue destination="ZzI-CA-vw3" kind="show" identifier="loadGameSlotsPush" id="ZpM-Vx-JOL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
-                                <rect key="frame" x="170" y="223" width="260" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKq-V1-gxH">
+                                <rect key="frame" x="9" y="223" width="586" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="F4r-hF-5kt"/>
+                                    <constraint firstAttribute="height" constant="35" id="APx-09-Lkk"/>
+                                    <constraint firstAttribute="width" constant="586" id="F4r-hF-5kt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -139,9 +142,9 @@
                             <constraint firstAttribute="bottom" secondItem="kl0-Z0-wle" secondAttribute="bottom" constant="106" id="WQF-gX-KFR"/>
                             <constraint firstItem="X2G-Hu-3dn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="155" id="bbI-cv-aS7"/>
                             <constraint firstItem="TwL-La-M31" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c6P-8o-9xD"/>
-                            <constraint firstItem="YKq-V1-gxH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cYb-W5-huF"/>
+                            <constraint firstItem="YKq-V1-gxH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2" id="cYb-W5-huF"/>
                             <constraint firstItem="YKq-V1-gxH" firstAttribute="top" secondItem="lg0-7L-NlO" secondAttribute="bottom" constant="5" id="dCS-aT-bNJ"/>
-                            <constraint firstItem="lg0-7L-NlO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="eM4-Sv-T0a"/>
+                            <constraint firstItem="lg0-7L-NlO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="eM4-Sv-T0a"/>
                             <constraint firstItem="TwL-La-M31" firstAttribute="top" secondItem="kl0-Z0-wle" secondAttribute="bottom" constant="30" id="kwh-Qn-9w4"/>
                             <constraint firstItem="X2G-Hu-3dn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lxz-YU-H72"/>
                             <constraint firstItem="kl0-Z0-wle" firstAttribute="top" secondItem="X2G-Hu-3dn" secondAttribute="bottom" constant="32" id="nFM-Zu-Vg0"/>

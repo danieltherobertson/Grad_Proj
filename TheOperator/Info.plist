@@ -40,6 +40,7 @@
 	<array>
 		<string>Kemco_Pixel_Bold.ttf</string>
 		<string>headline.ttf</string>
+		<string>American_Captain.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -29,7 +29,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //AudioPlayerController.sharedInstance.startAudio("operatorTheme")
         // Do any additional setup after loading the view, typically from a nib.
 
@@ -111,7 +111,7 @@ class MenuViewController: UIViewController {
     }
     
     func typeStart() {
-        text = "Failure is not an option."
+        text = "Failure  is  not  an  option."
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
         timer!.fire()
@@ -127,6 +127,7 @@ class MenuViewController: UIViewController {
             let nextLetterIndex = tagLine.text!.characters.count
             let character = textArray[nextLetterIndex]
             tagLine.text = tagLine.text! + String(character)
+           // tagLine.font = UIFont(name: "AmericanCaptain", size: 20)
             tagLine.setLineHeight(4, alignment: .Center)
         }
     }
