@@ -19,15 +19,28 @@ class TutorialViewController: UIViewController {
     var currentSave: GameSave!
     var currentLevel: NSDictionary!
     var buttons = [UIButton]()
+    var startingTime = Int()
     
     var currentLev: String!
     var currentLevInt: Int!
     var currentLevRead: Int!
     
     var requiredServices = [String]()
+    var dispatchServices = [Int]()
     var servicesEvent = [NSDictionary]()
+    var headlineGen: (String, Bool)!
+    var headline = String()
+    var isPassed = Bool()
+    
+    var remainingTime = String()
+    var theIssue = String()
+    var dispatchedUnits = String()
+    
     
     var currentDialogue = 0
+    var specialPoints = 0
+    var availableSpecialPoints = Int()
+    
     var resumeDialogue: String!
     
     var stageDialogue: NSDictionary!
@@ -41,10 +54,18 @@ class TutorialViewController: UIViewController {
     
     var isTyping = false
     var isTiming = false
+    var timeHasStarted = false
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        print("currentSave: \(currentSave.rankings)")
+        typeSpeed = 0.05
         gameView.skipButton.hidden = true
         gameView.characterImg.hidden = true
+        
+        gameView.characterImg.alpha = 0
+        gameView.speakerName.alpha = 0
+        
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
@@ -58,8 +79,6 @@ class TutorialViewController: UIViewController {
         gameView.levelIndicator.text = "Level \(currentLevRead!)"
         gameView.timeIndicator.text = "Time 00:00"
         
-        super.viewDidLoad()
-        
         let buttonOne = gameView.gameAnswerOne
         let buttonTwo = gameView.gameAnswerTwo
         let buttonThree = gameView.gameAnswerThree
@@ -67,6 +86,7 @@ class TutorialViewController: UIViewController {
         
         for button in buttons {
             button.setTitle(" ", forState: .Normal)
+            button.titleLabel?.setLineHeight(10, alignment: .Left)
             button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
@@ -106,29 +126,30 @@ class TutorialViewController: UIViewController {
         gameView.speakerName.textColor = .blackColor()
         gameView.speakerName.text = ""
         
+        
         gameView.gameText.textColor = .blackColor()
         
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
-            //self.gameView.gameTextContainerHeightConstraint.constant = 200
-            //self.gameView.textViewHeightConstraint.constant = 200
             self.gameView.gameTextContainerHeightConstraint.constant = 200
-            // self.gameView.speakerViewHeightConstraint.constant = 80
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
             self.gameView.characterImg.hidden = false
-            self.gameView.speakerName.text = character
-            // self.gameView.characterImg.image = UIImage(named: "padlock")
             self.gameView.speakerName.text = "\(character):"
+            if character == "Chief" {
+                self.gameView.characterImg.image = UIImage(named: "chief")
+            } else {
+                self.gameView.characterImg.image = UIImage(named: "headset")
+            }
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
             self.isTyping = true
             self.gameView.skipButton.hidden = false
-            self.gameView.dispatchButton.enabled = true
             self.gameView.pauseButton.enabled = true
             
             onTypeComplete = {
+                self.isTyping = false
                 self.layoutHandler(self.numberOfButtons)
             }
         }
@@ -208,8 +229,14 @@ class TutorialViewController: UIViewController {
                 let buttons = dialogue.valueForKey("buttons") as! Int
                 //And display it in gameText
                 gameView.gameText.text = ""
+                let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
+                self.gameView.speakerName.text = "\(character):"
+                if character == "Chief" {
+                    gameView.characterImg.image = UIImage(named: "chief")
+                } else {
+                    gameView.characterImg.image = UIImage(named: "headset")
+                }
                 gameView.gameText.typeStart(nextDialogue)
-                isTyping = true
                 if dialogueIndex == 3 {
                     gameView.skipButton.hidden = true
                     gameView.skipButton.enabled = false
@@ -218,6 +245,7 @@ class TutorialViewController: UIViewController {
                     gameView.skipButton.enabled = true
                 }
                 onTypeComplete = {
+                    self.isTyping = false
                     self.layoutHandler(buttons)
                     
                     if enablesPopUp {
@@ -237,31 +265,63 @@ class TutorialViewController: UIViewController {
         
         outer: for dialogue in levelDialogue {
             let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
+            //  print(answers)
             for answer in answers {
-                let goTo = answer.valueForKey("goTo") as! Int
-                let text = String(answer.valueForKey("text")!)
-                
-                if text == buttonAnswer! {
-                    nextDialogue = goTo
-                    currentDialogue = nextDialogue
-                    stageDialogue = levelDialogue[currentDialogue]
-                    stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-                    numberOfButtons = stageAnswers?.count
-                    break outer
+                print(answer)
+                if let goTo = answer.valueForKey("goTo") as? Int {
+                    let text = String(answer.valueForKey("text")!)
+                    if text == buttonAnswer! {
+                        if let special = answer.valueForKey("special") as? String{
+                            var specialChar = Array(special.characters)
+                            for (index,char) in specialChar.enumerate() {
+                                if char == "+" {
+                                    specialChar.removeAtIndex(index)
+                                }
+                            }
+                            let points = String(specialChar[0])
+                            let pointsInt = Int(points)
+                            if pointsInt != nil {
+                                specialPoints += pointsInt!
+                            }
+                        }
+                        nextDialogue = goTo
+                        currentDialogue = nextDialogue
+                        stageDialogue = levelDialogue[currentDialogue]
+                        stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                        numberOfButtons = stageAnswers?.count
+                        break outer
+                    }
                 }
             }
         }
+        
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
+                gameView.dispatchButton.enabled = true
                 gameView.skipButton.hidden = true
                 gameView.skipButton.enabled = false
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
-                
-            } else {
-                sender.hidden = true
-                questionHandler(nextDialogue, enablesPopUp: false)
+            } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
+                if triggersDispatch == true {
+                    gameView.gameText.text = ""
+                    clearButtons()
+                    gameView.gameText.typeStart("Please send help")
+                    isTyping = true
+                    onTypeComplete = {
+                        self.isTyping = false
+                        let triggerTime = Int64(2 * (NSEC_PER_SEC))
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                            self.displayDispatchMenu()
+                            // self.dispatchMenu.closeButton.enabled = false
+                            // self.dispatchMenu.closeButton.hidden = true
+                        })
+                    }
+                } else {
+                    sender.hidden = true
+                    questionHandler(nextDialogue, enablesPopUp: false)
+                }
             }
         }
     }
@@ -277,6 +337,8 @@ class TutorialViewController: UIViewController {
                 self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
                 
                 if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                    self.startingTime = timeLimit
+                    self.timeHasStarted = true
                     self.countDown(timeLimit)
                 }
                 self.questionHandler(callGoTo, enablesPopUp: false)
@@ -301,6 +363,44 @@ class TutorialViewController: UIViewController {
                 gameView.timeIndicator.textColor = .greenColor()
             } else {
                 gameView.timeIndicator.textColor = .redColor()
+                countDownTimer?.invalidate()
+            }
+            let timeFail = "<Error: Signal lost> \n<Error: No time remaining>\n System log: Call Failed"
+            gameView.gameText.text = ""
+            clearButtons()
+            gameView.gameText.typeStart(timeFail)
+            isTyping = true
+            onTypeComplete = {
+                self.isTyping = false
+                let dialogue = ZAlertView(title: "No time remaining", message: "You've run out of time! Do you want to restart the level or exit?", isOkButtonLeft: true, okButtonText: "Restart", cancelButtonText: "Exit", okButtonHandler: { (alertView) in
+                    for button in self.buttons {
+                        button.setTitle(" ", forState: .Normal)
+                        button.titleLabel?.setLineHeight(10, alignment: .Left)
+                    }
+                    self.gameView.skipButton.enabled = true
+                    self.gameView.dispatchButton.enabled = false
+                    self.gameView.characterImg.alpha = 0
+                    self.gameView.speakerName.alpha = 0
+                    self.gameView.speakerName.textColor = .blackColor()
+                    self.gameView.speakerName.text = ""
+                    self.gameView.gameText.text = ""
+                    self.gameView.timeIndicator.textColor = .greenColor()
+                    self.clearButtons()
+                    self.gameView.gameTextContainerHeightConstraint.constant = 0
+                    self.view.layoutIfNeeded()
+                    self.currentDialogue = 0
+                    self.levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
+                    self.stageDialogue = self.levelDialogue[self.currentDialogue]
+                    self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+                    self.numberOfButtons = self.stageAnswers?.count
+                    alertView.dismiss()
+                    self.startText()
+                    }, cancelButtonHandler: { (alertView) in
+                        self.performSegueWithIdentifier("tutorialReturnToProgressView", sender: self)
+                        alertView.dismiss()
+                })
+                dialogue.allowTouchOutsideToDismiss = false
+                dialogue.show()
             }
         } else if timeCount <= 10 && timeCount > 0 {
             if gameView.timeIndicator.textColor == UIColor.redColor() {
@@ -330,21 +430,38 @@ class TutorialViewController: UIViewController {
         dispatchMenu = DispatchMenuView.instanceFromNib()
         if isTyping {
             gameView.gameText.stopType()
+            isTyping = false
+            dispatchMenu.resumeType = resumeType
         }
-        dispatchMenu.resumeType = resumeType
-        countDownTimer?.invalidate()
+        
+        if isTiming {
+            countDownTimer?.invalidate()
+            isTiming = false
+            dispatchMenu.resumeTime = resumeTime
+            
+        }
+        
+        dispatchMenu.dispatchSent = levelEnding
+        //countDownTimer?.invalidate()
         dispatchMenu.showInView(self.view, animated: true)
+        
     }
     
     func displayPauseMenu() {
         
         if isTyping {
             gameView.gameText.stopType()
+            isTyping = false
         }
-        countDownTimer?.invalidate()
+        
+        if isTiming {
+            countDownTimer?.invalidate()
+            isTiming = false
+        }
         
         pauseMenu = PauseMenuView.instanceFromNib()
         pauseMenu.resumeType = resumeType
+        pauseMenu.resumeTime = resumeTime
         pauseMenu.exitLevelButton.addTarget(nil, action: #selector(returnToProgressView), forControlEvents: .TouchUpInside)
         pauseMenu.showInView(self.view, animated: true)
         
@@ -352,7 +469,30 @@ class TutorialViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let progressVC = (segue.destinationViewController as? ProgressViewController)
-        progressVC?.currentSave = currentSave
+        
+        
+        if segue.identifier == "gameReturnToProgressView" {
+            progressVC?.currentSave = currentSave
+        }
+        
+        let resultViewVC = (segue.destinationViewController as? ResultViewViewController)
+        if segue.identifier == "gameViewToResultView" || segue.identifier == "tutorialViewToResultView" {
+            resultViewVC?.headline = headline
+            resultViewVC?.remainingTime = remainingTime
+            resultViewVC?.theIssue = theIssue
+            resultViewVC?.dispatchedUnits = dispatchedUnits
+            let convertedUnits = dispatchConverter(requiredServices)
+            resultViewVC?.expectedUnits = convertedUnits
+            resultViewVC?.expectedUnitsArray = requiredServices
+            resultViewVC?.startingTime = startingTime
+            resultViewVC?.availableSpecialPoints = availableSpecialPoints
+            resultViewVC?.specialPoints = specialPoints
+            resultViewVC?.levelPassed = isPassed
+            resultViewVC?.activeSave = currentSave
+            resultViewVC?.activeLevel = currentLevInt
+        }
+        
+        
     }
     
     func returnToProgressView() {
@@ -365,17 +505,76 @@ class TutorialViewController: UIViewController {
         })
         dialogue.allowTouchOutsideToDismiss = false
         dialogue.show()
-        
     }
+
     
     func resumeType () {
         // let currentText = gameView.gameText.text
-        if isTyping {
+        if isTyping != true {
             gameView.gameText.typeStart(resumeDialogue)
         }
-        if isTiming {
+        
+    }
+    
+    func resumeTime() {
+        if isTiming != true && timeHasStarted == true {
             countDown(timeCount)
         }
+    }
+    
+    func levelEnding(dispatched: String) {
+        countDownTimer?.invalidate()
+        
+        //resumeType()
+        // resumeTime()
+        // speedType()
+        onTypeComplete = {
+            
+        }
+        remainingTime = gameView.timeIndicator.text!
+        buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
+        gameView.skipButton.enabled = false
+        gameView.skipButton.hidden = true
+        dispatchedUnits = dispatched
+        stageAnswers = [["text": "I've dispatched \(dispatched) to your location. Help is coming!"]]
+        let buttonText = "I've dispatched \(dispatched) to your location. Help is coming!"
+        let servicesConvert = servicesStringToInt(dispatched)
+        headlineGen = generateHeadline(servicesConvert, requiredServices: requiredServices, headlines: servicesEvent)
+        headline = headlineGen.0
+        isPassed = headlineGen.1
+        print(isPassed)
+        let attributeString = NSMutableAttributedString(string: buttonText)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 3
+        style.alignment = .Left
+        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, buttonText.characters.count))
+        clearButtons()
+        buttons[1].hidden = false
+        buttons[1].setAttributedTitle(attributeString, forState: .Normal)
+        buttons[1].removeTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
+        buttons[1].addTarget(self, action: #selector(randomResponse), forControlEvents: .TouchUpInside)
+        gameView.buttonTwoHeightConstraint.constant = 100
+        view.layoutIfNeeded()
+    }
+    
+    func randomResponse() {
+        buttons[1].enabled = false
+        buttons[1].hidden = true
+        let random = Int(arc4random_uniform(6))
+        let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
+        let reply = replies[random]
+        gameView.gameText.text = ""
+        gameView.gameText.typeStart(reply)
+        onTypeComplete = {
+            let triggerTime = Int64(2 * (NSEC_PER_SEC))
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                self.segueToResultsView()
+            })
+        }
+    }
+    
+    func segueToResultsView(){
+        performSegueWithIdentifier("tutorialViewToResultView", sender: self)
     }
     //    func animateTransition(element: AnyObject, time: Double, direction: String) {
     //        let animation = CATransition()
@@ -391,16 +590,5 @@ class TutorialViewController: UIViewController {
     //        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
     //        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
     //    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 

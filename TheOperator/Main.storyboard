@@ -781,7 +781,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axO-cV-lMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4511" y="387"/>
+            <point key="canvasLocation" x="4537" y="387"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Hm9-JM-jcy">
@@ -831,8 +831,8 @@
         <image name="slots_background.gif" width="504" height="953"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZpM-Vx-JOL"/>
+        <segue reference="1hI-d4-aYS"/>
         <segue reference="YzN-Zc-icn"/>
-        <segue reference="Xht-o0-MF9"/>
+        <segue reference="ZpM-Vx-JOL"/>
     </inferredMetricsTieBreakers>
 </document>
