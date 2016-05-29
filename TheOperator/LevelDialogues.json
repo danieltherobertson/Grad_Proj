@@ -82,16 +82,15 @@
 			},
 			{
 				"number": 5,
-				"character": "",
-				"text": "",
+				"character": "Incoming Call Alert",
+				"text": " ",
 	            "buttons": 0,
                 "triggersCall": true,
                 "triggersDispatch": false,
                 "callGoTo": 6,
 	            "acceptedAnswers": [
 	              	{
-	                 	"text": "<>",
-	                 	"goTo": 6
+	                 	
 	                 }
 	            ]
 			},
@@ -112,7 +111,7 @@
                         "goTo": 8
                     },
                     {
-                        "text": "This is a bit cliché, isn’t it?",
+                        "text": "This is a bit cliche, isn’t it?",
                         "goTo": 9
                     }
 	            ]

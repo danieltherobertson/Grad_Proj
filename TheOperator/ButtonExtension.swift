@@ -19,6 +19,17 @@ extension UIButton {
         return button
     }
     
+    func gameButtonStyle(button: UIButton, colour: ButtonColour = .Green) -> UIButton {
+        
+        let button = button
+        button.layer.cornerRadius = 20
+        button.layer.borderWidth = 4
+        button.layer.borderColor = colour.color.CGColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        button.titleLabel?.setLineHeight(3, alignment: .Left)
+        return button
+    }
+    
     func buttonStyleInset(button: UIButton, colour: ButtonColour = .Green) -> UIButton {
         
         let button = button

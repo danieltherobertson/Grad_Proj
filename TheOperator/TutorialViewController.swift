@@ -86,7 +86,6 @@ class TutorialViewController: UIViewController {
         
         for button in buttons {
             button.setTitle(" ", forState: .Normal)
-            button.titleLabel?.setLineHeight(10, alignment: .Left)
             button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
@@ -121,11 +120,11 @@ class TutorialViewController: UIViewController {
             self.resumeDialogue = dialogue
             let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
             
-            self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.speakerName.textColor = .whiteColor()
             self.gameView.speakerName.text = ""
             
             
-            self.gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.gameText.textColor = .whiteColor()
             
             //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
             
@@ -178,28 +177,42 @@ class TutorialViewController: UIViewController {
         clearButtons()
         
         for answer in stageAnswers {
-            let buttonAnswer = String(answer.valueForKey("text")!)
-            inUseAnswers.append(buttonAnswer)
+            if let buttonAnswer = answer.valueForKey("text") as? String {
+                inUseAnswers.append(buttonAnswer)
+            }
         }
         
         if NoOfbuttons == 1 {
             let button = self.buttons[0]
             button.hidden = false
-            button.setTitle(inUseAnswers.first, forState: .Normal)
+            let attributeString = NSMutableAttributedString(string: inUseAnswers.first!)
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 3
+            style.alignment = .Center
+            attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, inUseAnswers.first!.characters.count))
+            button.setAttributedTitle(attributeString, forState: .Normal)
+        } else if NoOfbuttons == 0 {
             
-        } else {
+        } else if NoOfbuttons > 1 {
             outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
                 
                 for (index2, answer) in inUseAnswers.enumerate() {
                     if index == index2 {
-                        button.setTitle(answer, forState: .Normal)
+                        print(answer)
+                      //  button.setTitle(answer, forState: .Normal)
+                        let attributeString = NSMutableAttributedString(string: answer)
+                        let style = NSMutableParagraphStyle()
+                        style.lineSpacing = 3
+                        style.alignment = .Center
+                        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, answer.characters.count))
+                        button.setAttributedTitle(attributeString, forState: .Normal)
                     }
                     
                     if index == NoOfbuttons {
                         inUseAnswers.removeAll()
                         button.hidden = true
-                        button.setTitle("", forState: .Normal)
+                      
                         break outer
                     }
                 }
@@ -209,8 +222,14 @@ class TutorialViewController: UIViewController {
     
     func clearButtons() {
         for button in buttons {
-            button.setTitle("", forState: .Normal)
+            let attributeString = NSMutableAttributedString(string: "")
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 3
+            style.alignment = .Center
+            attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, 0))
+            button.setAttributedTitle(attributeString, forState: .Normal)
             button.hidden = true
+            print("done")
         }
     }
     
@@ -300,6 +319,7 @@ class TutorialViewController: UIViewController {
                 gameView.dispatchButton.enabled = true
                 gameView.skipButton.hidden = true
                 gameView.skipButton.enabled = false
+                clearButtons()
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
             } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
@@ -326,6 +346,7 @@ class TutorialViewController: UIViewController {
     }
     
     func triggerCall() {
+        clearButtons()
         callAlert = CallAlertView.instanceFromNib()
         callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {

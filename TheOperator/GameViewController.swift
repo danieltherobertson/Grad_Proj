@@ -121,11 +121,11 @@ class GameViewController: UIViewController {
             self.resumeDialogue = dialogue
             let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
             
-            self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.speakerName.textColor = .whiteColor()
             self.gameView.speakerName.text = ""
             
             
-            self.gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.gameText.textColor = .whiteColor()
             
             
             self.gameView.speakerName.text = "\(character):"
@@ -202,7 +202,7 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        delay(1.0) {
+        delay(0.5) {
             for button in self.buttons {
                 button.enabled = true
             }
@@ -296,6 +296,10 @@ class GameViewController: UIViewController {
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
+                
+                for button in buttons {
+                    button.hidden = true
+                }
                 gameView.dispatchButton.enabled = true
                 gameView.skipButton.hidden = true
                 gameView.skipButton.enabled = false

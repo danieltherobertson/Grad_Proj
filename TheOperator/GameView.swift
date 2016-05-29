@@ -51,9 +51,9 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameTextContainer.layer.cornerRadius = 20
             gameTextContainer.layer.borderWidth = 4
             gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
-            gameAnswerOne.buttonStyle(gameAnswerOne)
-            gameAnswerTwo.buttonStyle(gameAnswerTwo)
-            gameAnswerThree.buttonStyle(gameAnswerThree)
+            gameAnswerOne.gameButtonStyle(gameAnswerOne)
+            gameAnswerTwo.gameButtonStyle(gameAnswerTwo)
+            gameAnswerThree.gameButtonStyle(gameAnswerThree)
             skipButton.buttonStyle(skipButton)
             gameText.clipsToBounds = true
             //gameText.textFieldStyle(gameText)
