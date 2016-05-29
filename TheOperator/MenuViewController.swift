@@ -53,7 +53,13 @@ class MenuViewController: UIViewController {
         help.center.x  -= view.bounds.width
         
         buttons.append(newGame);buttons.append(loadGame);buttons.append(help)
+        
+        for button in buttons{
+            button.enabled = true
+        }
         newGame.addTarget(self, action: #selector(disable), forControlEvents: .TouchUpInside)
+        loadGame.addTarget(self, action: #selector(disable), forControlEvents: .TouchUpInside)
+        help.addTarget(self, action: #selector(disable), forControlEvents: .TouchUpInside)
         
         
         UIView.animateWithDuration(0.7, delay: 0.4, options: [], animations: { () -> Void in
@@ -112,6 +118,12 @@ class MenuViewController: UIViewController {
         
  
         timer = NSTimer.scheduledTimerWithTimeInterval(1 , target: self, selector: #selector(typeStart), userInfo: nil, repeats: false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        for button in buttons {
+            button.enabled = true
+        }
     }
     
     func typeStart() {

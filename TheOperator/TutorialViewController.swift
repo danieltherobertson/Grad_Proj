@@ -164,7 +164,7 @@ class TutorialViewController: UIViewController {
     func addCharacterDetails() {
         
         UIView.animateWithDuration(0.5, delay: 0, options: [], animations: { () -> Void in
-            self.gameView.characterImg.alpha = 1
+           // self.gameView.characterImg.alpha = 1
             self.gameView.speakerName.alpha = 1
         }) { (completion) -> Void in
             
