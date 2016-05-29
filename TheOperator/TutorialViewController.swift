@@ -117,42 +117,41 @@ class TutorialViewController: UIViewController {
             self.gameView.introLabel.alpha = 0
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
-        }
-        //get next dialogue, starts at 0 for start of level.
-        let dialogue = String(levelDialogue[currentDialogue].valueForKey("text")!)
-        resumeDialogue = dialogue
-        let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
-        
-        gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
-        gameView.speakerName.text = ""
-        
-        
-        gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
-        
-        //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
-        self.view.layoutIfNeeded()
-        UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
-            self.gameView.gameTextContainerHeightConstraint.constant = 200
-            self.view.layoutIfNeeded()
-        }) { (completion) -> Void in
-           // self.gameView.characterImg.hidden = false
+            let dialogue = String(self.levelDialogue[self.currentDialogue].valueForKey("text")!)
+            self.resumeDialogue = dialogue
+            let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
+            
+            self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.speakerName.text = ""
+            
+            
+            self.gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            
+            //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
+            
+            // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
             if character == "Chief" {
-             //   self.gameView.characterImg.image = UIImage(named: "chief")
+                //   self.gameView.characterImg.image = UIImage(named: "chief")
             } else {
-              //  self.gameView.characterImg.image = UIImage(named: "headset")
+                //  self.gameView.characterImg.image = UIImage(named: "headset")
             }
             self.addCharacterDetails()
-            self.gameView.gameText.typeStart(dialogue)
-            self.isTyping = true
-            self.gameView.skipButton.hidden = false
-            self.gameView.pauseButton.enabled = true
-            
-            onTypeComplete = {
-                self.isTyping = false
-                self.layoutHandler(self.numberOfButtons)
-            }
+            delay(0.5, closure: {
+                self.gameView.gameText.typeStart(dialogue)
+                self.isTyping = true
+                self.gameView.skipButton.hidden = false
+                self.gameView.pauseButton.enabled = true
+                
+                onTypeComplete = {
+                    self.isTyping = false
+                    self.layoutHandler(self.numberOfButtons)
+                }
+                
+            })
+
         }
+
     }
     
     func speedType () {
@@ -386,8 +385,6 @@ class TutorialViewController: UIViewController {
                     self.gameView.gameText.text = ""
                     self.gameView.timeIndicator.textColor = .greenColor()
                     self.clearButtons()
-                    self.gameView.gameTextContainerHeightConstraint.constant = 0
-                    self.view.layoutIfNeeded()
                     self.currentDialogue = 0
                     self.levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
                     self.stageDialogue = self.levelDialogue[self.currentDialogue]

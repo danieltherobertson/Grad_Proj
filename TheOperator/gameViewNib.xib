@@ -32,13 +32,11 @@
                 <outlet property="gameAnswerTwo" destination="1gr-Zt-XgX" id="D8F-Ze-NJM"/>
                 <outlet property="gameText" destination="aeO-gO-Xef" id="dt0-OE-Ckm"/>
                 <outlet property="gameTextContainer" destination="lNX-u4-MWf" id="V3f-Ng-HSR"/>
-                <outlet property="gameTextContainerHeightConstraint" destination="anL-JC-Skf" id="Nby-8f-4nW"/>
                 <outlet property="introLabel" destination="sFU-Q9-kKB" id="92q-U6-fuA"/>
                 <outlet property="levelIndicator" destination="scJ-L3-bdv" id="sk3-01-YcP"/>
                 <outlet property="pauseButton" destination="1iu-Tz-7Xv" id="bbs-Mr-jcm"/>
                 <outlet property="skipButton" destination="uoA-yU-DRM" id="lFq-Rg-wq6"/>
                 <outlet property="speakerName" destination="PMt-ZG-52t" id="JHi-i3-QYA"/>
-                <outlet property="textViewHeightConstraint" destination="i0y-uM-3kQ" id="pYk-6A-LSV"/>
                 <outlet property="timeIndicator" destination="sPl-cb-Zn3" id="1HC-II-hFt"/>
             </connections>
         </placeholder>
@@ -47,6 +45,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
+                    <rect key="frame" x="516" y="280" width="76" height="42"/>
+                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
+                        <constraint firstAttribute="width" constant="76" id="a87-oj-an3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyC-eh-NVu">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,7 +147,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="10" id="4Ja-Ov-WAQ"/>
                         <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="10" id="9GG-nm-lva"/>
@@ -208,18 +218,6 @@
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
-                    <rect key="frame" x="516" y="280" width="76" height="42"/>
-                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
-                        <constraint firstAttribute="width" constant="76" id="a87-oj-an3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
-                    <state key="normal" title="Skip">
-                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -284,9 +282,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="sFU-Q9-kKB"/>
-                </mask>
                 <mask key="constraints">
                     <exclude reference="Kk7-Ad-JCk"/>
                     <exclude reference="4q1-JZ-Joh"/>

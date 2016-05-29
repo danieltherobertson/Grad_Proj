@@ -16,7 +16,6 @@ class GameView: UIView, NSLayoutManagerDelegate {
     @IBOutlet weak var timeIndicator: UILabel!
    // @IBOutlet weak var gameText: UILabel!
     @IBOutlet weak var gameTextContainer: UIView!
-    @IBOutlet weak var gameTextContainerHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var gameText: UITextView!
   //  @IBOutlet weak var speakerView: UITextView!
@@ -37,7 +36,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
     
     @IBOutlet weak var introLabel: UILabel!
 
-    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+ //   @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
  //   @IBOutlet weak var speakerViewHeightConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +59,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             //gameText.textFieldStyle(gameText)
             //introLabel.setLineHeight(30, alignment: .Center)
             //textViewHeightConstraint.constant = 0
-            gameTextContainerHeightConstraint.constant = 0
+
             buttonTwoHeightConstraint.constant = 60
            // gameText.textContainerInset = UIEdgeInsets(top: 200, left: 20, bottom: 0, right: 20)
             gameText.editable = true
