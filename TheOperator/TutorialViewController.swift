@@ -61,9 +61,9 @@ class TutorialViewController: UIViewController {
         print("currentSave: \(currentSave.rankings)")
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
-        gameView.characterImg.hidden = true
+       // gameView.characterImg.hidden = true
         
-        gameView.characterImg.alpha = 0
+       // gameView.characterImg.alpha = 0
         gameView.speakerName.alpha = 0
         
         
@@ -135,12 +135,12 @@ class TutorialViewController: UIViewController {
             self.gameView.gameTextContainerHeightConstraint.constant = 200
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
-            self.gameView.characterImg.hidden = false
+           // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
             if character == "Chief" {
-                self.gameView.characterImg.image = UIImage(named: "chief")
+             //   self.gameView.characterImg.image = UIImage(named: "chief")
             } else {
-                self.gameView.characterImg.image = UIImage(named: "headset")
+              //  self.gameView.characterImg.image = UIImage(named: "headset")
             }
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
@@ -232,9 +232,9 @@ class TutorialViewController: UIViewController {
                 let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
                 self.gameView.speakerName.text = "\(character):"
                 if character == "Chief" {
-                    gameView.characterImg.image = UIImage(named: "chief")
+                   // gameView.characterImg.image = UIImage(named: "chief")
                 } else {
-                    gameView.characterImg.image = UIImage(named: "headset")
+                   // gameView.characterImg.image = UIImage(named: "headset")
                 }
                 gameView.gameText.typeStart(nextDialogue)
                 if dialogueIndex == 3 {
@@ -379,7 +379,7 @@ class TutorialViewController: UIViewController {
                     }
                     self.gameView.skipButton.enabled = true
                     self.gameView.dispatchButton.enabled = false
-                    self.gameView.characterImg.alpha = 0
+                    //self.gameView.characterImg.alpha = 0
                     self.gameView.speakerName.alpha = 0
                     self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     self.gameView.speakerName.text = ""

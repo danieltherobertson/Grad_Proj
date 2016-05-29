@@ -117,7 +117,7 @@ class MenuViewController: UIViewController {
     func typeStart() {
         text = "Failure  is  not  an  option."
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: #selector(addNextLetter), userInfo: nil, repeats: true)
         timer!.fire()
     }
     
