@@ -59,6 +59,7 @@ class TutorialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("currentSave: \(currentSave.rankings)")
+        print(currentSave.name)
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
        // gameView.characterImg.hidden = true
@@ -489,7 +490,7 @@ class TutorialViewController: UIViewController {
         let progressVC = (segue.destinationViewController as? ProgressViewController)
         
         
-        if segue.identifier == "gameReturnToProgressView" {
+        if segue.identifier == "tutorialReturnToProgressView" {
             progressVC?.currentSave = currentSave
         }
         

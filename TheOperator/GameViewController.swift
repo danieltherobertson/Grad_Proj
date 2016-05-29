@@ -58,6 +58,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("currentSave: \(currentSave.rankings)")
+        print(currentSave.name)
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
         //gameView.characterImg.hidden = true
@@ -101,12 +102,12 @@ class GameViewController: UIViewController {
     }
     
     func showLandingScreen() { // 1
-        gameView.introLabel.typeStart("Level  \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
+        gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
-            let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
-            onTypeComplete = nil
-        } 
+        let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
+        onTypeComplete = nil
+        }
     }
     
     func startText() { // 2
@@ -116,7 +117,6 @@ class GameViewController: UIViewController {
             self.gameView.introLabel.alpha = 0
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
-            //get next dialogue, starts at 0 for start of level.
             let dialogue = String(self.levelDialogue[self.currentDialogue].valueForKey("text")!)
             self.resumeDialogue = dialogue
             let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
@@ -127,15 +127,17 @@ class GameViewController: UIViewController {
             
             self.gameView.gameText.textColor = .whiteColor()
             
+            //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
             
+            // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
             if character == "Chief" {
-                //  self.gameView.characterImg.image = UIImage(named: "chief")
+                //   self.gameView.characterImg.image = UIImage(named: "chief")
             } else {
                 //  self.gameView.characterImg.image = UIImage(named: "headset")
             }
             self.addCharacterDetails()
-            delay(0.5, closure: { 
+            delay(0.5, closure: {
                 self.gameView.gameText.typeStart(dialogue)
                 self.isTyping = true
                 self.gameView.skipButton.hidden = false
@@ -145,8 +147,9 @@ class GameViewController: UIViewController {
                     self.isTyping = false
                     self.layoutHandler(self.numberOfButtons)
                 }
-
+                
             })
+            
         }
         
     }
@@ -160,10 +163,10 @@ class GameViewController: UIViewController {
     func addCharacterDetails() {
         
         UIView.animateWithDuration(0.5, delay: 0, options: [], animations: { () -> Void in
-           // self.gameView.characterImg.alpha = 1
+            // self.gameView.characterImg.alpha = 1
             self.gameView.speakerName.alpha = 1
         }) { (completion) -> Void in
-
+            
         }
     }
     
@@ -175,45 +178,59 @@ class GameViewController: UIViewController {
         clearButtons()
         
         for answer in stageAnswers {
-            let buttonAnswer = String(answer.valueForKey("text")!)
-            inUseAnswers.append(buttonAnswer)
+            if let buttonAnswer = answer.valueForKey("text") as? String {
+                inUseAnswers.append(buttonAnswer)
+            }
         }
-
+        
         if NoOfbuttons == 1 {
             let button = self.buttons[0]
             button.hidden = false
-            button.setTitle(inUseAnswers.first, forState: .Normal)
+            let attributeString = NSMutableAttributedString(string: inUseAnswers.first!)
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 3
+            style.alignment = .Center
+            attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, inUseAnswers.first!.characters.count))
+            button.setAttributedTitle(attributeString, forState: .Normal)
+        } else if NoOfbuttons == 0 {
             
-        } else {
+        } else if NoOfbuttons > 1 {
             outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
                 
                 for (index2, answer) in inUseAnswers.enumerate() {
                     if index == index2 {
-                        button.setTitle(answer, forState: .Normal)
+                        print(answer)
+                        //  button.setTitle(answer, forState: .Normal)
+                        let attributeString = NSMutableAttributedString(string: answer)
+                        let style = NSMutableParagraphStyle()
+                        style.lineSpacing = 3
+                        style.alignment = .Center
+                        attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, answer.characters.count))
+                        button.setAttributedTitle(attributeString, forState: .Normal)
                     }
                     
                     if index == NoOfbuttons {
                         inUseAnswers.removeAll()
                         button.hidden = true
-                        button.setTitle("", forState: .Normal)
+                        
                         break outer
                     }
                 }
-            }
-        }
-        delay(0.5) {
-            for button in self.buttons {
-                button.enabled = true
             }
         }
     }
     
     func clearButtons() {
         for button in buttons {
-            button.setTitle("", forState: .Normal)
+            let attributeString = NSMutableAttributedString(string: "")
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 3
+            style.alignment = .Center
+            attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, 0))
+            button.setAttributedTitle(attributeString, forState: .Normal)
             button.hidden = true
-            button.enabled = false
+            print("done")
         }
     }
     
@@ -234,14 +251,14 @@ class GameViewController: UIViewController {
                 let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
                 self.gameView.speakerName.text = "\(character):"
                 if character == "Chief" {
-                    //gameView.characterImg.image = UIImage(named: "chief")
+                    // gameView.characterImg.image = UIImage(named: "chief")
                 } else {
-                   // gameView.characterImg.image = UIImage(named: "headset")
+                    // gameView.characterImg.image = UIImage(named: "headset")
                 }
                 gameView.gameText.typeStart(nextDialogue)
-                isTyping = true
                 gameView.skipButton.hidden = false
                 gameView.skipButton.enabled = true
+                
                 onTypeComplete = {
                     self.isTyping = false
                     self.layoutHandler(buttons)
@@ -258,30 +275,30 @@ class GameViewController: UIViewController {
     func buttonHandler(sender:UIButton) {
         clearButtons()
         let buttonAnswer = sender.titleLabel!.text
-
+        
         var nextDialogue = Int()
         
         outer: for dialogue in levelDialogue {
             let answers = dialogue.valueForKey("acceptedAnswers") as! Array<AnyObject>
-          //  print(answers)
+            //  print(answers)
             for answer in answers {
                 print(answer)
                 if let goTo = answer.valueForKey("goTo") as? Int {
                     let text = String(answer.valueForKey("text")!)
-                        if text == buttonAnswer! {
-                            if let special = answer.valueForKey("special") as? String{
-                                var specialChar = Array(special.characters)
-                                for (index,char) in specialChar.enumerate() {
-                                    if char == "+" {
-                                        specialChar.removeAtIndex(index)
-                                    }
-                                }
-                                let points = String(specialChar[0])
-                                let pointsInt = Int(points)
-                                if pointsInt != nil {
-                                        specialPoints += pointsInt!
+                    if text == buttonAnswer! {
+                        if let special = answer.valueForKey("special") as? String{
+                            var specialChar = Array(special.characters)
+                            for (index,char) in specialChar.enumerate() {
+                                if char == "+" {
+                                    specialChar.removeAtIndex(index)
                                 }
                             }
+                            let points = String(specialChar[0])
+                            let pointsInt = Int(points)
+                            if pointsInt != nil {
+                                specialPoints += pointsInt!
+                            }
+                        }
                         nextDialogue = goTo
                         currentDialogue = nextDialogue
                         stageDialogue = levelDialogue[currentDialogue]
@@ -296,13 +313,10 @@ class GameViewController: UIViewController {
         if let trigger = stageDialogue.valueForKey("triggersCall") as? Bool {
             if trigger == true {
                 sender.hidden = true
-                
-                for button in buttons {
-                    button.hidden = true
-                }
                 gameView.dispatchButton.enabled = true
                 gameView.skipButton.hidden = true
                 gameView.skipButton.enabled = false
+                clearButtons()
                 triggerCall()
                 self.questionHandler(nextDialogue, enablesPopUp: true)
             } else if let triggersDispatch = stageDialogue.valueForKey("triggersDispatch") as? Bool {
@@ -316,19 +330,20 @@ class GameViewController: UIViewController {
                         let triggerTime = Int64(2 * (NSEC_PER_SEC))
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                             self.displayDispatchMenu()
-                           // self.dispatchMenu.closeButton.enabled = false
-                           // self.dispatchMenu.closeButton.hidden = true
+                            // self.dispatchMenu.closeButton.enabled = false
+                            // self.dispatchMenu.closeButton.hidden = true
                         })
                     }
                 } else {
-                sender.hidden = true
-                questionHandler(nextDialogue, enablesPopUp: false)
+                    sender.hidden = true
+                    questionHandler(nextDialogue, enablesPopUp: false)
                 }
             }
         }
     }
     
     func triggerCall() {
+        clearButtons()
         callAlert = CallAlertView.instanceFromNib()
         callAlert.callAlertAnswerButton.enabled = false
         callAlert.onPopUpClose = {
@@ -348,6 +363,7 @@ class GameViewController: UIViewController {
         }
         callAlert.showInView(self.view, message: "Incoming Call!", animated: true)
     }
+
     
     func countDown(time: Int) {
         isTiming = true
