@@ -30,6 +30,10 @@ class CreditsViewController: UIViewController {
         super.viewDidLoad()
         
         backButton.buttonStyleInset(backButton)
+        backButton.enabled = false
+        delay(1.0) { 
+            self.backButton.enabled = true
+        }
         
         activeLine = 0
         creditsText.textColor = UIColor.greenColor()

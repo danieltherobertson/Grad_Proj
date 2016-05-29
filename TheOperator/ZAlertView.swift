@@ -64,10 +64,10 @@ public class ZAlertView: UIViewController {
     public static var positiveColor: UIColor? = UIColor(red:0.09, green:0.47, blue:0.24, alpha:1.0)
     public static var negativeColor: UIColor? = UIColor(red:0.91, green:0.3, blue:0.24, alpha:1.0)
     public static var neutralColor: UIColor? = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0)
-    public static var titleColor: UIColor? = UIColor(red:0.5, green:0.55, blue:0.55, alpha:1.0)
-    public static var messageColor: UIColor? = UIColor(red:0.5, green:0.55, blue:0.55, alpha:1.0)
+    public static var titleColor: UIColor? = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+    public static var messageColor: UIColor? = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
     public static var cancelTextColor: UIColor? = UIColor(red:0.5, green:0.55, blue:0.55, alpha:1.0)
-    public static var normalTextColor: UIColor? = UIColor.whiteColor()
+    public static var normalTextColor: UIColor? = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
     
     // MARK: -
     public var alertType: AlertType = AlertType.Alert

@@ -58,7 +58,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             skipButton.buttonStyle(skipButton)
             gameText.clipsToBounds = true
             //gameText.textFieldStyle(gameText)
-            introLabel.setLineHeight(30, alignment: .Center)
+            //introLabel.setLineHeight(30, alignment: .Center)
             //textViewHeightConstraint.constant = 0
             gameTextContainerHeightConstraint.constant = 0
             buttonTwoHeightConstraint.constant = 60
@@ -70,7 +70,7 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameText.layoutManager.delegate = self
            // let imgRect = UIBezierPath(rect: CGRectMake(5, 5, 50, 80))
            // gameText.textContainer.exclusionPaths = [imgRect]
-            gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
+           gameText.font = UIFont(name: "KemcoPixelBold", size: 14)
             gameText.editable = false
             gameText.selectable = false
             
@@ -79,6 +79,6 @@ class GameView: UIView, NSLayoutManagerDelegate {
     }
     
    func layoutManager(layoutManager: NSLayoutManager, lineSpacingAfterGlyphAtIndex glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
-        return 3
+        return 2.5
     }
 }

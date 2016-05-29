@@ -123,11 +123,11 @@ class TutorialViewController: UIViewController {
         resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
         
-        gameView.speakerName.textColor = .blackColor()
+        gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         gameView.speakerName.text = ""
         
         
-        gameView.gameText.textColor = .blackColor()
+        gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
@@ -381,7 +381,7 @@ class TutorialViewController: UIViewController {
                     self.gameView.dispatchButton.enabled = false
                     self.gameView.characterImg.alpha = 0
                     self.gameView.speakerName.alpha = 0
-                    self.gameView.speakerName.textColor = .blackColor()
+                    self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     self.gameView.speakerName.text = ""
                     self.gameView.gameText.text = ""
                     self.gameView.timeIndicator.textColor = .greenColor()

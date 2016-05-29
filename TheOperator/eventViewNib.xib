@@ -69,6 +69,6 @@
     </objects>
     <resources>
         <image name="newsPaperName" width="466" height="47"/>
-        <image name="newspaper" width="482" height="400"/>
+        <image name="newspaper" width="482" height="385"/>
     </resources>
 </document>

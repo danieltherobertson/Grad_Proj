@@ -60,9 +60,9 @@ class GameViewController: UIViewController {
         print("currentSave: \(currentSave.rankings)")
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
-        gameView.characterImg.hidden = true
+        //gameView.characterImg.hidden = true
         
-        gameView.characterImg.alpha = 0
+        //gameView.characterImg.alpha = 0
         gameView.speakerName.alpha = 0
         
         
@@ -101,7 +101,7 @@ class GameViewController: UIViewController {
     }
     
     func showLandingScreen() { // 1
-        gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
+        gameView.introLabel.typeStart("Level  \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
             let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
@@ -122,24 +122,24 @@ class GameViewController: UIViewController {
         resumeDialogue = dialogue
         let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
         
-        gameView.speakerName.textColor = .blackColor()
+        gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         gameView.speakerName.text = ""
         
         
-        gameView.gameText.textColor = .blackColor()
+        gameView.gameText.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         
         //Animate text view, then call typeStart with the first bit of dialogue. On completion, sets button's title and animates it in.
         self.view.layoutIfNeeded()
         UIView.animateWithDuration(1, delay: 1.5, options: [], animations: { () -> Void in
-            self.gameView.gameTextContainerHeightConstraint.constant = 200
+            self.gameView.gameTextContainerHeightConstraint.constant = 235
             self.view.layoutIfNeeded()
         }) { (completion) -> Void in
-            self.gameView.characterImg.hidden = false
+          //  self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
             if character == "Chief" {
-                self.gameView.characterImg.image = UIImage(named: "chief")
+              //  self.gameView.characterImg.image = UIImage(named: "chief")
             } else {
-                self.gameView.characterImg.image = UIImage(named: "headset")
+              //  self.gameView.characterImg.image = UIImage(named: "headset")
             }
             self.addCharacterDetails()
             self.gameView.gameText.typeStart(dialogue)
@@ -163,7 +163,7 @@ class GameViewController: UIViewController {
     func addCharacterDetails() {
         
         UIView.animateWithDuration(0.5, delay: 0, options: [], animations: { () -> Void in
-            self.gameView.characterImg.alpha = 1
+           // self.gameView.characterImg.alpha = 1
             self.gameView.speakerName.alpha = 1
         }) { (completion) -> Void in
 
@@ -205,12 +205,18 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        delay(1.0) {
+            for button in self.buttons {
+                button.enabled = true
+            }
+        }
     }
     
     func clearButtons() {
         for button in buttons {
             button.setTitle("", forState: .Normal)
             button.hidden = true
+            button.enabled = false
         }
     }
     
@@ -231,9 +237,9 @@ class GameViewController: UIViewController {
                 let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
                 self.gameView.speakerName.text = "\(character):"
                 if character == "Chief" {
-                    gameView.characterImg.image = UIImage(named: "chief")
+                    //gameView.characterImg.image = UIImage(named: "chief")
                 } else {
-                    gameView.characterImg.image = UIImage(named: "headset")
+                   // gameView.characterImg.image = UIImage(named: "headset")
                 }
                 gameView.gameText.typeStart(nextDialogue)
                 isTyping = true
@@ -374,9 +380,9 @@ class GameViewController: UIViewController {
                     }
                     self.gameView.skipButton.enabled = true
                     self.gameView.dispatchButton.enabled = false
-                    self.gameView.characterImg.alpha = 0
+                  //  self.gameView.characterImg.alpha = 0
                     self.gameView.speakerName.alpha = 0
-                    self.gameView.speakerName.textColor = .blackColor()
+                    self.gameView.speakerName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     self.gameView.speakerName.text = ""
                     self.gameView.gameText.text = ""
                     self.gameView.timeIndicator.textColor = .greenColor()

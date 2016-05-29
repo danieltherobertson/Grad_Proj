@@ -141,7 +141,7 @@ extension UITextView {
             timer.invalidate()
             typeSpeed = 0.05
             if let callback = onTypeComplete {
-                let range = NSMakeRange(self.text.characters.count - 1, 1);
+                let range = NSMakeRange(self.text.characters.count - 1, 1)
                 self.scrollRangeToVisible(range)
                 callback ()
             }
@@ -155,7 +155,7 @@ extension UITextView {
             
             self.text = text! + String(character)
             
-            let range = NSMakeRange(self.text.characters.count - 1, 1);
+            let range = NSMakeRange(self.text.characters.count - 1, +30)
             self.scrollRangeToVisible(range)
         }
     }

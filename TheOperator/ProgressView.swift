@@ -72,7 +72,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.levelImage.image = UIImage(named: "complete")
                     cell.levelStatus = LevelStatus.Completed
                     cell.levelCompleted.text = "Completed"
-                    cell.levelCompleted.textColor = .blackColor()
+                    cell.levelCompleted.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     cell.levelRank.text = ("Rank: \(playerRanks[indexPath.row])")
                     cell.levelRank.setLineHeight(3, alignment: .Left)
                     cell.tag = 0
@@ -94,17 +94,17 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.levelImage.image = UIImage(named: "padlock")
                     cell.levelStatus = LevelStatus.Locked
                     cell.levelCompleted.text = "[Level Locked]"
-                    cell.levelCompleted.textColor = .blackColor()
+                    cell.levelCompleted.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     cell.levelName.text = " "
                     cell.levelRank.text = " "
                     cell.tag = 2
                 }
-                cell.levelName.textColor = UIColor.blackColor()
+                cell.levelName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                // cell.levelNumber.textColor = UIColor.blackColor()
 
                 //Unpopulated cells are drawn like...
             } else {
-                cell.levelName.textColor = UIColor.blackColor()
+                cell.levelName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                 //cell.levelNumber.textColor = UIColor.blackColor()
                 cell.levelName.text = "[Empty]"
                // cell.levelNumber.text = "[Empty]"

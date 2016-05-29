@@ -5,8 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="American_Captain.ttf">
+            <string>AmericanCaptain</string>
+        </mutableArray>
         <mutableArray key="Kemco_Pixel_Bold.ttf">
-            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -23,7 +25,6 @@
             <connections>
                 <outlet property="bottomBar" destination="ykR-wS-v9Y" id="zvx-bY-SKw"/>
                 <outlet property="buttonTwoHeightConstraint" destination="fym-lR-jZH" id="1Z5-69-vmZ"/>
-                <outlet property="characterImg" destination="FZp-yZ-ONi" id="znW-0R-2Z6"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="92h-Go-djV"/>
                 <outlet property="dispatchButton" destination="jKz-uA-mTD" id="cZU-h7-fkh"/>
                 <outlet property="gameAnswerOne" destination="0SM-i4-EAB" id="hpg-pD-nC9"/>
@@ -51,7 +52,7 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
-                    <rect key="frame" x="10" y="437" width="580" height="60"/>
+                    <rect key="frame" x="10" y="472" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86086554276315785" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="284" id="LPV-gc-MGD"/>
@@ -59,7 +60,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <variation key="default">
                         <mask key="constraints">
@@ -68,18 +69,18 @@
                     </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
-                    <rect key="frame" x="10" y="297" width="580" height="60"/>
+                    <rect key="frame" x="10" y="332" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="13f-bj-YU2"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <state key="normal">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
-                    <rect key="frame" x="10" y="367" width="580" height="60"/>
+                    <rect key="frame" x="10" y="402" width="580" height="60"/>
                     <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="fym-lR-jZH"/>
@@ -88,7 +89,7 @@
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
                     <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <variation key="default">
                         <mask key="constraints">
@@ -107,78 +108,56 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNX-u4-MWf">
-                    <rect key="frame" x="8" y="48" width="584" height="200"/>
+                    <rect key="frame" x="8" y="48" width="584" height="230"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chief" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-yZ-ONi">
-                            <rect key="frame" x="10" y="10" width="64" height="64"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="64" id="FM6-Ej-hvI"/>
-                                <constraint firstAttribute="height" constant="70" id="O5C-ye-jY8"/>
-                                <constraint firstAttribute="height" constant="64" id="SKL-5q-egt"/>
-                                <constraint firstAttribute="width" constant="50" id="Zxp-xe-0jZ"/>
-                            </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="O5C-ye-jY8"/>
-                                    <exclude reference="Zxp-xe-0jZ"/>
-                                </mask>
-                            </variation>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMt-ZG-52t">
-                            <rect key="frame" x="80" y="35" width="482" height="29"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="29" id="CNW-v5-dbx"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeO-gO-Xef">
-                            <rect key="frame" x="10" y="82" width="564" height="108"/>
+                            <rect key="frame" x="10" y="36" width="564" height="188"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="108" id="6ON-AK-GgH"/>
+                                <constraint firstAttribute="height" constant="127" id="6ON-AK-GgH"/>
+                                <constraint firstAttribute="height" constant="127" id="J8V-bj-gn1"/>
                                 <constraint firstAttribute="height" id="i0y-uM-3kQ"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="6ON-AK-GgH"/>
+                                    <exclude reference="J8V-bj-gn1"/>
                                     <exclude reference="i0y-uM-3kQ"/>
                                 </mask>
                             </variation>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMt-ZG-52t">
+                            <rect key="frame" x="15" y="10" width="559" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="CNW-v5-dbx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="24"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="22" id="4Ja-Ov-WAQ"/>
-                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="35" id="9GG-nm-lva"/>
+                        <constraint firstAttribute="trailing" secondItem="PMt-ZG-52t" secondAttribute="trailing" constant="10" id="4Ja-Ov-WAQ"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="10" id="9GG-nm-lva"/>
                         <constraint firstAttribute="trailing" secondItem="aeO-gO-Xef" secondAttribute="trailing" constant="10" id="GLq-ks-nPS"/>
-                        <constraint firstItem="FZp-yZ-ONi" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="V9X-O2-tan"/>
-                        <constraint firstItem="FZp-yZ-ONi" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="top" constant="10" id="WTx-xM-yCs"/>
-                        <constraint firstAttribute="height" constant="200" id="anL-JC-Skf"/>
-                        <constraint firstAttribute="bottom" secondItem="aeO-gO-Xef" secondAttribute="bottom" constant="10" id="i3Z-zD-2P2"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="15" id="KD1-9q-9el"/>
+                        <constraint firstAttribute="height" constant="182" id="anL-JC-Skf"/>
+                        <constraint firstAttribute="bottom" secondItem="aeO-gO-Xef" secondAttribute="bottom" constant="6" id="i3Z-zD-2P2"/>
                         <constraint firstItem="aeO-gO-Xef" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="10" id="pvB-fx-Mrz"/>
+                        <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" constant="20" id="qzE-9u-AMS"/>
+                        <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="PMt-ZG-52t" secondAttribute="bottom" constant="5" id="saU-eB-d6i"/>
                         <constraint firstItem="aeO-gO-Xef" firstAttribute="top" secondItem="PMt-ZG-52t" secondAttribute="bottom" constant="23" id="x7L-NO-Nwo"/>
-                        <constraint firstItem="PMt-ZG-52t" firstAttribute="leading" secondItem="FZp-yZ-ONi" secondAttribute="trailing" constant="6" id="ybT-1o-5dI"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="anL-JC-Skf"/>
+                            <exclude reference="qzE-9u-AMS"/>
                             <exclude reference="x7L-NO-Nwo"/>
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
-                    <rect key="frame" x="514" y="250" width="76" height="42"/>
-                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
-                        <constraint firstAttribute="width" constant="76" id="a87-oj-an3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
-                    <state key="normal" title="Skip">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time 00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-cb-Zn3">
                     <rect key="frame" x="450" y="15" width="142" height="21"/>
                     <constraints>
@@ -225,10 +204,22 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFU-Q9-kKB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="22"/>
+                    <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="32"/>
                     <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
+                    <rect key="frame" x="516" y="280" width="76" height="42"/>
+                    <color key="backgroundColor" red="0.0" green="0.86274509803921573" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
+                        <constraint firstAttribute="width" constant="76" id="a87-oj-an3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -239,18 +230,19 @@
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="7Bd-gP-ypT"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" id="8MZ-hj-7qL"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8cS-c1-Fhz"/>
-                <constraint firstItem="ykR-wS-v9Y" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="43" id="AdQ-Rb-ffW"/>
+                <constraint firstItem="ykR-wS-v9Y" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="8" id="AdQ-Rb-ffW"/>
                 <constraint firstAttribute="bottom" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="552" id="BIM-0Y-6DQ"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="leading" secondItem="scJ-L3-bdv" secondAttribute="leading" id="Fj4-DX-wge"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="top" secondItem="1gr-Zt-XgX" secondAttribute="bottom" constant="10" id="FvS-B9-S5N"/>
-                <constraint firstAttribute="trailing" secondItem="uoA-yU-DRM" secondAttribute="trailing" constant="10" id="GNf-X0-9ys"/>
+                <constraint firstAttribute="trailing" secondItem="uoA-yU-DRM" secondAttribute="trailing" constant="8" id="GNf-X0-9ys"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="I1L-Yq-pIv"/>
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="9" id="IRT-Uu-HNk"/>
+                <constraint firstItem="lNX-u4-MWf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JOb-yF-bQH"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="top" secondItem="scJ-L3-bdv" secondAttribute="bottom" constant="12" id="Jlf-xY-hhr"/>
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="leading" secondItem="lNX-u4-MWf" secondAttribute="leading" id="Kk7-Ad-JCk"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="centerX" secondItem="0SM-i4-EAB" secondAttribute="centerX" id="Kve-2y-cE1"/>
                 <constraint firstItem="ykR-wS-v9Y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LB8-iB-DZh"/>
-                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="214" id="Lmt-qA-SbZ"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="212" id="Lmt-qA-SbZ"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="top" secondItem="sPl-cb-Zn3" secondAttribute="bottom" constant="11" id="MPo-WD-5X4"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-303" id="NJ9-M8-Upn"/>
                 <constraint firstAttribute="trailing" secondItem="ykR-wS-v9Y" secondAttribute="trailing" id="Qoq-2G-To2"/>
@@ -264,7 +256,9 @@
                 <constraint firstAttribute="trailing" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="b0z-OB-0Ja"/>
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="10" id="cYm-QY-fH0"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-207" id="cfM-Jw-XVp"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="2" id="d0n-5p-bTN"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="der-wV-4yd"/>
+                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="54" id="dpd-vi-ruU"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="top" secondItem="0SM-i4-EAB" secondAttribute="bottom" constant="10" id="fHO-0m-5ru"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>
@@ -299,6 +293,7 @@
                     <exclude reference="8MZ-hj-7qL"/>
                     <exclude reference="BIM-0Y-6DQ"/>
                     <exclude reference="Fj4-DX-wge"/>
+                    <exclude reference="JOb-yF-bQH"/>
                     <exclude reference="Jlf-xY-hhr"/>
                     <exclude reference="Kve-2y-cE1"/>
                     <exclude reference="MPo-WD-5X4"/>
@@ -311,6 +306,7 @@
                     <exclude reference="NJ9-M8-Upn"/>
                     <exclude reference="WTl-bD-OmA"/>
                     <exclude reference="cfM-Jw-XVp"/>
+                    <exclude reference="Lmt-qA-SbZ"/>
                     <exclude reference="jLK-Jg-YDD"/>
                     <exclude reference="nd9-zh-Ozu"/>
                 </mask>
@@ -319,7 +315,6 @@
         </view>
     </objects>
     <resources>
-        <image name="chief" width="194" height="194"/>
         <image name="pause" width="105" height="133"/>
     </resources>
 </document>

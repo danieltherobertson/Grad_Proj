@@ -108,13 +108,13 @@ extension SlotsView: UICollectionViewDataSource {
                 cell.gameLevel.text = "Level: \(gameLevelText)"
                 cell.gameName.setLineHeight(5, alignment: .Left)
 
-                cell.gameName.textColor = UIColor.blackColor()
-                cell.gameLevel.textColor = UIColor.blackColor()
+                cell.gameName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+                cell.gameLevel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                 cell.tag = 0
                 //Unpopulated cells are drawn like...
             } else {
-                cell.gameName.textColor = UIColor.blackColor()
-                cell.gameLevel.textColor = UIColor.blackColor()
+                cell.gameName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+                cell.gameLevel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                 cell.gameName.text = "[Empty]"
                 cell.gameLevel.text = "[Empty]"
                 cell.tag = 1
@@ -131,16 +131,16 @@ extension SlotsView: UICollectionViewDataSource {
                 cell.gameLevel.text = "Level: \(gameLevelText)"
                 cell.gameName.setLineHeight(5, alignment: .Left)
 
-                cell.gameName.textColor = UIColor.blackColor()
-                cell.gameLevel.textColor = UIColor.blackColor()
+                cell.gameName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+                cell.gameLevel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
 
                 cell.tag = 0
                 //Unpopulated cells are drawn like...
             } else {
                 cell.gameName.text = "[Empty]"
                 cell.gameLevel.text = "[Empty]"
-                cell.gameName.textColor = UIColor.blackColor()
-                cell.gameLevel.textColor = UIColor.blackColor()
+                cell.gameName.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+                cell.gameLevel.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                 cell.tag = 1
             }
         }
@@ -169,10 +169,10 @@ extension SlotsView: UICollectionViewDelegateFlowLayout {
         }
         
         //Alertview settings
-        ZAlertView.titleColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
-        ZAlertView.messageColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        ZAlertView.titleColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        ZAlertView.messageColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         ZAlertView.cancelTextColor = UIColor.redColor()
-        ZAlertView.normalTextColor = UIColor.blackColor()
+        ZAlertView.normalTextColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         
         //----SCENARIO 1----
         //If segue is New Game and the clicked cell is populated...

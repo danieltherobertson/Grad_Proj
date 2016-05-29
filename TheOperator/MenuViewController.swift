@@ -20,6 +20,7 @@ class MenuViewController: UIViewController {
     
     var text = ""
     var timer: NSTimer?
+    var buttons = [UIButton]()
     
    // var operatorTheme = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("Operator_menuAudio2", ofType: "mp3")!)
    // var menuAudio = AVAudioPlayer()
@@ -50,6 +51,9 @@ class MenuViewController: UIViewController {
         newGame.center.x  -= view.bounds.width
         loadGame.center.x  += view.bounds.width
         help.center.x  -= view.bounds.width
+        
+        buttons.append(newGame);buttons.append(loadGame);buttons.append(help)
+        newGame.addTarget(self, action: #selector(disable), forControlEvents: .TouchUpInside)
         
         
         UIView.animateWithDuration(0.7, delay: 0.4, options: [], animations: { () -> Void in
@@ -143,7 +147,6 @@ class MenuViewController: UIViewController {
             gameSlotsVC?.pageLabel = "Select an empty slot, or select a filled slot to delete that game."
             
             gameSlotsVC?.tagID = 0
-            
         }
             
         if (segue.identifier == "loadGameSlotsPush") {
@@ -156,6 +159,20 @@ class MenuViewController: UIViewController {
                 
         }
     
+    }
+    
+    func disable() {
+        for button in buttons {
+            button.enabled = false
+        }
+        delay(0.5) { 
+            for button in self.buttons {
+                button.enabled = false
+            }
+        }
+        
+        
+
     }
 }
 

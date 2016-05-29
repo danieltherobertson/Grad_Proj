@@ -19,9 +19,9 @@
             <string>AmericanCaptain</string>
             <string>AmericanCaptain</string>
             <string>AmericanCaptain</string>
+            <string>AmericanCaptain</string>
         </mutableArray>
         <mutableArray key="Kemco_Pixel_Bold.ttf">
-            <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
@@ -518,13 +518,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZG-YJ-VjU">
-                                <rect key="frame" x="168" y="542" width="265" height="50"/>
+                                <rect key="frame" x="196" y="542" width="208" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.86274509799999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="265" id="Gn5-gq-hWb"/>
+                                    <constraint firstAttribute="width" constant="208" id="Gn5-gq-hWb"/>
                                     <constraint firstAttribute="height" constant="50" id="iBP-ki-Inp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="AmericanCaptain" family="American Captain" pointSize="34"/>
                                 <state key="normal" title="Chief's Report">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>

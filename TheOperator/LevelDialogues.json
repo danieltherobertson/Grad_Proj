@@ -4,13 +4,13 @@
 			{
 				"number": 0,
 				"character": "Chief",
-				"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet...",
+				"text": "Welcome, Cadet, to the 911 operator training program. As a fresh recruit of the Operator Academy, you need to get to grips with the basics of how to deal with calls and dispatch units. If you can do that, then maybe you stand a chance at saving some lives.",
 	            "buttons": 1,
                 "triggersCall": false,
                 "triggersDispatch": false,
 	            "acceptedAnswers": [
 	              	{
-	                 	"text": "Go on...",
+	                 	"text": "Okay!",
 	                 	"goTo": 1
 	                 }
 	            ]
@@ -18,7 +18,7 @@
             {
                 "number": 1,
                 "character": "Chief",
-                "text": "...solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!",
+                "text": "On your screen now is your dispatch workspace system. Any time a caller or I communicate with you, it’ll show up in this highlighted box, your communications terminal. The terminal will also display the caller ID, and a photo if one is available",
                 "buttons": 1,
                 "triggersCall": false,
                 "triggersDispatch": false,
@@ -32,66 +32,65 @@
 			{
 				"number": 2,
 				"character": "Chief",
-				"text": "I’m going to walk you through your first call so that you can get to grips with the basics, but then you’re on your own.",
-	            "buttons": 2,
-                "triggersCall": false,
-                "triggersDispatch": false,
-	            "acceptedAnswers": [
-	              	{
-	                 	"text": "Okay!",
-	                 	"goTo": 3,
-                        "special": "+5"
-	                 },
-                    {
-                        "text": "I love this!",
-                        "goTo": 1
-                    }
-	            ]
-			},
-			{
-				"number": 3,
-				"character": "Chief",
-				"text": "Looks like someone needs our help! Click Answer to begin the call.",
-	            "buttons": 0,
-                "triggersCall": true,
-                "triggersDispatch": false,
-                "callGoTo": 4,
-	            "acceptedAnswers": [
-	              	{
-	                 	"text": "<Click the answer button>",
-	                 	"goTo": 4
-	                 }
-	            ]
-			},
-			{
-				"number": 4,
-				"character": "Caller",
-				"text": "Hi, my cat’s stuck up in a tree! I need some help please!",
-	            "buttons": 2,
-                "triggersCall": false,
-                "triggersDispatch": false,
-                "timeLimit": 90,
-	             "acceptedAnswers": [
-	              	{
-	                 	"text": "Uhhh...",
-	                 	"goTo": 5
-	                 },
-                     {
-                         "text": "Doot doot",
-                         "goTo": 5
-                     }
-	            ]
-			},
-			{
-				"number": 5,
-				"character": "Chief",
-				"text": "Oh dear... it looks like it's up to you to help. Did you notice that the timer started when you answered the call? Every call will have a time limit, so you’ve got to be quick!",
+				"text": "Below the terminal, your options for responses will appear. The dispatch system will automatically display one or more possible speech actions. Each action will have its own consequences, so you’ll have to think carefully about what you say - it could be the difference between life and death.",
 	            "buttons": 1,
                 "triggersCall": false,
                 "triggersDispatch": false,
 	            "acceptedAnswers": [
 	              	{
-	                 	"text": "Got it!",
+	                 	"text": "Yes Sir!",
+	                 	"goTo": 3
+	                 }
+	            ]
+			},
+			{
+				"number": 3,
+				"character": "Chief",
+				"text": "Let’s try it out. You’ve got three choices now. I want you to pick a colour.",
+	            "buttons": 3,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Red",
+	                 	"goTo": 4
+                    },
+                    {
+                        "text": "Blue",
+                        "goTo": 4
+                    },
+                    {
+                        "text": "Purple",
+                        "goTo": 4
+                    }
+	            ]
+			},
+			{
+				"number": 4,
+				"character": "Chief",
+				"text": ", eh? Well, if you’ve got the hang of that, let’s move on. I’m going to trigger a call in a minute, and we’ll see how you handle a live-action simulation. When a call alert appears, just click the answer button and you’ll be patched through to the caller. Ready to begin?",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+                "timeLimit": 90,
+	             "acceptedAnswers": [
+	              	{
+	                 	"text": "I'm ready!",
+	                 	"goTo": 5
+	                 }
+	            ]
+			},
+			{
+				"number": 5,
+				"character": "",
+				"text": "",
+	            "buttons": 0,
+                "triggersCall": true,
+                "triggersDispatch": false,
+                "callGoTo": 6,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "<>",
 	                 	"goTo": 6
 	                 }
 	            ]
@@ -99,11 +98,393 @@
 			{
 				"number": 6,
 				"character": "Caller",
-				"text": "Please send help!",
+				"text": "Hello? Hi. My cat’s stuck in a tree and I can’t get him to come down. He’s been up there for hours. Can you help me?",
 	            "buttons": 3,
                 "triggersCall": false,
-                "triggersDispatch": true,
-                "triggeredEvent": "Cat killed after call for aid goes unanswered!",
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Uhhh…",
+	                 	"goTo": 7
+                    },
+                    {
+                        "text": "Okay, stay calm. I’m going to need details. How tall is the tree?",
+                        "goTo": 8
+                    },
+                    {
+                        "text": "This is a bit cliché, isn’t it?",
+                        "goTo": 9
+                    }
+	            ]
+			},
+			{
+				"number": 7,
+				"character": "Chief",
+				"text": "Right, don’t panic. Always try to start by getting important information. Ask questions so that you can learn more about the problem.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Understood, Sir!",
+	                 	"goTo": 10
+                    }
+	            ]
+			},
+			{
+				"number": 8,
+				"character": "Chief",
+				"text": "That’s a good start! Did you notice that when you answered the call, the timer in the top right of your workspace triggered? Every call will have a time limit, so you’ve got to act quickly.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Right, okay. So what happens next?",
+	                 	"goTo": 11
+                    }
+	            ]
+			},
+			{
+				"number": 9,
+				"character": "Chief",
+				"text": "Yeah, yeah, I know. We try to start you off on something easy, instead of throwing you straight in at the deep end. But anyway, how do you think you should proceed with this call?",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "I should probably ask some questions, help this poor cat out.",
+	                 	"goTo": 10
+                    }
+	            ]
+			},
+			{
+				"number": 10,
+				"character": "Chief",
+				"text": "Good! Maybe you aren't so hopeless afterall. Did you notice the timer in the top right of your workspace trigger when you answered the call? Every call will have a time limit so you need to be quick.",
+	            "buttons": 2,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Easy! What's next?",
+	                 	"goTo": 11
+                    },
+                    {
+                        "text": "A time limit? Great, just what I need…",
+                        "goTo": 12
+                    }
+	            ]
+			},
+			{
+				"number": 11,
+				"character": "Chief",
+				"text": "You need to pay attention here. On the bottom of your screen is your main tool of the trade - the dispatch button. It's disabled at the moment, you need some training first!",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, so what do I do?",
+	                 	"goTo": 13
+                    }
+	            ]
+			},
+			{
+				"number": 12,
+				"character": "Chief",
+				"text": "If you don't act fast, situations can get worse very quickly, and end very badly. If that happens, the blame falls to you. You've got a lot of responsibility!",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "I'll do my best Chief. What's next?",
+	                 	"goTo": 11
+                    }
+	            ]
+			},
+			{
+				"number": 13,
+				"character": "Chief",
+				"text": "At any time during a call, you can press the dispatch button on the bottom of your work station, which opens your Dispatch-O-matic program. There, you can select which services to dispatch to aid a caller.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "That sounds easy enough, let's do it!",
+	                 	"goTo": 14
+                    }
+	            ]
+			},
+			{
+				"number": 14,
+				"character": "Chief",
+				"text": "Don't be too hasty - once you've confirmed the units you want to dispatch, the call will end and there's no going back, so you've got to be sure. There's also a compromise here between efficiency and performance.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Go on...",
+	                 	"goTo": 15
+                    }
+	            ]
+			},
+			{
+				"number": 15,
+				"character": "Chief",
+				"text": "Sometimes you might think you know what to dispatch, but it's worth taking time to ask more questions before you take action. There could be more problems that you need to learn about first.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "That sounds alright. What's the catch?",
+	                 	"goTo": 16
+                    }
+	            ]
+			},
+			{
+				"number": 16,
+				"character": "Chief",
+				"text": "Your performance is judged on how quickly you deal with a call, and what you dispatch. Dispatch the wrong units and you'll face a score penalty, but taking too long will impact your score too.",
+	            "buttons": 2,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Oh great, as if my job wasn't hard enough already",
+	                 	"goTo": 17
+                    },
+                    {
+	                 	"text": "So be smart and quick? I can do that!",
+	                 	"goTo": 18
+                    }
+	            ]
+			},
+			{
+				"number": 17,
+				"character": "Chief",
+				"text": "Don't panic, I'm sure you'll be fine! Oh, another thing: some dialogue options add or remove points from your score, so think about what you say. Giving a caller bad advice will hurt your performance.",
+	            "buttons": 2,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Even more pressure. Fantastic. Anything else you want to throw at me?",
+	                 	"goTo": 19
+                    },
+                    {
+	                 	"text": "I can handle that. What's next?",
+	                 	"goTo": 20
+                    }
+	            ]
+			},
+			{
+				"number": 18,
+				"character": "Chief",
+				"text": "Good! You should also be aware that some dialogue options add or remove points from your score, so think about what you say. Giving a caller bad advice will hurt your performance.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Alright. Anything else?",
+	                 	"goTo": 19
+                    }
+	            ]
+			},
+			{
+				"number": 19,
+				"character": "Chief",
+				"text": "Well, since you asked… Each call will have a 'critical' service - one service that must be dispatched in order to solve the problem. If you fail to figure out what that service is, you'll fail the call.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Great. That's got to be everything, right?",
+	                 	"goTo": 21
+                    }
+	            ]
+			},
+			{
+				"number": 20,
+				"character": "Chief",
+				"text": "That's the spirit! Be aware, each call will have a 'critical' service - one service that must be dispatched in order to solve the problem. If you fail to figure out what that service is, you'll fail the call.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Great. That's got to be everything, right?",
+	                 	"goTo": 19
+                    }
+	            ]
+			},
+			{
+				"number": 21,
+				"character": "Chief",
+				"text": "Nearly! Once you've disaptched your services, you'll see a news update that shows you the consequences of your actions. You'll also receive a personal review from me, where I'll award you a ranking. I'm expecting good things from you.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, understood. I think I'm ready to start!",
+	                 	"goTo": 22
+                    }
+	            ]
+			},
+			{
+				"number": 22,
+				"character": "Chief",
+				"text": "Excellent, Cadet! One final point - you can choose to trigger a dispatch at any point in the call, but, if you leave it too late, the caller will have to prompt you, so try to take control of the situation and act fast.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, I'll keep that in mind!",
+	                 	"goTo": 23
+                    }
+	            ]
+			},
+			{
+				"number": 23,
+				"character": "Chief",
+				"text": "If you're ready, I'll fire up the simulator again. Normally you'd have access to your dispatch software as soon as the call starts, but I want you to take your time with this, so I'll activate it once I think you need it. Ready?",
+	            "buttons": 2,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Alright, let's get this over with.",
+	                 	"goTo": 24
+                    },
+                    {
+	                 	"text": "I'm ready!",
+	                 	"goTo": 24
+                    }
+	            ]
+			},
+			{
+				"number": 24,
+				"character": "Caller",
+				"text": "Hello? Hi. My cat’s stuck in a tree and I can’t get him to come down. He’s been up there for hours. Can you help me?",
+	            "buttons": 3,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, is it a tall tree? Is the cat hurt at all?",
+	                 	"goTo": 25
+                    },
+                    {
+	                 	"text": "What's it doing in the tree? Is it moving?",
+	                 	"goTo": 26
+                    },
+                    {
+	                 	"text": "You should definitely consider a dog, they'd never pull this stunt.",
+	                 	"goTo": 27
+                    }
+	            ]
+			},
+			{
+				"number": 25,
+				"character": "Caller",
+				"text": "It's quite a tall tree, it's the same height as my home. I don't think he's hurt, but he won't move. I think he can't find a way down.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, is the tree easily accesible from the road?",
+	                 	"goTo": 29
+                    }
+	            ]
+			},
+			{
+				"number": 26,
+				"character": "Caller",
+				"text": "I think he was chasing a bird, you know what cats are like. He's sitting on a branch near the top, I don't think he can get down.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, is the tree easily accesible from the road?",
+	                 	"goTo": 29
+                    }
+	            ]
+			},
+			{
+				"number": 27,
+				"character": "Chief",
+				"text": "Cadet, try to stay on-topic please. Help the cat!",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Aye aye, Captain.",
+	                 	"goTo": 30
+                    }
+	            ]
+			},
+			{
+				"number": 28,
+				"character": "Caller",
+				"text": "Oh yes, I should've mentioned that. The tree is outside the front of our home. It's just by the road.",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, and what's your address please?",
+	                 	"goTo": 30
+                    }
+	            ]
+			},
+			{
+				"number": 29,
+				"character": "Caller",
+				"text": "What should I do? It's almost time for his dinner and he won't come down!",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "What was it doing in the tree? Is it moving now?",
+	                 	"goTo": 26
+                    }
+	            ]
+			},
+			{
+				"number": 30,
+				"character": "Caller",
+				"text": "We live at 32 Hillside Rd. We've got a big blue van parked on the drive, you can't miss it!",
+	            "buttons": 1,
+                "triggersCall": false,
+                "triggersDispatch": false,
+	            "acceptedAnswers": [
+	              	{
+	                 	"text": "Okay, that should be all the information I need!",
+	                 	"goTo": 31
+                    }
+	            ]
+			},
+			{
+				"number": 31,
+				"character": "Chief",
+				"text": "Right, I think you're ready to dispatch now. Just open the menu, switch on the services you want and click dispatch. The rest will happen automatically. Get to it!",
+	            "buttons": 0,
+                "triggersCall": false,
+                "triggersDispatch": false,
 	            "acceptedAnswers": [
 	              	{
 	                 	
@@ -120,7 +501,8 @@
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Go on...",
-	                 	"goTo": 1
+	                 	"goTo": 1,
+                        "special": "+5"
 	                 }
 	            ]
 			},
