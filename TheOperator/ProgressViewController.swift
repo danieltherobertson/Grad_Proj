@@ -67,9 +67,9 @@ class ProgressViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        //AudioPlayerController.sharedInstance.fadeOut {
-        //AudioPlayerController.sharedInstance.startAudio("gameViewAudio")
-        //}
+        AudioPlayerController.sharedInstance.fadeOut {
+        AudioPlayerController.sharedInstance.startAudio("ingameAudio")
+        }
         
         let gameViewVC = (segue.destinationViewController as? GameViewController)
         let tutorialViewVC = (segue.destinationViewController as? TutorialViewController)

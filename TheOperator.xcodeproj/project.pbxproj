@@ -36,9 +36,9 @@
 		65510C891CCD8370007C50BC /* operator.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C841CCD8370007C50BC /* operator.gif */; };
 		65510C8B1CCD83A1007C50BC /* slots_background.gif in Resources */ = {isa = PBXBuildFile; fileRef = 65510C8A1CCD83A1007C50BC /* slots_background.gif */; };
 		6568DDB41CE2086400E29958 /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568DDB31CE2086400E29958 /* AudioPlayerController.swift */; };
-		6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */; };
 		657129A11CF278CD0056DBF4 /* ResultViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657129A01CF278CD0056DBF4 /* ResultViewViewController.swift */; };
 		657C9A6A1CE78A8B0044E068 /* ServiceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C9A691CE78A8B0044E068 /* ServiceEnum.swift */; };
+		658092341CFDDF5100F13551 /* ingameAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 658092331CFDDF5100F13551 /* ingameAudio.mp3 */; };
 		6589D2631CE61B9F00753E00 /* dispatchMenuViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */; };
 		6589D2651CE61BB900753E00 /* DispatchMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D2641CE61BB900753E00 /* DispatchMenuView.swift */; };
 		658B218F1CF129D900A9B6D9 /* eventViewNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658B218E1CF129D900A9B6D9 /* eventViewNib.xib */; };
@@ -116,9 +116,9 @@
 		65510C841CCD8370007C50BC /* operator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = operator.gif; sourceTree = "<group>"; };
 		65510C8A1CCD83A1007C50BC /* slots_background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = slots_background.gif; sourceTree = "<group>"; };
 		6568DDB31CE2086400E29958 /* AudioPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
-		6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameViewAudio.mp3; sourceTree = "<group>"; };
 		657129A01CF278CD0056DBF4 /* ResultViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewViewController.swift; sourceTree = "<group>"; };
 		657C9A691CE78A8B0044E068 /* ServiceEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceEnum.swift; sourceTree = "<group>"; };
+		658092331CFDDF5100F13551 /* ingameAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ingameAudio.mp3; sourceTree = "<group>"; };
 		6589D2621CE61B9F00753E00 /* dispatchMenuViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dispatchMenuViewNib.xib; sourceTree = "<group>"; };
 		6589D2641CE61BB900753E00 /* DispatchMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchMenuView.swift; sourceTree = "<group>"; };
 		658B218E1CF129D900A9B6D9 /* eventViewNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = eventViewNib.xib; sourceTree = "<group>"; };
@@ -208,8 +208,8 @@
 				658B21901CF12B0200A9B6D9 /* headline.ttf */,
 				65510C811CCD8370007C50BC /* monofonto.ttf */,
 				65510C821CCD8370007C50BC /* operator_background_animated.gif */,
+				658092331CFDDF5100F13551 /* ingameAudio.mp3 */,
 				65510C831CCD8370007C50BC /* operatorTheme.mp3 */,
-				6568DDB91CE264D700E29958 /* gameViewAudio.mp3 */,
 				65510C841CCD8370007C50BC /* operator.gif */,
 			);
 			name = Assets;
@@ -460,8 +460,8 @@
 				65A4CBA01C5A51A500BC5EEB /* LaunchScreen.storyboard in Resources */,
 				65A4CB9D1C5A51A500BC5EEB /* Assets.xcassets in Resources */,
 				65510C871CCD8370007C50BC /* operator_background_animated.gif in Resources */,
-				6568DDBA1CE264D700E29958 /* gameViewAudio.mp3 in Resources */,
 				65CECF711C9EC87300F563BF /* gameCellNib.xib in Resources */,
+				658092341CFDDF5100F13551 /* ingameAudio.mp3 in Resources */,
 				6598567A1CD0210C00BC9263 /* LevelDialogues.json in Resources */,
 				65510C851CCD8370007C50BC /* Kemco_Pixel_Bold.ttf in Resources */,
 				6532216C1CE92CDD007B9412 /* pauseMenuViewNib.xib in Resources */,

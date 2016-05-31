@@ -54,7 +54,9 @@ class GameView: UIView, NSLayoutManagerDelegate {
             gameAnswerOne.gameButtonStyle(gameAnswerOne)
             gameAnswerTwo.gameButtonStyle(gameAnswerTwo)
             gameAnswerThree.gameButtonStyle(gameAnswerThree)
-            skipButton.buttonStyle(skipButton)
+            skipButton.layer.cornerRadius = 13
+            skipButton.layer.borderWidth = 4
+            skipButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
             gameText.clipsToBounds = true
             //gameText.textFieldStyle(gameText)
             //introLabel.setLineHeight(30, alignment: .Center)

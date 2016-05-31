@@ -22,8 +22,8 @@ class MenuViewController: UIViewController {
     var timer: NSTimer?
     var buttons = [UIButton]()
     
-   // var operatorTheme = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("Operator_menuAudio2", ofType: "mp3")!)
-   // var menuAudio = AVAudioPlayer()
+//    var operatorTheme = NSURL (fileURLWithPath: NSBundle.mainBundle().pathForResource("Operator_menuAudio2", ofType: "mp3")!)
+//    var menuAudio = AVAudioPlayer()
 
     let gif = UIImage.gifWithName("operator")
     let backgroundGif = UIImage.gifWithName("operator_background_animated")
@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //AudioPlayerController.sharedInstance.startAudio("operatorTheme")
+        AudioPlayerController.sharedInstance.startAudio("operatorTheme")
         // Do any additional setup after loading the view, typically from a nib.
 
         imageView.image = gif
