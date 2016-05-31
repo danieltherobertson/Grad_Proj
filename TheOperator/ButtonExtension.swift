@@ -25,8 +25,8 @@ extension UIButton {
         button.layer.cornerRadius = 20
         button.layer.borderWidth = 4
         button.layer.borderColor = colour.color.CGColor
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        button.titleLabel?.setLineHeight(3, alignment: .Left)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        button.titleLabel?.setLineHeight(2.5, alignment: .Left)
         return button
     }
     

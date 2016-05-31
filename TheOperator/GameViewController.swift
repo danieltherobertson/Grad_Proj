@@ -132,9 +132,12 @@ class GameViewController: UIViewController {
             // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
             if character == "System" {
-                self.gameView.gameText.textColor = .yellowColor()
-                self.gameView.speakerName.textColor = .yellowColor()
-            } else {
+                self.gameView.gameText.textColor = .orangeColor()
+                self.gameView.speakerName.textColor = .orangeColor()
+            } else if character == "Chief" {
+                self.gameView.gameText.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                self.gameView.speakerName.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+            } else if character == "Caller" {
                 self.gameView.gameText.textColor = .whiteColor()
                 self.gameView.speakerName.textColor = .whiteColor()
             }

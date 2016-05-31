@@ -131,11 +131,18 @@ class TutorialViewController: UIViewController {
             
             // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
-            if character == "Chief" {
-                //   self.gameView.characterImg.image = UIImage(named: "chief")
-            } else {
-                //  self.gameView.characterImg.image = UIImage(named: "headset")
+            print(character)
+            if character == "System" {
+                self.gameView.gameText.textColor = .orangeColor()
+                self.gameView.speakerName.textColor = .orangeColor()
+            } else if character == "Chief" {
+                self.gameView.gameText.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                self.gameView.speakerName.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+            } else if character == "Caller" {
+                self.gameView.gameText.textColor = .whiteColor()
+                self.gameView.speakerName.textColor = .whiteColor()
             }
+
             self.addCharacterDetails()
             delay(0.5, closure: {
                 self.gameView.gameText.typeStart(dialogue)
@@ -250,10 +257,15 @@ class TutorialViewController: UIViewController {
                 gameView.gameText.text = ""
                 let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
                 self.gameView.speakerName.text = "\(character):"
-                if character == "Chief" {
-                   // gameView.characterImg.image = UIImage(named: "chief")
-                } else {
-                   // gameView.characterImg.image = UIImage(named: "headset")
+                if character == "System" {
+                    self.gameView.gameText.textColor = .orangeColor()
+                    self.gameView.speakerName.textColor = .orangeColor()
+                } else if character == "Chief" {
+                    self.gameView.gameText.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                    self.gameView.speakerName.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                } else if character == "Caller" {
+                    self.gameView.gameText.textColor = .whiteColor()
+                    self.gameView.speakerName.textColor = .whiteColor()
                 }
                 gameView.gameText.typeStart(nextDialogue)
 //                if dialogueIndex == 3 {
