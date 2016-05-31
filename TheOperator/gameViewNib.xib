@@ -67,7 +67,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="13f-bj-YU2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="13"/>
                     <state key="normal">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -79,7 +79,7 @@
                         <constraint firstAttribute="height" constant="60" id="fym-lR-jZH"/>
                         <constraint firstAttribute="width" constant="284" id="rD8-rR-If3"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="13"/>
                     <state key="normal">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -109,7 +109,7 @@
                                 <constraint firstAttribute="height" constant="127" id="J8V-bj-gn1"/>
                                 <constraint firstAttribute="height" id="i0y-uM-3kQ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
+                            <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="13"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -212,7 +212,7 @@
                         <constraint firstAttribute="width" constant="284" id="LPV-gc-MGD"/>
                         <constraint firstAttribute="height" constant="60" id="v7e-T2-tgR"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="13"/>
                     <state key="normal">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>

@@ -38,7 +38,7 @@ class ResultViewViewController: UIViewController {
         incomingNews.alpha = 0
         continueButton.alpha = 0
         continueButton.enabled = false
-        continueButton.buttonStyle(continueButton)
+        continueButton.buttonStyleInset(continueButton)
         eventView.alpha = 0
         self.eventView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         let triggerTime = Int64(2 * (NSEC_PER_SEC))

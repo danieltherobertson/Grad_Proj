@@ -57,8 +57,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("currentSave: \(currentSave.rankings)")
-        print(currentSave.name)
+       // print(currentLevel)
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
         //gameView.characterImg.hidden = true
@@ -70,6 +69,7 @@ class GameViewController: UIViewController {
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
         currentLevRead = currentLevInt!+1
+        print(currentLevRead)
         
         gameView.dispatchButton.addTarget(self, action: #selector(displayDispatchMenu), forControlEvents: .TouchUpInside)
         gameView.pauseButton.addTarget(self, action: #selector(displayPauseMenu), forControlEvents: .TouchUpInside)
@@ -90,7 +90,7 @@ class GameViewController: UIViewController {
             button.hidden = true
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
-        levelDialogue = DialogueRetriever.getDialogue("tutorialDialogue")
+        levelDialogue = DialogueRetriever.getDialogue("dialogue\(currentLevRead)")
         stageDialogue = levelDialogue[currentDialogue]
         stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
         numberOfButtons = stageAnswers?.count
@@ -131,10 +131,12 @@ class GameViewController: UIViewController {
             
             // self.gameView.characterImg.hidden = false
             self.gameView.speakerName.text = "\(character):"
-            if character == "Chief" {
-                //   self.gameView.characterImg.image = UIImage(named: "chief")
+            if character == "System" {
+                self.gameView.gameText.textColor = .yellowColor()
+                self.gameView.speakerName.textColor = .yellowColor()
             } else {
-                //  self.gameView.characterImg.image = UIImage(named: "headset")
+                self.gameView.gameText.textColor = .whiteColor()
+                self.gameView.speakerName.textColor = .whiteColor()
             }
             self.addCharacterDetails()
             delay(0.5, closure: {

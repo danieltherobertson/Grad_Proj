@@ -74,6 +74,7 @@ class ProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
                     cell.levelCompleted.text = "Completed"
                     cell.levelCompleted.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     cell.levelRank.text = ("Rank: \(playerRanks[indexPath.row])")
+                    cell.levelRank.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
                     cell.levelRank.setLineHeight(3, alignment: .Left)
                     cell.tag = 0
                 

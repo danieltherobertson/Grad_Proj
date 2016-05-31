@@ -162,7 +162,7 @@
 			{
 				"number": 10,
 				"character": "Chief",
-				"text": "Good! Maybe you aren't so hopeless afterall. Did you notice the timer in the top right of your workspace trigger when you answered the call? Every call will have a time limit so you need to be quick.",
+				"text": "Good! Maybe you aren't so hopeless afterall. Did you notice the timer in the top right of your workspace trigger when you answered the call? Every call will have a time limit so you need to be quick. For this training session, however, you've been given plenty of time, so you don't need worry. It won't be so generous when it's for real!",
 	            "buttons": 2,
                 "triggersCall": false,
                 "triggersDispatch": false,
@@ -366,7 +366,7 @@
 	                 	"goTo": 24
                     },
                     {
-	                 	"text": "I'm ready!",
+	                 	"text": "I'm ready, let's do it!",
 	                 	"goTo": 24
                     }
 	            ]
@@ -403,7 +403,7 @@
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Okay, is the tree easily accesible from the road?",
-	                 	"goTo": 29
+	                 	"goTo": 28
                     }
 	            ]
 			},
@@ -417,7 +417,7 @@
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Okay, is the tree easily accesible from the road?",
-	                 	"goTo": 29
+	                 	"goTo": 28
                     }
 	            ]
 			},
@@ -431,7 +431,7 @@
 	            "acceptedAnswers": [
 	              	{
 	                 	"text": "Aye aye, Captain.",
-	                 	"goTo": 30
+	                 	"goTo": 29
                     }
 	            ]
 			},
@@ -480,7 +480,7 @@
 			{
 				"number": 31,
 				"character": "Chief",
-				"text": "Right, I think you're ready to dispatch now. Just open the menu, switch on the services you want and click dispatch. The rest will happen automatically. Get to it!",
+				"text": "Right, I think you're ready to dispatch now. Just open the menu, switch on the services you want and click dispatch. The rest will happen automatically. If you ever need to remind yourself of how to play, or you want to improve a score, you can replay levels as many times as you like. Right, I think that's everything, get to it!",
 	            "buttons": 0,
                 "triggersCall": false,
                 "triggersDispatch": false,
@@ -491,10 +491,10 @@
 	            ]
 			}
 		],	
-		"levelOneDialogue": [
+		"dialogue4": [
 			{
 				"number":1,
-				"character": "Chief",
+				"character": "System",
 				"text": "Welcome, Cadet, to The Operator. You are a 911-dispatch operator, and so it is your job to answer calls for aid. You will have to think fast on your feet... \n solve problems, tell callers what to do and decide which services to dispatch. Should you fail to act quickly enough, lives will be lost. Don’t let me down!",
 	            "buttons": 3,
 	            "acceptedAnswers": [

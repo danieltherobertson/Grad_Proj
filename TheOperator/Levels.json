@@ -47,10 +47,14 @@
 		{
 			"number": "2",
 			"name": "Dooty Doot",
+            "issue":"Testing",
+            "specialPoints": 5,
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "isCritical": "true",
+                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
+                    "ifPresent":"Yay you're a hero"
                 }
             ]
 		},

@@ -256,13 +256,13 @@ class TutorialViewController: UIViewController {
                    // gameView.characterImg.image = UIImage(named: "headset")
                 }
                 gameView.gameText.typeStart(nextDialogue)
-                if dialogueIndex == 3 {
-                    gameView.skipButton.hidden = true
-                    gameView.skipButton.enabled = false
-                } else {
+//                if dialogueIndex == 3 {
+//                    gameView.skipButton.hidden = true
+//                    gameView.skipButton.enabled = false
+//                } else {
                     gameView.skipButton.hidden = false
                     gameView.skipButton.enabled = true
-                }
+               // }
                 onTypeComplete = {
                     self.isTyping = false
                     self.layoutHandler(buttons)
@@ -583,9 +583,35 @@ class TutorialViewController: UIViewController {
         let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
         let reply = replies[random]
         gameView.gameText.text = ""
+        self.gameView.speakerName.text = "Caller"
         gameView.gameText.typeStart(reply)
+        
         onTypeComplete = {
             let triggerTime = Int64(2 * (NSEC_PER_SEC))
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                self.gameView.gameText.text = ""
+                self.gameView.speakerName.text = "Chief"
+                self.gameView.gameText.typeStart("You're a natural! Good work. In a moment, you'll see a news update that shows you how your actions impact the world, and then I'll give you your rank. I'll also tell you the services I'd have dispatched, and how quickly you acted.")
+                    onTypeComplete = {
+                        self.buttons[1].removeTarget(self, action: #selector(self.randomResponse), forControlEvents: .TouchUpInside)
+                        self.buttons[1].addTarget(self, action: #selector(self.finalReply), forControlEvents: .TouchUpInside)
+                        self.buttons[1].setTitle("Okay, Sir!", forState: .Normal)
+                        self.buttons[1].enabled = true
+                        self.buttons[1].hidden = false
+                        
+                        
+                    }
+            })
+        }
+    }
+    
+    func finalReply() {
+        buttons[1].enabled = false
+        buttons[1].hidden = true
+        self.gameView.gameText.text = ""
+        self.gameView.gameText.typeStart("After that, you'll unlock the next level and the real work begins. I'll still be around to occasionally give you advice, but mostly, you're on your own. Good luck!")
+        onTypeComplete = {
+            let triggerTime = Int64(3 * (NSEC_PER_SEC))
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                 self.segueToResultsView()
             })

@@ -83,7 +83,7 @@ class CallAlertView: UIView {
     func vibrate(){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07
-        animation.repeatCount = 10
+        animation.repeatCount = 30
         animation.autoreverses = true
         animation.fromValue = NSValue(CGPoint: CGPointMake(self.center.x - 2.5, self.center.y))
         animation.toValue = NSValue(CGPoint: CGPointMake(self.center.x + 2.5, self.center.y))

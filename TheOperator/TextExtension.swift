@@ -125,6 +125,9 @@ extension UITextView {
     }
     
     func addNextLetter(timer: NSTimer) {
+
+//        let range = NSMakeRange((self.text as NSString).length - 1, 1)
+//        self.scrollRangeToVisible(range)
         
         let dialogue = timer.userInfo as! String
         
@@ -141,8 +144,7 @@ extension UITextView {
             timer.invalidate()
             typeSpeed = 0.05
             if let callback = onTypeComplete {
-                let range = NSMakeRange(self.text.characters.count - 1, 1)
-                self.scrollRangeToVisible(range)
+                self.scrollRangeToVisible(NSMakeRange((self.text as NSString).length, 0))
                 callback ()
             }
             
@@ -154,9 +156,7 @@ extension UITextView {
             }
             
             self.text = text! + String(character)
-            
-            let range = NSMakeRange(self.text.characters.count - 1, +30)
-            self.scrollRangeToVisible(range)
+            self.scrollRangeToVisible(NSMakeRange((self.text as NSString).length, 0))
         }
     }
     

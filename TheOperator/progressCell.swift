@@ -22,9 +22,9 @@ class progressCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         levelName.setLineHeight(3, alignment: .Left)
-        levelRank.textColor = .blackColor()
+        levelRank.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
         levelRank.setLineHeight(3, alignment: .Left)
-        levelCompleted.textColor = .blackColor()
+        levelCompleted.textColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
     }
     
     func styleSelected(tag:Int) {

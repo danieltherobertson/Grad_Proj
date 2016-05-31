@@ -130,7 +130,7 @@ class ProgressViewController: UIViewController {
         let currentLev = String(selectedLevel.valueForKey("number")!)
         let currentLevInt = Int(currentLev)
         let currentLevRead = currentLevInt!+1
-        instructions.text = "Level \(currentLevRead) selected"
+        instructions.text = "Level  \(currentLevRead)  selected"
         
         }
     }
