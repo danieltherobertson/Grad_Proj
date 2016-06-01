@@ -64,12 +64,13 @@ class GameViewController: UIViewController {
         
         //gameView.characterImg.alpha = 0
         gameView.speakerName.alpha = 0
+        gameView.gameText.backgroundColor = .blackColor()
+        gameView.gameTextContainer.backgroundColor = .blackColor()
         
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
         currentLevRead = currentLevInt!+1
-        print(currentLevRead)
         
         gameView.dispatchButton.addTarget(self, action: #selector(displayDispatchMenu), forControlEvents: .TouchUpInside)
         gameView.pauseButton.addTarget(self, action: #selector(displayPauseMenu), forControlEvents: .TouchUpInside)
@@ -91,6 +92,8 @@ class GameViewController: UIViewController {
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("dialogue\(currentLevRead)")
+        print(levelDialogue)
+        print(currentLevRead)
         stageDialogue = levelDialogue[currentDialogue]
         stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
         numberOfButtons = stageAnswers?.count
@@ -102,7 +105,7 @@ class GameViewController: UIViewController {
     }
     
     func showLandingScreen() { // 1
-        gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
+        gameView.introLabel.typeStart("Level  \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
         let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
@@ -117,6 +120,11 @@ class GameViewController: UIViewController {
             self.gameView.introLabel.alpha = 0
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
+        }
+            UIView.animateWithDuration(1.5, delay: 2.2, options: [], animations: { () -> Void in
+                self.gameView.gameText.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+                self.gameView.gameTextContainer.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            }) { (completion) -> Void in
             let dialogue = String(self.levelDialogue[self.currentDialogue].valueForKey("text")!)
             self.resumeDialogue = dialogue
             let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
@@ -142,7 +150,8 @@ class GameViewController: UIViewController {
                 self.gameView.speakerName.textColor = .whiteColor()
             }
             self.addCharacterDetails()
-            delay(0.5, closure: {
+            delay(1, closure: {
+
                 self.gameView.gameText.typeStart(dialogue)
                 self.isTyping = true
                 self.gameView.skipButton.hidden = false
@@ -585,6 +594,8 @@ class GameViewController: UIViewController {
         let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
         let reply = replies[random]
         gameView.gameText.text = ""
+        self.gameView.gameText.textColor = .whiteColor()
+        self.gameView.speakerName.textColor = .whiteColor()
         gameView.gameText.typeStart(reply)
         onTypeComplete = {
             let triggerTime = Int64(2 * (NSEC_PER_SEC))

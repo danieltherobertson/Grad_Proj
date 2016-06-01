@@ -66,7 +66,8 @@ class TutorialViewController: UIViewController {
         
        // gameView.characterImg.alpha = 0
         gameView.speakerName.alpha = 0
-        
+        gameView.gameText.backgroundColor = .blackColor()
+        gameView.gameTextContainer.backgroundColor = .blackColor()
         
         currentLev = String(currentLevel.valueForKey("number")!)
         currentLevInt = Int(currentLev)
@@ -117,6 +118,13 @@ class TutorialViewController: UIViewController {
             self.gameView.introLabel.alpha = 0
         }) { (completion) -> Void in
             self.gameView.introLabel.enabled = false
+            
+        }
+        UIView.animateWithDuration(1.5, delay: 2.2, options: [], animations: { () -> Void in
+            self.gameView.gameText.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+            self.gameView.gameTextContainer.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.0)
+        }) { (completion) -> Void in
+            self.gameView.introLabel.enabled = false
             let dialogue = String(self.levelDialogue[self.currentDialogue].valueForKey("text")!)
             self.resumeDialogue = dialogue
             let character = String(self.levelDialogue[self.currentDialogue].valueForKey("character")!)
@@ -142,9 +150,8 @@ class TutorialViewController: UIViewController {
                 self.gameView.gameText.textColor = .whiteColor()
                 self.gameView.speakerName.textColor = .whiteColor()
             }
-
-            self.addCharacterDetails()
-            delay(0.5, closure: {
+                self.addCharacterDetails()
+            delay(1, closure: {
                 self.gameView.gameText.typeStart(dialogue)
                 self.isTyping = true
                 self.gameView.skipButton.hidden = false
@@ -591,23 +598,38 @@ class TutorialViewController: UIViewController {
     func randomResponse() {
         buttons[1].enabled = false
         buttons[1].hidden = true
+        gameView.buttonTwoHeightConstraint.constant = 60
+        view.layoutIfNeeded()
         let random = Int(arc4random_uniform(6))
         let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
         let reply = replies[random]
         gameView.gameText.text = ""
+        self.gameView.gameText.textColor = .whiteColor()
+        self.gameView.speakerName.textColor = .whiteColor()
         self.gameView.speakerName.text = "Caller"
         gameView.gameText.typeStart(reply)
         
         onTypeComplete = {
             let triggerTime = Int64(2 * (NSEC_PER_SEC))
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                let attributeString = NSMutableAttributedString(string: "Okay Sir!")
+                let style = NSMutableParagraphStyle()
+                style.lineSpacing = 3
+                style.alignment = .Left
+                self.buttons[1].setAttributedTitle(attributeString, forState: .Normal)
                 self.gameView.gameText.text = ""
+                self.gameView.gameText.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                self.gameView.speakerName.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
                 self.gameView.speakerName.text = "Chief"
+                self.gameView.skipButton.hidden = false
+                self.gameView.skipButton.enabled = true
                 self.gameView.gameText.typeStart("You're a natural! Good work. In a moment, you'll see a news update that shows you how your actions impact the world, and then I'll give you your rank. I'll also tell you the services I'd have dispatched, and how quickly you acted.")
                     onTypeComplete = {
+                        self.gameView.skipButton.hidden = true
+                        self.gameView.skipButton.enabled = false
                         self.buttons[1].removeTarget(self, action: #selector(self.randomResponse), forControlEvents: .TouchUpInside)
                         self.buttons[1].addTarget(self, action: #selector(self.finalReply), forControlEvents: .TouchUpInside)
-                        self.buttons[1].setTitle("Okay, Sir!", forState: .Normal)
+                        
                         self.buttons[1].enabled = true
                         self.buttons[1].hidden = false
                         
@@ -621,8 +643,13 @@ class TutorialViewController: UIViewController {
         buttons[1].enabled = false
         buttons[1].hidden = true
         self.gameView.gameText.text = ""
+        self.gameView.skipButton.hidden = false
+        self.gameView.skipButton.enabled = true
+
         self.gameView.gameText.typeStart("After that, you'll unlock the next level and the real work begins. I'll still be around to occasionally give you advice, but mostly, you're on your own. Good luck!")
         onTypeComplete = {
+            self.gameView.skipButton.hidden = true
+            self.gameView.skipButton.enabled = false
             let triggerTime = Int64(3 * (NSEC_PER_SEC))
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                 self.segueToResultsView()
@@ -633,19 +660,6 @@ class TutorialViewController: UIViewController {
     func segueToResultsView(){
         performSegueWithIdentifier("tutorialViewToResultView", sender: self)
     }
-    //    func animateTransition(element: AnyObject, time: Double, direction: String) {
-    //        let animation = CATransition()
-    //        animation.duration = time
-    //        animation.type = kCATransitionPush
-    //        animation.subtype = direction
-    //        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-    //        element.layer.addAnimation(animation, forKey: nil)
-    //    }
-    //
-    //    func drawButtons() {
-    //        animateTransition(gameView.gameAnswerOne, time: 1.2, direction: kCATransitionFromLeft)
-    //        animateTransition(gameView.gameAnswerTwo, time: 1.4, direction: kCATransitionFromLeft)
-    //        animateTransition(gameView.gameAnswerThree, time: 1.6, direction: kCATransitionFromLeft)
-    //    }
+
 }
 

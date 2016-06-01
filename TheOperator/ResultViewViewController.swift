@@ -26,12 +26,18 @@ class ResultViewViewController: UIViewController {
     @IBOutlet weak var eventView: EventView!
     @IBOutlet weak var incomingNews: UILabel!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var titleLabel: SpacingLabel!
+    @IBOutlet weak var smallLabelOne: SpacingLabel!
+    @IBOutlet weak var smallLabelTwo: SpacingLabel!
     
     let gif = UIImage.gifWithName("operator")
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = "Operator Headlines"
+        smallLabelOne.text = "Service brought to you by Dispatch Ltd"
+        smallLabelTwo.text = "Employee edition"
         eventView.headlineLabel.text = headline
         eventView.headlineLabel.adjustsFontSizeToFitWidth = true
         incomingNews.setLineHeight(3, alignment: .Center)

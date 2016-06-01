@@ -36,6 +36,9 @@
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
             <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
+            <string>KemcoPixelBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -532,17 +535,55 @@
                                     <action selector="segueToReviewScreen:" destination="uex-oO-kqo" eventType="touchUpInside" id="lLs-7t-Zxb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lh1-de-9Qx" customClass="SpacingLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3bq-gu-CxL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgE-9v-rN8" customClass="SpacingLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="75" width="560" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="gV2-ST-pfF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8D-Mg-Cea" customClass="SpacingLabel" customModule="TheOperator" customModuleProvider="target">
+                                <rect key="frame" x="20" y="104" width="560" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="U6C-Sh-V72"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bxs-da-txE" secondAttribute="trailing" constant="20" id="10w-wm-ha6"/>
+                            <constraint firstItem="r8D-Mg-Cea" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="2Bb-RW-Z0K"/>
                             <constraint firstItem="N2x-Dy-e8s" firstAttribute="top" secondItem="AZG-YJ-VjU" secondAttribute="bottom" constant="8" id="BNs-3O-URj"/>
+                            <constraint firstItem="dgE-9v-rN8" firstAttribute="width" secondItem="lh1-de-9Qx" secondAttribute="width" id="D9A-Xs-XwF"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="centerY" secondItem="mEk-am-Y8H" secondAttribute="centerY" id="E8F-jv-4io"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="r8D-Mg-Cea" secondAttribute="bottom" constant="27" id="GNa-Dj-noB"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="131" id="I9Z-7h-sbt"/>
+                            <constraint firstItem="r8D-Mg-Cea" firstAttribute="width" secondItem="dgE-9v-rN8" secondAttribute="width" id="JiO-CC-9Xc"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="MRD-Ip-nvi"/>
+                            <constraint firstItem="lh1-de-9Qx" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="T4X-UL-8BV"/>
+                            <constraint firstItem="lh1-de-9Qx" firstAttribute="width" secondItem="bxs-da-txE" secondAttribute="width" id="TOb-re-DDr"/>
+                            <constraint firstItem="r8D-Mg-Cea" firstAttribute="top" secondItem="dgE-9v-rN8" secondAttribute="bottom" constant="2" id="UEV-qz-5tU"/>
                             <constraint firstItem="bxs-da-txE" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leadingMargin" id="VcC-eu-txX"/>
+                            <constraint firstItem="lh1-de-9Qx" firstAttribute="top" secondItem="mar-q6-VoV" secondAttribute="bottom" constant="20" id="aIh-WF-z0V"/>
                             <constraint firstItem="AZG-YJ-VjU" firstAttribute="top" secondItem="bxs-da-txE" secondAttribute="bottom" constant="59" id="eND-pV-CpS"/>
+                            <constraint firstItem="dgE-9v-rN8" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="hQE-46-j5R"/>
+                            <constraint firstItem="dgE-9v-rN8" firstAttribute="top" secondItem="lh1-de-9Qx" secondAttribute="bottom" constant="5" id="m3L-YE-xqz"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="mvA-55-SFC"/>
+                            <constraint firstItem="bxs-da-txE" firstAttribute="top" secondItem="lh1-de-9Qx" secondAttribute="bottom" constant="20" id="o6t-DU-927"/>
                             <constraint firstItem="HYi-vL-46N" firstAttribute="leading" secondItem="mEk-am-Y8H" secondAttribute="leading" constant="20" id="om5-a0-LtL"/>
                             <constraint firstAttribute="trailing" secondItem="HYi-vL-46N" secondAttribute="trailing" constant="20" id="psX-Gq-H6c"/>
                             <constraint firstItem="AZG-YJ-VjU" firstAttribute="centerX" secondItem="mEk-am-Y8H" secondAttribute="centerX" id="qt7-XX-rxt"/>
@@ -552,6 +593,7 @@
                             <mask key="constraints">
                                 <exclude reference="10w-wm-ha6"/>
                                 <exclude reference="MRD-Ip-nvi"/>
+                                <exclude reference="o6t-DU-927"/>
                             </mask>
                         </variation>
                     </view>
@@ -559,6 +601,9 @@
                         <outlet property="continueButton" destination="AZG-YJ-VjU" id="yy2-tM-cHv"/>
                         <outlet property="eventView" destination="bxs-da-txE" id="OZk-d8-nOI"/>
                         <outlet property="incomingNews" destination="HYi-vL-46N" id="UBn-ho-G9s"/>
+                        <outlet property="smallLabelOne" destination="dgE-9v-rN8" id="blB-zx-ZWf"/>
+                        <outlet property="smallLabelTwo" destination="r8D-Mg-Cea" id="PTZ-oF-YHe"/>
+                        <outlet property="titleLabel" destination="lh1-de-9Qx" id="w6S-ZZ-hOI"/>
                         <segue destination="UIe-of-48G" kind="show" identifier="resultsToReviewScreen" id="bCg-AP-KbV"/>
                     </connections>
                 </viewController>
