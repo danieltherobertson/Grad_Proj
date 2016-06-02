@@ -119,7 +119,7 @@ extension UITextView {
     
     func typeStart(dialogue: String) {
         let text = dialogue
-        
+        print(text)
         timer = NSTimer.scheduledTimerWithTimeInterval(typeSpeed, target: self, selector: #selector(addNextLetter(_:)), userInfo: text, repeats: true)
         timer.fire()
     }

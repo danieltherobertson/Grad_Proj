@@ -8,136 +8,146 @@
 			"requiredServices": [
                 {
                     "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
-                    "ifPresent":""
-                },
-                {
-                    "service":"Police",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
-                    "ifPresent":""
+                    "isCritical":"true",
+                    "ifFails":"Fire Brigade no-show for trapped cat!",
+                    "ifPresent":"Hero dispatch operator saves cat!"
                 }
             ]
 		},
 		{
 			"number": "1",
-			"name": "Lost Down The Bottle",
-            "issue":"Trapped animal",
-            "specialPoints": 5,
+			"name": "Daylight Robbery",
+            "issue":"Robbery",
+            "specialPoints": 15,
 			"requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "isCritical":"false",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
-                    "ifPresent":"Fire Brigade save cat!"
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
                 },
                 {
                     "service":"Police",
                     "isCritical":"false",
-                    "ifFails":"Because the Police were not called, the cat has died.",
-                    "ifPresent":"Police save cat!"
-                },
-                {
-                    "service":"Ambulance",
-                    "isCritical":"true",
-                    "ifFails":"911 Operator fails to save wounded child",
-                    "ifPresent":"Hero dispatch operator saves hurt child"
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
 		},
 		{
 			"number": "2",
-			"name": "Dooty Doot",
-            "issue":"Testing",
+			"name": "Pizza For Two",
+            "issue":"Physical Abuse",
             "specialPoints": 5,
 			"requiredServices": [
                 {
-                    "service":"Fire Brigade",
+                    "service":"Police",
                     "isCritical": "true",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree.",
-                    "ifPresent":"Yay you're a hero"
+                    "ifFails":"Operator fails to rescue to abused spouse",
+                    "ifPresent":"Operator saves victim of abuse - with pizza!"
                 }
             ]
 		},
 		{
-			"number": "3",
-			"name": "Pizza For One",
-			"requiredServices": [
+            "number": "3",
+            "name": "Suspicious Package",
+            "issue":"Suspicious Package",
+            "specialPoints": 5,
+            "requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
+                },
+                {
+                    "service":"Police",
+                    "isCritical":"false",
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
-		},
+        },
 		{
-			"number": "4",
-			"name": "Day 4",
-			"requiredServices": [
+            "number": "4",
+            "name": "Tarmac Terror",
+            "issue":"Trapped animal",
+            "specialPoints": 5,
+            "requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
+                },
+                {
+                    "service":"Police",
+                    "isCritical":"false",
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
-		},
+        },
 		{
-			"number": "5",
-			"name": "Day 5",
-			"requiredServices": [
+            "number": "5",
+            "name": "Riot Town",
+            "issue":"Trapped animal",
+            "specialPoints": 5,
+            "requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
+                },
+                {
+                    "service":"Police",
+                    "isCritical":"false",
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
-		},
+        },
 		{
-			"number": "6",
-			"name": "Day 6",
-			"requiredServices": [
+            "number": "6",
+            "name": "Bagged and Tagged",
+            "issue":"Trapped animal",
+            "specialPoints": 5,
+            "requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
+                },
+                {
+                    "service":"Police",
+                    "isCritical":"false",
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
-		},
+        },
 		{
-			"number": "7",
-			"name": "Day 7",
-			"requiredServices": [
+            "number": "7",
+            "name": "Telephone Trials",
+            "issue":"Trapped animal",
+            "specialPoints": 5,
+            "requiredServices": [
                 {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
+                    "service":"Ambulance",
+                    "isCritical":"true",
+                    "ifFails":"911 Operator fails to save gunshot victim!",
+                    "ifPresent":"911 operator saves victim of robbery assault!"
+                },
+                {
+                    "service":"Police",
+                    "isCritical":"false",
+                    "ifFails":"",
+                    "ifPresent":""
                 }
             ]
-		},
-		{
-			"number": "8",
-			"name": "Day 8",
-			"requiredServices": [
-                {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
-                }
-            ]
-		},
-		{
-			"number": "9",
-			"name": "Day 9",
-			"requiredServices": [
-                {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
-                }
-            ]
-		},
-		{
-			"number": "10",
-			"name": "Day 10",
-			"requiredServices": [
-                {
-                    "service":"Fire Brigade",
-                    "ifFails":"Because the Fire Brigade was not called, the cat has remained stuck in the tree."
-                }
-            ]
-		}
+        }
 	]
 	
 }

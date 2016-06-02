@@ -154,6 +154,9 @@ class LevelReviewViewController: UIViewController, NSLayoutManagerDelegate{
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let progressVC = (segue.destinationViewController as? ProgressViewController)
+        AudioPlayerController.sharedInstance.fadeOut {
+            AudioPlayerController.sharedInstance.startAudio("operatorTheme")
+        }
         
         
         if segue.identifier == "levelReviewToProgressView" {

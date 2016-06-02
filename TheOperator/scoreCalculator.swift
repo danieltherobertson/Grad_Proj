@@ -381,6 +381,7 @@ func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices:
     print("score before: \(totalScore[1]), score now: \(outOf)")
     print("gained points: \(points)")
     let quarterScore = outOf/4
+    let ninthScore = outOf/10*9
     let playerScore = totalScore[0]+points
     print("player score before: \(totalScore[0]), player score now: \(playerScore)")
     var playerRank = String()
@@ -396,8 +397,11 @@ func calculateRank(startingTime: Int, remainingTime: String, dispatchedServices:
     if playerScore <= quarterScore*3 && playerScore > quarterScore*2 && passed == true{
         playerRank = "Sweet Talker"
     }
+    if playerScore >= quarterScore*3 && playerScore < ninthScore && passed == true {
+        playerRank = "Operator"
+    }
     
-    if playerScore <= outOf && playerScore > quarterScore*3 && passed == true {
+    if playerScore > ninthScore && passed == true {
         playerRank = "Telephone Hero"
     }
     

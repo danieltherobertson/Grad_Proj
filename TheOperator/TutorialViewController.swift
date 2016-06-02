@@ -39,9 +39,11 @@ class TutorialViewController: UIViewController {
     
     var currentDialogue = 0
     var specialPoints = 0
+    var globalIndex = Int()
     var availableSpecialPoints = Int()
     
     var resumeDialogue: String!
+    var chosenColor = String()
     
     var stageDialogue: NSDictionary!
     var stageAnswers: Array<NSDictionary>!
@@ -62,6 +64,9 @@ class TutorialViewController: UIViewController {
         print(currentSave.name)
         typeSpeed = 0.05
         gameView.skipButton.hidden = true
+        gameView.dispatchButton.backgroundColor = .grayColor()
+        gameView.dispatchButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        gameView.dispatchButton.enabled = false
        // gameView.characterImg.hidden = true
         
        // gameView.characterImg.alpha = 0
@@ -103,7 +108,7 @@ class TutorialViewController: UIViewController {
     }
     
     func showLandingScreen() { // 1
-        gameView.introLabel.typeStart("Level \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
+        gameView.introLabel.typeStart("Level  \(currentLevRead) \n \n \(currentLevel.valueForKey("name")!)")
         gameView.introLabel.textColor = UIColor.greenColor()
         onTypeComplete = {
             let _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.startText), userInfo: nil, repeats: false)
@@ -249,7 +254,7 @@ class TutorialViewController: UIViewController {
     }
     
     func questionHandler(dialogueIndex: Int, enablesPopUp: Bool) {
-        
+        globalIndex = dialogueIndex
         //Getting all of the dialogue sets for the current level
         for dialogue in levelDialogue {
             //number is the first property of each dialogue set, identifying its index in the current level dialogue
@@ -274,14 +279,42 @@ class TutorialViewController: UIViewController {
                     self.gameView.gameText.textColor = .whiteColor()
                     self.gameView.speakerName.textColor = .whiteColor()
                 }
-                gameView.gameText.typeStart(nextDialogue)
-//                if dialogueIndex == 3 {
-//                    gameView.skipButton.hidden = true
-//                    gameView.skipButton.enabled = false
-//                } else {
-                    gameView.skipButton.hidden = false
-                    gameView.skipButton.enabled = true
-               // }
+                
+                if dialogueIndex == 4 {
+                    let string = "\(chosenColor)\(nextDialogue)"
+                    gameView.gameText.typeStart(string)
+                    self.isTyping = true
+                } else {
+                    gameView.gameText.typeStart(nextDialogue)
+                    self.isTyping = true
+                }
+                
+                if dialogueIndex == 1 {
+                    let triggerTime = Int64(2 * (NSEC_PER_SEC))
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                        self.gameView.gameTextContainer.layer.borderColor = UIColor.redColor().CGColor
+                    })
+                } else {
+                    gameView.gameTextContainer.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+                }
+                
+                if dialogueIndex == 11 {
+                    let triggerTime = Int64(2 * (NSEC_PER_SEC))
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
+                        self.gameView.dispatchButton.layer.borderColor = UIColor.redColor().CGColor
+                    })
+                } else {
+                    gameView.dispatchButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+                }
+                
+                if dialogueIndex == 31 {
+                    gameView.dispatchButton.enabled = true
+                    gameView.dispatchButton.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                    gameView.dispatchButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
+                }
+                gameView.skipButton.hidden = false
+                gameView.skipButton.enabled = true
+               
                 onTypeComplete = {
                     self.isTyping = false
                     self.layoutHandler(buttons)
@@ -298,6 +331,10 @@ class TutorialViewController: UIViewController {
     func buttonHandler(sender:UIButton) {
         clearButtons()
         let buttonAnswer = sender.titleLabel!.text
+        
+        if globalIndex == 3 {
+            chosenColor = buttonAnswer!
+        }
         
         var nextDialogue = Int()
         
@@ -561,11 +598,9 @@ class TutorialViewController: UIViewController {
     }
     
     func levelEnding(dispatched: String) {
+        gameView.dispatchButton.backgroundColor = .grayColor()
+        gameView.dispatchButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         countDownTimer?.invalidate()
-        
-        //resumeType()
-        // resumeTime()
-        // speedType()
         onTypeComplete = {
             
         }
@@ -598,7 +633,7 @@ class TutorialViewController: UIViewController {
     func randomResponse() {
         buttons[1].enabled = false
         buttons[1].hidden = true
-        gameView.buttonTwoHeightConstraint.constant = 60
+        gameView.buttonTwoHeightConstraint.constant = 74
         view.layoutIfNeeded()
         let random = Int(arc4random_uniform(6))
         let replies = ["Okay, thank you!","Please hurry!","Oh okay...thanks!","Thank you for all your help!","About time! I need help!","Please hurry, get here before it's too late!"]
@@ -608,8 +643,10 @@ class TutorialViewController: UIViewController {
         self.gameView.speakerName.textColor = .whiteColor()
         self.gameView.speakerName.text = "Caller"
         gameView.gameText.typeStart(reply)
+        self.isTyping = true
         
         onTypeComplete = {
+            self.isTyping = false
             let triggerTime = Int64(2 * (NSEC_PER_SEC))
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), {
                 let attributeString = NSMutableAttributedString(string: "Okay Sir!")

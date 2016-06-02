@@ -50,7 +50,7 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoA-yU-DRM">
-                    <rect key="frame" x="516" y="280" width="76" height="42"/>
+                    <rect key="frame" x="516" y="288" width="76" height="42"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="1kh-ld-nQb"/>
@@ -62,10 +62,10 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-i4-EAB">
-                    <rect key="frame" x="10" y="332" width="580" height="60"/>
+                    <rect key="frame" x="10" y="288" width="580" height="74"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="13f-bj-YU2"/>
+                        <constraint firstAttribute="height" constant="74" id="13f-bj-YU2"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
                     <state key="normal">
@@ -73,10 +73,10 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-Zt-XgX">
-                    <rect key="frame" x="10" y="402" width="580" height="60"/>
+                    <rect key="frame" x="10" y="372" width="580" height="74"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="fym-lR-jZH"/>
+                        <constraint firstAttribute="height" constant="74" id="fym-lR-jZH"/>
                         <constraint firstAttribute="width" constant="284" id="rD8-rR-If3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
@@ -199,11 +199,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-Oh-Paf">
-                    <rect key="frame" x="10" y="472" width="580" height="60"/>
+                    <rect key="frame" x="10" y="456" width="580" height="74"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="284" id="LPV-gc-MGD"/>
-                        <constraint firstAttribute="height" constant="60" id="v7e-T2-tgR"/>
+                        <constraint firstAttribute="height" constant="74" id="v7e-T2-tgR"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="KemcoPixelBold" family="Kemco Pixel" pointSize="12"/>
                     <state key="normal">
@@ -232,7 +232,7 @@
                 <constraint firstItem="scJ-L3-bdv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="7Bd-gP-ypT"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="trailing" secondItem="sPl-cb-Zn3" secondAttribute="trailing" id="8MZ-hj-7qL"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8cS-c1-Fhz"/>
-                <constraint firstItem="ykR-wS-v9Y" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="8" id="AdQ-Rb-ffW"/>
+                <constraint firstItem="ykR-wS-v9Y" firstAttribute="top" secondItem="h0E-Oh-Paf" secondAttribute="bottom" constant="10" id="AdQ-Rb-ffW"/>
                 <constraint firstAttribute="bottom" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="552" id="BIM-0Y-6DQ"/>
                 <constraint firstItem="lNX-u4-MWf" firstAttribute="leading" secondItem="scJ-L3-bdv" secondAttribute="leading" id="Fj4-DX-wge"/>
                 <constraint firstItem="h0E-Oh-Paf" firstAttribute="top" secondItem="1gr-Zt-XgX" secondAttribute="bottom" constant="10" id="FvS-B9-S5N"/>
@@ -258,9 +258,9 @@
                 <constraint firstAttribute="trailing" secondItem="h0E-Oh-Paf" secondAttribute="trailing" constant="10" id="b0z-OB-0Ja"/>
                 <constraint firstAttribute="trailing" secondItem="0SM-i4-EAB" secondAttribute="trailing" constant="10" id="cYm-QY-fH0"/>
                 <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="GyC-eh-NVu" secondAttribute="bottom" constant="-207" id="cfM-Jw-XVp"/>
-                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="2" id="d0n-5p-bTN"/>
+                <constraint firstItem="uoA-yU-DRM" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="10" id="d0n-5p-bTN"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="trailing" secondItem="GyC-eh-NVu" secondAttribute="trailing" id="der-wV-4yd"/>
-                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="54" id="dpd-vi-ruU"/>
+                <constraint firstItem="0SM-i4-EAB" firstAttribute="top" secondItem="lNX-u4-MWf" secondAttribute="bottom" constant="10" id="dpd-vi-ruU"/>
                 <constraint firstItem="GyC-eh-NVu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f74-dz-GRs"/>
                 <constraint firstItem="1gr-Zt-XgX" firstAttribute="top" secondItem="0SM-i4-EAB" secondAttribute="bottom" constant="10" id="fHO-0m-5ru"/>
                 <constraint firstItem="sFU-Q9-kKB" firstAttribute="bottom" secondItem="GyC-eh-NVu" secondAttribute="bottom" id="fWn-Ci-OZi"/>

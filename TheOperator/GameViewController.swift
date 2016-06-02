@@ -66,6 +66,8 @@ class GameViewController: UIViewController {
         gameView.speakerName.alpha = 0
         gameView.gameText.backgroundColor = .blackColor()
         gameView.gameTextContainer.backgroundColor = .blackColor()
+        gameView.dispatchButton.backgroundColor = .grayColor()
+        gameView.dispatchButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         
         currentLev = String(currentLevel.valueForKey("number")!)
@@ -92,10 +94,9 @@ class GameViewController: UIViewController {
             button.addTarget(self, action: #selector(buttonHandler), forControlEvents: .TouchUpInside)
         }
         levelDialogue = DialogueRetriever.getDialogue("dialogue\(currentLevRead)")
-        print(levelDialogue)
-        print(currentLevRead)
         stageDialogue = levelDialogue[currentDialogue]
         stageAnswers = stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
+        print(stageAnswers)
         numberOfButtons = stageAnswers?.count
         gameView.skipButton.addTarget(self, action: #selector(speedType), forControlEvents: .TouchUpInside)
     }
@@ -159,6 +160,7 @@ class GameViewController: UIViewController {
                 
                 onTypeComplete = {
                     self.isTyping = false
+                    print(self.numberOfButtons)
                     self.layoutHandler(self.numberOfButtons)
                 }
                 
@@ -196,8 +198,9 @@ class GameViewController: UIViewController {
                 inUseAnswers.append(buttonAnswer)
             }
         }
-        
-        if NoOfbuttons == 1 {
+        if NoOfbuttons == 0 {
+            
+        } else if NoOfbuttons == 1 {
             let button = self.buttons[0]
             button.hidden = false
             let attributeString = NSMutableAttributedString(string: inUseAnswers.first!)
@@ -206,8 +209,6 @@ class GameViewController: UIViewController {
             style.alignment = .Center
             attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, inUseAnswers.first!.characters.count))
             button.setAttributedTitle(attributeString, forState: .Normal)
-        } else if NoOfbuttons == 0 {
-            
         } else if NoOfbuttons > 1 {
             outer: for (index, button) in buttons.enumerate() {
                 button.hidden = false
@@ -244,7 +245,9 @@ class GameViewController: UIViewController {
             attributeString.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSMakeRange(0, 0))
             button.setAttributedTitle(attributeString, forState: .Normal)
             button.hidden = true
-            print("done")
+            gameView.dispatchButton.enabled = true
+            gameView.dispatchButton.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+            gameView.dispatchButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
         }
     }
     
@@ -264,10 +267,15 @@ class GameViewController: UIViewController {
                 gameView.gameText.text = ""
                 let character = String(levelDialogue[currentDialogue].valueForKey("character")!)
                 self.gameView.speakerName.text = "\(character):"
-                if character == "Chief" {
-                    // gameView.characterImg.image = UIImage(named: "chief")
-                } else {
-                    // gameView.characterImg.image = UIImage(named: "headset")
+                if character == "System" {
+                    self.gameView.gameText.textColor = .orangeColor()
+                    self.gameView.speakerName.textColor = .orangeColor()
+                } else if character == "Chief" {
+                    self.gameView.gameText.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                    self.gameView.speakerName.textColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+                } else if character == "Caller" {
+                    self.gameView.gameText.textColor = .whiteColor()
+                    self.gameView.speakerName.textColor = .whiteColor()
                 }
                 gameView.gameText.typeStart(nextDialogue)
                 gameView.skipButton.hidden = false
@@ -366,8 +374,9 @@ class GameViewController: UIViewController {
                 self.currentDialogue = nextDialogue
                 self.stageDialogue = self.levelDialogue[self.currentDialogue]
                 self.stageAnswers = self.stageDialogue.valueForKey("acceptedAnswers") as? Array<NSDictionary>
-                
+                print("MEME \(self.stageDialogue)")
                 if let timeLimit = self.stageDialogue.valueForKey("timeLimit") as? Int {
+                    print(timeLimit)
                     self.startingTime = timeLimit
                     self.timeHasStarted = true
                     self.countDown(timeLimit)
@@ -383,6 +392,9 @@ class GameViewController: UIViewController {
         isTiming = true
         timeCount = time
         countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        gameView.dispatchButton.enabled = true
+        gameView.dispatchButton.backgroundColor = UIColor(red: 0/255, green: 220/255, blue: 0/255, alpha: 1.0)
+        gameView.dispatchButton.layer.borderColor = UIColor(red: 25/255, green: 165/255, blue: 38/255, alpha: 1).CGColor
     }
     
     func update(count: Int) {
@@ -503,6 +515,9 @@ class GameViewController: UIViewController {
         
         if segue.identifier == "gameReturnToProgressView" {
             progressVC?.currentSave = currentSave
+            AudioPlayerController.sharedInstance.fadeOut {
+                AudioPlayerController.sharedInstance.startAudio("operatorTheme")
+            }
         }
         
         let resultViewVC = (segue.destinationViewController as? ResultViewViewController)
@@ -554,10 +569,6 @@ class GameViewController: UIViewController {
     
     func levelEnding(dispatched: String) {
         countDownTimer?.invalidate()
-    
-        //resumeType()
-       // resumeTime()
-       // speedType()
         onTypeComplete = {
             
         }

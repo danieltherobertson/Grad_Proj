@@ -46,8 +46,8 @@ class CreditsViewController: UIViewController {
     
     func typeStart() {
         cred_l1 = "Designed, written and developed by \n \n" + "Daniel Robertson"
-        cred_l2 = "Audio by Gumbell \n \n" + "Licensed under the Creative Commons Attribution License"
-        cred_l3 = "Typeface created by Jayvee D. Enaguas \n \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0) \n \n"
+        cred_l2 = "Menu Audio by Gumbell \n \n" + "Licensed under the Creative Commons Attribution License \n \n" + "Game Audio by J Type, used with a Music Standard License"
+        cred_l3 = "Kemco Pixel Bold typeface created by Jayvee D. Enaguas \n \n" + "Licensed under Creative Commons (CC-BY-NC-SA 3.0) \n \n" + "American Captain Freeware Version created by Michael G. Adkins"
         cred_l4 = "Special thanks to \n \n" + "Joe Benton \n George Grover \n Joel Trew \n Arne Bahlo \n Thuong Nguyen \n Paul Hudson \n www.freepik.com"
         charSets = [cred_l1,cred_l2,cred_l3,cred_l4]
         creditsText.setLineHeight(3.0, alignment: .Center)
